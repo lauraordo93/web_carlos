@@ -41,7 +41,7 @@
     <section id="entrevistas">
         <?php include('componentes/entrevistas.php'); ?>
     </section>
-
+    
     <section id="galeria">
         <?php include('componentes/galeria.php'); ?>
     </section>
@@ -86,7 +86,21 @@
     <!-- <script src="../js/animacion_academia.js" defer></script> -->
     <script src="js/sobremi.js"></script>
     <script src="js/menuHambur.js"></script>
- 
+    <!-- <script>
+        const toggleBtn = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        toggleBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+            });
+        });
+    </script> -->
 </body>
 
 </html>

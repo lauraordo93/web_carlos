@@ -15,5 +15,6 @@ if ($result && $result->num_rows > 0) {
 }
 
 // 🔗 Enlace al PDF (siempre visible)
-echo '<p><a href="/descargas/biografia.pdf" download class="btn-descarga-biografia">📥 Descargar biografía</a></p>';
+echo '<p><a href="../doc/bio.pdf" download class="btn-descarga-biografia">📥 Descargar biografía</a></p>';
+
 ?>
