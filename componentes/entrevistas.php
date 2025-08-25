@@ -1,8 +1,9 @@
-<?php
+﻿<?php
 include_once(__DIR__ . '/../config/db.php');
 //SELECT titulo, contenido, enlace_url FROM entradas WHERE seccion_id=6;
 // Consulta para obtener todas las entrevistas
-$sql = "SELECT * FROM entrevistas_id;";
+// $sql = "SELECT * FROM entrevistas_id;";
+$sql="SELECT * FROM `entradas` WHERE seccion_id=6";
 $result = $conn->query($sql);
 
 if ($result && $result->num_rows > 0) {

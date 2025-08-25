@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Incluir solo una vez el archivo de conexión a la base de datos
 include_once(__DIR__ . '/../config/db.php');
 

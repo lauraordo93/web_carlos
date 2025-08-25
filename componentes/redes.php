@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once(__DIR__ . '/../config/db.php');
 
 $sql = "SELECT nombre_red, enlace FROM redes";

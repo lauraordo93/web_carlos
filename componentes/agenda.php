@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once(__DIR__ . '/../config/db.php');
 
 // Consulta para obtener la biografía (suponiendo que está en la tabla 'entradas' y la sección biografía tiene seccion_id=7, por ejemplo)

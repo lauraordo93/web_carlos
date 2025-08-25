@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once(__DIR__ . '/../config/db.php');
 
 function transformarYoutubeEmbed($url)
@@ -10,7 +10,8 @@ function transformarYoutubeEmbed($url)
     return $url; // Por si ya está en formato embed o no tiene 'v'
 }
 
-$sql = "SELECT * FROM videos;";
+// $sql = "SELECT * FROM videos;";
+$sql="SELECT * FROM `entradas` WHERE seccion_id=5;";
 $result = $conn->query($sql);
 
 if ($result && $result->num_rows > 0) {
