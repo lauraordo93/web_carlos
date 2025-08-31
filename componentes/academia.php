@@ -43,16 +43,7 @@ if ($result_tarjetas && $result_tarjetas->num_rows > 0) {
 
     echo '</div>'; // cierre academia-contenedor
 
-    // // Imagen a la derecha fuera de la tarjeta
-    // echo '<div class="imagen-derecha">';
-    // if ($result_imagen && $result_imagen->num_rows > 0) {
-    //     $row_img = $result_imagen->fetch_assoc();
-    //     $foto_derecha = htmlspecialchars($row_img['foto_url']);
-    //     echo "<img src='/mi_pagweb/$foto_derecha' alt='Imagen a la derecha'>";
-    // }
-    // echo '</div>';
 
-    // echo '</div>'; // cierre academia-contenedor-general
 } else {
     echo '<p>No hay academias disponibles.</p>';
 }

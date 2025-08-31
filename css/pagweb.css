@@ -35,6 +35,14 @@ html {
 nav {
     position: fixed;
     /* siempre pegado arriba */
+    height: 50px;
+    /* altura fija */
+    display: flex;
+    /* para usar flexbox */
+    align-items: center;
+    /* centra verticalmente el contenido */
+    padding: 0 1rem;
+    /* espacio a los lados */
     top: 0;
     left: 0;
     width: 100%;
@@ -55,8 +63,7 @@ nav {
 /* Contenedor del menú */
 .nav-container {
     text-transform: uppercase;
-    letter-spacing: 1px;
-
+    letter-spacing: 1.5px;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
@@ -188,11 +195,11 @@ nav {
 
 
 /*--- SOBREMI --- */
-/*--- SOBREMI ESTILIZADO ---*/
+
 .intro {
     position: absolute;
     top: 20%;
-    right: 5%;
+    right: 10%;
     /* alineado a la derecha */
     width: 85%;
     max-width: 350px;
@@ -201,7 +208,7 @@ nav {
     text-align: justify;
     /* texto alineado a la derecha */
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgba(0, 0, 0, 0.5); */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     z-index: 2;
 
@@ -220,7 +227,7 @@ nav {
     margin-top: 0.5rem;
     color: var(--color_blancoRoto);
     font-weight: 600;
-    border: 2px solid var(--color_blancoRoto);
+    border: 2px solid var(--color_yamaha);
     border-radius: 30px;
     font-size: 0.8rem;
     /* más compacto */
@@ -242,8 +249,8 @@ h2.sobre-mi-titulo {
     font-weight: 600;
     font-size: 1.5rem;
     /* ligeramente más pequeño */
-    color: var(--color_yamahaClaro);
-    text-align: left;
+    color: var(--color_yamaha);
+    text-align: center;
     /* alineado a la izquierda */
     margin: 0 0 1rem 0;
     letter-spacing: 1px;
@@ -261,48 +268,99 @@ h2.sobre-mi-titulo::after {
     display: block;
     width: 50px;
     height: 3px;
+
     background: linear-gradient(to right, #8e44ad, #3498db);
-    margin: 0.4rem 0 0 0;
+
+    /* margin: 0.4rem 0 0 0; para que quede pegada a la izq*/
+
+    margin: 0.4rem auto 0 auto;
+    /* centrado horizontalmente y en medio */
     border-radius: 2px;
 }
 
+/*ENTREVISTAS*/
 
-/*---ENTREVISTAS---*/
-
+.contenedor-entrevistas {
+    display: flex;
+    flex-wrap: wrap;
+    /* permite que bajen a la siguiente fila */
+    justify-content: center;
+    /* centra las filas */
+    gap: 2rem;
+    /* separación entre tarjetas */
+    max-width: 1200px;
+    /* ancho máximo del contenedor */
+    margin: 0 auto;
+    /* centra el contenedor en la página */
+}
 
 .entrevista {
-
-    background-color: var(--color_blancoRoto);
-    padding: 1.5rem;
-    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    /* texto y logo en horizontal */
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    /* cada tarjeta ocupa aprox la mitad del ancho */
+    max-width: 500px;
+    min-height: 200px;
+    padding: 1rem;
+    border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 3rem;
-    border: 3px solid transparent;
-
+    background: #fff;
 }
 
+/*animacion porde negra*/
+.entrevista:hover {
+    animation: borderPulse 4s infinite alternate;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+
+
+/* efecto hover */
 .entrevista:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    animation: borderPulse 4s infinite alternate;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
 }
 
+/* bloque del contenido de texto */
+.entrevista .contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+
+/* logo a la derecha */
+.logo-entrevista {
+    flex: 0 0 100px;
+    max-width: 100px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+/* Título */
 .entrevista h3 {
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
+/* Texto */
 .entrevista p {
     font-size: 1rem;
     text-align: justify;
     color: #333;
 }
 
+/* Botón */
 .btn-entrevista {
-
-    display: inline-block;
+    align-self: flex-start;
     margin-top: 1rem;
     text-decoration: none;
     color: var(--color_yamaha);
@@ -317,12 +375,14 @@ h2.sobre-mi-titulo::after {
 .btn-entrevista:hover {
     background-color: var(--color_yamahaClaro);
     cursor: pointer;
-
 }
 
-.entrevista:hover {
-    cursor: pointer;
+.entrevista:not(:has(.logo-entrevista)) {
+    justify-content: flex-start;
+    /* alinear contenido a la izquierda si no hay logo */
 }
+
+
 
 
 /*---TODAS LAS SECIONES---*/
@@ -376,17 +436,6 @@ h2::after {
     border-radius: 2px;
 }
 
-/* Variante para secciones específicas */
-.intro h2 {
-    color: #bbcbd5;
-    /* color más suave para la intro */
-    font-size: 2rem;
-}
-
-.intro h2::after {
-    background: #bbcbd5;
-    /* línea acorde al color del título */
-}
 
 
 /*---VIDEO---*/
@@ -485,7 +534,6 @@ h2::after {
     list-style: none;
     text-align: center;
     /* para centrar imágenes inline-block */
-
 }
 
 .galeria img {
@@ -504,66 +552,6 @@ h2::after {
     transform: scale(1.05);
 }
 
-.aparecer {
-    opacity: 0;
-    transform: scale(0.95) translateY(20px);
-    filter: blur(4px);
-    transition: all 0.6s ease-out;
-}
-
-.aparecer.animada {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: blur(0);
-}
-
-
-@keyframes aparecer {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.delay-1 {
-    animation-delay: 0.1s;
-}
-
-.delay-2 {
-    animation-delay: 0.2s;
-}
-
-.delay-3 {
-    animation-delay: 0.3s;
-}
-
-.delay-4 {
-    animation-delay: 0.4s;
-}
-
-.delay-5 {
-    animation-delay: 0.5s;
-}
-
-.delay-6 {
-    animation-delay: 0.6s;
-}
-
-.delay-7 {
-    animation-delay: 0.7s;
-}
-
-.delay-8 {
-    animation-delay: 0.8s;
-}
-
-.delay-9 {
-    animation-delay: 0.9s;
-}
-
-.delay-10 {
-    animation-delay: 1s;
-}
 
 /* --- ACADEMIA --- */
 #academia-contenedor-general {
@@ -574,6 +562,12 @@ h2::after {
     margin: 2rem 0;
     padding: 0 1rem;
 }
+.academia_class:hover {
+    animation: borderPulse 4s infinite alternate;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+
 
 .academia-contenedor {
     flex: 1;
@@ -1085,17 +1079,25 @@ footer .pie {
     }
 }
 
-/* --- ENTREVISTAS RESPONSIVE --- */
-@media (max-width: 768px) {
-    .entrevista {
-        padding: 1rem;
-        margin-bottom: 2rem;
-    }
 
+/* --- ENTREVISTAS RESPONSIVE --- */
+/* Tablets (pantallas < 992px): una por fila */
+@media (max-width: 992px) {
+    .entrevista {
+        width: 90% !important;
+        /* una por fila */
+        max-width: none !important;
+        margin: 0 auto;
+        /* centrada */
+    }
+}
+
+/* Tablets medianas y móviles (pantallas < 768px) */
+@media (max-width: 768px) {
     .entrevista h3 {
         font-size: 1rem;
+        text-align: center;
     }
-
 
     .entrevista p {
         font-size: 0.85rem;
@@ -1107,6 +1109,24 @@ footer .pie {
     }
 }
 
+/* Móviles pequeños (pantallas < 600px): logo debajo del texto */
+@media (max-width: 600px) {
+    .entrevista {
+        flex-direction: column !important;
+        /* texto arriba, logo abajo */
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .entrevista .contenido {
+        padding-right: 0 !important;
+    }
+
+    .logo-entrevista {
+        margin-top: 1rem;
+        max-width: 80px;
+    }
+}
 
 /* Responsive para #agenda */
 @media (max-width: 768px) {

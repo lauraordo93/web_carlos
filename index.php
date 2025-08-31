@@ -37,22 +37,20 @@
     <section id="biografia">
         <?php include('componentes/biografia.php'); ?>
     </section>
+      <section id="madrid-sax-academy">
+        <?php include('componentes/academia.php'); ?>
+    </section>
+      <section id="videos">
+        <?php include_once('componentes/videos.php'); ?>
+    </section>
+     <section id="galeria">
+        <?php include('componentes/galeria.php'); ?>
+    </section>
 
     <section id="entrevistas">
         <?php include('componentes/entrevistas.php'); ?>
     </section>
     
-    <section id="galeria">
-        <?php include('componentes/galeria.php'); ?>
-    </section>
-
-    <section id="videos">
-        <?php include_once('componentes/videos.php'); ?>
-    </section>
-    <section id="madrid-sax-academy">
-        <?php include('componentes/academia.php'); ?>
-    </section>
-
     <section id="agenda">
         <div class="mensaje-agenda">
             <?php include_once('componentes/agenda.php'); ?>
