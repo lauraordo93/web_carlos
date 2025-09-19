@@ -19,8 +19,18 @@ if ($result && $result->num_rows > 0) {
     // echo '<h1 class="nombre_pag">' . htmlspecialchars($row["nombre_pagina"]) . '</h1>';
     // echo '</div>';
 }
+
+// Consulta para las redes sociales
+$sql_redes = "SELECT nombre_red, enlace FROM redes";
+$result_redes = $conn->query($sql_redes);
+$redes = [];
+if ($result_redes && $result_redes->num_rows > 0) {
+    while ($fila = $result_redes->fetch_assoc()) {
+        $redes[] = $fila;
+    }
+}
 ?>
-<!-- background-image: url('<?php echo $logo_url; ?>');-->
+
 
 <!-- Aquí ya se puede imprimir el estilo porque $logo_url está definido -->
 <style>
@@ -32,13 +42,17 @@ if ($result && $result->num_rows > 0) {
         /* fija la parte superior de la imagen */
         background-repeat: no-repeat;
         width: 100%;
-        min-height: 105vh;
+        min-height: 100vh;
         /* altura inicial en pantallas grandes */
         display: flex;
         justify-content: center;
-        align-items: center;
+        /* align-items: center; */
         position: relative;
+
     }
+
+
+
 
     /* Laptops grandes y tablets grandes */
     @media screen and (max-width: 1440px) {

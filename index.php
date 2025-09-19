@@ -63,7 +63,7 @@
 
 
     <footer>
-        <?php include_once('componentes/redes.php'); ?>
+        <!-- <?php include_once('componentes/redes.php'); ?> -->
         <div class="pie">
             <p>
                 &copy; 2025 Todos los derechos reservados
