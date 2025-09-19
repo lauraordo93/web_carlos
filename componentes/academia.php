@@ -41,6 +41,7 @@ if ($result_tarjetas && $result_tarjetas->num_rows > 0) {
         echo '  <div class="academia_imagen">';
         echo "    <img src='/mi_pagweb/$foto_url' alt='Imagen'>";
         echo '  </div>';
+   
 
         echo '</div>'; // cierre academia_class
     }
