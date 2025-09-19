@@ -140,9 +140,22 @@ nav {
     background: var(--color_yamaha);
     border-radius: 2px;
 }
+/*--- TABLET: menú normal, solo letras más pequeñas --- */
+@media (min-width: 751px) and (max-width: 1024px) {
+    .nav-toggle {
+        display: none; /* oculta el menú hamburguesa en tablet */
+    }
 
+    nav {
+        display: flex; /* asegura que el menú normal se vea */
+    }
+
+    .nav-container a{
+        font-size: 8px; /* ajusta el tamaño de las letras para tablet */
+    }
+}
 /* --- RESPONSIVE MÓVIL / TABLETS --- */
-@media (max-width: 1024px) {
+@media (max-width: 750px) {
     .nav-toggle {
         display: flex;
         position: fixed;
@@ -890,9 +903,19 @@ progress.agenda::-moz-progress-bar {
     opacity: 0.8;
     cursor: pointer;
 }
+/* --- TABLET: 751px a 1024px --- */
+@media (min-width: 751px) and (max-width: 1024px) {
+    .redes-sociales {
+        gap: 15px;           /* menos espacio entre iconos */
+        margin-top: 15px;    /* menos separación del contenido */
+    }
 
+    .redes-sociales a.icono {
+        font-size: 20px;     /* iconos más pequeños para tablet */
+    }
+}
 /* Responsive: ocultar redes en móviles si quieres */
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     .redes-sociales {
         display: none;
     }
@@ -986,19 +1009,34 @@ footer .pie {
 }
 
 /* Ocultar en pantallas de tablet y móviles */
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     .intro {
         display: none;
     }
 }
 
-/* Ocultar .intro en tablets y móviles */
-@media (max-width: 1024px) {
+/* --- TABLET: 751px a 1024px --- */
+@media (min-width: 751px) and (max-width: 1024px) {
     .intro {
-        display: none;
+        position: absolute;
+        top: 20%;
+        right: 8%;
+        width: 40%;           /* más estrecho para que no ocupe tanto */
+        max-width: 200px;
+        padding: 0.8rem;
+        font-size: 0.55rem;   /* mucho más pequeño */
+        line-height: 1.2;
+    }
+
+    h2.sobre-mi-titulo {
+        font-size: 1.1rem;    /* proporcional al texto */
+    }
+
+    .vermas {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.7rem;
     }
 }
-
 /* --- GALERÍA RESPONSIVE --- */
 @media (max-width: 1024px) {
     .galeria img {
@@ -1188,26 +1226,26 @@ footer .pie {
 }
 
 /* --- RESPONSIVE MÓVIL --- */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
-    /* Redes sociales */
+   
     .redes-sociales {
         flex-direction: row;
-        /* seguir en fila */
+     
         justify-content: center;
-        /* centrado horizontal */
+     
         gap: 15px;
-        /* un poco más compacto */
+       
         margin-top: 40px;
-        /* menos separación superior */
+     
         margin-bottom: 15px;
-        /* menos separación inferior */
+      
     }
 
     .redes-sociales a.icono {
-        font-size: 28px;
-        /* un poco más pequeño en móvil */
-    }
+        font-size: 24px;
+      
+    } */
 
     /* Footer */
     footer p {
