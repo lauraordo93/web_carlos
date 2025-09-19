@@ -32,9 +32,9 @@
 
 
     </header>
- <div class="redes-sociales-movil">
-    <?php include_once('componentes/redes.php'); ?>
-</div>
+    <div class="redes-sociales-movil">
+        <?php include_once('componentes/redes.php'); ?>
+    </div>
 
     <section id="biografia">
         <?php include('componentes/biografia.php'); ?>

@@ -1,5 +1,6 @@
 
--Realizado redes sociales dentro del header. hecho!
--Redes sociales responsive
+-Realizado redes sociales dentro del header. hecho
+-Redes sociales responsive hecho
 -Formulario de contacto
 -añadir pagweb madridsax y enlace instagram
+-letras biografia nueva font arreglar

@@ -127,6 +127,7 @@ nav {
     display: none;
     /* oculto por defecto */
     flex-direction: column;
+    
     gap: 5px;
     background: none;
     border: none;
@@ -134,6 +135,7 @@ nav {
 }
 
 .nav-toggle span {
+    
     display: block;
     width: 25px;
     height: 3px;
@@ -570,183 +572,27 @@ h2::after {
     transform: scale(1.05);
 }
 
-
-/* --- ACADEMIA --- */
-#academia-contenedor-general {
+/* Contenedor de enlaces dentro del texto */
+.academia_enlaces {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    margin: 2rem 0;
-    padding: 0 1rem;
-}
-
-.academia_class:hover {
-    animation: borderPulse 4s infinite alternate;
-    border: 3px solid transparent;
-    cursor: pointer;
-}
-
-
-.academia-contenedor {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-/* Contenedor principal de cada bloque */
-.academia_class {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    background: #f0f0f0;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.academia_class:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Texto */
-.academia_texto {
-    flex: 1;
-    /* el texto ocupa menos */
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.academia_texto h3 {
-    text-align: center;
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: #311131;
-}
-
-.academia_texto p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.academia_texto a {
-    font-size: 1rem;
-    align-self: center;
-    padding: 0.6rem 1.2rem;
-    background-color: #8e44ad;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.academia_texto a:hover {
-    background-color: #9b59b6;
-}
-
-/* Imagen alineada a la izquierda tipo “tarjeta” */
-.academia_imagen {
-    flex: 1;
-    /* la imagen ocupa el doble de espacio que el texto */
-    display: flex;
-    justify-content: flex-start;
     align-items: center;
-    padding: 1.5rem;
+    gap: 10px;
+    margin-top: 1rem;
+    justify-content: center; /* opcional: centra horizontalmente */
 }
 
-.academia_imagen img {
-    width: 40%;
-    height: auto;
-    border-radius: 20px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    margin-left: 6rem;
-    /* aumenta este valor para empujarla más a la derecha */
+/* Estilo para el icono Instagram */
+.academia_enlaces a.icono.instagram {
+    font-size: 20px;
+    color: #E4405F;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-.academia_imagen img:hover {
-    transform: scale(1.05);
+.academia_enlaces a.icono.instagram:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
 }
 
-@media (max-width: 1024px) {
-    .academia_class {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        /* centra todo el contenido */
-        gap: 1rem;
-        /* ajusta el espacio entre texto e imagen */
-    }
-
-    .academia_imagen {
-        flex: none;
-        /* que no ocupe todo el ancho */
-        justify-content: center;
-        /* centra horizontalmente */
-        padding: 0.5rem;
-        display: flex;
-        width: 100%;
-    }
-
-    .academia_imagen img {
-        width: 60%;
-        /* tamaño más razonable */
-        max-width: 300px;
-        /* límite máximo para tablet */
-        height: auto;
-        border-radius: 20px;
-        margin: 0 auto;
-        /* centra la imagen */
-        display: block;
-    }
-
-    .academia_texto p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-}
-
-/* --- RESPONSIVE MÓVIL --- */
-@media (max-width: 768px) {
-    .academia_class {
-        flex-direction: column;
-        text-align: center;
-
-    }
-
-    .academia_imagen {
-        width: 50%;
-        padding: 1rem;
-        justify-content: center;
-        /* centra la imagen */
-    }
-
-    .academia_imagen img {
-        width: 90%;
-        /* ocupa casi todo el ancho */
-        max-width: 90%;
-        height: auto;
-        border-radius: 20px 20px 0 0;
-    }
-
-    .academia_texto p {
-        font-size: 0.8rem;
-        /* ajusta tamaño de letra en móvil */
-        line-height: 1.4;
-    }
-
-    .academia_texto a {
-        margin: 1rem auto 0 auto;
-
-    }
-}
 
 /*---AGENDA---*/
 #agenda {

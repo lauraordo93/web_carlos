@@ -5,46 +5,49 @@ include_once(__DIR__ . '/../config/db.php');
 $sql_tarjetas = "SELECT * FROM `academia` WHERE id=1;";
 $result_tarjetas = $conn->query($sql_tarjetas);
 
-// Consulta para la imagen derecha (solo imagen)
-$sql_imagen = "SELECT foto_url FROM academia WHERE foto_url LIKE '%derecha%';";
-$result_imagen = $conn->query($sql_imagen);
+echo '<h2>Academia</h2>';
+echo '<div id="academia-contenedor-general">';
+echo '<div class="academia-contenedor">';
 
 if ($result_tarjetas && $result_tarjetas->num_rows > 0) {
-    echo '<h2>Academia</h2>';
-    echo '<div id="academia-contenedor-general">';
-
-    // Contenedor de la tarjeta izquierda
-    echo '<div class="academia-contenedor">';
-
     while ($row = $result_tarjetas->fetch_assoc()) {
         $titulo = htmlspecialchars($row['titulo']);
         $contenido = htmlspecialchars($row['contenido']);
         $foto_url = htmlspecialchars($row['foto_url']);
         $enlace = htmlspecialchars($row['enlace']);
+        $instagram = htmlspecialchars($row['instagram']); // nuevo campo
 
         echo '<div class="academia_class">';
+
+        // Contenedor de texto + enlaces
         echo '  <div class="academia_texto">';
         echo "    <h3>$titulo</h3>";
         echo "    <p>$contenido</p>";
-        echo "    <a href='$enlace' target='_blank'>Web</a>";
-        echo '  </div>';
 
-        // Imagen dentro de la tarjeta
+        // Contenedor de enlaces (Web + Instagram)
+        echo '    <div class="academia_enlaces">';
+        echo "      <a href='$enlace' target='_blank'>Web</a>";
+
+        if (!empty($instagram)) {
+            echo "      <a href='$instagram' target='_blank' class='icono instagram'>
+                      <i class='fab fa-instagram'></i>
+                  </a>";
+        }
+
+        echo '    </div>'; // cierre academia_enlaces
+        echo '  </div>';   // cierre academia_texto
+
+        // Imagen
         echo '  <div class="academia_imagen">';
-
-        //Remplazo codigo(localhost) para servidor:
         echo "    <img src='/mi_pagweb/$foto_url' alt='Imagen'>";
-
-        // echo "    <img src='$foto_url' alt='Imagen'>";//code servidor
         echo '  </div>';
 
         echo '</div>'; // cierre academia_class
     }
-
-    echo '</div>'; // cierre academia-contenedor
-
-
 } else {
     echo '<p>No hay academias disponibles.</p>';
 }
+
+echo '</div>'; // cierre academia-contenedor
+echo '</div>'; // cierre academia-contenedor-general
 ?>

@@ -73,18 +73,20 @@ if ($result_redes && $result_redes->num_rows > 0) {
     /* Laptops(No solucionado!) y tablets grandes (ipad si) */
     @media screen and (max-width: 1024px) {
         header#inicio {
-            background-image: url('img/Carlos_cabecera4.jpg');
+            background-image: url('img/Carlos_cabecera3.jpg');
             /* versión más adecuada */
-            min-height: 50vh;
+            min-height: 43vh;
             /* altura más proporcional */
             padding: 1.5rem;
+            background-position: center center;
+            background-size: cover;
         }
     }
 
     /* Tablets medianas */
     @media screen and (max-width: 768px) {
         header#inicio {
-            min-height: 60vh;
+            min-height: 50vh;
             padding: 1rem;
             background-position: center center;
             /* centramos la imagen */
@@ -98,8 +100,8 @@ if ($result_redes && $result_redes->num_rows > 0) {
         header#inicio {
             background-image: url('img/Carlos_cabecera4.jpg');
             /* versión más adecuada */
-            min-height: 25vh;
-            padding: 2.5rem;
+            min-height: 30vh;
+            padding: 0.5rem;
             background-position: center center;
             background-size: cover;
         }
