@@ -32,8 +32,9 @@
 
 
     </header>
-
-
+ <div class="redes-sociales-movil">
+    <?php include_once('componentes/redes.php'); ?>
+</div>
 
     <section id="biografia">
         <?php include('componentes/biografia.php'); ?>
@@ -63,7 +64,7 @@
 
 
     <footer>
-        <!-- <?php include_once('componentes/redes.php'); ?> -->
+
         <div class="pie">
             <p>
                 &copy; 2025 Todos los derechos reservados

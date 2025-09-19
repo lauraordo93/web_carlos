@@ -1,3 +1,5 @@
 
--Solucionar responsive header
--Realizado redes sociales dentro del header.
+-Realizado redes sociales dentro del header. hecho!
+-Redes sociales responsive
+-Formulario de contacto
+-añadir pagweb madridsax y enlace instagram

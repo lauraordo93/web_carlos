@@ -98,7 +98,7 @@ nav {
     text-decoration: none;
     color: rgb(200, 200, 200);
     font-weight: 400;
-    font-size: 0.70rem;
+    font-size: 0.9rem;
     /* tamaño letra */
     padding: 0.4rem 1rem;
     transition: color 0.3s;
@@ -140,20 +140,25 @@ nav {
     background: var(--color_yamaha);
     border-radius: 2px;
 }
+
 /*--- TABLET: menú normal, solo letras más pequeñas --- */
 @media (min-width: 751px) and (max-width: 1024px) {
     .nav-toggle {
-        display: none; /* oculta el menú hamburguesa en tablet */
+        display: none;
+        /* oculta el menú hamburguesa en tablet */
     }
 
     nav {
-        display: flex; /* asegura que el menú normal se vea */
+        display: flex;
+        /* asegura que el menú normal se vea */
     }
 
-    .nav-container a{
-        font-size: 8px; /* ajusta el tamaño de las letras para tablet */
+    .nav-container a {
+        font-size: 8px;
+        /* ajusta el tamaño de las letras para tablet */
     }
 }
+
 /* --- RESPONSIVE MÓVIL / TABLETS --- */
 @media (max-width: 750px) {
     .nav-toggle {
@@ -903,17 +908,22 @@ progress.agenda::-moz-progress-bar {
     opacity: 0.8;
     cursor: pointer;
 }
+
 /* --- TABLET: 751px a 1024px --- */
 @media (min-width: 751px) and (max-width: 1024px) {
     .redes-sociales {
-        gap: 15px;           /* menos espacio entre iconos */
-        margin-top: 15px;    /* menos separación del contenido */
+        gap: 15px;
+        /* menos espacio entre iconos */
+        margin-top: 15px;
+        /* menos separación del contenido */
     }
 
     .redes-sociales a.icono {
-        font-size: 20px;     /* iconos más pequeños para tablet */
+        font-size: 20px;
+        /* iconos más pequeños para tablet */
     }
 }
+
 /* Responsive: ocultar redes en móviles si quieres */
 @media (max-width: 750px) {
     .redes-sociales {
@@ -1021,15 +1031,18 @@ footer .pie {
         position: absolute;
         top: 20%;
         right: 8%;
-        width: 40%;           /* más estrecho para que no ocupe tanto */
+        width: 40%;
+        /* más estrecho para que no ocupe tanto */
         max-width: 200px;
         padding: 0.8rem;
-        font-size: 0.55rem;   /* mucho más pequeño */
+        font-size: 0.55rem;
+        /* mucho más pequeño */
         line-height: 1.2;
     }
 
     h2.sobre-mi-titulo {
-        font-size: 1.1rem;    /* proporcional al texto */
+        font-size: 1.1rem;
+        /* proporcional al texto */
     }
 
     .vermas {
@@ -1037,6 +1050,7 @@ footer .pie {
         padding: 0.2rem 0.7rem;
     }
 }
+
 /* --- GALERÍA RESPONSIVE --- */
 @media (max-width: 1024px) {
     .galeria img {
@@ -1225,49 +1239,29 @@ footer .pie {
     }
 }
 
-/* --- RESPONSIVE MÓVIL --- */
-/* @media (max-width: 768px) {
 
-   
-    .redes-sociales {
-        flex-direction: row;
-     
-        justify-content: center;
-     
-        gap: 15px;
-       
-        margin-top: 40px;
-     
-        margin-bottom: 15px;
-      
-    }
+/* Footer */
+footer p {
+    font-size: 0.9rem;
+    /* texto más compacto */
+    padding: 0 1rem;
+    /* padding lateral */
+}
 
-    .redes-sociales a.icono {
-        font-size: 24px;
-      
-    } */
+.pie a {
+    font-size: 0.85rem;
+    /* links más pequeños */
+    display: inline-block;
+    margin: 0 5px;
+    /* separación entre links */
+}
 
-    /* Footer */
-    footer p {
-        font-size: 0.9rem;
-        /* texto más compacto */
-        padding: 0 1rem;
-        /* padding lateral */
-    }
+.init {
+    font-size: 0.85rem;
+    /* botón ligeramente más pequeño */
+    padding: 8px 16px;
+    /* ajustar relleno */
+    margin: 15px auto 10px auto;
+}
 
-    .pie a {
-        font-size: 0.85rem;
-        /* links más pequeños */
-        display: inline-block;
-        margin: 0 5px;
-        /* separación entre links */
-    }
-
-    .init {
-        font-size: 0.85rem;
-        /* botón ligeramente más pequeño */
-        padding: 8px 16px;
-        /* ajustar relleno */
-        margin: 15px auto 10px auto;
-    }
-
+}

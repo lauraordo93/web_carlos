@@ -26,7 +26,7 @@ if ($result_tarjetas && $result_tarjetas->num_rows > 0) {
         echo '  <div class="academia_texto">';
         echo "    <h3>$titulo</h3>";
         echo "    <p>$contenido</p>";
-        echo "    <a href='$enlace' target='_blank'>Ver más</a>";
+        echo "    <a href='$enlace' target='_blank'>Web</a>";
         echo '  </div>';
 
         // Imagen dentro de la tarjeta
