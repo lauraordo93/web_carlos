@@ -16,7 +16,7 @@ if ($result && $result->num_rows > 0) {
     echo '<div class="sobre-mi-texto">';
     echo '<p>' . nl2br(htmlspecialchars($row["contenido"])) . '</p>';
     echo '<div class="centrado">';
-    echo '<a href="#biografia" class="vermas">Biografía</a>';
+    echo '<a href="#biografia" class="vermas">Bio completa</a>';
     echo '</div>';
     echo '</div>';
 } else {

@@ -2,18 +2,21 @@
 include_once(__DIR__ . '/../config/db.php');
 
 // Consulta para obtener todos los elementos del menú ordenados por ID
-$sql = "SELECT * FROM menu ORDER BY id ASC";
+// $sql = "SELECT * FROM menu ORDER BY id ASC";
+//Consulta ordenada por preferencia Usuario
+$sql = "SELECT * FROM menu 
+        ORDER BY FIELD(nombre, 'Biografía', 'Madrid Sax Academy', 'Galería', 'Videos', 'Entrevistas', 'Agenda')";
 $result = $conn->query($sql);
 
 // IDs personalizados
 $ids_personalizados = [
     'Biografía' => 'biografia',
-    'Entrevistas' => 'entrevistas',
+    'Madrid Sax Academy' => 'madrid-sax-academy',
     'Galería' => 'galeria',
     'Videos' => 'videos',
-    'Madrid Sax Academy' => 'madrid-sax-academy',
+    'Entrevistas' => 'entrevistas',
     'Agenda' => 'agenda',
-    'Redes Sociales' => 'redes'
+    // 'Redes Sociales' => 'redes'
 ];
 
 // Contenedor del menú

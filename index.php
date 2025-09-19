@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página web Carlos</title>
     <link rel="stylesheet" href="css/pagweb.css?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -37,20 +38,20 @@
     <section id="biografia">
         <?php include('componentes/biografia.php'); ?>
     </section>
-      <section id="madrid-sax-academy">
+    <section id="madrid-sax-academy">
         <?php include('componentes/academia.php'); ?>
     </section>
-      <section id="videos">
+    <section id="videos">
         <?php include_once('componentes/videos.php'); ?>
     </section>
-     <section id="galeria">
+    <section id="galeria">
         <?php include('componentes/galeria.php'); ?>
     </section>
 
     <section id="entrevistas">
         <?php include('componentes/entrevistas.php'); ?>
     </section>
-    
+
     <section id="agenda">
         <div class="mensaje-agenda">
             <?php include_once('componentes/agenda.php'); ?>

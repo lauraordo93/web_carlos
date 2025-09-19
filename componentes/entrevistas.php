@@ -5,9 +5,11 @@ $sql = "SELECT * FROM `entradas` WHERE seccion_id=6";
 $result = $conn->query($sql);
 
 if ($result && $result->num_rows > 0) {
+    echo '<h2>Entrevistas</h2>';
     echo '<div class="contenedor-entrevistas">'; // ABRIR CONTENEDOR
-
+   
     while ($row = $result->fetch_assoc()) {
+    
         echo '<article class="entrevista">';
 
         echo '<div class="contenido">';
