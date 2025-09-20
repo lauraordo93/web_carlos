@@ -2,5 +2,6 @@
 -Realizado redes sociales dentro del header. hecho
 -Redes sociales responsive hecho
 -Formulario de contacto
--añadir pagweb madridsax y enlace instagram (hecho) "AJUSTAR HIPERVINCULOS"
+-añadir pagweb madridsax y enlace instagram  "AJUSTAR HIPERVINCULOS" (hecho)
 -letras biografia nueva font arreglar
+-Logo(media movil) cambio nombre foto Carlos_cabeceramedia, Solucionado
