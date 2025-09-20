@@ -39,6 +39,7 @@ if ($result_tarjetas && $result_tarjetas->num_rows > 0) {
 
         // Imagen
         echo '  <div class="academia_imagen">';
+        //    echo "    <img src='$foto_url' alt='Imagen'>";//code servidor
         echo "    <img src='/mi_pagweb/$foto_url' alt='Imagen'>";
         echo '  </div>';
    

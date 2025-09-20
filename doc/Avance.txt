@@ -2,5 +2,5 @@
 -Realizado redes sociales dentro del header. hecho
 -Redes sociales responsive hecho
 -Formulario de contacto
--añadir pagweb madridsax y enlace instagram
+-añadir pagweb madridsax y enlace instagram (hecho) "AJUSTAR HIPERVINCULOS"
 -letras biografia nueva font arreglar

@@ -572,6 +572,7 @@ h2::after {
 
 
 /* --- ACADEMIA --- */
+/* --- ACADEMIA --- */
 #academia-contenedor-general {
     display: flex;
     flex-wrap: wrap;
@@ -586,7 +587,6 @@ h2::after {
     border: 3px solid transparent;
     cursor: pointer;
 }
-
 
 .academia-contenedor {
     flex: 1;
@@ -615,11 +615,11 @@ h2::after {
 /* Texto */
 .academia_texto {
     flex: 1;
-    /* el texto ocupa menos */
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center; /* centra los elementos hijos verticalmente */
 }
 
 .academia_texto h3 {
@@ -636,25 +636,42 @@ h2::after {
     margin-bottom: 1rem;
 }
 
-.academia_texto a {
+/* Contenedor de enlaces Web + Instagram */
+.academia_enlaces {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    gap: 10px; /* espacio entre enlaces */
+    margin-top: 1rem; /* separación del texto */
+}
+
+/* Estilo individual de enlaces */
+.academia_enlaces a {
     font-size: 1rem;
-    align-self: center;
     padding: 0.6rem 1.2rem;
     background-color: #8e44ad;
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.academia_texto a:hover {
+.academia_enlaces a:hover {
     background-color: #9b59b6;
+    transform: scale(1.05);
+}
+
+/* Icono Instagram específico */
+.academia_enlaces a.icono.instagram i {
+    font-size: 1.2rem;
+        color: #fff;
 }
 
 /* Imagen alineada a la izquierda tipo “tarjeta” */
 .academia_imagen {
     flex: 1;
-    /* la imagen ocupa el doble de espacio que el texto */
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -668,11 +685,39 @@ h2::after {
     object-fit: cover;
     transition: transform 0.3s ease;
     margin-left: 6rem;
-    /* aumenta este valor para empujarla más a la derecha */
 }
 
 .academia_imagen img:hover {
     transform: scale(1.05);
+}
+
+/* --- RESPONSIVE TABLET --- */
+@media (max-width: 1024px) {
+    .academia_class {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .academia_imagen {
+        justify-content: center;
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .academia_imagen img {
+        width: 60%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 20px;
+        margin: 0 auto;
+    }
+
+    .academia_texto p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
 }
 
 @media (max-width: 1024px) {
