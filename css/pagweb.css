@@ -619,7 +619,8 @@ h2::after {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* centra los elementos hijos verticalmente */
+    align-items: center;
+    /* centra los elementos hijos verticalmente */
 }
 
 .academia_texto h3 {
@@ -639,9 +640,12 @@ h2::after {
 /* Contenedor de enlaces Web + Instagram */
 .academia_enlaces {
     display: flex;
-    justify-content: center; /* centra horizontalmente */
-    gap: 10px; /* espacio entre enlaces */
-    margin-top: 1rem; /* separación del texto */
+    justify-content: center;
+    /* centra horizontalmente */
+    gap: 10px;
+    /* espacio entre enlaces */
+    margin-top: 1rem;
+    /* separación del texto */
 }
 
 /* Estilo individual de enlaces */
@@ -666,7 +670,7 @@ h2::after {
 /* Icono Instagram específico */
 .academia_enlaces a.icono.instagram i {
     font-size: 1.2rem;
-        color: #fff;
+    color: #fff;
 }
 
 /* Imagen alineada a la izquierda tipo “tarjeta” */
