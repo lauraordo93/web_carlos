@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+
     <title>Página web Carlos</title>
     <link rel="stylesheet" href="css/pagweb.css?v=1">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
@@ -43,12 +43,18 @@
     <section id="madrid-sax-academy">
         <?php include('componentes/academia.php'); ?>
     </section>
-    <section id="videos">
-        <?php include_once('componentes/videos.php'); ?>
-    </section>
-    <section id="galeria">
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="imagenes">Imágenes</button>
+        <button class="tab-btn" data-tab="videos">Vídeos</button>
+    </div>
+
+    <div class="galeria active" id="imagenes">
         <?php include('componentes/galeria.php'); ?>
-    </section>
+    </div>
+
+    <div class="galeria" id="videos">
+        <?php include('componentes/videos.php'); ?>
+    </div>
 
     <section id="entrevistas">
         <?php include('componentes/entrevistas.php'); ?>
@@ -86,6 +92,8 @@
     <!-- <script src="../js/animacion_galeria.js" defer></script> -->
     <!-- <script src="../js/animacion_academia.js" defer></script> -->
     <script src="js/sobremi.js"></script>
+     <script src="js/galeria.js"></script>
+      <script src="js/video.js"></script>
     <script src="js/menuHambur.js"></script>
     <!-- <script>
         const toggleBtn = document.querySelector('.nav-toggle');

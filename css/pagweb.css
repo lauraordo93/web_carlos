@@ -458,7 +458,7 @@ h2::after {
 
 /*---VIDEO---*/
 
-.video {
+/* .video {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-wrap: wrap;
@@ -497,8 +497,158 @@ h2::after {
     height: 315px;
     border-radius: 10px;
     border: none;
+} */
+
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
+.tab-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.tab-btn.active {
+    background: #444;
+    color: white;
+}
+
+.galeria {
+    display: none;
+}
+
+.galeria.active {
+    display: block;
+}
+
+.video {
+    display: flex;
+    flex-direction: column; /* poner info encima del vídeo */
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background-color: #fefefe;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    max-width: 700px; /* ancho máximo de la tarjeta */
+    margin-left: auto;
+    margin-right: auto; /* centrar en la página */
+}
+
+.video-info h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.video-info p {
+    margin: 0;
+    color: #555;
+}
+
+.video-frame iframe {
+    width: 100%; /* ocupar todo el ancho de la tarjeta */
+    height: 400px; /* altura fija */
+    border-radius: 10px;
+    border: none;
+}
+.slider-videos {
+    position: relative;
+    max-width: 700px;
+    margin: 2rem auto;
+}
+
+/* Cada vídeo oculto por defecto */
+.slider-videos .video {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background-color: #fefefe;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Vídeo activo */
+.slider-videos .video.activo {
+    display: flex;
+}
+
+/* Botones de navegación elegantes en morado */
+.slider-videos .prev-video,
+.slider-videos .next-video {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  
+    color:var(--color_yamaha);
+    border: none;
+    font-size: 2rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    border-radius: 50%; /* forma redonda */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 10;
+    user-select: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+/* Hover: efecto elegante */
+.slider-videos .prev-video:hover,
+.slider-videos .next-video:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    background: linear-gradient(135deg, #4a00e0, #8e2de2);
+}
+
+/* Posición izquierda/derecha */
+.slider-videos .prev-video { left: -20px; }
+.slider-videos .next-video { right: -20px; }
+
+
+.visor {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.visor img,
+.visor iframe {
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.miniaturas {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.miniaturas img,
+.miniaturas iframe {
+    width: 120px;
+    height: 80px;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.miniaturas img:hover,
+.miniaturas iframe:hover {
+    transform: scale(1.05);
+}
 
 /*---BIOGRAFIA---*/
 
@@ -542,7 +692,7 @@ h2::after {
 }
 
 /*---GALERIA---*/
-
+/* 
 .galeria {
 
     border-radius: 5%;
@@ -551,7 +701,7 @@ h2::after {
     padding: 1rem;
     list-style: none;
     text-align: center;
-    /* para centrar imágenes inline-block */
+   
 }
 
 .galeria img {
@@ -568,7 +718,7 @@ h2::after {
 
 .galeria img:hover {
     transform: scale(1.05);
-}
+} */
 
 
 /* --- ACADEMIA --- */
