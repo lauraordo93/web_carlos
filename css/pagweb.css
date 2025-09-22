@@ -14,12 +14,15 @@
 }
 
 body {
-    background-color: #000000; /* fondo negro */
-    color: #fff; /* para que el texto sea legible sobre negro */
+    background-color: #000000;
+    /* fondo negro */
+    color: #fff;
+    /* para que el texto sea legible sobre negro */
     line-height: 1.6;
     margin: 0;
     padding: 0;
 }
+
 /* Evitar overflow horizontal general */
 body,
 html {
@@ -299,13 +302,13 @@ section {
     margin: 2rem auto;
     border-radius: 15px;
     max-width: 1200px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 /* Párrafos dentro de cualquier sección */
@@ -404,19 +407,29 @@ h2::after {
 /* --- BIOGRAFÍA ESTILO MUSICAL AJUSTADO --- */
 
 #biografia {
-    width: 100%; /* ocupa todo el ancho del body */
-    max-width: 900px; /* opcional, para que no se estire demasiado en pantallas grandes */
-    margin: 2rem auto; /* centra el contenedor horizontalmente y añade separación vertical */
-    padding: 2rem; /* separación interna */
-    background: transparent; /* sin fondo */
-    border: none; /* sin borde */
-    box-shadow: none; /* sin sombra */
-    border-radius: 1%; /* sin bordes redondeados */
-    color: var(--color_yamahaClaro); /* dorado sobre negro */
+    width: 100%;
+    /* ocupa todo el ancho del body */
+    max-width: 900px;
+    /* opcional, para que no se estire demasiado en pantallas grandes */
+    margin: 2rem auto;
+    /* centra el contenedor horizontalmente y añade separación vertical */
+    padding: 2rem;
+    /* separación interna */
+    background: transparent;
+    /* sin fondo */
+    border: none;
+    /* sin borde */
+    box-shadow: none;
+    /* sin sombra */
+    border-radius: 1%;
+    /* sin bordes redondeados */
+    color: var(--color_yamahaClaro);
+    /* dorado sobre negro */
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center; /* centra el texto */
+    text-align: center;
+    /* centra el texto */
 }
 
 #biografia p {
@@ -429,7 +442,7 @@ h2::after {
 /* Hover animación sobre la tarjeta */
 #biografia:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px var(--color_yamaha);
+    box-shadow: 0 5px 5px var(--color_yamaha);
     cursor: pointer;
 }
 
@@ -451,40 +464,50 @@ h2::after {
 .btn-descarga-biografia:hover {
     background-color: var(--color_yamahaClaro);
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    
 }
 
 
 /*--- ENTREVISTAS ---*/
 
 #entrevistas {
-  background: transparent; /* o el color de fondo de tu web */
- 
+    background: transparent;
+    /* o el color de fondo de tu web */
+
 }
+
 /* Contenedor principal de las entrevistas */
 .contenedor-entrevistas {
     display: flex;
-    flex-wrap: wrap;             /* permite que bajen a la siguiente fila */
-    justify-content: center;     /* centra las filas */
-    gap: 2rem;                   /* separación entre tarjetas */
-    max-width: 1200px;           /* ancho máximo del contenedor */
-    margin: 0 auto;              /* centra el contenedor en la página */
+    flex-wrap: wrap;
+    /* permite que bajen a la siguiente fila */
+    justify-content: center;
+    /* centra las filas */
+    gap: 2rem;
+    /* separación entre tarjetas */
+    max-width: 1200px;
+    /* ancho máximo del contenedor */
+    margin: 0 auto;
+    /* centra el contenedor en la página */
 }
 
 /* Tarjeta individual de entrevista */
 .entrevista {
     display: flex;
-    flex-direction: row;         /* texto y logo en horizontal */
+    flex-direction: row;
+    /* texto y logo en horizontal */
     justify-content: space-between;
     align-items: center;
-    width: 45%;                  /* cada tarjeta ocupa aprox la mitad del ancho */
+    width: 45%;
+    /* cada tarjeta ocupa aprox la mitad del ancho */
     max-width: 500px;
     min-height: 200px;
     padding: 1rem;
-    border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    
+  
+    /* dorado sobre negro */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -504,6 +527,7 @@ h2::after {
     flex-direction: column;
     justify-content: space-between;
     padding-right: 1rem;
+    
 }
 
 /* Logo a la derecha */
@@ -531,7 +555,7 @@ h2::after {
 .entrevista p {
     font-size: 1rem;
     text-align: justify;
-    color: #333;
+    color: #ffffff;
 }
 
 /* Botón de la entrevista */
@@ -580,12 +604,14 @@ h2::after {
 
 /* Contenedor de los botones */
 .tabs {
-   
+
     display: flex;
     justify-content: center;
-    gap: 10px; /* separación uniforme */
+    gap: 10px;
+    /* separación uniforme */
     margin-bottom: 25px;
-    flex-wrap: wrap; /* para que se adapten en pantallas pequeñas */
+    flex-wrap: wrap;
+    /* para que se adapten en pantallas pequeñas */
 }
 
 /* Botones */
@@ -599,7 +625,7 @@ h2::after {
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -609,7 +635,7 @@ h2::after {
     background: #e1e1e1;
     color: var(--color_yamaha, #4a00e0);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Estado activo */
@@ -617,9 +643,10 @@ h2::after {
     background: var(--color_yamaha, #4a00e0);
     color: #fff;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
 }
+
 .tab-btn.active::after {
     content: "";
     position: absolute;
@@ -641,7 +668,7 @@ h2::after {
     top: 50%;
     width: 200%;
     height: 200%;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0);
     animation: ripple 0.6s ease-out;
@@ -660,7 +687,7 @@ h2::after {
     height: auto;
     margin: 0.5rem;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
 }
 
@@ -680,18 +707,22 @@ h2::after {
 
 .video {
     display: flex;
-    flex-direction: column; /* poner info encima del vídeo */
+    flex-direction: column;
+    /* poner info encima del vídeo */
     gap: 1rem;
     margin: 2rem 0;
     padding: 1rem;
     border: 2px solid #ccc;
     border-radius: 12px;
     background-color: #fefefe;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    max-width: 700px; /* ancho máximo de la tarjeta */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    /* ancho máximo de la tarjeta */
     margin-left: auto;
-    margin-right: auto; /* centrar en la página */
+    margin-right: auto;
+    /* centrar en la página */
 }
+
 .visor {
     text-align: center;
     margin: 2rem auto;
@@ -704,15 +735,20 @@ h2::after {
 }
 
 #video-grande {
-    width: 100%;          /* ocupa todo el ancho disponible */
-    max-width: 1100px;    /* ahora más ancho que antes */
-    aspect-ratio: 16 / 9; /* mantiene proporción horizontal */
+    width: 100%;
+    /* ocupa todo el ancho disponible */
+    max-width: 1100px;
+    /* ahora más ancho que antes */
+    aspect-ratio: 16 / 9;
+    /* mantiene proporción horizontal */
     border-radius: 10px;
     border: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     display: block;
-    margin: 0 auto;       /* lo centra */
+    margin: 0 auto;
+    /* lo centra */
 }
+
 .video-info {
     text-align: center;
     max-width: 500px;
@@ -734,27 +770,38 @@ h2::after {
 }
 
 /* Flechas */
-.prev-video, .next-video {
+.prev-video,
+.next-video {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: black;              /* flechas negras por defecto */
+    color: black;
+    /* flechas negras por defecto */
     border: none;
-    background: none;          /* sin fondo */
-    font-size: 2.5rem;         /* un poquito más grande si quieres */
+    background: none;
+    /* sin fondo */
+    font-size: 2.5rem;
+    /* un poquito más grande si quieres */
     padding: 0.5rem;
     cursor: pointer;
     border-radius: 50%;
     transition: color 0.3s, transform 0.2s;
 }
 
-.prev-video:hover, .next-video:hover {
-    color: var(--color_yamaha);            /* morado al pasar el cursor */
+.prev-video:hover,
+.next-video:hover {
+    color: var(--color_yamaha);
+    /* morado al pasar el cursor */
     transform: translateY(-50%) scale(1.1);
 }
 
-.prev-video { left: -30px; }
-.next-video { right: -30px; }
+.prev-video {
+    left: -30px;
+}
+
+.next-video {
+    right: -30px;
+}
 
 /* Miniaturas */
 .miniaturas {
@@ -776,16 +823,21 @@ h2::after {
 
 .miniaturas img:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 /*Fotos*/
 #imagen-grande {
-  width: 300px;     /* ancho fijo más pequeño */
-  height: auto;     /* altura automática = mantiene proporción */
-  display: block;   /* permite centrar fácilmente */
-  margin: 0 auto;   /* centra horizontalmente */
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    width: 300px;
+    /* ancho fijo más pequeño */
+    height: auto;
+    /* altura automática = mantiene proporción */
+    display: block;
+    /* permite centrar fácilmente */
+    margin: 0 auto;
+    /* centra horizontalmente */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -803,6 +855,7 @@ h2::after {
     gap: 10px;
     flex-wrap: wrap;
 }
+
 /*miniaturas imagenes galeria*/
 .miniaturas img,
 .miniaturas iframe {
@@ -825,23 +878,30 @@ h2::after {
 
 /* --- ACADEMIA --- */
 #madrid-sax-academy {
-  background: transparent; /* o el color de fondo de tu web */
- 
+    background: transparent;
+    /* o el color de fondo de tu web */
+
 }
+
 #academia-contenedor-general {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center; /* centra horizontalmente */
-    align-items: center; /* centra verticalmente si el contenedor tiene altura */
-    margin: 0 auto; /* asegura que el contenedor se centre en la página */
+    justify-content: center;
+    /* centra horizontalmente */
+    align-items: center;
+    /* centra verticalmente si el contenedor tiene altura */
+    margin: 0 auto;
+    /* asegura que el contenedor se centre en la página */
     padding: 0;
-    width: 100%; /* si quieres que ocupe todo el ancho */
-    max-width: 1200px; /* opcional, para que no se estire demasiado en pantallas grandes */
+    width: 100%;
+    /* si quieres que ocupe todo el ancho */
+    max-width: 1200px;
+    /* opcional, para que no se estire demasiado en pantallas grandes */
 }
 
 .academia_class {
-  background: transparent;
+    background: transparent;
 }
 
 .academia_class:hover {
@@ -851,20 +911,28 @@ h2::after {
 }
 
 .academia-contenedor {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  flex: unset; /* o flex: 0 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: unset;
+    /* o flex: 0 */
 }
 
 
 /* Contenedor principal de cada bloque */
 .academia_class {
+    border: none;
+    /* sin borde */
+    box-shadow: none;
+    /* sin sombra */
+    border-radius: 1%;
+    /* sin bordes redondeados */
+    color: var(--color_yamahaClaro);
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    background: #f0f0f0;
-    border-radius: 20px;
+    background: transparent;
+
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -890,13 +958,13 @@ h2::after {
     text-align: center;
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
-    color: #311131;
+    color: var(--color_yamahaClaro);
 }
 
 .academia_texto p {
     font-size: 1rem;
     line-height: 1.6;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
@@ -946,7 +1014,7 @@ h2::after {
 }
 
 .academia_imagen img {
-    width: 40%;
+    width: 80%;
     height: auto;
     border-radius: 20px;
     object-fit: cover;
@@ -1062,12 +1130,14 @@ h2::after {
 
 /*---AGENDA---*/
 #agenda {
+    background: transparent;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 1rem;
     max-width: 1000px;
     margin: 1rem auto;
     padding: 1.8rem 2.2rem;
-    background-color: var(--color_blancoRoto);
+    margin-bottom: 5rem;
+
 
 }
 
@@ -1079,18 +1149,19 @@ h2::after {
 .mensaje-agenda {
 
     text-align: center;
-    color: #555;
+    color: #fff8f8;
     font-style: italic;
 
 }
 
 .mensaje-agenda p {
     text-align: center;
+    color: goldenrod;
 }
 
 .mensaje-agenda i {
     font-size: 2rem;
-    color: #888;
+    color: #fff8f8;
     margin-bottom: 0.5em;
 }
 
@@ -1146,6 +1217,9 @@ progress.agenda::-moz-progress-bar {
         box-shadow: 0 0 15px 4px rgba(137, 29, 29, 0.4);
     }
 }
+
+
+
 
 
 /* REDES SOCIALES */
@@ -1245,15 +1319,25 @@ progress.agenda::-moz-progress-bar {
 
 
 
-/*--Footer--*/
 
+/* Footer */
+footer {
+    width: 100%; /* asegura que ocupe todo el ancho */
+    min-height: 250px; /* opcional: altura mínima */
+    background-image: url('../img/saxo1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 footer p {
     font-family: 'Courier New', Courier, monospace;
     /*Tipo de letra &copy;*/
-    color: #000000;
+    color: #ffffff;
     text-align: center;
 }
+
+
 
 .pie a {
 
@@ -1552,29 +1636,7 @@ footer .pie {
 }
 
 
-/* Footer */
-footer p {
-    font-size: 0.9rem;
-    /* texto más compacto */
-    padding: 0 1rem;
-    /* padding lateral */
-}
 
-.pie a {
-    font-size: 0.85rem;
-    /* links más pequeños */
-    display: inline-block;
-    margin: 0 5px;
-    /* separación entre links */
-}
-
-.init {
-    font-size: 0.85rem;
-    /* botón ligeramente más pequeño */
-    padding: 8px 16px;
-    /* ajustar relleno */
-    margin: 15px auto 10px auto;
-}
 
 /* --- MÓVIL: hasta 750px --- */
 @media (max-width: 750px) {
