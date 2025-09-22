@@ -13,6 +13,7 @@
 
 }
 
+
 body {
     background-color: #000000;
     /* fondo negro */
@@ -402,34 +403,28 @@ h2::after {
 
 
 
-
-
-/* --- BIOGRAFÍA ESTILO MUSICAL AJUSTADO --- */
-
 #biografia {
-    width: 100%;
-    /* ocupa todo el ancho del body */
+    background-image: url('../img/pentagrama2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    width: 90%;
     max-width: 900px;
-    /* opcional, para que no se estire demasiado en pantallas grandes */
     margin: 2rem auto;
-    /* centra el contenedor horizontalmente y añade separación vertical */
     padding: 2rem;
-    /* separación interna */
-    background: transparent;
-    /* sin fondo */
-    border: none;
-    /* sin borde */
-    box-shadow: none;
-    /* sin sombra */
-    border-radius: 1%;
-    /* sin bordes redondeados */
+    border-radius: 8px;
     color: var(--color_yamahaClaro);
-    /* dorado sobre negro */
+
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* centra el texto */
+
+    height: auto;       /* deja que el div crezca según el contenido */
+    min-height: 200px;  /* altura mínima */
 }
 
 #biografia p {
@@ -439,14 +434,12 @@ h2::after {
     text-align: justify;
 }
 
-/* Hover animación sobre la tarjeta */
 #biografia:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 5px var(--color_yamaha);
     cursor: pointer;
 }
 
-/* Botón de descarga */
 .btn-descarga-biografia {
     display: block;
     margin: 2rem auto 0 auto;
@@ -460,15 +453,61 @@ h2::after {
     transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
 }
 
-/* Hover sobre el botón */
 .btn-descarga-biografia:hover {
     background-color: var(--color_yamahaClaro);
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    
 }
 
+  
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    #biografia {
+         /* padding: 1rem;
+        margin: 1rem; */
+        max-width: 100%;
+        padding: 1rem 1rem;
+        margin: 1rem auto;
+        background-size: contain; /* no recorta fondo */
+        text-align: justify;
+    }
+
+    #biografia p {
+       font-size: 0.85rem;
+        
+    }
+
+    .btn-descarga-biografia {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+      #biografia h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #biografia {
+        padding: 1rem 0.8rem;
+        margin: 1rem auto;
+        border-radius: 5px;
+        background-size: contain;
+    }
+
+    #biografia p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .btn-descarga-biografia {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
 
 /*--- ENTREVISTAS ---*/
 
@@ -1322,12 +1361,25 @@ progress.agenda::-moz-progress-bar {
 
 /* Footer */
 footer {
-    width: 100%; /* asegura que ocupe todo el ancho */
-    min-height: 250px; /* opcional: altura mínima */
-    background-image: url('../img/saxo1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* texto blanco para contraste */
+    overflow: hidden; /* evita que se desborde el pseudo-elemento */
+}
+
+/* Imagen de fondo con poco difuminado */
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../img/pentagrama4.jpg') center/contain no-repeat; 
+    filter: blur(1.5px) brightness(0.7); /* menos difuminado y un poco oscura */
+    z-index: -1;
+    background-color: #000; /* relleno negro si sobra espacio */
 }
 
 footer p {
@@ -1529,23 +1581,7 @@ footer .pie {
     }
 }
 
-/* --- BIOGRAFÍA RESPONSIVE --- */
-@media (max-width: 768px) {
-    #biografia {
-        padding: 1rem;
-        margin: 1rem;
-        max-width: 100%;
-    }
 
-
-    #biografia p {
-        font-size: 0.85rem;
-    }
-
-    #biografia h3 {
-        font-size: 1rem;
-    }
-}
 
 
 /* --- ENTREVISTAS RESPONSIVE --- */
@@ -1653,7 +1689,7 @@ footer .pie {
     .redes-sociales-movil .redes-sociales a.icono {
         font-size: 35px;
         /* color: #1d1a1a; */
-        color: #1f1f1f;
+        color: silver;
         transition: transform 0.3s, opacity 0.3s;
     }
 
