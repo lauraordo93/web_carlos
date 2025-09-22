@@ -10,7 +10,7 @@ if ($result && $result->num_rows > 0) {
 
     // Mostrar la imagen grande inicial
     echo '<div class="visor">';
-    echo '<h2>Galería</h2>';
+    // echo '<h2>Galería</h2>';
     $row = $result->fetch_assoc();
     $foto = htmlspecialchars($row["foto_url"]);
     echo '<img id="imagen-grande" src="/mi_pagweb/' . $foto . '" alt="Imagen grande">';

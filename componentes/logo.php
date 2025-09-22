@@ -42,12 +42,15 @@ if ($result_redes && $result_redes->num_rows > 0) {
         /* fija la parte superior de la imagen */
         background-repeat: no-repeat;
         width: 100%;
-        min-height: 100vh;
+        min-height: 99vh;
         /* altura inicial en pantallas grandes */
         display: flex;
         justify-content: center;
         /* align-items: center; */
         position: relative;
+        
+    /* LÍNEA PLATEADA ABAJO */
+    border-bottom: 2px solid #4B1E78; /* dorado */; /* grosor y color de la línea */
 
     }
 

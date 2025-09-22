@@ -13,17 +13,13 @@
 
 }
 
-
 body {
-    background-color: whitesmoke;
-    background-size: 100% 100%;
-    color: black;
+    background-color: #000000; /* fondo negro */
+    color: #fff; /* para que el texto sea legible sobre negro */
     line-height: 1.6;
     margin: 0;
     padding: 0;
-
 }
-
 /* Evitar overflow horizontal general */
 body,
 html {
@@ -296,139 +292,38 @@ h2.sobre-mi-titulo::after {
     border-radius: 2px;
 }
 
-/*ENTREVISTAS*/
-
-.contenedor-entrevistas {
-    display: flex;
-    flex-wrap: wrap;
-    /* permite que bajen a la siguiente fila */
-    justify-content: center;
-    /* centra las filas */
-    gap: 2rem;
-    /* separación entre tarjetas */
-    max-width: 1200px;
-    /* ancho máximo del contenedor */
-    margin: 0 auto;
-    /* centra el contenedor en la página */
-}
-
-.entrevista {
-    display: flex;
-    flex-direction: row;
-    /* texto y logo en horizontal */
-    justify-content: space-between;
-    align-items: center;
-    width: 45%;
-    /* cada tarjeta ocupa aprox la mitad del ancho */
-    max-width: 500px;
-    min-height: 200px;
-    padding: 1rem;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #fff;
-}
-
-/*animacion porde negra*/
-.entrevista:hover {
-    animation: borderPulse 4s infinite alternate;
-    border: 3px solid transparent;
-    cursor: pointer;
-}
-
-
-/* efecto hover */
-.entrevista:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    cursor: pointer;
-}
-
-/* bloque del contenido de texto */
-.entrevista .contenido {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-right: 1rem;
-}
-
-/* logo a la derecha */
-.logo-entrevista {
-    flex: 0 0 100px;
-    max-width: 100px;
-    height: auto;
-    border-radius: 12px;
-    object-fit: contain;
-}
-
-/* Título */
-.entrevista h3 {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-}
-
-/* Texto */
-.entrevista p {
-    font-size: 1rem;
-    text-align: justify;
-    color: #333;
-}
-
-/* Botón */
-.btn-entrevista {
-    align-self: flex-start;
-    margin-top: 1rem;
-    text-decoration: none;
-    color: var(--color_yamaha);
-    font-weight: 600;
-    border: 2px solid var(--color_yamaha);
-    border-radius: 30px;
-    font-size: 0.9rem;
-    padding: 0.4rem 1.2rem;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-entrevista:hover {
-    background-color: var(--color_yamahaClaro);
-    cursor: pointer;
-}
-
-.entrevista:not(:has(.logo-entrevista)) {
-    justify-content: flex-start;
-    /* alinear contenido a la izquierda si no hay logo */
-}
-
-
-
-
-/*---TODAS LAS SECIONES---*/
-
+/*--- TODAS LAS SECCIONES GENERALES ---*/
 section {
-
-    margin-bottom: 2rem;
-    padding: 1rem;
-
-
+    background: linear-gradient(145deg, #f8f8f8, #eaeaea);
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    border-radius: 15px;
+    max-width: 1200px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Párrafos dentro de cualquier sección */
 section p {
     max-width: 800px;
     margin: 0 auto 1rem auto;
     padding: 1rem;
     text-align: justify;
+    color: #333;
+    line-height: 1.6;
 }
 
-/*---Todas las etiquetas h2---*/
-
-/* --- ESTILO MODERNO PARA H2 --- */
+/*--- ESTILO DE ENCABEZADOS H2 ---*/
 h2 {
     font-family: 'Poppins', sans-serif;
-    /* Fuente moderna y legible */
     font-weight: 600;
     font-size: 2.2rem;
-    color: #1f1f1f;
+    color: #ffffff;
     text-align: center;
     position: relative;
     margin: 2.5rem 0 1.5rem 0;
@@ -439,85 +334,339 @@ h2 {
 
 h2:hover {
     color: #8e44ad;
-    /* Cambio de color suave al pasar el ratón */
 }
 
-/* Línea decorativa debajo */
+/* Línea decorativa debajo de h2 */
 h2::after {
     content: '';
     display: block;
     width: 60px;
     height: 3px;
     background: linear-gradient(to right, #8e44ad, #3498db);
-    /* degradado moderno */
     margin: 0.5rem auto 0;
     border-radius: 2px;
 }
 
-
-
-/*---VIDEO---*/
-
-/* .video {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+/*--- CONTENEDOR COMÚN PARA SECCIONES FLEXIBLES ---*/
+.contenedor {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*--- RESPONSIVE GENERAL ---*/
+@media (max-width: 768px) {
+    section {
+        padding: 2rem 1rem;
+    }
+
+    section p {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .contenedor {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 1.5rem 1rem;
+    }
+
+    section p {
+        font-size: 0.95rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* --- BIOGRAFÍA ESTILO MUSICAL AJUSTADO --- */
+
+#biografia {
+    width: 100%; /* ocupa todo el ancho del body */
+    max-width: 900px; /* opcional, para que no se estire demasiado en pantallas grandes */
+    margin: 2rem auto; /* centra el contenedor horizontalmente y añade separación vertical */
+    padding: 2rem; /* separación interna */
+    background: transparent; /* sin fondo */
+    border: none; /* sin borde */
+    box-shadow: none; /* sin sombra */
+    border-radius: 1%; /* sin bordes redondeados */
+    color: var(--color_yamahaClaro); /* dorado sobre negro */
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    margin: 2rem 0;
-    padding: 1rem;
-    border: 3px solid transparent;
-    border-radius: 12px;
-    background-color: var(--color_blancoRoto);
+    text-align: center; /* centra el texto */
 }
 
-
-
-.video-info {
-    padding: 3%;
-    margin: 1%;
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
+#biografia p {
+    color: #eee;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    text-align: justify;
 }
 
-.video:hover {
-    animation: borderPulse 4s infinite alternate;
+/* Hover animación sobre la tarjeta */
+#biografia:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--color_yamaha);
     cursor: pointer;
 }
 
-.video-frame {
-    flex: 1;
-    min-width: 300px;
+/* Botón de descarga */
+.btn-descarga-biografia {
+    display: block;
+    margin: 2rem auto 0 auto;
+    padding: 12px 25px;
+    background-color: var(--color_yamaha);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
 }
 
-.video-frame iframe {
-    width: 100%;
-    height: 315px;
-    border-radius: 10px;
-    border: none;
-} */
+/* Hover sobre el botón */
+.btn-descarga-biografia:hover {
+    background-color: var(--color_yamahaClaro);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
 
 
+/*--- ENTREVISTAS ---*/
+
+#entrevistas {
+  background: transparent; /* o el color de fondo de tu web */
+ 
+}
+/* Contenedor principal de las entrevistas */
+.contenedor-entrevistas {
+    display: flex;
+    flex-wrap: wrap;             /* permite que bajen a la siguiente fila */
+    justify-content: center;     /* centra las filas */
+    gap: 2rem;                   /* separación entre tarjetas */
+    max-width: 1200px;           /* ancho máximo del contenedor */
+    margin: 0 auto;              /* centra el contenedor en la página */
+}
+
+/* Tarjeta individual de entrevista */
+.entrevista {
+    display: flex;
+    flex-direction: row;         /* texto y logo en horizontal */
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;                  /* cada tarjeta ocupa aprox la mitad del ancho */
+    max-width: 500px;
+    min-height: 200px;
+    padding: 1rem;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover: animación + elevación */
+.entrevista:hover {
+    animation: borderPulse 4s infinite alternate;
+    border: 3px solid transparent;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+/* Contenido de texto dentro de la tarjeta */
+.entrevista .contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+
+/* Logo a la derecha */
+.logo-entrevista {
+    flex: 0 0 100px;
+    max-width: 100px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+/* Ajuste si no hay logo */
+.entrevista:not(:has(.logo-entrevista)) {
+    justify-content: flex-start;
+}
+
+/* Título de la entrevista */
+.entrevista h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Texto de la entrevista */
+.entrevista p {
+    font-size: 1rem;
+    text-align: justify;
+    color: #333;
+}
+
+/* Botón de la entrevista */
+.btn-entrevista {
+    align-self: flex-start;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: var(--color_yamaha);
+    font-weight: 600;
+    border: 2px solid var(--color_yamaha);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.btn-entrevista:hover {
+    background-color: var(--color_yamahaClaro);
+    color: #fff;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* --- RESPONSIVE: móvil (logo debajo del texto) --- */
+@media (max-width: 600px) {
+    .entrevista {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .entrevista .contenido {
+        padding-right: 0;
+    }
+
+    .logo-entrevista {
+        margin-top: 1rem;
+        max-width: 80px;
+    }
+}
+
+
+
+
+/*Tabla videos/galeria*/
+
+/* Contenedor de los botones */
 .tabs {
+   
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    gap: 10px; /* separación uniforme */
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* para que se adapten en pantallas pequeñas */
 }
 
+/* Botones */
 .tab-btn {
-    padding: 10px 20px;
-    margin: 0 5px;
-    cursor: pointer;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
     border: none;
-    background: #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
+    background: #f3f3f3;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Efecto hover */
+.tab-btn:hover {
+    background: #e1e1e1;
+    color: var(--color_yamaha, #4a00e0);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Estado activo */
 .tab-btn.active {
-    background: #444;
-    color: white;
+    background: var(--color_yamaha, #4a00e0);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+}
+.tab-btn.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animación "onda" al click (efecto ripple) */
+.tab-btn:active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+.galeria img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.visor img {
+    max-width: 90%;
+    height: auto;
 }
 
 .galeria {
@@ -527,6 +676,7 @@ h2::after {
 .galeria.active {
     display: block;
 }
+
 
 .video {
     display: flex;
@@ -542,83 +692,102 @@ h2::after {
     margin-left: auto;
     margin-right: auto; /* centrar en la página */
 }
+.visor {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 700px;
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+}
+
+#video-grande {
+    width: 100%;          /* ocupa todo el ancho disponible */
+    max-width: 1100px;    /* ahora más ancho que antes */
+    aspect-ratio: 16 / 9; /* mantiene proporción horizontal */
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: block;
+    margin: 0 auto;       /* lo centra */
+}
+.video-info {
+    text-align: center;
+    max-width: 500px;
+    margin: 0.5rem auto;
+}
 
 .video-info h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
+    margin: 0 0 0.3rem 0;
+    font-size: 1rem;
     color: #333;
+    font-weight: 600;
 }
 
 .video-info p {
     margin: 0;
+    font-size: 0.85rem;
     color: #555;
+    line-height: 1.4;
 }
 
-.video-frame iframe {
-    width: 100%; /* ocupar todo el ancho de la tarjeta */
-    height: 400px; /* altura fija */
-    border-radius: 10px;
-    border: none;
-}
-.slider-videos {
-    position: relative;
-    max-width: 700px;
-    margin: 2rem auto;
-}
-
-/* Cada vídeo oculto por defecto */
-.slider-videos .video {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    background-color: #fefefe;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* Vídeo activo */
-.slider-videos .video.activo {
-    display: flex;
-}
-
-/* Botones de navegación elegantes en morado */
-.slider-videos .prev-video,
-.slider-videos .next-video {
+/* Flechas */
+.prev-video, .next-video {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-  
-    color:var(--color_yamaha);
+    color: black;              /* flechas negras por defecto */
     border: none;
-    font-size: 2rem;
-    padding: 0.6rem 1.2rem;
+    background: none;          /* sin fondo */
+    font-size: 2.5rem;         /* un poquito más grande si quieres */
+    padding: 0.5rem;
     cursor: pointer;
-    border-radius: 50%; /* forma redonda */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 10;
-    user-select: none;
-    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    border-radius: 50%;
+    transition: color 0.3s, transform 0.2s;
 }
 
-/* Hover: efecto elegante */
-.slider-videos .prev-video:hover,
-.slider-videos .next-video:hover {
+.prev-video:hover, .next-video:hover {
+    color: var(--color_yamaha);            /* morado al pasar el cursor */
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-    background: linear-gradient(135deg, #4a00e0, #8e2de2);
 }
 
-/* Posición izquierda/derecha */
-.slider-videos .prev-video { left: -20px; }
-.slider-videos .next-video { right: -20px; }
+.prev-video { left: -30px; }
+.next-video { right: -30px; }
 
-
-.visor {
-    text-align: center;
-    margin-bottom: 15px;
+/* Miniaturas */
+.miniaturas {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
 }
+
+.miniaturas img {
+    width: 140px;
+    height: 100px;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.miniaturas img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+/*Fotos*/
+#imagen-grande {
+  width: 300px;     /* ancho fijo más pequeño */
+  height: auto;     /* altura automática = mantiene proporción */
+  display: block;   /* permite centrar fácilmente */
+  margin: 0 auto;   /* centra horizontalmente */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
 
 .visor img,
 .visor iframe {
@@ -634,11 +803,11 @@ h2::after {
     gap: 10px;
     flex-wrap: wrap;
 }
-
+/*miniaturas imagenes galeria*/
 .miniaturas img,
 .miniaturas iframe {
-    width: 120px;
-    height: 80px;
+    width: 160px;
+    height: 120px;
     cursor: pointer;
     object-fit: cover;
     border-radius: 5px;
@@ -650,86 +819,29 @@ h2::after {
     transform: scale(1.05);
 }
 
-/*---BIOGRAFIA---*/
 
-#biografia {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 1.8rem 2.2rem;
-    background-color: var(--color_blancoRoto);
-    border-radius: 15px;
-    box-shadow: 0 2px 8px rgba(136, 14, 79, 0.12);
-    /* font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif; */
-}
 
-#biografia p {
-    font-size: 1.1rem;
-    color: #333;
-    text-align: justify;
-    line-height: 1.75;
-    text-shadow: 0 0 2px rgba(200, 200, 200, 0.4);
-}
-
-#biografia:hover {
-    animation: borderPulse 4s infinite alternate;
-    border: 3px solid transparent;
-    cursor: pointer;
-}
-
-.btn-descarga-biografia {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--color_yamahaClaro);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.btn-descarga-biografia:hover {
-    background-color: var(--color_yamaha);
-}
-
-/*---GALERIA---*/
-/* 
-.galeria {
-
-    border-radius: 5%;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 1rem;
-    list-style: none;
-    text-align: center;
-   
-}
-
-.galeria img {
-    display: inline-block;
-    width: 450px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.galeria img:hover {
-    transform: scale(1.05);
-} */
 
 
 /* --- ACADEMIA --- */
-/* --- ACADEMIA --- */
+#madrid-sax-academy {
+  background: transparent; /* o el color de fondo de tu web */
+ 
+}
 #academia-contenedor-general {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center;
-    margin: 2rem 0;
-    padding: 0 1rem;
+    justify-content: center; /* centra horizontalmente */
+    align-items: center; /* centra verticalmente si el contenedor tiene altura */
+    margin: 0 auto; /* asegura que el contenedor se centre en la página */
+    padding: 0;
+    width: 100%; /* si quieres que ocupe todo el ancho */
+    max-width: 1200px; /* opcional, para que no se estire demasiado en pantallas grandes */
+}
+
+.academia_class {
+  background: transparent;
 }
 
 .academia_class:hover {
@@ -739,11 +851,12 @@ h2::after {
 }
 
 .academia-contenedor {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: unset; /* o flex: 0 */
 }
+
 
 /* Contenedor principal de cada bloque */
 .academia_class {

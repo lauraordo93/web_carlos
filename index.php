@@ -43,7 +43,7 @@
     <section id="madrid-sax-academy">
         <?php include('componentes/academia.php'); ?>
     </section>
-    <div class="tabs">
+    <div id="galeria" class="tabs">
         <button class="tab-btn active" data-tab="imagenes">Imágenes</button>
         <button class="tab-btn" data-tab="videos">Vídeos</button>
     </div>

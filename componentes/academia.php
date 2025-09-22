@@ -5,9 +5,10 @@ include_once(__DIR__ . '/../config/db.php');
 $sql_tarjetas = "SELECT * FROM `academia` WHERE id=1;";
 $result_tarjetas = $conn->query($sql_tarjetas);
 
-echo '<h2>Academia</h2>';
+
 echo '<div id="academia-contenedor-general">';
 echo '<div class="academia-contenedor">';
+echo '<h2>Academia</h2>';
 
 if ($result_tarjetas && $result_tarjetas->num_rows > 0) {
     while ($row = $result_tarjetas->fetch_assoc()) {
