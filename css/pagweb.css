@@ -435,11 +435,10 @@ h2::after {
 }
 
 #biografia:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 5px var(--color_yamaha);
+    transform: translateY(-3px);
+    box-shadow: 0 2px 5px var(--color_yamaha); /* más tenue */
     cursor: pointer;
 }
-
 .btn-descarga-biografia {
     display: block;
     margin: 2rem auto 0 auto;
