@@ -399,12 +399,8 @@ h2::after {
 
 
 
-
-
-
-
 #biografia {
-    background-image: url('../img/pentagrama2.jpg');
+    /* background-image: url('../img/pentagrama2.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -909,8 +905,6 @@ h2::after {
 .miniaturas iframe:hover {
     transform: scale(1.05);
 }
-
-
 
 
 
