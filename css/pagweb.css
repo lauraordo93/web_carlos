@@ -535,27 +535,26 @@ h2::after {
 .entrevista {
     display: flex;
     flex-direction: row;
-    /* texto y logo en horizontal */
     justify-content: space-between;
     align-items: center;
     width: 45%;
-    /* cada tarjeta ocupa aprox la mitad del ancho */
     max-width: 500px;
     min-height: 200px;
     padding: 1rem;
+
+    /* transición suave de transform, box-shadow y borde */
+    transition: transform 0.8s ease, box-shadow 0.8s ease, border 0.8s ease;
     
-  
-    /* dorado sobre negro */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* sin borde al inicio */
+    border: 1px solid transparent;
 }
 
-/* Hover: animación + elevación */
+/* Hover: elevación y borde elegante */
 .entrevista:hover {
-    animation: borderPulse 4s infinite alternate;
-    border: 3px solid transparent;
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     cursor: pointer;
+    border: 1px solid var(--color_yamaha); /* borde suave al aparecer */
 }
 
 /* Contenido de texto dentro de la tarjeta */
@@ -796,14 +795,14 @@ h2::after {
 .video-info h3 {
     margin: 0 0 0.3rem 0;
     font-size: 1rem;
-    color: #333;
+    color: wheat;
     font-weight: 600;
 }
 
 .video-info p {
     margin: 0;
     font-size: 0.85rem;
-    color: #555;
+    color: whitesmoke;
     line-height: 1.4;
 }
 
@@ -942,11 +941,6 @@ h2::after {
     background: transparent;
 }
 
-.academia_class:hover {
-    animation: borderPulse 4s infinite alternate;
-    border: 3px solid transparent;
-    cursor: pointer;
-}
 
 .academia-contenedor {
     display: flex;
@@ -957,28 +951,28 @@ h2::after {
 }
 
 
-/* Contenedor principal de cada bloque */
 .academia_class {
-    border: none;
-    /* sin borde */
-    box-shadow: none;
-    /* sin sombra */
+    border: 1px solid transparent; /* borde invisible al inicio */
     border-radius: 1%;
-    /* sin bordes redondeados */
     color: var(--color_yamahaClaro);
     display: flex;
     flex-direction: row;
     gap: 2rem;
     background: transparent;
-
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.5s ease;
 }
 
 .academia_class:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+
+    /* borde Yamaha más visible */
+    border-color: var(--color_yamaha); 
+    border-width: 1px; /* un poquito más grueso para que se note */
+    cursor: pointer;
 }
 
 /* Texto */
@@ -996,7 +990,7 @@ h2::after {
     text-align: center;
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
-    color: var(--color_yamahaClaro);
+    color: var(--color_yamaha);
 }
 
 .academia_texto p {
@@ -1176,13 +1170,18 @@ h2::after {
     padding: 1.8rem 2.2rem;
     margin-bottom: 5rem;
 
-
+    /* borde transparente inicial */
+    border: 1px solid transparent;
+    /* transición suave para borde y color de texto */
+    transition: border 0.5s ease, color 0.5s ease;
 }
 
 #agenda:hover {
-    animation: borderPulse 4s infinite alternate;
     cursor: pointer;
+    border: 1px solid var(--color_yamaha); /* borde aparece suavemente */
+    color: var(--color_yamaha);           /* texto cambia de color suavemente */
 }
+
 
 .mensaje-agenda {
 
@@ -1194,7 +1193,7 @@ h2::after {
 
 .mensaje-agenda p {
     text-align: center;
-    color: goldenrod;
+    color: silver;
 }
 
 .mensaje-agenda i {

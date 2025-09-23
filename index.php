@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Página web Carlos</title>
-    <link rel="stylesheet" href="css/pagweb.css?v=1">
+    <link rel="stylesheet" href="css/pagweb.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -75,7 +75,7 @@
 
         <div class="pie">
             <p>
-                &copy; 2025 Todos los derechos reservados
+                &copy; 2025 Todos los derechos reservados Lauraordonez.dev
                 |
                 <strong>Artist by</strong>
                 <a href="https://es.yamaha.com/es/artists/c/carlos_ordonez_de%20arce.html" target="_blank"
@@ -89,28 +89,11 @@
     </footer>
 
 
-    <!--Animación java script-->
-    <!-- <script src="../js/animacion_galeria.js" defer></script> -->
-    <!-- <script src="../js/animacion_academia.js" defer></script> -->
     <script src="js/sobremi.js"></script>
      <script src="js/galeria.js"></script>
       <script src="js/video.js"></script>
     <script src="js/menuHambur.js"></script>
-    <!-- <script>
-        const toggleBtn = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-
-        toggleBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-            });
-        });
-    </script> -->
+   
 </body>
 
 </html>
