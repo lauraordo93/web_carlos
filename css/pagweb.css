@@ -494,16 +494,17 @@ h2::after {
         margin: 1rem auto;
         background-size: contain;
         /* no recorta fondo */
-        text-align: justify;
+
     }
 
     #biografia p {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        text-align: center;
 
     }
 
     .btn-descarga-biografia {
-        width: 100%;
+        width: 50%;
         padding: 10px;
         font-size: 0.95rem;
     }
@@ -519,13 +520,15 @@ h2::after {
         margin: 1rem auto;
         border-radius: 5px;
         background-size: contain;
+        /* text-align: justify; */
         text-align: justify;
     }
 
     #biografia p {
         font-size: 0.9rem;
         line-height: 1.6;
-        text-align: left;
+        text-align: justify;
+
     }
 
     .btn-descarga-biografia {
@@ -947,15 +950,11 @@ h2::after {
 #madrid-sax-academy {
     background-color: #000;
     /* fondo negro sólido para la sección */
-    width: 90%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 3rem 2rem;
-    border-radius: 15px;
+
     color: var(--color_yamahaClaro);
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+
 }
 
 /* Contenedores internos transparentes */
@@ -1006,9 +1005,13 @@ h2::after {
 
 .academia_texto p {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.3;
+    /* menos espacio entre líneas */
     color: #ffffff;
-    margin-bottom: 1rem;
+    margin: 0;
+    /* elimina márgenes */
+    padding: 0;
+    /* elimina padding */
 }
 
 /* Contenedor de enlaces Web + Instagram */
@@ -1103,8 +1106,10 @@ h2::after {
         flex-direction: column;
         text-align: center;
         align-items: center;
-        /* centra todo el contenido */
-        gap: 1rem;
+        gap: 0.5rem;
+        /* menos espacio entre elementos */
+        padding: 1rem;
+        /* ajusta padding general */
         /* ajusta el espacio entre texto e imagen */
     }
 
@@ -1140,7 +1145,7 @@ h2::after {
 @media (max-width: 768px) {
     .academia_class {
         flex-direction: column;
-        text-align: center;
+        text-align: justify;
 
     }
 
@@ -1176,11 +1181,13 @@ h2::after {
     background-color: rgba(20, 20, 20, 0.95);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 1rem;
-    max-width: 1000px;
-    margin: 1rem auto;
     padding: 1.8rem 2.2rem;
     margin-bottom: 5rem;
 
+    /* separación entre tarjetas */
+    max-width: 1200px;
+    /* ancho máximo del contenedor */
+    margin: 0 auto;
     /* borde transparente inicial */
     border: 1px solid transparent;
     /* transición suave para borde y color de texto */
