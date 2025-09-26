@@ -298,7 +298,8 @@ h2.sobre-mi-titulo::after {
 
 /*--- TODAS LAS SECCIONES GENERALES ---*/
 section {
-    background: linear-gradient(145deg, #f8f8f8, #eaeaea);
+    background-color: none;
+    /* background: linear-gradient(145deg, #f8f8f8, #eaeaea); */
     padding: 3rem 2rem;
     margin: 2rem auto;
     border-radius: 15px;
@@ -306,6 +307,8 @@ section {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
 
 section:hover {
     transform: translateY(-5px);
@@ -397,34 +400,27 @@ h2::after {
 }
 
 
-
-
-
-
-
-
 #biografia {
-    background-image: url('../img/pentagrama2.jpg');
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.9);
-
+    background-color: rgba(20, 20, 20, 0.95);
     width: 90%;
     max-width: 900px;
     margin: 2rem auto;
     padding: 2rem;
     border-radius: 8px;
     color: var(--color_yamahaClaro);
-
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
-    height: auto;       /* deja que el div crezca según el contenido */
-    min-height: 200px;  /* altura mínima */
+    height: auto;
+    /* deja que el div crezca según el contenido */
+    min-height: 200px;
+    /* altura mínima */
 }
 
 #biografia p {
@@ -436,12 +432,27 @@ h2::after {
 
 #biografia:hover {
     transform: translateY(-3px);
-    box-shadow: 0 2px 5px var(--color_yamaha); /* más tenue */
+    box-shadow: 0 2px 5px var(--color_yamaha);
+    /* más tenue */
     cursor: pointer;
 }
+
+.bio-links {
+    display: flex;
+    align-items: center;
+    /* centra verticalmente */
+    justify-content: center;
+    /* centra en la página */
+    gap: 2rem;
+    /* espacio entre botón y Yamaha */
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    /* para que en pantallas pequeñas se bajen en vertical */
+}
+
 .btn-descarga-biografia {
-    display: block;
-    margin: 2rem auto 0 auto;
+    display: inline-block;
+    /* ya no bloquea toda la línea */
     padding: 12px 25px;
     background-color: var(--color_yamaha);
     color: #fff;
@@ -459,23 +470,36 @@ h2::after {
     cursor: pointer;
 }
 
-  
+.artist-yamaha {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.artist-yamaha img {
+    height: 100px;
+    vertical-align: middle;
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
     #biografia {
-         /* padding: 1rem;
+        /* padding: 1rem;
         margin: 1rem; */
         max-width: 100%;
         padding: 1rem 1rem;
         margin: 1rem auto;
-        background-size: contain; /* no recorta fondo */
+        background-size: contain;
+        /* no recorta fondo */
         text-align: justify;
     }
 
     #biografia p {
-       font-size: 0.85rem;
-        
+        font-size: 0.85rem;
+
     }
 
     .btn-descarga-biografia {
@@ -483,7 +507,8 @@ h2::after {
         padding: 10px;
         font-size: 0.95rem;
     }
-      #biografia h3 {
+
+    #biografia h3 {
         font-size: 1rem;
     }
 }
@@ -494,6 +519,7 @@ h2::after {
         margin: 1rem auto;
         border-radius: 5px;
         background-size: contain;
+        text-align: justify;
     }
 
     #biografia p {
@@ -512,12 +538,14 @@ h2::after {
 
 #entrevistas {
     background: transparent;
+
     /* o el color de fondo de tu web */
 
 }
 
 /* Contenedor principal de las entrevistas */
 .contenedor-entrevistas {
+
     display: flex;
     flex-wrap: wrap;
     /* permite que bajen a la siguiente fila */
@@ -531,8 +559,12 @@ h2::after {
     /* centra el contenedor en la página */
 }
 
+
+
 /* Tarjeta individual de entrevista */
 .entrevista {
+    background-color: rgba(20, 20, 20, 0.95);
+    border-radius: 8px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -544,7 +576,7 @@ h2::after {
 
     /* transición suave de transform, box-shadow y borde */
     transition: transform 0.8s ease, box-shadow 0.8s ease, border 0.8s ease;
-    
+
     /* sin borde al inicio */
     border: 1px solid transparent;
 }
@@ -554,7 +586,8 @@ h2::after {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     cursor: pointer;
-    border: 1px solid var(--color_yamaha); /* borde suave al aparecer */
+    border: 1px solid var(--color_yamaha);
+    /* borde suave al aparecer */
 }
 
 /* Contenido de texto dentro de la tarjeta */
@@ -564,7 +597,7 @@ h2::after {
     flex-direction: column;
     justify-content: space-between;
     padding-right: 1rem;
-    
+
 }
 
 /* Logo a la derecha */
@@ -910,69 +943,47 @@ h2::after {
 }
 
 
-
-
-
-/* --- ACADEMIA --- */
+/* --- Sección Academia --- */
 #madrid-sax-academy {
-    background: transparent;
-    /* o el color de fondo de tu web */
-
-}
-
-#academia-contenedor-general {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    /* centra horizontalmente */
-    align-items: center;
-    /* centra verticalmente si el contenedor tiene altura */
-    margin: 0 auto;
-    /* asegura que el contenedor se centre en la página */
-    padding: 0;
-    width: 100%;
-    /* si quieres que ocupe todo el ancho */
+    background-color: #000;
+    /* fondo negro sólido para la sección */
+    width: 90%;
     max-width: 1200px;
-    /* opcional, para que no se estire demasiado en pantallas grandes */
-}
-
-.academia_class {
-    background: transparent;
-}
-
-
-.academia-contenedor {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    flex: unset;
-    /* o flex: 0 */
-}
-
-
-.academia_class {
-    border: 1px solid transparent; /* borde invisible al inicio */
-    border-radius: 1%;
+    margin: 2rem auto;
+    padding: 3rem 2rem;
+    border-radius: 15px;
     color: var(--color_yamahaClaro);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 2rem;
-    background: transparent;
-    overflow: hidden;
-
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.5s ease;
 }
+
+/* Contenedores internos transparentes */
+#academia-contenedor-general,
+.academia-contenedor {
+    background: transparent;
+}
+
+/* Tarjetas -> negro semitransparente */
+.academia_class {
+    border-radius: 8px;
+    background-color: rgba(20, 20, 20, 0.95);
+    /* gris muy oscuro, se diferencia del negro puro */
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: var(--color_yamahaClaro);
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 .academia_class:hover {
     transform: translateY(-5px);
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
-
-    /* borde Yamaha más visible */
-    border-color: var(--color_yamaha); 
-    border-width: 1px; /* un poquito más grueso para que se note */
-    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--color_yamaha);
+    /* borde Yamaha al hover */
 }
 
 /* Texto */
@@ -1162,7 +1173,7 @@ h2::after {
 
 /*---AGENDA---*/
 #agenda {
-    background: transparent;
+    background-color: rgba(20, 20, 20, 0.95);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 1rem;
     max-width: 1000px;
@@ -1178,8 +1189,10 @@ h2::after {
 
 #agenda:hover {
     cursor: pointer;
-    border: 1px solid var(--color_yamaha); /* borde aparece suavemente */
-    color: var(--color_yamaha);           /* texto cambia de color suavemente */
+    border: 1px solid var(--color_yamaha);
+    /* borde aparece suavemente */
+    color: var(--color_yamaha);
+    /* texto cambia de color suavemente */
 }
 
 
@@ -1365,8 +1378,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff; /* texto blanco para contraste */
-    overflow: hidden; /* evita que se desborde el pseudo-elemento */
+    color: #fff;
+    /* texto blanco para contraste */
+    overflow: hidden;
+    /* evita que se desborde el pseudo-elemento */
 }
 
 /* Imagen de fondo con poco difuminado */
@@ -1374,10 +1389,12 @@ footer::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('../img/pentagrama4.jpg') center/contain no-repeat; 
-    filter: blur(1.5px) brightness(0.7); /* menos difuminado y un poco oscura */
+    background: url('../img/pentagrama4.jpg') center/contain no-repeat;
+    filter: blur(1.5px) brightness(0.7);
+    /* menos difuminado y un poco oscura */
     z-index: -1;
-    background-color: #000; /* relleno negro si sobra espacio */
+    background-color: #000;
+    /* relleno negro si sobra espacio */
 }
 
 footer p {

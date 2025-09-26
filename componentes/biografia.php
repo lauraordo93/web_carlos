@@ -16,6 +16,14 @@ if ($result && $result->num_rows > 0) {
 }
 
 // 🔗 Enlace al PDF (siempre visible)
-echo '<p><a href="../doc/bio.pdf" download class="btn-descarga-biografia">📥 Descargar biografía</a></p>';
+echo '<div class="bio-links">';
+echo '  <a href="../doc/bio.pdf" download class="btn-descarga-biografia">📥 Descargar biografía</a>';
+echo '  <div class="artist-yamaha">';
+echo '      <strong>Artist by</strong>';
+echo '      <a href="https://es.yamaha.com/es/artists/c/carlos_ordonez_de%20arce.html" target="_blank" rel="noopener noreferrer">';
+echo '          <img src="img/logo_yamaha1.png" alt="Yamaha">';
+echo '      </a>';
+echo '  </div>';
+echo '</div>';
 
 ?>
