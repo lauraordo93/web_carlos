@@ -75,14 +75,8 @@
 
         <div class="pie">
             <p>
-                &copy; 2025 Todos los derechos reservados
-                |
-                <strong>Artist by</strong>
-                <a href="https://es.yamaha.com/es/artists/c/carlos_ordonez_de%20arce.html" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="img/logo_yamaha1.png" alt="Yamaha"
-                        style="height: 80px; margin-left: 5px; vertical-align: middle;">
-                </a>
+                &copy; 2025 Todos los derechos reservados lauraordonez.dev
+             
             </p>
             <a class="init" href="#inicio">Volver al inicio</a>
         </div>
@@ -90,27 +84,12 @@
 
 
     <!--Animación java script-->
-    <!-- <script src="../js/animacion_galeria.js" defer></script> -->
-    <!-- <script src="../js/animacion_academia.js" defer></script> -->
+ 
     <script src="js/sobremi.js"></script>
      <script src="js/galeria.js"></script>
       <script src="js/video.js"></script>
     <script src="js/menuHambur.js"></script>
-    <!-- <script>
-        const toggleBtn = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-
-        toggleBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-            });
-        });
-    </script> -->
+   
 </body>
 
 </html>
