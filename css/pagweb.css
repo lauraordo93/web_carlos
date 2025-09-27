@@ -981,6 +981,10 @@ h2::after {
     gap: 2rem;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Limitar el ancho */
+    max-width: 900px; /* puedes ajustar a lo que quieras */
+    width: 90%; /* para que no se desborde en contenedores más pequeños */
+    margin: 0 auto; /* centra la tarjeta horizontalmente */
 }
 
 
@@ -1081,34 +1085,6 @@ h2::after {
 }
 
 /* --- RESPONSIVE TABLET --- */
-@media (max-width: 1024px) {
-    .academia_class {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .academia_imagen {
-        justify-content: center;
-        width: 100%;
-        padding: 0.5rem;
-    }
-
-    .academia_imagen img {
-        width: 60%;
-        max-width: 300px;
-        height: auto;
-        border-radius: 20px;
-        margin: 0 auto;
-    }
-
-    .academia_texto p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-}
-
 
 @media (max-width: 1024px) {
     .academia_class {

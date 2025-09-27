@@ -75,24 +75,12 @@
 
         <div class="pie">
             <p>
-<<<<<<< HEAD
                 &copy; 2025 Todos los derechos reservados Lauraordonez.dev
-              
-=======
-                &copy; 2025 Todos los derechos reservados lauraordonez.dev
-             
->>>>>>> pruebasvarias
             </p>
             <a class="init" href="#inicio">Volver al inicio</a>
         </div>
     </footer>
 
-
-<<<<<<< HEAD
-=======
-    <!--Animación java script-->
- 
->>>>>>> pruebasvarias
     <script src="js/sobremi.js"></script>
      <script src="js/galeria.js"></script>
       <script src="js/video.js"></script>
