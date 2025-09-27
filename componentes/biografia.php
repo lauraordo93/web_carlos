@@ -15,6 +15,7 @@ if ($result && $result->num_rows > 0) {
     echo '<p>No hay biografía disponible en este momento.</p>';
 }
 
+
 // 🔗 Enlace al PDF (siempre visible)
 echo '<div class="bio-links">';
 echo '  <a href="../doc/bio.pdf" download class="btn-descarga-biografia">📥 Descargar biografía</a>';
@@ -25,5 +26,3 @@ echo '          <img src="img/logo_yamaha1.png" alt="Yamaha">';
 echo '      </a>';
 echo '  </div>';
 echo '</div>';
-
-?>

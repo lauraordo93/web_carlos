@@ -6,7 +6,6 @@ $result = $conn->query($sql);
 
 
 if ($result && $result->num_rows > 0) {
-
     // Tomamos la primera imagen para mostrar como grande
     $row = $result->fetch_assoc();
     $foto = htmlspecialchars($row["foto_url"]);
@@ -29,6 +28,6 @@ if ($result && $result->num_rows > 0) {
 } else {
     echo '<p>No hay imágenes en la galería.</p>';
 }
-//funciona en local y en remoto
 ?>
+
 

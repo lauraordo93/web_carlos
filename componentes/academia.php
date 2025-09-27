@@ -40,10 +40,11 @@ if ($result_tarjetas && $result_tarjetas->num_rows > 0) {
 
         // Imagen
         echo '  <div class="academia_imagen">';
-        //    echo "    <img src='$foto_url' alt='Imagen'>";//code servidor
+        // echo "    <img src='$foto_url' alt='Imagen'>";//code servidor
         echo "    <img src='/mi_pagweb/$foto_url' alt='Imagen'>";
+
         echo '  </div>';
-   
+
 
         echo '</div>'; // cierre academia_class
     }
@@ -54,3 +55,5 @@ if ($result_tarjetas && $result_tarjetas->num_rows > 0) {
 echo '</div>'; // cierre academia-contenedor
 echo '</div>'; // cierre academia-contenedor-general
 ?>
+
+
