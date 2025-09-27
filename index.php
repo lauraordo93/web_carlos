@@ -76,13 +76,7 @@
         <div class="pie">
             <p>
                 &copy; 2025 Todos los derechos reservados Lauraordonez.dev
-                |
-                <strong>Artist by</strong>
-                <a href="https://es.yamaha.com/es/artists/c/carlos_ordonez_de%20arce.html" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="img/logo_yamaha1.png" alt="Yamaha"
-                        style="height: 80px; margin-left: 5px; vertical-align: middle;">
-                </a>
+              
             </p>
             <a class="init" href="#inicio">Volver al inicio</a>
         </div>
