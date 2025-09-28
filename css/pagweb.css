@@ -1367,144 +1367,158 @@ progress.agenda::-moz-progress-bar {
         display: none;
     }
 }
-/* Footer general */
+/* === FOOTER GENERAL === */
 footer {
-/* background-image: url('../img/imagen_derecha.jpg'); */
-background-repeat: no-repeat;       /* evita que se repita */
-    background-position: left center;  /* alineada a la derecha y centrada verticalmente */
-
-      margin-top: 4rem; /* Ajusta la distancia que quieras */
-    position: relative;
+    margin-top: 5rem;
     width: 100%;
-    min-height: 60px; /* más espacio sobre la sección anterior */
     padding: 2rem 1rem;
-    /* background-color: #111; */
     color: #fff;
-    overflow: hidden;
     font-family: 'Courier New', Courier, monospace;
-  
 }
 
-/* Imagen de fondo */
-footer::before {
-
-    content: "";
-    position: absolute;
-    inset: 0;
-   
-    filter: blur(1.5px) brightness(0.5);
-    z-index: -1;
-}
-
-/* Contenedor principal */
 .footer-container {
-   
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     max-width: 1000px;
     margin: 0 auto;
     gap: 2rem;
 }
 
-/* Lado izquierdo - imagen/logo */
-.footer-left {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* === IMAGEN IZQUIERDA === */
 .footer-left .footer-logo {
-    max-width: 400px;
-    height: auto;
-    border-radius: 8px; /* opcional */
+    max-width: 450px;
+    filter: brightness(0.8); /* más oscura */
+    border-radius: 8px;
 }
 
-/* Lado derecho - formulario */
+/* === FORMULARIO MINIMALISTA CON COLORES === */
 .footer-right {
-    
     flex: 1;
-    max-width: 400px;
-    background-color: rgba(20, 20, 20, 0.95);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    max-width: 420px;
+    background: none;
+    padding: 0.5rem;
 }
 
 .footer-right h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: var(--color_yamahaClaro);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color_yamahaClaro); /* título en color Yamaha */
+    text-align: left;
 }
 
 .footer-right form {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 1.5rem;
 }
 
+/* Inputs subrayados */
 .footer-right input,
 .footer-right textarea {
-    padding: 0.7rem;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background-color: #222;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding: 0.8rem 0;
     color: #fff;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    transition: border-color 0.3s, color 0.3s;
 }
 
 .footer-right input::placeholder,
 .footer-right textarea::placeholder {
     color: #aaa;
+    font-style: italic;
 }
 
+/* Al enfocar: morado */
+.footer-right input:focus,
+.footer-right textarea:focus {
+    border-color: #9b59b6; /* morado elegante */
+    color: var(--color_yamahaClaro);
+    outline: none;
+}
+
+/* Botón estilo pastilla */
 .footer-right button {
-    margin-top: 0.5rem;
-    padding: 0.7rem;
+    align-self: flex-start;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
     border: none;
-    border-radius: 8px;
-    background-color: var(--color_yamahaClaro);
-    color: #000;
+    background: linear-gradient(135deg, #9b59b6, var(--color_yamaha));
+    color: #fff;
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .footer-right button:hover {
-    background-color: #fff;
+    background: linear-gradient(135deg, var(--color_yamahaClaro), #9b59b6);
     transform: translateY(-2px);
 }
 
-/* Footer bottom - derechos reservados */
+/* === COPYRIGHT === */
 .footer-bottom {
-    width: 100%;
     text-align: center;
     margin-top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
+     border-top: 1px solid var(--color_yamaha);
+    /* border-top: 1px solid rgba(255,255,255,0.2); */
     font-size: 0.9rem;
     color: #ccc;
 }
 
-/* Responsive - móvil */
+/* === RESPONSIVE === */
+/* === RESPONSIVE === */
 @media screen and (max-width: 768px) {
     .footer-container {
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* centra horizontalmente */
+        text-align: center;
+        gap: 2rem; /* espacio entre imagen y formulario */
+    }
+
+    .footer-left {
+        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: center; /* centra la imagen */
+        width: 100%;
+    }
+
+    .footer-left .footer-logo {
+        max-width: 80%; /* ocupa la mayor parte del ancho disponible */
+        height: auto;
+    }
+
+    .footer-right {
+        width: 100%; /* que el formulario ocupe todo el ancho */
+        max-width: 420px;
+        padding: 0 1rem;
+    }
+
+    .footer-right h3 {
         text-align: center;
     }
-    .footer-left, .footer-right {
-        max-width: 100%;
+
+    .footer-right form {
+        gap: 1.2rem; /* separaciones un poco menores */
     }
-    .footer-right {
-        margin-top: 2rem;
+
+    .footer-right button {
+        align-self: center; /* centra el botón */
+        padding: 0.8rem 2rem;
+        font-size: 0.95rem;
     }
-    .footer-left {
-        margin-bottom: 1rem; /* espacio entre logo y formulario */
+
+    .footer-bottom {
+        font-size: 0.85rem;
+        margin-top: 1.5rem;
+        padding-top: 0.8rem;
     }
 }
+
 
 
 /* --- INTRO / SOBRE MÍ --- */

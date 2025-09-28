@@ -5,7 +5,7 @@ include_once(__DIR__ . '/../config/db.php');
 // $sql = "SELECT * FROM menu ORDER BY id ASC";
 //Consulta ordenada por preferencia Usuario
 $sql = "SELECT * FROM menu 
-        ORDER BY FIELD(nombre, 'Biografía', 'Madrid Sax Academy', 'Galería', 'Videos', 'Entrevistas', 'Agenda')";
+        ORDER BY FIELD(nombre, 'Biografía', 'Madrid Sax Academy', 'Galería', 'Videos', 'Entrevistas', 'Agenda','Contacto')";
 $result = $conn->query($sql);
 
 // IDs personalizados
