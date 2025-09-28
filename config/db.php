@@ -7,7 +7,7 @@ $database = "my_pagweb";
 // $servername = "sql101.infinityfree.com";
 // $username = "if0_39744310";
 // $password = "HcGAOCHi2pBr"; 
-// $database = "if0_39744310_pagweb";
+// $database = "if0_39744310_paginaweb";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);

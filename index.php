@@ -69,17 +69,25 @@
         </div>
     </section>
 
-
-
-    <footer>
-
-        <div class="pie">
-            <p>
-                &copy; 2025 Todos los derechos reservados Lauraordonez.dev
-            </p>
+<footer class="footerprincipal">
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>&copy; 2025 Todos los derechos reservados Lauraordonez.dev</p>
             <a class="init" href="#inicio">Volver al inicio</a>
         </div>
-    </footer>
+
+        <div id="contacto" class="footer-right">
+            <h3>Contacto</h3>
+            <form action="mailto:carloso96@hotmail.com" method="post" enctype="text/plain">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="mensaje" rows="3" placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
 
     <script src="js/sobremi.js"></script>
      <script src="js/galeria.js"></script>

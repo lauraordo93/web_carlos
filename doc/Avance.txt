@@ -6,3 +6,5 @@
 -letras biografia nueva font arreglar
 -Logo(media movil) cambio nombre foto Carlos_cabeceramedia, Solucionado
 -solucionar galeria img, id de galeria no deja ver los botones de video y img
+
+-Intento de seccion contacto: desaparece pentagrama

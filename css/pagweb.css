@@ -1368,109 +1368,133 @@ progress.agenda::-moz-progress-bar {
     }
 }
 
-
-
-
-/* Footer */
+/* Footer general */
 footer {
     position: relative;
     width: 100%;
-    min-height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 60px; /* más espacio sobre la sección anterior */
+    padding: 2rem 1rem;
+    background-color: #111;
     color: #fff;
-    /* texto blanco para contraste */
     overflow: hidden;
-    /* evita que se desborde el pseudo-elemento */
+    font-family: 'Courier New', Courier, monospace;
+   background: url('img/pentagrama4.jpg') center/cover no-repeat; /* ruta corregida */
 }
 
-/* Imagen de fondo con poco difuminado */
+/* Imagen de fondo */
 footer::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('../img/pentagrama4.jpg') center/contain no-repeat;
-    filter: blur(1.5px) brightness(0.7);
-    /* menos difuminado y un poco oscura */
+    background: url('img/pentagrama4.jpg') center/cover no-repeat; /* ruta corregida */
+    filter: blur(1.5px) brightness(0.5);
     z-index: -1;
-    background-color: #000;
-    /* relleno negro si sobra espacio */
 }
 
-footer p {
-    font-family: 'Courier New', Courier, monospace;
-    /*Tipo de letra &copy;*/
-    color: #ffffff;
-    text-align: center;
+/* Contenedor principal */
+.footer-container {
+    background: url('img/pentagrama4.jpg') center/cover no-repeat; /* ruta corregida */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 2rem;
 }
 
+/* Lado izquierdo */
+.footer-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
 
+.footer-left p {
+    margin: 0;
+    font-size: 1rem;
+}
 
-.pie a {
-
+.footer-left .init {
+    color: var(--color_yamahaClaro);
     text-decoration: none;
-    cursor: pointer;
-    color: var(--color_yamaha);
-    font-weight: 600;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-left .init:hover {
+    color: #fff;
+}
+
+/* Lado derecho - formulario */
+.footer-right {
+    flex: 1;
+    max-width: 400px;
+    background-color: rgba(20, 20, 20, 0.95);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.footer-right h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--color_yamahaClaro);
+}
+
+.footer-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.footer-right input,
+.footer-right textarea {
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.footer-right input::placeholder,
+.footer-right textarea::placeholder {
+    color: #aaa;
+}
+
+.footer-right button {
+    margin-top: 0.5rem;
+    padding: 0.7rem;
     border: none;
-    /* quita el borde */
-    border-radius: 0;
-    /* quita el borde redondeado */
-    padding: 0;
-    /* quita el relleno */
-    font-size: 0.9rem;
-    transition: color 0.3s;
-    display: inline;
-    /* para que se comporte como texto */
-}
-
-.pie a:hover {
-    color: #272b40;
-    /* solo cambia el color al pasar el ratón */
-    background-color: transparent;
-    /* sin fondo */
-}
-
-@keyframes borderPulse {
-    0% {
-        border-color: #c5c7c9;
-        box-shadow: 0 0 5px #c5c7c9;
-    }
-
-    100% {
-        border-color: #0e0d0e;
-        box-shadow: 0 0 15px #0e0d0e;
-    }
-}
-
-.init {
-    display: inline-block;
-    margin: 20px auto 0 auto;
-    /* margen arriba y auto a los lados para centrar */
-    padding: 10px 20px;
-
-    color: rgb(22, 21, 21);
-    font-weight: 700;
-    font-size: 1.1rem;
-    border-radius: 25px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+    background-color: var(--color_yamahaClaro);
+    color: #000;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Centrar el enlace dentro del footer */
-footer .pie {
-    text-align: center;
+.footer-right button:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
 }
 
-/* Efecto hover para hacerlo más interactivo */
-.init:hover {
-
-    background-color: #6f0546;
-    transform: scale(1.05);
-
+/* Responsive - móvil */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left, .footer-right {
+        max-width: 100%;
+    }
+    .footer-right {
+        margin-top: 2rem;
+    }
 }
 
 
