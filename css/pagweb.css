@@ -1367,33 +1367,38 @@ progress.agenda::-moz-progress-bar {
         display: none;
     }
 }
-
 /* Footer general */
 footer {
+/* background-image: url('../img/imagen_derecha.jpg'); */
+background-repeat: no-repeat;       /* evita que se repita */
+    background-position: left center;  /* alineada a la derecha y centrada verticalmente */
+
+      margin-top: 4rem; /* Ajusta la distancia que quieras */
     position: relative;
     width: 100%;
     min-height: 60px; /* más espacio sobre la sección anterior */
     padding: 2rem 1rem;
-    background-color: #111;
+    /* background-color: #111; */
     color: #fff;
     overflow: hidden;
     font-family: 'Courier New', Courier, monospace;
-   background: url('img/pentagrama4.jpg') center/cover no-repeat; /* ruta corregida */
+  
 }
 
 /* Imagen de fondo */
 footer::before {
+
     content: "";
     position: absolute;
     inset: 0;
-    background: url('img/pentagrama4.jpg') center/cover no-repeat; /* ruta corregida */
+   
     filter: blur(1.5px) brightness(0.5);
     z-index: -1;
 }
 
 /* Contenedor principal */
 .footer-container {
-    background: url('img/pentagrama4.jpg') center/cover no-repeat; /* ruta corregida */
+   
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -1402,33 +1407,23 @@ footer::before {
     gap: 2rem;
 }
 
-/* Lado izquierdo */
+/* Lado izquierdo - imagen/logo */
 .footer-left {
     flex: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    gap: 0.5rem;
+    align-items: center;
 }
 
-.footer-left p {
-    margin: 0;
-    font-size: 1rem;
-}
-
-.footer-left .init {
-    color: var(--color_yamahaClaro);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.footer-left .init:hover {
-    color: #fff;
+.footer-left .footer-logo {
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px; /* opcional */
 }
 
 /* Lado derecho - formulario */
 .footer-right {
+    
     flex: 1;
     max-width: 400px;
     background-color: rgba(20, 20, 20, 0.95);
@@ -1482,6 +1477,17 @@ footer::before {
     transform: translateY(-2px);
 }
 
+/* Footer bottom - derechos reservados */
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
 /* Responsive - móvil */
 @media screen and (max-width: 768px) {
     .footer-container {
@@ -1494,6 +1500,9 @@ footer::before {
     }
     .footer-right {
         margin-top: 2rem;
+    }
+    .footer-left {
+        margin-bottom: 1rem; /* espacio entre logo y formulario */
     }
 }
 

@@ -43,7 +43,7 @@
     <section id="madrid-sax-academy">
         <?php include('componentes/academia.php'); ?>
     </section>
-   
+
     <div id="galeria" class="tabs">
         <button class="tab-btn active" data-tab="imagenes">Imágenes</button>
         <button class="tab-btn" data-tab="videos">Vídeos</button>
@@ -72,28 +72,26 @@
 <footer class="footerprincipal">
     <div class="footer-container">
         <div class="footer-left">
-            <p>&copy; 2025 Todos los derechos reservados Lauraordonez.dev</p>
-            <a class="init" href="#inicio">Volver al inicio</a>
+            <img src="img/imagen_derecha.jpg" alt="Logo" class="footer-logo">
         </div>
 
-        <div id="contacto" class="footer-right">
-            <h3>Contacto</h3>
-            <form action="mailto:carloso96@hotmail.com" method="post" enctype="text/plain">
-                <input type="text" name="nombre" placeholder="Nombre" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea name="mensaje" rows="3" placeholder="Mensaje" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+        <?php include('componentes/contacto.php'); ?>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Todos los derechos reservados Lauraordonez.dev</p>
     </div>
 </footer>
 
 
+
+
+
     <script src="js/sobremi.js"></script>
-     <script src="js/galeria.js"></script>
-      <script src="js/video.js"></script>
+    <script src="js/galeria.js"></script>
+    <script src="js/video.js"></script>
     <script src="js/menuHambur.js"></script>
-   
+
 </body>
 
 </html>
