@@ -1001,7 +1001,7 @@ h2::after {
 /* Texto */
 .academia_texto {
     flex: 1;
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1020,12 +1020,13 @@ h2::after {
     font-size: 1rem;
     /*Une las palabras para que no queden espacios inecesarios*/
     hyphens: auto;
-    line-height: 1.3;
+    line-height: 1.4;
     /* menos espacio entre líneas */
     color: #ffffff;
     margin: 0;
     /* elimina márgenes */
     padding: 0;
+    
     /* elimina padding */
 }
 
