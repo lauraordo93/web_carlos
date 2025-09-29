@@ -181,9 +181,9 @@ nav {
         position: fixed;
         top: 0;
         right: 0;
-        width: 220px;
+        width: 250px;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.90);
+        background-color: rgba(0, 0, 0, 1.90);
         flex-direction: column;
         padding: 4rem 1.5rem 1.5rem;
         gap: 1.5rem;
@@ -981,10 +981,13 @@ h2::after {
     gap: 2rem;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-        /* Limitar el ancho */
-    max-width: 900px; /* puedes ajustar a lo que quieras */
-    width: 90%; /* para que no se desborde en contenedores más pequeños */
-    margin: 0 auto; /* centra la tarjeta horizontalmente */
+    /* Limitar el ancho */
+    max-width: 900px;
+    /* puedes ajustar a lo que quieras */
+    width: 90%;
+    /* para que no se desborde en contenedores más pequeños */
+    margin: 0 auto;
+    /* centra la tarjeta horizontalmente */
 }
 
 
@@ -1016,7 +1019,7 @@ h2::after {
 .academia_texto p {
     font-size: 1rem;
     /*Une las palabras para que no queden espacios inecesarios*/
-     hyphens: auto;
+    hyphens: auto;
     line-height: 1.3;
     /* menos espacio entre líneas */
     color: #ffffff;
@@ -1127,6 +1130,7 @@ h2::after {
 
 
 }
+
 /* --- RESPONSIVE MÓVIL --- */
 @media (max-width: 768px) {
     .academia_class {
@@ -1367,11 +1371,12 @@ progress.agenda::-moz-progress-bar {
         display: none;
     }
 }
+
 /* === FOOTER GENERAL === */
 footer {
     margin-top: 5rem;
     width: 100%;
-    padding: 2rem 1rem;
+    padding: 2rem 0;
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -1387,7 +1392,8 @@ footer {
 /* === IMAGEN IZQUIERDA === */
 .footer-left .footer-logo {
     max-width: 450px;
-    filter: brightness(0.8); /* más oscura */
+    filter: brightness(0.8);
+    /* más oscura */
     border-radius: 8px;
 }
 
@@ -1403,7 +1409,8 @@ footer {
     margin-bottom: 1.5rem;
     font-size: 1.4rem;
     font-weight: bold;
-    color: var(--color_yamahaClaro); /* título en color Yamaha */
+    color: var(--color_yamahaClaro);
+    /* título en color Yamaha */
     text-align: left;
 }
 
@@ -1418,7 +1425,7 @@ footer {
 .footer-right textarea {
     background: transparent;
     border: none;
-    border-bottom: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     padding: 0.8rem 0;
     color: #fff;
     font-size: 1rem;
@@ -1434,7 +1441,8 @@ footer {
 /* Al enfocar: morado */
 .footer-right input:focus,
 .footer-right textarea:focus {
-    border-color: #9b59b6; /* morado elegante */
+    border-color: #9b59b6;
+    /* morado elegante */
     color: var(--color_yamahaClaro);
     outline: none;
 }
@@ -1451,7 +1459,7 @@ footer {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .footer-right button:hover {
@@ -1464,38 +1472,40 @@ footer {
     text-align: center;
     margin-top: 2rem;
     padding-top: 1rem;
-     border-top: 1px solid var(--color_yamaha);
+    border-top: 1px solid var(--color_yamaha);
     /* border-top: 1px solid rgba(255,255,255,0.2); */
     font-size: 0.9rem;
     color: #ccc;
 }
 
 /* === RESPONSIVE === */
-/* === RESPONSIVE === */
+
 @media screen and (max-width: 768px) {
     .footer-container {
         flex-direction: column;
-        align-items: center; /* centra horizontalmente */
+        align-items: center;
         text-align: center;
-        gap: 2rem; /* espacio entre imagen y formulario */
+        gap: 2rem;
     }
 
     .footer-left {
         margin-bottom: 1.5rem;
-        display: flex;
-        justify-content: center; /* centra la imagen */
         width: 100%;
     }
 
     .footer-left .footer-logo {
-        max-width: 80%; /* ocupa la mayor parte del ancho disponible */
-        height: auto;
+        width: 100%;      /* ocupa todo el ancho disponible */
+        max-width: 100%;  /* sin límite en móvil */
+        height: auto;     /* mantiene proporción */
+        padding: 0;       /* pegada a los bordes */
+        display: block;   /* asegura que no tenga espacio extra */
     }
 
     .footer-right {
-        width: 100%; /* que el formulario ocupe todo el ancho */
+        width: 100%;
         max-width: 420px;
         padding: 0 1rem;
+        margin: 0 auto; /* centrado en móviles */
     }
 
     .footer-right h3 {
@@ -1503,11 +1513,11 @@ footer {
     }
 
     .footer-right form {
-        gap: 1.2rem; /* separaciones un poco menores */
+        gap: 1.2rem;
     }
 
     .footer-right button {
-        align-self: center; /* centra el botón */
+        align-self: center;
         padding: 0.8rem 2rem;
         font-size: 0.95rem;
     }
@@ -1518,6 +1528,7 @@ footer {
         padding-top: 0.8rem;
     }
 }
+
 
 
 
