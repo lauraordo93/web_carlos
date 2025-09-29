@@ -47,3 +47,4 @@ echo '<button class="nav-toggle" aria-label="Abrir menú">
       </button>';
 
 echo '</div>';
+?>
