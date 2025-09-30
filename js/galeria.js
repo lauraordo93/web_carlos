@@ -5,60 +5,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next-img');
 
     let indiceActual = 0;
-    const visibles = 8; // Número máximo de miniaturas visibles al principio
-
-    // Inicial: ocultar todas las miniaturas excepto las primeras 'visibles'
-    miniaturas.forEach((img, i) => {
-        if (i >= visibles) img.style.display = 'none';
-    });
+    const visibles = 8;
 
     function mostrarImagen(indice) {
+        indiceActual = indice;
         // Cambiar imagen grande
-        imagenGrande.src = miniaturas[indice].src;
+        imagenGrande.src = miniaturas[indiceActual].src;
 
         // Resaltar miniatura activa
         miniaturas.forEach(img => img.classList.remove('active'));
-        miniaturas[indice].classList.add('active');
-        indiceActual = indice;
+        miniaturas[indiceActual].classList.add('active');
 
-        // Mostrar un bloque de miniaturas alrededor de la activa
-        miniaturas.forEach((img, i) => {
-            if (i >= indiceActual && i < indiceActual + visibles) {
-                img.style.display = 'inline-block';
-            } else {
-                img.style.display = 'none';
-            }
-        });
-
-        // Opcional: desplazar miniaturas con translateX si quieres scroll
-        actualizarMiniaturas();
+        // Mostrar siempre 8 miniaturas ciclando
+        miniaturas.forEach(img => img.style.display = 'none');
+        for (let j = 0; j < visibles; j++) {
+            const mostrarIndice = (indiceActual + j) % miniaturas.length;
+            miniaturas[mostrarIndice].style.display = 'inline-block';
+        }
     }
 
-    function actualizarMiniaturas() {
-        const miniaturasContainer = document.querySelector('.galeria-miniaturas');
-        const miniaturasInicio = indiceActual;
-        const offset = -miniaturasInicio * (miniaturas[0].offsetWidth + 10); // 10px de gap
-        miniaturasContainer.style.transform = `translateX(${offset}px)`;
-    }
-
-    // Hacer clic en una miniatura
-    miniaturas.forEach((img, i) => {
-        img.addEventListener('click', () => mostrarImagen(i));
+    // Flecha siguiente
+    nextBtn.addEventListener('click', () => {
+        const nuevoIndice = (indiceActual + 1) % miniaturas.length;
+        mostrarImagen(nuevoIndice);
     });
 
     // Flecha anterior
     prevBtn.addEventListener('click', () => {
-        let nuevoIndice = indiceActual - 1;
-        if (nuevoIndice < 0) nuevoIndice = miniaturas.length - 1;
+        const nuevoIndice = (indiceActual - 1 + miniaturas.length) % miniaturas.length;
         mostrarImagen(nuevoIndice);
     });
 
-    // Flecha siguiente
-    nextBtn.addEventListener('click', () => {
-        let nuevoIndice = (indiceActual + 1) % miniaturas.length;
-        mostrarImagen(nuevoIndice);
+    // Clic en miniatura
+    miniaturas.forEach((img, i) => {
+        img.addEventListener('click', () => mostrarImagen(i));
     });
 
-    // Inicial: mostrar la primera imagen
+    // Inicial
     mostrarImagen(0);
 });
