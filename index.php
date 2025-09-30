@@ -86,7 +86,7 @@
 
 
 
-
+  <script src="js/gal_vieBTN.js"></script>
     <script src="js/sobremi.js"></script>
     <script src="js/galeria.js"></script>
     <script src="js/video.js"></script>
