@@ -1,13 +1,4 @@
 <?php
-// Importar clases de PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Incluir archivos de PHPMailer moderno
-require __DIR__ . '/../phpmailer/src/Exception.php';
-require __DIR__ . '/../phpmailer/src/PHPMailer.php';
-require __DIR__ . '/../phpmailer/src/SMTP.php';
-
 // Inicializar variables
 $nombre = '';
 $email = '';
@@ -15,49 +6,46 @@ $mensaje = '';
 $success_msg = '';
 $error_msg = '';
 
-// Leer configuración desde .env
-$config = parse_ini_file(__DIR__ . '/../.env');
-if (!$config) exit("❌ No se pudo leer el archivo .env");
+include_once(__DIR__ . '/../config/db.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contacto_submit'])) {
     $nombre  = isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : '';
     $email   = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
     $mensaje = isset($_POST['mensaje']) ? htmlspecialchars($_POST['mensaje']) : '';
 
-    $mail = new PHPMailer(true);
+    // 1️⃣ Guardar en la base de datos
+    $sql = "INSERT INTO contacto (nombre, email, mensaje) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $nombre, $email, $mensaje);
+    $stmt->execute();
+    $stmt->close();
 
-    try {
-        // Configuración SMTP
-        $mail->isSMTP();
-        $mail->Host       = $config['SMTP_HOST'];
-        $mail->SMTPAuth   = true;
-        $mail->Username   = $config['SMTP_USER'];
-        $mail->Password   = $config['SMTP_PASS'];
-        $mail->SMTPSecure = 'tls'; // o PHPMailer::ENCRYPTION_STARTTLS si tu versión lo soporta
-        $mail->Port       = $config['SMTP_PORT'];
+    // 2️⃣ Enviar a Formspree
+    $formspree_url = "https://formspree.io/f/meorgrrz"; // tu URL de Formspree
+    $data = [
+        'name' => $nombre,
+        'email' => $email,
+        'message' => $mensaje
+    ];
 
-        // Remitente y destinatario
-        $mail->setFrom($config['SMTP_USER'], 'Web Contacto');
-        $mail->addAddress('lauraordo93@hotmail.com'); // destinatario final
-        $mail->addReplyTo($email, $nombre);
+    $options = [
+        'http' => [
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data),
+        ],
+    ];
+    $context  = stream_context_create($options);
+    $result = file_get_contents($formspree_url, false, $context);
 
-        // Contenido del correo
-        $mail->isHTML(false);
-        $mail->Subject = 'Nuevo mensaje desde la web';
-        $mail->Body    = "Has recibido un nuevo mensaje:\n\nNombre: $nombre\nEmail: $email\n\nMensaje:\n$mensaje";
-
-        // Enviar
-        $mail->send();
+    if ($result !== false) {
         $success_msg = "✅ Mensaje enviado correctamente";
         $nombre = $email = $mensaje = ''; // limpiar campos
-    } catch (Exception $e) {
-        $error_msg = "❌ Hubo un error al enviar el correo: " . $e->getMessage();
+    } else {
+        $error_msg = "❌ Hubo un error al enviar el mensaje";
     }
 }
 ?>
-
-
-
 
 <div id="contacto" class="footer-right">
     <h3>Contacto</h3>
