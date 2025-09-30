@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contacto_submit'])) {
     $stmt->close();
 
     // 2️⃣ Enviar a Formspree
-    $formspree_url = "https://formspree.io/f/meorgrrz"; // tu URL de Formspree
+    $formspree_url = "https://formspree.io/f/meorgrrz"; //  URL correo c de Formspree
     $data = [
         'name' => $nombre,
         'email' => $email,

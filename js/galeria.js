@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next-img');
 
     let indiceActual = 0;
-    const visibles = 8; // número máximo de miniaturas visibles al principio
+    const visibles = 8; // Número máximo de miniaturas visibles al principio
 
-    // Inicial: ocultar todas las miniaturas excepto las primeras 8
+    // Inicial: ocultar todas las miniaturas excepto las primeras 'visibles'
     miniaturas.forEach((img, i) => {
         if (i >= visibles) img.style.display = 'none';
     });
@@ -21,22 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
         miniaturas[indice].classList.add('active');
         indiceActual = indice;
 
-        // Si la miniatura siguiente no está visible, hacerla visible
-        const siguiente = indice + 1;
-        if (siguiente < miniaturas.length && miniaturas[siguiente].style.display === 'none') {
-            miniaturas[siguiente].style.display = 'inline-block';
-        }
+        // Mostrar un bloque de miniaturas alrededor de la activa
+        miniaturas.forEach((img, i) => {
+            if (i >= indiceActual && i < indiceActual + visibles) {
+                img.style.display = 'inline-block';
+            } else {
+                img.style.display = 'none';
+            }
+        });
 
-        // Ajustar scroll horizontal si quieres (opcional)
-        // Con display: none, el scroll no afecta, así que esto es solo si quieres mover la fila
-        // actualizarMiniaturas();
+        // Opcional: desplazar miniaturas con translateX si quieres scroll
+        actualizarMiniaturas();
     }
 
-    // Función opcional para mover la fila si quieres usar translateX
     function actualizarMiniaturas() {
         const miniaturasContainer = document.querySelector('.galeria-miniaturas');
-        const miniaturasInicio = Math.max(0, indiceActual - visibles + 1);
-        const offset = -miniaturasInicio * (miniaturas[0].offsetWidth + 10); // gap = 10px
+        const miniaturasInicio = indiceActual;
+        const offset = -miniaturasInicio * (miniaturas[0].offsetWidth + 10); // 10px de gap
         miniaturasContainer.style.transform = `translateX(${offset}px)`;
     }
 
