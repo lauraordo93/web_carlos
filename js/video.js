@@ -1,33 +1,29 @@
-let indiceVideo = 0;
-const miniaturas = document.querySelectorAll(".miniatura");
+const miniaturasVideo = Array.from(document.querySelectorAll(".video-miniaturas .miniatura"));
 const videoGrande = document.getElementById("video-grande");
-const tituloGrande = document.getElementById("video-titulo");
-const contenidoGrande = document.getElementById("video-contenido");
-const prevBtn = document.querySelector(".prev-video");
-const nextBtn = document.querySelector(".next-video");
+const prevVideoBtn = document.querySelector(".prev-video");
+const nextVideoBtn = document.querySelector(".next-video");
+
+let indiceVideo = 0;
 
 function mostrarVideo(indice) {
-    const v = miniaturas[indice];
+    const v = miniaturasVideo[indice];
     videoGrande.src = v.dataset.url;
-    tituloGrande.textContent = v.dataset.titulo;
-    contenidoGrande.textContent = `${v.dataset.contenido} (Año ${v.dataset.anio})`;
-    indiceVideo = indice;
+    document.getElementById("video-titulo").textContent = v.dataset.titulo;
+    document.getElementById("video-contenido").textContent = `${v.dataset.contenido} (Año ${v.dataset.anio})`;
 
     // Miniatura activa
-    miniaturas.forEach(m => m.classList.remove("activo"));
+    miniaturasVideo.forEach(m => m.classList.remove("activo"));
     v.classList.add("activo");
+
+    indiceVideo = indice;
 }
 
-// Miniaturas clicables
-miniaturas.forEach((v, idx) => v.addEventListener("click", () => mostrarVideo(idx)));
+// Clic en miniaturas
+miniaturasVideo.forEach((v, i) => v.addEventListener("click", () => mostrarVideo(i)));
 
 // Flechas
-prevBtn.addEventListener("click", () => {
-    indiceVideo = (indiceVideo - 1 + miniaturas.length) % miniaturas.length;
-    mostrarVideo(indiceVideo);
-});
+prevVideoBtn.addEventListener("click", () => mostrarVideo((indiceVideo - 1 + miniaturasVideo.length) % miniaturasVideo.length));
+nextVideoBtn.addEventListener("click", () => mostrarVideo((indiceVideo + 1) % miniaturasVideo.length));
 
-nextBtn.addEventListener("click", () => {
-    indiceVideo = (indiceVideo + 1) % miniaturas.length;
-    mostrarVideo(indiceVideo);
-});
+// Mostrar primer video
+mostrarVideo(0);

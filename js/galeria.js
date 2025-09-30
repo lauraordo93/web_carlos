@@ -1,32 +1,46 @@
-// ---- Cambio de pestañas ----
-const tabBtns = document.querySelectorAll(".tab-btn");
-const galerias = document.querySelectorAll(".galeria");
+document.addEventListener('DOMContentLoaded', () => {
+    const imagenGrande = document.getElementById('imagen-grande');
+    const miniaturas = document.querySelectorAll('.galeria-miniaturas img');
+    const prevBtn = document.querySelector('.prev-img');
+    const nextBtn = document.querySelector('.next-img');
 
-tabBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        // Quitar active a todos los botones y galerías
-        tabBtns.forEach(b => b.classList.remove("active"));
-        galerias.forEach(g => g.classList.remove("active"));
+    let indiceActual = 0;
+    const visibles = 8;
 
-        // Activar la pestaña y galería seleccionada
-        btn.classList.add("active");
-        const tab = btn.dataset.tab;
-        document.getElementById(tab).classList.add("active");
+    function mostrarImagen(indice) {
+        indiceActual = indice;
+        // Cambiar imagen grande
+        imagenGrande.src = miniaturas[indiceActual].src;
+
+        // Resaltar miniatura activa
+        miniaturas.forEach(img => img.classList.remove('active'));
+        miniaturas[indiceActual].classList.add('active');
+
+        // Mostrar siempre 8 miniaturas ciclando
+        miniaturas.forEach(img => img.style.display = 'none');
+        for (let j = 0; j < visibles; j++) {
+            const mostrarIndice = (indiceActual + j) % miniaturas.length;
+            miniaturas[mostrarIndice].style.display = 'inline-block';
+        }
+    }
+
+    // Flecha siguiente
+    nextBtn.addEventListener('click', () => {
+        const nuevoIndice = (indiceActual + 1) % miniaturas.length;
+        mostrarImagen(nuevoIndice);
     });
+
+    // Flecha anterior
+    prevBtn.addEventListener('click', () => {
+        const nuevoIndice = (indiceActual - 1 + miniaturas.length) % miniaturas.length;
+        mostrarImagen(nuevoIndice);
+    });
+
+    // Clic en miniatura
+    miniaturas.forEach((img, i) => {
+        img.addEventListener('click', () => mostrarImagen(i));
+    });
+
+    // Inicial
+    mostrarImagen(0);
 });
-
-// ---- Función para miniaturas de imágenes ----
-function mostrarImagen(elem) {
-    const visor = elem.closest(".galeria").querySelector("#imagen-grande");
-    if (visor) {
-        visor.src = elem.src;
-    }
-}
-
-// ---- Función para miniaturas de vídeos ----
-function mostrarVideo(url) {
-    const visor = document.getElementById("video-grande");
-    if (visor) {
-        visor.src = url;
-    }
-}
