@@ -782,7 +782,7 @@ h2::after {
 /* Video grande */
 #video-grande {
     width: 80%;
-    max-width: 640px;
+    max-width: 540px;
     aspect-ratio: 16/9;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -807,11 +807,14 @@ h2::after {
 
 
 /* Información del video */
-.video-info { 
-    text-align: center; 
+.video-info p { 
+    text-align:  center; 
     color: #eee; 
 }
-
+.video-info h3{
+    text-align: center;
+    color: var(--color_yamaha);
+}
 /* Miniaturas en línea debajo del video sin scrollbar */
 .video-miniaturas {
     display: flex;
@@ -841,7 +844,7 @@ h2::after {
 }
 
 .video-miniaturas .miniatura.activo {
-    border: 3px solid var(--color_yamaha, #4a00e0);
+     border: 3px solid #4b4a4a;
     transform: scale(1.1);
 }
 
@@ -849,16 +852,6 @@ h2::after {
 .video-miniaturas::-webkit-scrollbar {
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -875,7 +868,7 @@ h2::after {
 }
 
 #imagen-grande {
-    width: 100%;
+    width: 50%;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
@@ -887,21 +880,20 @@ h2::after {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
+   background-color: #000;
     color: #fff;
     border: none;
-    cursor: pointer;
-    padding: 12px;
-    font-size: 2rem;
     border-radius: 50%;
+    font-size: 2rem;
+    padding: 0.5rem 0.7rem;
+    cursor: pointer;
     z-index: 10;
 }
-
-.prev-img { left: 10px; }
-.next-img { right: 10px; }
+.prev-img { left: -25px; }
+.next-img { right: -25px; }
 
 .prev-img:hover, .next-img:hover {
-    background-color: rgba(0,0,0,0.7);
+    /* background-color: rgba(0,0,0,0.7); */
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -926,9 +918,9 @@ h2::after {
 /* Miniaturas individuales */
 .galeria-miniaturas img {
     flex: 0 0 auto;
-    width: 140px;
+    width: 100px;
     height: 100px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
@@ -941,7 +933,7 @@ h2::after {
 
 /* Miniatura activa */
 .galeria-miniaturas img.active {
-    border: 3px solid #ced3d5;
+    border: 3px solid #4b4a4a;
     transform: scale(1.1);
 }
 
@@ -957,6 +949,295 @@ h2::after {
 .video.active {
     display: block;
 }
+
+/* =======================
+  Responsive CSS
+======================= */
+
+/* --- Ajustes para Móviles Pequeños (Hasta 576px) --- */
+@media (max-width: 576px) {
+    
+    /* --- Pestañas de Navegación --- */
+    .tabs {
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .tab-btn {
+        padding: 10px 18px; /* Reducir el padding de los botones */
+        font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+        flex-grow: 1; /* Permitir que los botones crezcan para ocupar el espacio */
+        min-width: unset; /* Eliminar posibles anchos mínimos */
+    }
+
+    /* --- Visor de Video --- */
+    .video-visor {
+        margin: 1rem auto;
+        padding: 0 10px; /* Añadir un poco de padding lateral */
+    }
+
+    /* Video grande: aumentar el ancho, quitar espacio para flechas */
+    #video-grande {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 8px;
+    }
+    
+    /* Mover las flechas dentro del video-container para que no desborden */
+    .prev-video { left: 5px; padding: 0.3rem 0.5rem; font-size: 1.5rem; }
+    .next-video { right: 5px; padding: 0.3rem 0.5rem; font-size: 1.5rem; }
+    
+    /* Info del video */
+    .video-info h3, .video-info p {
+        font-size: 0.9rem;
+    }
+
+    /* Miniaturas de Video */
+    .video-miniaturas {
+        /* Habilitar el scroll horizontal para evitar desbordamiento */
+        overflow-x: auto; 
+        justify-content: flex-start; /* Alinear a la izquierda para el scroll */
+        padding-bottom: 10px; /* Espacio para el scrollbar (si se muestra) */
+    }
+    
+    .video-miniaturas .miniatura {
+        width: 110px; /* Reducir el tamaño de la miniatura */
+        height: 60px;
+        border-radius: 6px;
+    }
+    
+    .video-miniaturas .miniatura.activo {
+        transform: scale(1.0); /* Reducir la escala al activar */
+        border: 2px solid #4b4a4a;
+    }
+}
+   /*GALERÍA AJUSTADA --- */
+
+    /* =======================
+       Contenedor Imagen Grande
+       ======================= */
+    .imagen-container {
+        /* Asegura que ocupe todo el ancho disponible pero con padding */
+        max-width: 100%;
+        padding: 0 10px; 
+    }
+    
+    #imagen-grande {
+       
+        /* width: 100% de su contenedor (max-width: 100% de .imagen-container) */
+        width: 100%; 
+        /* Para asegurar que no se estire demasiado si está dentro de un contenedor más pequeño */
+        max-width: 300px; 
+        height: auto;
+        border-radius: 8px;
+    }
+    
+    /* Mover las flechas de imagen dentro del imagen-container */
+    .prev-img { 
+        left: 5px; 
+        padding: 0.3rem 0.5rem; 
+        font-size: 1.5rem; 
+        /* Aseguramos que el fondo no sea transparente para que se vean bien */
+        background-color: rgba(0, 0, 0, 0.6); 
+    }
+    .next-img { 
+        right: 5px; 
+        padding: 0.3rem 0.5rem; 
+        font-size: 1.5rem; 
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* =======================
+       Miniaturas de Galería
+       ======================= */
+    .miniaturas-container {
+        /* Quitamos el justify-content: center para que el scroll horizontal funcione mejor desde la izquierda */
+        justify-content: flex-start;
+        overflow: hidden; 
+    }
+    
+    .galeria-miniaturas {
+        /* Habilitar el scroll horizontal */
+        overflow-x: auto; 
+        justify-content: flex-start; /* Asegura que las miniaturas empiecen desde la izquierda */
+        padding-bottom: 10px; /* Espacio para el scrollbar */
+        gap: 8px;
+        /* IMPORTANTE: para scroll en móviles */
+        -webkit-overflow-scrolling: touch; 
+    }
+    
+    /* Ocultar la barra de desplazamiento en navegadores Webkit (opcional, si se prefiere invisible) */
+    .galeria-miniaturas::-webkit-scrollbar {
+        display: none;
+    }
+
+    .galeria-miniaturas img {
+        /* Aumentar el tamaño de la miniatura a algo visible pero que permita scroll */
+         width: 60px !important; 
+    height: 60px !important;
+        flex: 0 0 auto; /* Esencial para que las miniaturas no se encojan */
+        object-fit: cover; /* Cambiado a cover para que rellenen el espacio */
+        border-radius: 4px;
+    }
+
+    .galeria-miniaturas img.active {
+        /* Reducir un poco el efecto de escala en móviles */
+        transform: scale(1.05);
+        border: 2px solid #4b4a4a;
+    }
+
+/* --- Ajustes para Tablets y Móviles Grandes (De 577px a 768px) --- */
+@media (min-width: 577px) and (max-width: 768px) {
+    
+    /* --- Pestañas de Navegación --- */
+    .tabs {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .tab-btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+
+    /* --- Visor de Video --- */
+    .video-visor {
+        max-width: 650px;
+    }
+
+    /* Ajustar las flechas ligeramente */
+    .prev-video { left: -15px; padding: 0.4rem 0.6rem; font-size: 1.8rem; }
+    .next-video { right: -15px; padding: 0.4rem 0.6rem; font-size: 1.8rem; }
+
+    /* Miniaturas de Video */
+    .video-miniaturas {
+        /* Si hay muchas miniaturas, considera el scroll horizontal */
+        overflow-x: auto;
+        justify-content: flex-start; 
+    }
+    
+    .video-miniaturas .miniatura {
+        width: 120px; 
+        height: 70px;
+    }
+
+    /* --- Galería de Imágenes --- */
+   /* Asegúrate de que esto está en tu CSS general, o en la Media Query */
+.miniaturas-container {
+    display: flex;
+    justify-content: center; /* ESTO ES LO CLAVE PARA CENTRAR EL GRUPO DE MINIATURAS */
+    width: 100%; /* Opcional, si no lo tienes ya */
+    overflow: hidden; /* Evita que el scroll horizontal rompa el centrado */
+}
+
+.galeria-miniaturas {
+    /* Este es el contenedor FLEX que agrupa las imágenes */
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Importante para que salten de línea en móvil */
+}
+
+.galeria-miniaturas img {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 auto;
+    /* ... */
+}
+    #imagen-grande {
+        width: 85%; 
+    }
+    
+    /* Ajustar las flechas de imagen ligeramente */
+    .prev-img { left: 200px; padding: 0.4rem 0.6rem; font-size: 1.8rem; }
+    .next-img { right: 200px; padding: 0.4rem 0.6rem; font-size: 1.8rem; }
+
+  
+}
+
+/* --- Ajustes para Tablets Horizontales (De 769px a 992px) --- */
+/* Esta media query se puede usar para refinar, pero a menudo los estilos por defecto son suficientes. */
+@media (min-width: 769px) and (max-width: 992px) {
+    
+    /* --- Visor de Video --- */
+    .video-visor {
+        max-width: 750px;
+    }
+    
+    /* El diseño por defecto parece funcionar bien, quizás solo asegurar las flechas */
+    .prev-video { left: -20px; }
+    .next-video { right: -20px; }
+
+    /* --- Galería de Imágenes --- */
+    .imagen-container {
+        max-width: 550px;
+    }
+    
+    .prev-img { left: -20px; }
+    .next-img { right: -20px; }
+}
+
+/* --- Mejorar la experiencia de scroll en dispositivos táctiles --- */
+/* Esto asegura que las miniaturas se puedan desplazar de forma más natural en móviles/tablets */
+.video-miniaturas,
+.galeria-miniaturas {
+    -webkit-overflow-scrolling: touch;
+}
+/* --- Ajustes para Tablets Grandes / iPad Pro (Max 1366px) --- */
+@media (min-width: 993px) and (max-width: 1366px) {
+    
+    /* Imagen Principal (Asegurando buen tamaño) */
+    .imagen-container {
+        /* Permite que el contenedor crezca, pero lo centra en la página */
+        max-width: 700px; /* Ajusta este valor al tamaño deseado para la imagen grande */
+        margin: 0 auto; /* CENTRA EL CONTENEDOR PRINCIPAL */
+        padding: 0;
+    }
+    
+    #imagen-grande {
+        width: 100%; 
+        max-width: 400px; /* Tamaño máximo de la imagen dentro del contenedor */
+        /* ... otros estilos ... */
+    }
+
+    /* Miniaturas de Galería (Asegurando el centrado) */
+    .miniaturas-container {
+        /* CLAVE 1: Usa flexbox en el contenedor padre */
+        display: flex;
+        /* CLAVE 2: Centra el contenido (el div .galeria-miniaturas) */
+        justify-content: center; 
+        width: 100%;
+        overflow: hidden; 
+    }
+
+    .galeria-miniaturas {
+        /* CLAVE 3: Permite que salten de línea si hay muchas */
+        flex-wrap: wrap; 
+        /* Si quieres un tamaño específico para las miniaturas en iPad Pro: */
+        gap: 12px;
+    }
+
+    .galeria-miniaturas img {
+        /* Ajustar el tamaño a algo adecuado para una tablet grande */
+        width: 100px !important;
+        height: 100px !important;
+        flex: 0 0 auto;
+    }
+    
+    /* Flechas: Se mantienen fuera para un diseño de escritorio/tablet clásico */
+    .prev-img { left: 100px; } 
+    .next-img { right: 100px; }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* --- Sección Academia --- */
