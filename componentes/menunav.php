@@ -30,7 +30,8 @@ if ($result && $result->num_rows > 0) {
 
         if (isset($ids_personalizados[$nombre])) {
             $id = $ids_personalizados[$nombre];
-            echo '<li><a href="#' . htmlspecialchars($id) . '">' . htmlspecialchars($nombre) . '</a></li>';
+            //Cambio para que funciona con legal
+           echo '<li><a href="index.php#' . htmlspecialchars($id) . '">' . htmlspecialchars($nombre) . '</a></li>';
         }
     }
 } else {

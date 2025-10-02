@@ -1590,6 +1590,7 @@ h2::after {
     border-radius: 1rem;
     padding: 1.8rem 2.2rem;
     margin-bottom: 5rem;
+  
 
     /* separación entre tarjetas */
     max-width: 1200px;
@@ -1782,14 +1783,22 @@ progress.agenda::-moz-progress-bar {
 }
 
 /* === FOOTER GENERAL === */
-footer {
+.copyright-line {
     margin-top: 5rem;
     width: 100%;
-    padding: 2rem 0;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
+    padding: 0.5rem 0;
+    color: #626262;
+   
 }
+.footerprincipal {
+  /* Añade espacio dentro de la parte superior del footer */
+  padding-top: 50px; 
+  /* Puedes añadir también padding-bottom si lo necesitas */
+  padding-bottom: 30px; 
+  /* O usar la propiedad abreviada para todos los lados: */
+  /* padding: 50px 0 30px 0; /* Arriba | Derecha | Abajo | Izquierda */
 
+}
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -2230,4 +2239,101 @@ footer {
     .redes-sociales-movil {
         display: none;
     }
+}
+/*ENLACES LEGAL*/
+/* 1. ESTILO PRINCIPAL DEL FOOTER */
+.footer-bottom {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Color base del texto */
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* 2. LÍNEA DEL COPYRIGHT */
+.copyright-line {
+    /* Nos aseguramos de que esto ocupe su propia línea */
+    display: block; 
+    margin: 0; /* Quitamos márgenes por defecto */
+    padding-bottom: 10px; /* Espacio entre el copyright y los enlaces */
+}
+
+/* 3. CONTENEDOR DE ENLACES (ESTARÁ DEBAJO) */
+.enlaces-legales-container {
+    /* Por ser un <div> ya es de bloque, pero lo especificamos */
+    display: block; 
+    margin-top: 5px; /* Pequeño espacio extra si es necesario */
+}
+
+/* 4. ESTILO DE LOS ENLACES */
+.enlaces-legales-container a {
+    font-size: 16px;
+    color: var(--color_yamahaClaro); /* Color azul brillante (puedes cambiarlo) */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+/* 5. EFECTO HOVER */
+.enlaces-legales-container a:hover {
+    color: var(--color_yamaha);
+    text-decoration: underline;
+}
+
+/* 6. ESTILO DEL SEPARADOR (|) */
+/* El separador está en el HTML, lo estilizamos para que se vea bien */
+.enlaces-legales-container {
+    color: #666; /* El separador en sí tendrá un color gris tenue */
+}
+/*LEGAL*/
+/* --- ESTILOS ESPECÍFICOS PARA PÁGINAS LEGALES --- */
+
+.texto-legal {
+    /* Centra el bloque .texto-legal en el contenedor de 900px */
+    margin: 30px auto; 
+    padding: 20px;
+    background-color: #111;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+}
+
+.texto-legal p,
+.texto-legal li {
+    /* APLICA EL COLOR BLANCO A PÁRRAFOS Y LIST ITEMS */
+    color: #fff;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.texto-legal ul {
+    /* SOLUCIÓN DE ALINEACIÓN: Esto quita el sangrado por defecto del navegador */
+    list-style-position: inside; /* Pone el punto del listado dentro del item */
+    padding-left: 0;           /* Quita el padding del UL */
+    margin-left: 0;            /* Quita el margen del UL */
+    margin-bottom: 20px;
+}
+
+.texto-legal h2 {
+    /* Estilo para los subtítulos */
+    color: var(--color_yamahaClaro); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.texto-legal li strong {
+    color: var(--color_blancoRoto); 
+}
+.imagen-logo {
+  display: block; /* La convierte en un elemento de bloque para que auto-margin funcione */
+  margin-left: auto; /* Margen automático a la izquierda */
+  margin-right: auto; /* Margen automático a la derecha */
+
+   margin-top: 50px; /* ⬅️ Añade un margen POSITIVO para separarla de ARRIBA */
+  margin-bottom: -105px; /* ⬅️ Mantienes tu margen NEGATIVO para 'pegarla' a lo de ABAJO */
+  /* O de forma abreviada: margin: 0 auto; */
+  width: 100%; /* Opcional: define un ancho máximo para que se centre mejor */
+  max-width: 500px; /* Opcional: asegura que no sea demasiado grande */
 }

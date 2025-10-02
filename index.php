@@ -83,12 +83,17 @@
         <?php include('componentes/contacto.php'); ?>
     </div>
 
-    <div class="footer-bottom">
-        <p>&copy; 2025 Todos los derechos reservados Lauraordonez.dev</p>
+   <div class="footer-bottom">
+    <p class="copyright-line">
+        &copy; 2025 Todos los derechos reservados Lauraordonez.dev
+    </p>
+    <div class="enlaces-legales-container">
+        <a href="legales.php?doc=aviso_legal">Aviso Legal</a> | 
+        <a href="legales.php?doc=privacidad">Política de Privacidad</a> | 
+        <a href="legales.php?doc=cookies">Política de Cookies</a>
     </div>
+</div>
 </footer>
-
-
 
 
   <script src="js/gal_vieBTN.js"></script>
