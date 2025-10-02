@@ -3,7 +3,13 @@ include_once(__DIR__ . '/../config/db.php');
 
 function transformarYoutubeEmbed($url)
 {
-    parse_str(parse_url($url, PHP_URL_QUERY), $params);
+    $params = [];
+    $query = parse_url($url, PHP_URL_QUERY);
+
+    if ($query) {  // si $query no es null ni vacío
+        parse_str($query, $params);
+    }
+
     return isset($params['v']) ? 'https://www.youtube.com/embed/' . $params['v'] : $url;
 }
 

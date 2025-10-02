@@ -785,15 +785,16 @@ h2::after {
     max-width: 540px;
     aspect-ratio: 16/9;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Flechas */
-.prev-video, .next-video {
+.prev-video,
+.next-video {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -802,29 +803,39 @@ h2::after {
     cursor: pointer;
     z-index: 10;
 }
-.prev-video { left: -25px; }
-.next-video { right: -25px; }
+
+.prev-video {
+    left: -25px;
+}
+
+.next-video {
+    right: -25px;
+}
 
 
 /* Información del video */
-.video-info p { 
-    text-align:  center; 
-    color: #eee; 
+.video-info p {
+    text-align: center;
+    color: #eee;
 }
-.video-info h3{
+
+.video-info h3 {
     text-align: center;
     color: var(--color_yamaha);
 }
+
 /* Miniaturas en línea debajo del video sin scrollbar */
 .video-miniaturas {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 1rem;
-    flex-wrap: nowrap; /* todas en línea */
+    flex-wrap: nowrap;
+    /* todas en línea */
     width: 100%;
     padding-bottom: 5px;
-    overflow: visible; /* quitar scrollbar */
+    overflow: visible;
+    /* quitar scrollbar */
 }
 
 /* Miniaturas individuales */
@@ -840,11 +851,11 @@ h2::after {
 
 .video-miniaturas .miniatura:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
 .video-miniaturas .miniatura.activo {
-     border: 3px solid #4b4a4a;
+    border: 3px solid #4b4a4a;
     transform: scale(1.1);
 }
 
@@ -868,19 +879,20 @@ h2::after {
 }
 
 #imagen-grande {
-    width: 50%;
-    height: auto;
+    width: 450px !important;
+    height: auto !important;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s, opacity 0.3s;
 }
 
 /* Botones prev/next sobre la imagen grande */
-.prev-img, .next-img {
+.prev-img,
+.next-img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-   background-color: #000;
+    background-color: #000;
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -889,10 +901,17 @@ h2::after {
     cursor: pointer;
     z-index: 10;
 }
-.prev-img { left: -25px; }
-.next-img { right: -25px; }
 
-.prev-img:hover, .next-img:hover {
+.prev-img {
+    left: -25px;
+}
+
+.next-img {
+    right: -25px;
+}
+
+.prev-img:hover,
+.next-img:hover {
     /* background-color: rgba(0,0,0,0.7); */
     transform: translateY(-50%) scale(1.1);
 }
@@ -903,9 +922,12 @@ h2::after {
 .miniaturas-container {
     margin-top: 1rem;
     display: flex;
-    justify-content: center; /* centra las miniaturas visibles */
-    overflow: hidden; /* oculta las miniaturas fuera del rango visible */
-    width: 100%; /* contenedor ocupa todo el ancho disponible */
+    justify-content: center;
+    /* centra las miniaturas visibles */
+    overflow: hidden;
+    /* oculta las miniaturas fuera del rango visible */
+    width: 100%;
+    /* contenedor ocupa todo el ancho disponible */
 }
 
 .galeria-miniaturas {
@@ -928,7 +950,7 @@ h2::after {
 
 .galeria-miniaturas img:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Miniatura activa */
@@ -956,7 +978,7 @@ h2::after {
 
 /* --- Ajustes para Móviles Pequeños (Hasta 576px) --- */
 @media (max-width: 576px) {
-    
+
     /* --- Pestañas de Navegación --- */
     .tabs {
         gap: 8px;
@@ -964,16 +986,20 @@ h2::after {
     }
 
     .tab-btn {
-        padding: 10px 18px; /* Reducir el padding de los botones */
-        font-size: 0.9rem; /* Reducir el tamaño de la fuente */
-        flex-grow: 1; /* Permitir que los botones crezcan para ocupar el espacio */
-        min-width: unset; /* Eliminar posibles anchos mínimos */
+        padding: 10px 18px;
+        /* Reducir el padding de los botones */
+        font-size: 0.9rem;
+        /* Reducir el tamaño de la fuente */
+        /* flex-grow: 1; Permitir que los botones crezcan para ocupar el espacio */
+        min-width: unset;
+        /* Eliminar posibles anchos mínimos */
     }
 
     /* --- Visor de Video --- */
     .video-visor {
         margin: 1rem auto;
-        padding: 0 10px; /* Añadir un poco de padding lateral */
+        padding: 0 10px;
+        /* Añadir un poco de padding lateral */
     }
 
     /* Video grande: aumentar el ancho, quitar espacio para flechas */
@@ -982,36 +1008,50 @@ h2::after {
         max-width: 100%;
         border-radius: 8px;
     }
-    
+
     /* Mover las flechas dentro del video-container para que no desborden */
-    .prev-video { left: 5px; padding: 0.3rem 0.5rem; font-size: 1.5rem; }
-    .next-video { right: 5px; padding: 0.3rem 0.5rem; font-size: 1.5rem; }
-    
+    .prev-video {
+        left: 5px;
+        padding: 0.3rem 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .next-video {
+        right: 5px;
+        padding: 0.3rem 0.5rem;
+        font-size: 1.5rem;
+    }
+
     /* Info del video */
-    .video-info h3, .video-info p {
+    .video-info h3,
+    .video-info p {
         font-size: 0.9rem;
     }
 
     /* Miniaturas de Video */
     .video-miniaturas {
         /* Habilitar el scroll horizontal para evitar desbordamiento */
-        overflow-x: auto; 
-        justify-content: flex-start; /* Alinear a la izquierda para el scroll */
-        padding-bottom: 10px; /* Espacio para el scrollbar (si se muestra) */
+        overflow-x: auto;
+        justify-content: flex-start;
+        /* Alinear a la izquierda para el scroll */
+        padding-bottom: 10px;
+        /* Espacio para el scrollbar (si se muestra) */
     }
-    
+
     .video-miniaturas .miniatura {
-        width: 110px; /* Reducir el tamaño de la miniatura */
+        width: 110px;
+        /* Reducir el tamaño de la miniatura */
         height: 60px;
         border-radius: 6px;
     }
-    
+
     .video-miniaturas .miniatura.activo {
-        transform: scale(1.0); /* Reducir la escala al activar */
+        transform: scale(1.0);
+        /* Reducir la escala al activar */
         border: 2px solid #4b4a4a;
     }
-}
-   /*GALERÍA AJUSTADA --- */
+
+    /*GALERÍA AJUSTADA --- */
 
     /* =======================
        Contenedor Imagen Grande
@@ -1019,31 +1059,32 @@ h2::after {
     .imagen-container {
         /* Asegura que ocupe todo el ancho disponible pero con padding */
         max-width: 100%;
-        padding: 0 10px; 
+        padding: 0 10px;
     }
-    
+
     #imagen-grande {
-       
+
         /* width: 100% de su contenedor (max-width: 100% de .imagen-container) */
-        width: 100%; 
+        width: 100%;
         /* Para asegurar que no se estire demasiado si está dentro de un contenedor más pequeño */
-        max-width: 300px; 
+        max-width: 250px;
         height: auto;
         border-radius: 8px;
     }
-    
+
     /* Mover las flechas de imagen dentro del imagen-container */
-    .prev-img { 
-        left: 5px; 
-        padding: 0.3rem 0.5rem; 
-        font-size: 1.5rem; 
+    .prev-img {
+        left: 5px;
+        padding: 0.3rem 0.5rem;
+        font-size: 1.5rem;
         /* Aseguramos que el fondo no sea transparente para que se vean bien */
-        background-color: rgba(0, 0, 0, 0.6); 
+        background-color: rgba(0, 0, 0, 0.6);
     }
-    .next-img { 
-        right: 5px; 
-        padding: 0.3rem 0.5rem; 
-        font-size: 1.5rem; 
+
+    .next-img {
+        right: 5px;
+        padding: 0.3rem 0.5rem;
+        font-size: 1.5rem;
         background-color: rgba(0, 0, 0, 0.6);
     }
 
@@ -1053,19 +1094,21 @@ h2::after {
     .miniaturas-container {
         /* Quitamos el justify-content: center para que el scroll horizontal funcione mejor desde la izquierda */
         justify-content: flex-start;
-        overflow: hidden; 
+        overflow: hidden;
     }
-    
+
     .galeria-miniaturas {
         /* Habilitar el scroll horizontal */
-        overflow-x: auto; 
-        justify-content: flex-start; /* Asegura que las miniaturas empiecen desde la izquierda */
-        padding-bottom: 10px; /* Espacio para el scrollbar */
+        overflow-x: auto;
+        justify-content: flex-start;
+        /* Asegura que las miniaturas empiecen desde la izquierda */
+        padding-bottom: 10px;
+        /* Espacio para el scrollbar */
         gap: 8px;
         /* IMPORTANTE: para scroll en móviles */
-        -webkit-overflow-scrolling: touch; 
+        -webkit-overflow-scrolling: touch;
     }
-    
+
     /* Ocultar la barra de desplazamiento en navegadores Webkit (opcional, si se prefiere invisible) */
     .galeria-miniaturas::-webkit-scrollbar {
         display: none;
@@ -1073,10 +1116,12 @@ h2::after {
 
     .galeria-miniaturas img {
         /* Aumentar el tamaño de la miniatura a algo visible pero que permita scroll */
-         width: 60px !important; 
-    height: 60px !important;
-        flex: 0 0 auto; /* Esencial para que las miniaturas no se encojan */
-        object-fit: cover; /* Cambiado a cover para que rellenen el espacio */
+        width: 60px !important;
+        height: 60px !important;
+        flex: 0 0 auto;
+        /* Esencial para que las miniaturas no se encojan */
+        object-fit: cover;
+        /* Cambiado a cover para que rellenen el espacio */
         border-radius: 4px;
     }
 
@@ -1085,10 +1130,11 @@ h2::after {
         transform: scale(1.05);
         border: 2px solid #4b4a4a;
     }
+}
 
 /* --- Ajustes para Tablets y Móviles Grandes (De 577px a 768px) --- */
 @media (min-width: 577px) and (max-width: 768px) {
-    
+
     /* --- Pestañas de Navegación --- */
     .tabs {
         gap: 12px;
@@ -1106,74 +1152,139 @@ h2::after {
     }
 
     /* Ajustar las flechas ligeramente */
-    .prev-video { left: -15px; padding: 0.4rem 0.6rem; font-size: 1.8rem; }
-    .next-video { right: -15px; padding: 0.4rem 0.6rem; font-size: 1.8rem; }
+    .prev-video {
+        left: -15px;
+        padding: 0.4rem 0.6rem;
+        font-size: 1.8rem;
+    }
+
+    .next-video {
+        right: -15px;
+        padding: 0.4rem 0.6rem;
+        font-size: 1.8rem;
+    }
 
     /* Miniaturas de Video */
     .video-miniaturas {
         /* Si hay muchas miniaturas, considera el scroll horizontal */
         overflow-x: auto;
-        justify-content: flex-start; 
+        justify-content: flex-start;
     }
-    
+
     .video-miniaturas .miniatura {
-        width: 120px; 
+        width: 120px;
         height: 70px;
     }
 
     /* --- Galería de Imágenes --- */
-   /* Asegúrate de que esto está en tu CSS general, o en la Media Query */
-.miniaturas-container {
-    display: flex;
-    justify-content: center; /* ESTO ES LO CLAVE PARA CENTRAR EL GRUPO DE MINIATURAS */
-    width: 100%; /* Opcional, si no lo tienes ya */
-    overflow: hidden; /* Evita que el scroll horizontal rompa el centrado */
-}
-
-.galeria-miniaturas {
-    /* Este es el contenedor FLEX que agrupa las imágenes */
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap; /* Importante para que salten de línea en móvil */
-}
-
-.galeria-miniaturas img {
-    width: 30px;
-    height: 30px;
-    flex: 0 0 auto;
-    /* ... */
-}
-    #imagen-grande {
-        width: 85%; 
+    /* Asegúrate de que esto está en tu CSS general, o en la Media Query */
+    .miniaturas-container {
+        display: flex;
+        justify-content: center;
+        /* ESTO ES LO CLAVE PARA CENTRAR EL GRUPO DE MINIATURAS */
+        width: 100%;
+        /* Opcional, si no lo tienes ya */
+        overflow: hidden;
+        /* Evita que el scroll horizontal rompa el centrado */
     }
-    
-    /* Ajustar las flechas de imagen ligeramente */
-    .prev-img { left: 200px; padding: 0.4rem 0.6rem; font-size: 1.8rem; }
-    .next-img { right: 200px; padding: 0.4rem 0.6rem; font-size: 1.8rem; }
 
-  
+    .galeria-miniaturas {
+        /* Este es el contenedor FLEX que agrupa las imágenes */
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        /* Importante para que salten de línea en móvil */
+    }
+
+    .galeria-miniaturas img {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 auto;
+        /* ... */
+    }
+
+    #imagen-grande {
+        width: 85%;
+    }
+
+    /* Ajustar las flechas de imagen ligeramente */
+    .prev-img {
+        left: 200px;
+        padding: 0.4rem 0.6rem;
+        font-size: 1.8rem;
+    }
+
+    .next-img {
+        right: 200px;
+        padding: 0.4rem 0.6rem;
+        font-size: 1.8rem;
+    }
+
+
 }
 
 /* --- Ajustes para Tablets Horizontales (De 769px a 992px) --- */
 /* Esta media query se puede usar para refinar, pero a menudo los estilos por defecto son suficientes. */
 @media (min-width: 769px) and (max-width: 992px) {
-    
+
     /* --- Visor de Video --- */
     .video-visor {
         max-width: 750px;
     }
-    
+
     /* El diseño por defecto parece funcionar bien, quizás solo asegurar las flechas */
-    .prev-video { left: -20px; }
-    .next-video { right: -20px; }
+    .prev-video {
+        left: -20px;
+    }
+
+    .next-video {
+        right: -20px;
+    }
 
     /* --- Galería de Imágenes --- */
     .imagen-container {
         max-width: 550px;
     }
-    
-    .prev-img { left: -20px; }
-    .next-img { right: -20px; }
+
+    #imagen-grande {
+        width: 100%;
+        max-width: 400px;
+        /* Tamaño máximo de la imagen dentro del contenedor */
+        /* ... otros estilos ... */
+    }
+
+    .miniaturas-container {
+        /* CLAVE 1: Usa flexbox en el contenedor padre */
+        display: flex;
+        /* CLAVE 2: Centra el contenido (el div .galeria-miniaturas) */
+        justify-content: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .galeria-miniaturas {
+        /* CLAVE 3: Permite que salten de línea si hay muchas */
+        flex-wrap: wrap;
+        /* Si quieres un tamaño específico para las miniaturas en iPad Pro: */
+        gap: 12px;
+    }
+
+    .galeria-miniaturas img {
+        /* Ajustar el tamaño a algo adecuado para una tablet grande */
+        width: 90px !important;
+        height: 90px !important;
+        flex: 0 0 auto;
+    }
+
+
+
+    .prev-img {
+        left: -20px;
+    }
+
+    .next-img {
+        right: -20px;
+    }
 }
 
 /* --- Mejorar la experiencia de scroll en dispositivos táctiles --- */
@@ -1182,20 +1293,24 @@ h2::after {
 .galeria-miniaturas {
     -webkit-overflow-scrolling: touch;
 }
+
 /* --- Ajustes para Tablets Grandes / iPad Pro (Max 1366px) --- */
 @media (min-width: 993px) and (max-width: 1366px) {
-    
+
     /* Imagen Principal (Asegurando buen tamaño) */
     .imagen-container {
         /* Permite que el contenedor crezca, pero lo centra en la página */
-        max-width: 700px; /* Ajusta este valor al tamaño deseado para la imagen grande */
-        margin: 0 auto; /* CENTRA EL CONTENEDOR PRINCIPAL */
+        max-width: 700px;
+        /* Ajusta este valor al tamaño deseado para la imagen grande */
+        margin: 0 auto;
+        /* CENTRA EL CONTENEDOR PRINCIPAL */
         padding: 0;
     }
-    
+
     #imagen-grande {
-        width: 100%; 
-        max-width: 400px; /* Tamaño máximo de la imagen dentro del contenedor */
+        width: 100%;
+        max-width: 400px;
+        /* Tamaño máximo de la imagen dentro del contenedor */
         /* ... otros estilos ... */
     }
 
@@ -1204,14 +1319,14 @@ h2::after {
         /* CLAVE 1: Usa flexbox en el contenedor padre */
         display: flex;
         /* CLAVE 2: Centra el contenido (el div .galeria-miniaturas) */
-        justify-content: center; 
+        justify-content: center;
         width: 100%;
-        overflow: hidden; 
+        overflow: hidden;
     }
 
     .galeria-miniaturas {
         /* CLAVE 3: Permite que salten de línea si hay muchas */
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
         /* Si quieres un tamaño específico para las miniaturas en iPad Pro: */
         gap: 12px;
     }
@@ -1222,10 +1337,15 @@ h2::after {
         height: 100px !important;
         flex: 0 0 auto;
     }
-    
+
     /* Flechas: Se mantienen fuera para un diseño de escritorio/tablet clásico */
-    .prev-img { left: 100px; } 
-    .next-img { right: 100px; }
+    .prev-img {
+        left: 100px;
+    }
+
+    .next-img {
+        right: 100px;
+    }
 }
 
 
@@ -1314,7 +1434,7 @@ h2::after {
     margin: 0;
     /* elimina márgenes */
     padding: 0;
-    
+
     /* elimina padding */
 }
 
@@ -1783,18 +1903,24 @@ footer {
     }
 
     .footer-left .footer-logo {
-        width: 100%;      /* ocupa todo el ancho disponible */
-        max-width: 100%;  /* sin límite en móvil */
-        height: auto;     /* mantiene proporción */
-        padding: 0;       /* pegada a los bordes */
-        display: block;   /* asegura que no tenga espacio extra */
+        width: 100%;
+        /* ocupa todo el ancho disponible */
+        max-width: 100%;
+        /* sin límite en móvil */
+        height: auto;
+        /* mantiene proporción */
+        padding: 0;
+        /* pegada a los bordes */
+        display: block;
+        /* asegura que no tenga espacio extra */
     }
 
     .footer-right {
         width: 100%;
         max-width: 420px;
         padding: 0 1rem;
-        margin: 0 auto; /* centrado en móviles */
+        margin: 0 auto;
+        /* centrado en móviles */
     }
 
     .footer-right h3 {

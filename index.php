@@ -44,7 +44,11 @@
         <?php include('componentes/academia.php'); ?>
     </section>
 
-    <div id="galeria" class="tabs">
+
+  <section  id="galeria">
+      <h2>Galería</h2>
+    <div  class="tabs">
+      
         <button class="tab-btn active" data-tab="imagenes">Imágenes</button>
         <button class="tab-btn" data-tab="videos">Vídeos</button>
     </div>
@@ -56,6 +60,7 @@
     <div class="galeria" id="videos">
         <?php include('componentes/videos.php'); ?>
     </div>
+    </section>
 
     <section id="entrevistas">
         <?php include('componentes/entrevistas.php'); ?>
