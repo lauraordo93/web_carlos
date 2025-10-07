@@ -1403,6 +1403,7 @@ h2::after {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
     border: 1px solid var(--color_yamaha);
+    cursor: pointer;
     /* borde Yamaha al hover */
 }
 
@@ -1590,7 +1591,7 @@ h2::after {
     border-radius: 1rem;
     padding: 1.8rem 2.2rem;
     margin-bottom: 5rem;
-  
+
 
     /* separación entre tarjetas */
     max-width: 1200px;
@@ -1788,17 +1789,19 @@ progress.agenda::-moz-progress-bar {
     width: 100%;
     padding: 0.5rem 0;
     color: #626262;
-   
-}
-.footerprincipal {
-  /* Añade espacio dentro de la parte superior del footer */
-  padding-top: 50px; 
-  /* Puedes añadir también padding-bottom si lo necesitas */
-  padding-bottom: 30px; 
-  /* O usar la propiedad abreviada para todos los lados: */
-  /* padding: 50px 0 30px 0; /* Arriba | Derecha | Abajo | Izquierda */
 
 }
+
+.footerprincipal {
+    /* Añade espacio dentro de la parte superior del footer */
+    padding-top: 50px;
+    /* Puedes añadir también padding-bottom si lo necesitas */
+    padding-bottom: 30px;
+    /* O usar la propiedad abreviada para todos los lados: */
+    /* padding: 50px 0 30px 0; /* Arriba | Derecha | Abajo | Izquierda */
+
+}
+
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -2240,11 +2243,14 @@ progress.agenda::-moz-progress-bar {
         display: none;
     }
 }
+
 /*ENLACES LEGAL*/
 /* 1. ESTILO PRINCIPAL DEL FOOTER */
 .footer-bottom {
-    background-color: #000; /* Fondo negro */
-    color: #fff; /* Color base del texto */
+    background-color: #000;
+    /* Fondo negro */
+    color: #fff;
+    /* Color base del texto */
     padding: 20px 0;
     text-align: center;
     font-size: 0.9em;
@@ -2253,22 +2259,26 @@ progress.agenda::-moz-progress-bar {
 /* 2. LÍNEA DEL COPYRIGHT */
 .copyright-line {
     /* Nos aseguramos de que esto ocupe su propia línea */
-    display: block; 
-    margin: 0; /* Quitamos márgenes por defecto */
-    padding-bottom: 10px; /* Espacio entre el copyright y los enlaces */
+    display: block;
+    margin: 0;
+    /* Quitamos márgenes por defecto */
+    padding-bottom: 10px;
+    /* Espacio entre el copyright y los enlaces */
 }
 
 /* 3. CONTENEDOR DE ENLACES (ESTARÁ DEBAJO) */
 .enlaces-legales-container {
     /* Por ser un <div> ya es de bloque, pero lo especificamos */
-    display: block; 
-    margin-top: 5px; /* Pequeño espacio extra si es necesario */
+    display: block;
+    margin-top: 5px;
+    /* Pequeño espacio extra si es necesario */
 }
 
 /* 4. ESTILO DE LOS ENLACES */
 .enlaces-legales-container a {
     font-size: 16px;
-    color: var(--color_yamahaClaro); /* Color azul brillante (puedes cambiarlo) */
+    color: var(--color_yamahaClaro);
+    /* Color azul brillante (puedes cambiarlo) */
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease;
@@ -2283,18 +2293,20 @@ progress.agenda::-moz-progress-bar {
 /* 6. ESTILO DEL SEPARADOR (|) */
 /* El separador está en el HTML, lo estilizamos para que se vea bien */
 .enlaces-legales-container {
-    color: #666; /* El separador en sí tendrá un color gris tenue */
+    color: #666;
+    /* El separador en sí tendrá un color gris tenue */
 }
+
 /*LEGAL*/
 /* --- ESTILOS ESPECÍFICOS PARA PÁGINAS LEGALES --- */
 
 .texto-legal {
     /* Centra el bloque .texto-legal en el contenedor de 900px */
-    margin: 30px auto; 
+    margin: 30px auto;
     padding: 20px;
     background-color: #111;
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .texto-legal p,
@@ -2303,19 +2315,22 @@ progress.agenda::-moz-progress-bar {
     color: #fff;
     line-height: 1.8;
     font-size: 1rem;
+
 }
 
 .texto-legal ul {
     /* SOLUCIÓN DE ALINEACIÓN: Esto quita el sangrado por defecto del navegador */
-    list-style-position: inside; /* Pone el punto del listado dentro del item */
-    padding-left: 0;           /* Quita el padding del UL */
-    margin-left: 0;            /* Quita el margen del UL */
-    margin-bottom: 20px;
+    list-style-position: inside;
+    /* Pone el punto del listado dentro del item */
+    margin: 30px auto;
+    padding: 30px;
+    list-style: none;
+    /* Quita los puntos por completo */
 }
 
 .texto-legal h2 {
     /* Estilo para los subtítulos */
-    color: var(--color_yamahaClaro); 
+    color: var(--color_yamahaClaro);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 5px;
     margin-top: 30px;
@@ -2324,16 +2339,412 @@ progress.agenda::-moz-progress-bar {
 }
 
 .texto-legal li strong {
-    color: var(--color_blancoRoto); 
+    color: var(--color_blancoRoto);
 }
-.imagen-logo {
-  display: block; /* La convierte en un elemento de bloque para que auto-margin funcione */
-  margin-left: auto; /* Margen automático a la izquierda */
-  margin-right: auto; /* Margen automático a la derecha */
 
-   margin-top: 50px; /* ⬅️ Añade un margen POSITIVO para separarla de ARRIBA */
-  margin-bottom: -105px; /* ⬅️ Mantienes tu margen NEGATIVO para 'pegarla' a lo de ABAJO */
-  /* O de forma abreviada: margin: 0 auto; */
-  width: 100%; /* Opcional: define un ancho máximo para que se centre mejor */
-  max-width: 500px; /* Opcional: asegura que no sea demasiado grande */
+.imagen-logo {
+    display: block;
+    /* La convierte en un elemento de bloque para que auto-margin funcione */
+    margin-left: auto;
+    /* Margen automático a la izquierda */
+    margin-right: auto;
+    /* Margen automático a la derecha */
+
+    margin-top: 50px;
+    /* ⬅️ Añade un margen POSITIVO para separarla de ARRIBA */
+    margin-bottom: -105px;
+    /* ⬅️ Mantienes tu margen NEGATIVO para 'pegarla' a lo de ABAJO */
+    /* O de forma abreviada: margin: 0 auto; */
+    width: 100%;
+    /* Opcional: define un ancho máximo para que se centre mejor */
+    max-width: 500px;
+    /* Opcional: asegura que no sea demasiado grande */
+}
+
+/* ---------- FOOTER Y ENLACES LEGALES ---------- */
+
+/* 1. ESTILO PRINCIPAL DEL FOOTER */
+.footer-bottom {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* 2. LÍNEA DEL COPYRIGHT */
+.copyright-line {
+    display: block;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+/* 3. CONTENEDOR DE ENLACES LEGALES */
+.enlaces-legales-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+    color: #666;
+}
+
+/* 4. ENLACES LEGALES */
+.enlaces-legales-container a {
+    font-size: 16px;
+    color: var(--color_yamahaClaro);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.enlaces-legales-container a:hover {
+    color: var(--color_yamaha);
+    text-decoration: underline;
+}
+
+/* ---------- SECCIÓN LEGAL ---------- */
+.texto-legal {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #111;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    max-width: 900px;
+    text-align: left;
+    /* Fuerza alineación a la izquierda */
+    letter-spacing: normal;
+    /* Quita cualquier separación extra de letras */
+    word-break: break-word;
+    /* Evita que palabras largas rompan el diseño */
+}
+
+.texto-legal p,
+.texto-legal li {
+    color: #fff;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.texto-legal ul {
+    list-style: none;
+    list-style-position: inside;
+    margin: 30px auto;
+    padding: 30px;
+}
+
+.texto-legal h2 {
+    color: var(--color_yamahaClaro);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.texto-legal li strong {
+    color: var(--color_blancoRoto);
+}
+
+/* ---------- LOGO ---------- */
+.imagen-logo {
+    display: block;
+    margin: 50px auto -105px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ---------- ESTILOS PRINCIPALES DEL FOOTER Y LEGALES ---------- */
+
+/* 1. Footer principal */
+.footer-bottom {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Línea de copyright */
+.copyright-line {
+    display: block;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+/* Contenedor de enlaces legales */
+.enlaces-legales-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: #666;
+    /* Separador gris tenue */
+}
+
+/* Estilo de los enlaces */
+.enlaces-legales-container a {
+    font-size: 16px;
+    color: var(--color_yamahaClaro);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.enlaces-legales-container a:hover {
+    color: var(--color_yamaha);
+    text-decoration: underline;
+}
+
+/* ---------- ESTILOS ESPECÍFICOS PARA PÁGINAS LEGALES ---------- */
+.texto-legal {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #111;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    letter-spacing: normal;
+    line-height: 1.6;
+    word-break: break-word;
+    color: #fff;
+}
+
+/* Subtítulos */
+.texto-legal h2 {
+    color: var(--color_yamahaClaro);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    letter-spacing: normal;
+}
+
+/* Párrafos y listas */
+.texto-legal p,
+.texto-legal li {
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: normal;
+    margin: 0 0 10px 0;
+}
+
+/* Listas sin puntos */
+.texto-legal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+/* Negritas dentro de listas */
+.texto-legal li strong {
+    color: var(--color_blancoRoto);
+}
+
+/* Logo centrado */
+.imagen-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: -105px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+/* 📱 Móviles (menos de 600px) */
+@media (max-width: 600px) {
+    .footer-bottom {
+        font-size: 0.8em;
+        padding: 15px 10px;
+    }
+
+    .enlaces-legales-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .enlaces-legales-container a {
+        display: block;
+        font-size: 14px;
+    }
+
+    .texto-legal {
+        padding: 15px;
+        margin: 20px 10px;
+        font-size: 0.95rem;
+        line-height: 1.8;
+        text-justify: inter-word;
+        word-spacing: normal;
+        hyphens: auto;
+        text-align: left;
+
+    }
+
+    .texto-legal h2 {
+        font-size: 1.2rem;
+    }
+
+    .texto-legal p,
+    .texto-legal li {
+        padding: 15px;
+        margin: 10px 10px;
+        font-size: 0.75rem;
+        line-height: 1.4;
+        text-align: center;
+        text-justify: inter-word;
+        hyphens: auto;
+        word-spacing: normal;
+
+    }
+
+    .imagen-logo {
+        max-width: 300px;
+        margin-top: 40px;
+        margin-bottom: -80px;
+    }
+}
+
+/* 💻 Tablets (600px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .footer-bottom {
+        font-size: 0.85em;
+    }
+
+    .enlaces-legales-container {
+        gap: 8px;
+    }
+}
+
+.texto-legal p,
+.texto-legal li {
+    padding: 12px;
+    max-width: 700px;
+
+    .texto-legal {
+        padding: 20px;
+        max-width: 700px;
+    }
+
+    .texto-legal h2 {
+        font-size: 1.3rem;
+    }
+
+    .imagen-logo {
+        max-width: 400px;
+    }
+}
+
+/* 🖥️ Escritorio grande (+900px) */
+@media (min-width: 901px) {
+    .texto-legal {
+        max-width: 900px;
+    }
+
+    .imagen-logo {
+        max-width: 500px;
+    }
+}
+
+/* === Modal de Cookies === */
+.overlay-cookies {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    /* Oculta por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-cookies {
+    background: #ffffff;
+    color: #222;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 16px;
+    padding: 25px 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: aparecerCookies 0.4s ease;
+}
+
+.modal-cookies h3 {
+    margin-top: 0;
+    color: var(--color_yamahaClaro);
+    font-size: 20px;
+}
+
+.modal-cookies p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.modal-cookies a {
+    color: var(--color_yamaha);
+    text-decoration: underline;
+}
+
+.modal-cookies h3 {
+    margin-top: 0;
+    color: var(--color_yamaha);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cookies-botones {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.modal-cookies button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#btn-aceptar-cookies {
+    background-color: var(--color_yamaha);
+    color: #fff;
+}
+
+#btn-aceptar-cookies:hover {
+    background-color: var(--color_yamahaClaro);
+    ;
+}
+
+.btn-secundario {
+    background-color: #ddd;
+    color: #222;
+}
+
+.btn-secundario:hover {
+    background-color: #bbb;
+}
+
+/* Animación */
+@keyframes aparecerCookies {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

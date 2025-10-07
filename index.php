@@ -45,21 +45,21 @@
     </section>
 
 
-  <section  id="galeria">
-      <h2>Galería</h2>
-    <div  class="tabs">
-      
-        <button class="tab-btn active" data-tab="imagenes">Imágenes</button>
-        <button class="tab-btn" data-tab="videos">Vídeos</button>
-    </div>
+    <section id="galeria">
+        <h2>Galería</h2>
+        <div class="tabs">
 
-    <div class="galeria active" id="imagenes">
-        <?php include('componentes/galeria.php'); ?>
-    </div>
+            <button class="tab-btn active" data-tab="imagenes">Imágenes</button>
+            <button class="tab-btn" data-tab="videos">Vídeos</button>
+        </div>
 
-    <div class="galeria" id="videos">
-        <?php include('componentes/videos.php'); ?>
-    </div>
+        <div class="galeria active" id="imagenes">
+            <?php include('componentes/galeria.php'); ?>
+        </div>
+
+        <div class="galeria" id="videos">
+            <?php include('componentes/videos.php'); ?>
+        </div>
     </section>
 
     <section id="entrevistas">
@@ -74,29 +74,46 @@
         </div>
     </section>
 
-<footer class="footerprincipal">
-    <div class="footer-container">
-        <div class="footer-left">
-            <img src="img/imagen_derecha.jpg" alt="Logo" class="footer-logo">
+    <footer class="footerprincipal">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="img/imagen_derecha.jpg" alt="Logo" class="footer-logo">
+            </div>
+
+            <?php include('componentes/contacto.php'); ?>
         </div>
 
-        <?php include('componentes/contacto.php'); ?>
-    </div>
-
-   <div class="footer-bottom">
-    <p class="copyright-line">
-        &copy; 2025 Todos los derechos reservados Lauraordonez.dev
+        <div class="footer-bottom">
+            <p class="copyright-line">
+                &copy; 2025 Todos los derechos reservados Lauraordonez.dev
+            </p>
+            <div class="enlaces-legales-container">
+                <a href="legales.php?doc=aviso_legal">Aviso Legal</a> |
+                <a href="legales.php?doc=privacidad">Política de Privacidad</a> |
+                <a href="legales.php?doc=cookies">Política de Cookies</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Banner de cookies -->
+<!-- Ventana de cookies -->
+<div id="overlay-cookies" class="overlay-cookies">
+  <div class="modal-cookies">
+      <h3>Configuración de cookies 🎷</h3>
+    <p>
+      Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia.
+      Puedes aceptar todas las cookies o rechazarlas.
+      <a href="legales.php?doc=cookies" target="_blank">Más información</a>
     </p>
-    <div class="enlaces-legales-container">
-        <a href="legales.php?doc=aviso_legal">Aviso Legal</a> | 
-        <a href="legales.php?doc=privacidad">Política de Privacidad</a> | 
-        <a href="legales.php?doc=cookies">Política de Cookies</a>
+    <div class="cookies-botones">
+      <button id="btn-aceptar-cookies">Aceptar todas</button>
+      <button id="btn-rechazar-cookies" class="btn-secundario">Rechazar</button>
     </div>
+  </div>
 </div>
-</footer>
 
 
-  <script src="js/gal_vieBTN.js"></script>
+    <script src="js/banner_cookies.js"></script>
+    <script src="js/gal_vieBTN.js"></script>
     <script src="js/sobremi.js"></script>
     <script src="js/galeria.js"></script>
     <script src="js/video.js"></script>

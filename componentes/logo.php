@@ -14,10 +14,7 @@ if ($result && $result->num_rows > 0) {
     $logo_url = htmlspecialchars($row["logo"]);
     // $logo_url = '/mi_pagweb/' . htmlspecialchars($row["logo"]);
 
-    // Mostrar el título
-    //  echo '<div class="text">';
-    // echo '<h1 class="nombre_pag">' . htmlspecialchars($row["nombre_pagina"]) . '</h1>';
-    // echo '</div>';
+ 
 }
 
 // Consulta para las redes sociales
@@ -49,7 +46,7 @@ if ($result_redes && $result_redes->num_rows > 0) {
         /* align-items: center; */
         position: relative;
         
-    /* LÍNEA PLATEADA ABAJO */
+    /* LÍNEA ABAJO */
     border-bottom: 2px solid #4B1E78; /* dorado */; /* grosor y color de la línea */
 
     }

@@ -35,7 +35,8 @@ if ($result && $result->num_rows > 0) {
     echo '<div class="video-visor">';
     echo '<div class="video-container">';
     echo '<button class="prev-video">&#10094;</button>';
-    echo '<iframe id="video-grande" src="' . $primero['video_embed'] . '" frameborder="0" allowfullscreen></iframe>';
+    echo '<iframe id="video-grande" data-src="' . $primero['video_embed'] . '" frameborder="0" allowfullscreen></iframe>';
+
     echo '<button class="next-video">&#10095;</button>';
     echo '</div>'; // video-container
 
