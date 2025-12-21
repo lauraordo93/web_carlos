@@ -8,19 +8,20 @@ $error_msg = '';
 
 include_once(__DIR__ . '/../config/db.php');
 
+//Uso htmlspecialchars para evitar inyecciones sql 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contacto_submit'])) {
     $nombre  = isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : '';
     $email   = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
     $mensaje = isset($_POST['mensaje']) ? htmlspecialchars($_POST['mensaje']) : '';
 
-    // 1️⃣ Guardar en la base de datos
+    // 1️. Guardar en la base de datos
     $sql = "INSERT INTO contacto (nombre, email, mensaje) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sss", $nombre, $email, $mensaje);
     $stmt->execute();
     $stmt->close();
 
-    // 2️⃣ Enviar a Formspree
+    // 2️. Enviar a Formspree
     $formspree_url = "https://formspree.io/f/meorgrrz"; //  URL correo c de Formspree
     $data = [
         'name' => $nombre,

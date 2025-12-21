@@ -6,30 +6,35 @@ $result = $conn->query($sql);
 
 if ($result && $result->num_rows > 0) {
     $imagenes = [];
-
     while ($row = $result->fetch_assoc()) {
         $imagenes[] = htmlspecialchars($row['foto_url']);
     }
 
-    $primera = $imagenes[0];
-
-    // Visor grande
-    echo '<div class="visor galeria-visor">';
-    echo '<div class="imagen-container">';
-    echo '<button class="prev-img">&#10094;</button>';
-    echo '<img id="imagen-grande" src="' . $primera . '" alt="Imagen grande">';
-    echo '<button class="next-img">&#10095;</button>';
-    echo '</div>'; // cierre imagen-container
-    echo '</div>'; // cierre visor
-
-    // Miniaturas (todas, se mostrará un máximo visible con JS)
-    echo '<div class="miniaturas-container">';
-    echo '<div class="galeria-miniaturas">';
+    // 1. VISOR GRANDE
+    echo '<div class="swiper mainSwiper" id="swiper-principal">';
+    echo '  <div class="swiper-wrapper">';
     foreach ($imagenes as $img) {
-        echo '<img src="' . $img . '" onclick="mostrarImagenGaleria(this)">';
+        echo '<div class="swiper-slide">';
+        // Solo la imagen, sin etiquetas <a> que abran pestañas
+        echo '  <img src="' . $img . '" alt="Imagen" class="click-zoom" />';
+        echo '</div>';
     }
-    echo '</div>'; // cierre galeria-miniaturas
-    echo '</div>'; // cierre miniaturas-container
+    echo '  </div>';
+
+    echo '  <div class="swiper-pagination"></div>';
+
+    echo '  <div class="swiper-button-next"></div>';
+    echo '  <div class="swiper-button-prev"></div>';
+    echo '</div>';
+
+    // 2. MINIATURAS (Se quedan igual)
+    echo '<div class="swiper thumbSwiper">';
+    echo '  <div class="swiper-wrapper">';
+    foreach ($imagenes as $img) {
+        echo '<div class="swiper-slide"><img src="' . $img . '" alt="Miniatura" /></div>';
+    }
+    echo '  </div>';
+    echo '</div>';
 
 } else {
     echo '<p>No hay imágenes disponibles.</p>';

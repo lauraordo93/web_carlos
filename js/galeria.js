@@ -1,46 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const imagenGrande = document.getElementById('imagen-grande');
-    const miniaturas = document.querySelectorAll('.galeria-miniaturas img');
-    const prevBtn = document.querySelector('.prev-img');
-    const nextBtn = document.querySelector('.next-img');
-
-    let indiceActual = 0;
-    const visibles = 8;
-
-    function mostrarImagen(indice) {
-        indiceActual = indice;
-        // Cambiar imagen grande
-        imagenGrande.src = miniaturas[indiceActual].src;
-
-        // Resaltar miniatura activa
-        miniaturas.forEach(img => img.classList.remove('active'));
-        miniaturas[indiceActual].classList.add('active');
-
-        // Mostrar siempre 8 miniaturas ciclando
-        miniaturas.forEach(img => img.style.display = 'none');
-        for (let j = 0; j < visibles; j++) {
-            const mostrarIndice = (indiceActual + j) % miniaturas.length;
-            miniaturas[mostrarIndice].style.display = 'inline-block';
+    // 1. Configuración de las miniaturas
+    const swiperThumbs = new Swiper(".thumbSwiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        grabCursor: true,
+        observer: true,
+        observeParents: true,
+        breakpoints: {
+            640: { slidesPerView: 6 },
+            1024: { slidesPerView: 8 }
         }
-    }
-
-    // Flecha siguiente
-    nextBtn.addEventListener('click', () => {
-        const nuevoIndice = (indiceActual + 1) % miniaturas.length;
-        mostrarImagen(nuevoIndice);
     });
 
-    // Flecha anterior
-    prevBtn.addEventListener('click', () => {
-        const nuevoIndice = (indiceActual - 1 + miniaturas.length) % miniaturas.length;
-        mostrarImagen(nuevoIndice);
+    // 2. Configuración del visor principal
+    const swiperMain = new Swiper(".mainSwiper", {
+        spaceBetween: 10,
+        loop: true,
+        grabCursor: true,
+        // Activa el módulo de Zoom nativo
+        zoom: {
+            maxRatio: 3,
+            minRatio: 1,
+        },
+        // Configuración de la Barra de Progreso
+        pagination: {
+            el: ".swiper-pagination",
+            type: "progressbar",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: swiperThumbs,
+        },
+        // Evento para activar zoom con un clic
+        on: {
+            click: function () {
+                this.zoom.toggle(); 
+            },
+        },
+        observer: true,
+        observeParents: true,
+        preloadImages: false,
+        lazy: true
     });
-
-    // Clic en miniatura
-    miniaturas.forEach((img, i) => {
-        img.addEventListener('click', () => mostrarImagen(i));
-    });
-
-    // Inicial
-    mostrarImagen(0);
 });

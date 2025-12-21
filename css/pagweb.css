@@ -678,7 +678,6 @@ h2::after {
 
 
 
-
 /*Tabla videos/galeria*/
 
 /* =======================
@@ -755,606 +754,289 @@ h2::after {
     }
 }
 
+/* =================================================
+   ESTILOS DE PESTAÑAS (TABS) Y TRANSICIONES
+   ================================================= */
 
-/* Contenedor principal del video */
-.video-visor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin: 2rem auto;
-    max-width: 800px;
-    padding: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
+/* Ocultar por defecto */
+.galeria, .video {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-/* Contenedor del iframe + flechas */
+/* Clase activa con animación de fundido */
+.galeria.active, .video.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =================================================
+   ESTILO PROFESIONAL PARA EL VISOR DE VÍDEO
+   ================================================= */
+
+.video-visor {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 .video-container {
     position: relative;
     width: 100%;
+    aspect-ratio: 16 / 9; /* Mantiene el formato YouTube */
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#video-grande {
+    width: 100%;
+    height: 100%;
+}
+
+/* Flechas de vídeo personalizadas (usando tus colores) */
+.prev-video, .next-video {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--color_yamahaClaro);
+    border: 1px solid var(--color_yamaha);
+    font-size: 24px;
+    padding: 15px 10px;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.prev-video { left: 0; border-radius: 0 5px 5px 0; }
+.next-video { right: 0; border-radius: 5px 0 0 5px; }
+
+.prev-video:hover, .next-video:hover {
+    background: var(--color_yamaha);
+    color: #fff;
+}
+
+/* =================================================
+   MINIATURAS DE VÍDEO
+   ================================================= */
+
+.video-miniaturas {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+/* Ocultar scrollbar pero permitir scroll */
+.video-miniaturas::-webkit-scrollbar {
+    height: 4px;
+}
+.video-miniaturas::-webkit-scrollbar-thumb {
+    background: var(--color_yamaha);
+    border-radius: 10px;
+}
+
+.video-miniaturas .miniatura {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.video-miniaturas .miniatura:hover,
+.video-miniaturas .miniatura.activo {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    border: 2px solid var(--color_yamahaClaro);
+}
+
+/* Info del vídeo */
+.video-info {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.video-info h3 {
+    color: var(--color_yamahaClaro);
+    margin-bottom: 5px;
+}
+
+.video-info p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+
+/* =================================================
+   ESTILOS SWIPER - GALERÍA PROFESIONAL
+   ================================================= */
+
+/* 1. Visor Principal (Grande) */
+.mainSwiper {
+    width: 100%;
+    max-width: 500px; /* Ajustado a tu diseño de sección */
+    height: 450px;
+    margin: 0 auto 15px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+}
+
+
+
+.swiper-zoom-container {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Video grande */
-#video-grande {
-    width: 80%;
-    max-width: 540px;
-    aspect-ratio: 16/9;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Flechas */
-.prev-video,
-.next-video {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 2rem;
-    padding: 0.5rem 0.7rem;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.prev-video {
-    left: -25px;
-}
-
-.next-video {
-    right: -25px;
-}
-
-
-/* Información del video */
-.video-info p {
-    text-align: center;
-    color: #eee;
-}
-
-.video-info h3 {
-    text-align: center;
-    color: var(--color_yamaha);
-}
-
-/* Miniaturas en línea debajo del video sin scrollbar */
-.video-miniaturas {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 1rem;
-    flex-wrap: nowrap;
-    /* todas en línea */
+/* Hacer que el enlace ocupe todo el slide */
+.mainSwiper .swiper-slide a {
+    display: block;
     width: 100%;
-    padding-bottom: 5px;
-    overflow: visible;
-    /* quitar scrollbar */
+    height: 100%;
+    cursor: zoom-in; /* Cambia el cursor a una lupa con un + */
 }
 
-/* Miniaturas individuales */
-.video-miniaturas .miniatura {
-    width: 140px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
-    flex: 0 0 auto;
-}
-
-.video-miniaturas .miniatura:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
-}
-
-.video-miniaturas .miniatura.activo {
-    border: 3px solid #4b4a4a;
-    transform: scale(1.1);
-}
-
-/* Quitar scrollbar de navegadores Webkit */
-.video-miniaturas::-webkit-scrollbar {
-    display: none;
-}
-
-
-
-
-/* =======================
-   Contenedor imagen grande
-======================= */
-.imagen-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 1rem auto;
-    max-width: 600px;
-}
-
-#imagen-grande {
-    width: 450px !important;
-    height: auto !important;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s, opacity 0.3s;
-}
-
-/* Botones prev/next sobre la imagen grande */
-.prev-img,
-.next-img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 2rem;
-    padding: 0.5rem 0.7rem;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.prev-img {
-    left: -25px;
-}
-
-.next-img {
-    right: -25px;
-}
-
-.prev-img:hover,
-.next-img:hover {
-    /* background-color: rgba(0,0,0,0.7); */
-    transform: translateY(-50%) scale(1.1);
-}
-
-/* =======================
-   Miniaturas centradas debajo
-======================= */
-.miniaturas-container {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    /* centra las miniaturas visibles */
-    overflow: hidden;
-    /* oculta las miniaturas fuera del rango visible */
-    width: 100%;
-    /* contenedor ocupa todo el ancho disponible */
-}
-
-.galeria-miniaturas {
-    display: flex;
-    gap: 10px;
-    flex-wrap: nowrap;
+.mainSwiper .swiper-slide img {
+     cursor: zoom-in;
     transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción en el visor de 450px */
 }
 
-/* Miniaturas individuales */
-.galeria-miniaturas img {
-    flex: 0 0 auto;
+
+/* Ocultar las flechas por defecto y mostrarlas al hacer hover */
+.mainSwiper .swiper-button-next::after,
+.mainSwiper .swiper-button-prev::after {
+    font-size: 25px !important;
+    color: var(--color_yamahaClaro) !important; /* Usa tu color corporativo */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mainSwiper:hover .swiper-button-next::after,
+.mainSwiper:hover .swiper-button-prev::after {
+    opacity: 1;
+}
+/* Color de la barra de progreso */
+.mainSwiper .swiper-pagination-progressbar-fill {
+    background: var(--color_yamahaClaro) !important;
+}
+
+/* Fondo de la barra (la parte que aún no se ha llenado) */
+.mainSwiper .swiper-pagination-progressbar {
+    background: rgba(255, 255, 255, 0.2);
+    height: 4px; /* Un poco más gruesa para que se vea bien */
+ 
+}
+
+
+
+/* Aseguramos que la flecha (el icono) se vea blanca y nítida */
+.mainSwiper .swiper-button-next::after,
+.mainSwiper .swiper-button-prev::after {
+    color: #fff !important;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.8); /* Sombra para resaltar la flecha */
+}
+.mainSwiper .swiper-button-next::after,
+.mainSwiper .swiper-button-prev::after {
+    font-size: 20px; /* Flechas más elegantes */
+}
+
+/* 2. Carrusel de Miniaturas (Pequeño) */
+.thumbSwiper {
+    width: 100%;
+    max-width: 6000px;
+    height: 100px;
+    margin: 10px auto;
+    padding: 30px 0;
+}
+
+.thumbSwiper .swiper-slide {
     width: 100px;
     height: 100px;
-    object-fit: contain;
-    border-radius: 5px;
+    opacity: 0.4; /* Efecto desvanecido para las no activas */
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+    transition: all 0.3s ease;
 }
 
-.galeria-miniaturas img:hover {
+/* Miniatura Activa */
+.thumbSwiper .swiper-slide-thumb-active {
+    opacity: 2;
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Miniatura activa */
-.galeria-miniaturas img.active {
-    border: 3px solid #4b4a4a;
-    transform: scale(1.1);
+.thumbSwiper .swiper-slide-thumb-active img {
+    border: 1px solid var(--color_blancoRoto);
+    box-shadow: 5px var(--color_blancoRoto);
 }
 
-/* =======================
-   Visor / galerías ocultas por defecto
-======================= */
-.galeria,
-.video {
-    display: none;
+.thumbSwiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    filter: grayscale(40%); /* Un toque artístico */
+    transition: filter 0.3s ease;
 }
 
-.galeria.active,
-.video.active {
-    display: block;
+.thumbSwiper .swiper-slide:hover img {
+    filter: grayscale(0%);
+}
+.thumbSwiper .swiper-slide {
+    touch-action: pan-y; /* Mejora el scroll táctil */
+    user-select: none;   /* Evita que se seleccione el texto al arrastrar */
+    -webkit-user-drag: none; /* Evita que el navegador intente "arrastrar" la imagen como archivo */
 }
 
-/* =======================
-  Responsive CSS
-======================= */
-
-/* --- Ajustes para Móviles Pequeños (Hasta 576px) --- */
-@media (max-width: 576px) {
-
-    /* --- Pestañas de Navegación --- */
-    .tabs {
-        gap: 8px;
-        margin-bottom: 15px;
-    }
-
-    .tab-btn {
-        padding: 10px 18px;
-        /* Reducir el padding de los botones */
-        font-size: 0.9rem;
-        /* Reducir el tamaño de la fuente */
-        /* flex-grow: 1; Permitir que los botones crezcan para ocupar el espacio */
-        min-width: unset;
-        /* Eliminar posibles anchos mínimos */
-    }
-
-    /* --- Visor de Video --- */
-    .video-visor {
-        margin: 1rem auto;
-        padding: 0 10px;
-        /* Añadir un poco de padding lateral */
-    }
-
-    /* Video grande: aumentar el ancho, quitar espacio para flechas */
-    #video-grande {
-        width: 100%;
-        max-width: 100%;
-        border-radius: 8px;
-    }
-
-    /* Mover las flechas dentro del video-container para que no desborden */
-    .prev-video {
-        left: 5px;
-        padding: 0.3rem 0.5rem;
-        font-size: 1.5rem;
-    }
-
-    .next-video {
-        right: 5px;
-        padding: 0.3rem 0.5rem;
-        font-size: 1.5rem;
-    }
-
-    /* Info del video */
-    .video-info h3,
-    .video-info p {
-        font-size: 0.9rem;
-    }
-
-    /* Miniaturas de Video */
-    .video-miniaturas {
-        /* Habilitar el scroll horizontal para evitar desbordamiento */
-        overflow-x: auto;
-        justify-content: flex-start;
-        /* Alinear a la izquierda para el scroll */
-        padding-bottom: 10px;
-        /* Espacio para el scrollbar (si se muestra) */
-    }
-
-    .video-miniaturas .miniatura {
-        width: 110px;
-        /* Reducir el tamaño de la miniatura */
-        height: 60px;
-        border-radius: 6px;
-    }
-
-    .video-miniaturas .miniatura.activo {
-        transform: scale(1.0);
-        /* Reducir la escala al activar */
-        border: 2px solid #4b4a4a;
-    }
-
-    /*GALERÍA AJUSTADA --- */
-
-    /* =======================
-       Contenedor Imagen Grande
-       ======================= */
-    .imagen-container {
-        /* Asegura que ocupe todo el ancho disponible pero con padding */
-        max-width: 100%;
-        padding: 0 10px;
-    }
-
-    #imagen-grande {
-
-        /* width: 100% de su contenedor (max-width: 100% de .imagen-container) */
-        width: 100%;
-        /* Para asegurar que no se estire demasiado si está dentro de un contenedor más pequeño */
-        max-width: 250px;
-        height: auto;
-        border-radius: 8px;
-    }
-
-    /* Mover las flechas de imagen dentro del imagen-container */
-    .prev-img {
-        left: 5px;
-        padding: 0.3rem 0.5rem;
-        font-size: 1.5rem;
-        /* Aseguramos que el fondo no sea transparente para que se vean bien */
-        background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .next-img {
-        right: 5px;
-        padding: 0.3rem 0.5rem;
-        font-size: 1.5rem;
-        background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    /* =======================
-       Miniaturas de Galería
-       ======================= */
-    .miniaturas-container {
-        /* Quitamos el justify-content: center para que el scroll horizontal funcione mejor desde la izquierda */
-        justify-content: flex-start;
-        overflow: hidden;
-    }
-
-    .galeria-miniaturas {
-        /* Habilitar el scroll horizontal */
-        overflow-x: auto;
-        justify-content: flex-start;
-        /* Asegura que las miniaturas empiecen desde la izquierda */
-        padding-bottom: 10px;
-        /* Espacio para el scrollbar */
-        gap: 8px;
-        /* IMPORTANTE: para scroll en móviles */
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Ocultar la barra de desplazamiento en navegadores Webkit (opcional, si se prefiere invisible) */
-    .galeria-miniaturas::-webkit-scrollbar {
-        display: none;
-    }
-
-    .galeria-miniaturas img {
-        /* Aumentar el tamaño de la miniatura a algo visible pero que permita scroll */
-        width: 60px !important;
-        height: 60px !important;
-        flex: 0 0 auto;
-        /* Esencial para que las miniaturas no se encojan */
-        object-fit: cover;
-        /* Cambiado a cover para que rellenen el espacio */
-        border-radius: 4px;
-    }
-
-    .galeria-miniaturas img.active {
-        /* Reducir un poco el efecto de escala en móviles */
-        transform: scale(1.05);
-        border: 2px solid #4b4a4a;
-    }
+.thumbSwiper img {
+    pointer-events: none; /* Hace que el clic/arrastre pase al contenedor Swiper */
 }
 
-/* --- Ajustes para Tablets y Móviles Grandes (De 577px a 768px) --- */
-@media (min-width: 577px) and (max-width: 768px) {
-
-    /* --- Pestañas de Navegación --- */
-    .tabs {
-        gap: 12px;
-        margin-bottom: 20px;
+/* --- RESPONSIVE PARA LA GALERÍA --- */
+@media (max-width: 768px) {
+    .mainSwiper {
+        height: 300px;
     }
-
-    .tab-btn {
-        padding: 12px 20px;
-        font-size: 0.95rem;
-    }
-
-    /* --- Visor de Video --- */
-    .video-visor {
-        max-width: 650px;
-    }
-
-    /* Ajustar las flechas ligeramente */
-    .prev-video {
-        left: -15px;
-        padding: 0.4rem 0.6rem;
-        font-size: 1.8rem;
-    }
-
-    .next-video {
-        right: -15px;
-        padding: 0.4rem 0.6rem;
-        font-size: 1.8rem;
-    }
-
-    /* Miniaturas de Video */
-    .video-miniaturas {
-        /* Si hay muchas miniaturas, considera el scroll horizontal */
-        overflow-x: auto;
-        justify-content: flex-start;
-    }
-
-    .video-miniaturas .miniatura {
-        width: 120px;
+    .thumbSwiper {
         height: 70px;
     }
-
-    /* --- Galería de Imágenes --- */
-    /* Asegúrate de que esto está en tu CSS general, o en la Media Query */
-    .miniaturas-container {
-        display: flex;
-        justify-content: center;
-        /* ESTO ES LO CLAVE PARA CENTRAR EL GRUPO DE MINIATURAS */
-        width: 100%;
-        /* Opcional, si no lo tienes ya */
-        overflow: hidden;
-        /* Evita que el scroll horizontal rompa el centrado */
-    }
-
-    .galeria-miniaturas {
-        /* Este es el contenedor FLEX que agrupa las imágenes */
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        /* Importante para que salten de línea en móvil */
-    }
-
-    .galeria-miniaturas img {
-        width: 30px;
-        height: 30px;
-        flex: 0 0 auto;
-        /* ... */
-    }
-
-    #imagen-grande {
-        width: 85%;
-    }
-
-    /* Ajustar las flechas de imagen ligeramente */
-    .prev-img {
-        left: 200px;
-        padding: 0.4rem 0.6rem;
-        font-size: 1.8rem;
-    }
-
-    .next-img {
-        right: 200px;
-        padding: 0.4rem 0.6rem;
-        font-size: 1.8rem;
-    }
-
-
-}
-
-/* --- Ajustes para Tablets Horizontales (De 769px a 992px) --- */
-/* Esta media query se puede usar para refinar, pero a menudo los estilos por defecto son suficientes. */
-@media (min-width: 769px) and (max-width: 992px) {
-
-    /* --- Visor de Video --- */
-    .video-visor {
-        max-width: 750px;
-    }
-
-    /* El diseño por defecto parece funcionar bien, quizás solo asegurar las flechas */
-    .prev-video {
-        left: -20px;
-    }
-
-    .next-video {
-        right: -20px;
-    }
-
-    /* --- Galería de Imágenes --- */
-    .imagen-container {
-        max-width: 550px;
-    }
-
-    #imagen-grande {
-        width: 100%;
-        max-width: 400px;
-        /* Tamaño máximo de la imagen dentro del contenedor */
-        /* ... otros estilos ... */
-    }
-
-    .miniaturas-container {
-        /* CLAVE 1: Usa flexbox en el contenedor padre */
-        display: flex;
-        /* CLAVE 2: Centra el contenido (el div .galeria-miniaturas) */
-        justify-content: center;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .galeria-miniaturas {
-        /* CLAVE 3: Permite que salten de línea si hay muchas */
-        flex-wrap: wrap;
-        /* Si quieres un tamaño específico para las miniaturas en iPad Pro: */
-        gap: 12px;
-    }
-
-    .galeria-miniaturas img {
-        /* Ajustar el tamaño a algo adecuado para una tablet grande */
-        width: 90px !important;
-        height: 90px !important;
-        flex: 0 0 auto;
-    }
-
-
-
-    .prev-img {
-        left: -20px;
-    }
-
-    .next-img {
-        right: -20px;
+    .thumbSwiper .swiper-slide {
+        height: 60px;
     }
 }
 
-/* --- Mejorar la experiencia de scroll en dispositivos táctiles --- */
-/* Esto asegura que las miniaturas se puedan desplazar de forma más natural en móviles/tablets */
-.video-miniaturas,
-.galeria-miniaturas {
-    -webkit-overflow-scrolling: touch;
+.galeria {
+    display: none; /* Oculto por defecto */
 }
 
-/* --- Ajustes para Tablets Grandes / iPad Pro (Max 1366px) --- */
-@media (min-width: 993px) and (max-width: 1366px) {
-
-    /* Imagen Principal (Asegurando buen tamaño) */
-    .imagen-container {
-        /* Permite que el contenedor crezca, pero lo centra en la página */
-        max-width: 700px;
-        /* Ajusta este valor al tamaño deseado para la imagen grande */
-        margin: 0 auto;
-        /* CENTRA EL CONTENEDOR PRINCIPAL */
-        padding: 0;
-    }
-
-    #imagen-grande {
-        width: 100%;
-        max-width: 400px;
-        /* Tamaño máximo de la imagen dentro del contenedor */
-        /* ... otros estilos ... */
-    }
-
-    /* Miniaturas de Galería (Asegurando el centrado) */
-    .miniaturas-container {
-        /* CLAVE 1: Usa flexbox en el contenedor padre */
-        display: flex;
-        /* CLAVE 2: Centra el contenido (el div .galeria-miniaturas) */
-        justify-content: center;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .galeria-miniaturas {
-        /* CLAVE 3: Permite que salten de línea si hay muchas */
-        flex-wrap: wrap;
-        /* Si quieres un tamaño específico para las miniaturas en iPad Pro: */
-        gap: 12px;
-    }
-
-    .galeria-miniaturas img {
-        /* Ajustar el tamaño a algo adecuado para una tablet grande */
-        width: 100px !important;
-        height: 100px !important;
-        flex: 0 0 auto;
-    }
-
-    /* Flechas: Se mantienen fuera para un diseño de escritorio/tablet clásico */
-    .prev-img {
-        left: 100px;
-    }
-
-    .next-img {
-        right: 100px;
-    }
+.galeria.active {
+    display: block; /* Visible cuando tiene la clase active */
 }
-
-
-
-
-
-
-
-
 
 
 
