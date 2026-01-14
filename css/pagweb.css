@@ -1,682 +1,658 @@
 ﻿:root {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-size: 16px;
-    font-family: 'Rubik', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
 
-    --color_yamaha: #4B1E78;
-    --color_blancoRoto: #f8f8f8;
-    --color_rosa: #4b002f;
-    --color_yamahaClaro: #7D6099;
-    --color_azulado: #99e5e7;
-
+  --color_yamaha: #4b1e78;
+  --color_blancoRoto: #f8f8f8;
+  --color_rosa: #4b002f;
+  --color_yamahaClaro: #7d6099;
+  --color_azulado: #99e5e7;
 }
 
-
 body {
-    background-color: #000000;
-    /* fondo negro */
-    color: #fff;
-    /* para que el texto sea legible sobre negro */
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  background-color: #000000;
+  /* fondo negro */
+  color: #fff;
+  /* para que el texto sea legible sobre negro */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* Evitar overflow horizontal general */
 body,
 html {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
-
 
 /* NAV GENERAL */
 nav {
-    position: fixed;
-    /* siempre pegado arriba */
-    height: 50px;
-    /* altura fija */
-    display: flex;
-    /* para usar flexbox */
-    align-items: center;
-    /* centra verticalmente el contenido */
-    padding: 0 1rem;
-    /* espacio a los lados */
-    top: 0;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0.5rem;
-    background-color: black;
-    color: white;
-    z-index: 9999;
-    /* por encima de todo */
+  position: fixed;
+  /* siempre pegado arriba */
+  height: 50px;
+  /* altura fija */
+  display: flex;
+  /* para usar flexbox */
+  align-items: center;
+  /* centra verticalmente el contenido */
+  padding: 0 1rem;
+  /* espacio a los lados */
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  z-index: 9999;
+  /* por encima de todo */
 }
 
 /* Dale espacio al logo para que no se tape */
 .logo {
-    margin-top: 200px;
-    /* ajusta según altura del menú */
+  margin-top: 200px;
+  /* ajusta según altura del menú */
 }
 
 /* Contenedor del menú */
 .nav-container {
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    padding: 0 1rem;
-    /* menos padding arriba/abajo */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 0 1rem;
+  /* menos padding arriba/abajo */
 }
 
 /* Menú principal */
 .nav-menu {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex: 1;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-menu li {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Enlaces */
 .nav-container a {
-    display: inline-block;
-    text-decoration: none;
-    color: rgb(200, 200, 200);
-    font-weight: 400;
-    font-size: 0.9rem;
-    /* tamaño letra */
-    padding: 0.4rem 1rem;
-    transition: color 0.3s;
-    margin-right: 1rem;
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(200, 200, 200);
+  font-weight: 400;
+  font-size: 0.9rem;
+  /* tamaño letra */
+  padding: 0.4rem 1rem;
+  transition: color 0.3s;
+  margin-right: 1rem;
 }
-
-
 
 .nav-menu,
 .nav-menu ul,
 .nav-menu li {
-    list-style: none !important;
-    /* Quita los puntos */
-    margin: 0 !important;
-    /* Quita márgenes */
-    padding: 0 !important;
-    /* Quita padding */
+  list-style: none !important;
+  /* Quita los puntos */
+  margin: 0 !important;
+  /* Quita márgenes */
+  padding: 0 !important;
+  /* Quita padding */
 }
 
 .nav-container a:hover {
-    color: var(--color_yamaha);
+  color: var(--color_yamaha);
 }
 
 /* --- NAV RESPONSIVE --- */
 .nav-toggle {
-    display: none;
-    /* oculto por defecto */
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
+  display: none;
+  /* oculto por defecto */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .nav-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: var(--color_yamaha);
-    border-radius: 2px;
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--color_yamaha);
+  border-radius: 2px;
 }
 
 /*--- TABLET: menú normal, solo letras más pequeñas --- */
 @media (min-width: 751px) and (max-width: 1024px) {
-    .nav-toggle {
-        display: none;
-        /* oculta el menú hamburguesa en tablet */
-    }
+  .nav-toggle {
+    display: none;
+    /* oculta el menú hamburguesa en tablet */
+  }
 
-    nav {
-        display: flex;
-        /* asegura que el menú normal se vea */
-    }
+  nav {
+    display: flex;
+    /* asegura que el menú normal se vea */
+  }
 
-    .nav-container a {
-        font-size: 8px;
-        /* ajusta el tamaño de las letras para tablet */
-    }
+  .nav-container a {
+    font-size: 8px;
+    /* ajusta el tamaño de las letras para tablet */
+  }
 }
 
 /* --- RESPONSIVE MÓVIL / TABLETS --- */
 @media (max-width: 750px) {
-    .nav-toggle {
-        display: flex;
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        z-index: 101;
-    }
+  .nav-toggle {
+    display: flex;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 101;
+  }
 
-    nav,
-    .nav-container {
-        background: transparent;
-        position: static;
-        height: auto;
-        box-shadow: none;
-    }
+  nav,
+  .nav-container {
+    background: transparent;
+    position: static;
+    height: auto;
+    box-shadow: none;
+  }
 
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 250px;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 1.90);
-        flex-direction: column;
-        padding: 4rem 1.5rem 1.5rem;
-        gap: 1.5rem;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        box-shadow: -3px 0 8px rgba(0, 0, 0, 0.7);
-        border-left: 2px solid;
-        border-image: linear-gradient(to bottom, #8e44ad, #9b59b6) 1;
-        z-index: 100;
-    }
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 1.9);
+    flex-direction: column;
+    padding: 4rem 1.5rem 1.5rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -3px 0 8px rgba(0, 0, 0, 0.7);
+    border-left: 2px solid;
+    border-image: linear-gradient(to bottom, #8e44ad, #9b59b6) 1;
+    z-index: 100;
+  }
 
-    .nav-menu.open {
-        transform: translateX(0);
-    }
+  .nav-menu.open {
+    transform: translateX(0);
+  }
 
-    .nav-menu li a:hover {
-        color: var(--color_yamahaClaro);
-        border-left: 4px solid var(--color_yamahaClaro);
-    }
+  .nav-menu li a:hover {
+    color: var(--color_yamahaClaro);
+    border-left: 4px solid var(--color_yamahaClaro);
+  }
 }
 
 @media (max-width: 768px) {
-    h2 {
-        font-size: 1.2rem;
-    }
+  h2 {
+    font-size: 1.2rem;
+  }
 }
-
 
 /*--- SOBREMI --- */
 
 .intro {
-    position: absolute;
-    top: 20%;
-    right: 10%;
-    /* alineado a la derecha */
-    width: 85%;
-    max-width: 350px;
-    color: #ffffff;
-    padding: 1.2rem 1rem;
-    text-align: justify;
-    /* texto alineado a la derecha */
-    border-radius: 8px;
-    /* background: rgba(0, 0, 0, 0.5); */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    z-index: 2;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  /* alineado a la derecha */
+  width: 85%;
+  max-width: 350px;
+  color: #ffffff;
+  padding: 1.2rem 1rem;
+  text-align: justify;
+  /* texto alineado a la derecha */
+  border-radius: 8px;
+  /* background: rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  z-index: 2;
 
-    /* Animación inicial */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.85rem;
-    line-height: 1.5;
+  /* Animación inicial */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 /* Botón ver más */
 .vermas {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: var(--color_blancoRoto);
-    font-weight: 600;
-    border: 2px solid var(--color_yamaha);
-    border-radius: 30px;
-    font-size: 0.8rem;
-    /* más compacto */
-    padding: 0.3rem 1rem;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color_blancoRoto);
+  font-weight: 600;
+  border: 2px solid var(--color_yamaha);
+  border-radius: 30px;
+  font-size: 0.8rem;
+  /* más compacto */
+  padding: 0.3rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .vermas:hover {
-    background-color: var(--color_yamahaClaro);
-    transform: scale(1.05);
-    color: #0f0e0e;
+  background-color: var(--color_yamahaClaro);
+  transform: scale(1.05);
+  color: #0f0e0e;
 }
 
 /* Título dentro de intro */
 h2.sobre-mi-titulo {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1.5rem;
-    /* ligeramente más pequeño */
-    color: var(--color_yamaha);
-    text-align: center;
-    /* alineado a la izquierda */
-    margin: 0 0 1rem 0;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    position: relative;
-    transition: color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  /* ligeramente más pequeño */
+  color: var(--color_yamaha);
+  text-align: center;
+  /* alineado a la izquierda */
+  margin: 0 0 1rem 0;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 h2.sobre-mi-titulo:hover {
-    color: #8e44ad;
+  color: #8e44ad;
 }
 
 h2.sobre-mi-titulo::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
 
-    background: linear-gradient(to right, #8e44ad, #3498db);
+  background: linear-gradient(to right, #8e44ad, #3498db);
 
-    /* margin: 0.4rem 0 0 0; para que quede pegada a la izq*/
+  /* margin: 0.4rem 0 0 0; para que quede pegada a la izq*/
 
-    margin: 0.4rem auto 0 auto;
-    /* centrado horizontalmente y en medio */
-    border-radius: 2px;
+  margin: 0.4rem auto 0 auto;
+  /* centrado horizontalmente y en medio */
+  border-radius: 2px;
 }
 
 /*--- TODAS LAS SECCIONES GENERALES ---*/
 section {
-    background-color: none;
-    /* background: linear-gradient(145deg, #f8f8f8, #eaeaea); */
-    padding: 3rem 2rem;
-    margin: 2rem auto;
-    border-radius: 15px;
-    max-width: 1200px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: none;
+  /* background: linear-gradient(145deg, #f8f8f8, #eaeaea); */
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  border-radius: 15px;
+  max-width: 1200px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-
 section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 /* Párrafos dentro de cualquier sección */
 section p {
-    max-width: 800px;
-    margin: 0 auto 1rem auto;
-    padding: 1rem;
-    text-align: justify;
-    color: #333;
-    line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+  padding: 1rem;
+  text-align: justify;
+  color: #333;
+  line-height: 1.6;
 }
 
 /*--- ESTILO DE ENCABEZADOS H2 ---*/
 h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2.2rem;
-    color: #ffffff;
-    text-align: center;
-    position: relative;
-    margin: 2.5rem 0 1.5rem 0;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    transition: color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  margin: 2.5rem 0 1.5rem 0;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  transition: color 0.3s ease;
 }
 
 h2:hover {
-    color: #8e44ad;
+  color: #8e44ad;
 }
 
 /* Línea decorativa debajo de h2 */
 h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(to right, #8e44ad, #3498db);
-    margin: 0.5rem auto 0;
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #8e44ad, #3498db);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
 }
 
 /*--- CONTENEDOR COMÚN PARA SECCIONES FLEXIBLES ---*/
 .contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /*--- RESPONSIVE GENERAL ---*/
 @media (max-width: 768px) {
-    section {
-        padding: 2rem 1rem;
-    }
+  section {
+    padding: 2rem 1rem;
+  }
 
-    section p {
-        padding: 0.5rem;
-        font-size: 1rem;
-    }
+  section p {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
 
-    h2 {
-        font-size: 1.8rem;
-    }
+  h2 {
+    font-size: 1.8rem;
+  }
 
-    .contenedor {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
+  .contenedor {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
-    h2 {
-        font-size: 1.5rem;
-    }
+  h2 {
+    font-size: 1.5rem;
+  }
 
-    section {
-        padding: 1.5rem 1rem;
-    }
+  section {
+    padding: 1.5rem 1rem;
+  }
 
-    section p {
-        font-size: 0.95rem;
-    }
+  section p {
+    font-size: 0.95rem;
+  }
 }
 
-
 #biografia {
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: overlay;
-    background-color: rgba(20, 20, 20, 0.95);
-    width: 90%;
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 8px;
-    color: var(--color_yamahaClaro);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: auto;
-    /* deja que el div crezca según el contenido */
-    min-height: 200px;
-    /* altura mínima */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(20, 20, 20, 0.95);
+  width: 90%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  color: var(--color_yamahaClaro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  /* deja que el div crezca según el contenido */
+  min-height: 200px;
+  /* altura mínima */
 }
 
 #biografia p {
-    color: #eee;
-    line-height: 1.8;
-    font-size: 1.05rem;
-    text-align: justify;
+  color: #eee;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  text-align: justify;
 }
 
 #biografia:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 2px 5px var(--color_yamaha);
-    /* más tenue */
-    cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 2px 5px var(--color_yamaha);
+  /* más tenue */
+  cursor: pointer;
 }
 
 .bio-links {
-    display: flex;
-    align-items: center;
-    /* centra verticalmente */
-    justify-content: center;
-    /* centra en la página */
-    gap: 2rem;
-    /* espacio entre botón y Yamaha */
-    margin-top: 2rem;
-    flex-wrap: wrap;
-    /* para que en pantallas pequeñas se bajen en vertical */
+  display: flex;
+  align-items: center;
+  /* centra verticalmente */
+  justify-content: center;
+  /* centra en la página */
+  gap: 2rem;
+  /* espacio entre botón y Yamaha */
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  /* para que en pantallas pequeñas se bajen en vertical */
 }
 
 .btn-descarga-biografia {
-    display: inline-block;
-    /* ya no bloquea toda la línea */
-    padding: 12px 25px;
-    background-color: var(--color_yamaha);
-    color: #fff;
-    font-weight: bold;
-    border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+  display: inline-block;
+  /* ya no bloquea toda la línea */
+  padding: 12px 25px;
+  background-color: var(--color_yamaha);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
 }
 
 .btn-descarga-biografia:hover {
-    background-color: var(--color_yamahaClaro);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+  background-color: var(--color_yamahaClaro);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .artist-yamaha {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    color: whitesmoke;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: whitesmoke;
 }
 
 .artist-yamaha img {
-    height: 100px;
-    vertical-align: middle;
+  height: 100px;
+  vertical-align: middle;
 }
-
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    #biografia {
-        max-width: 100%;
-        padding: 1rem 1rem;
-        margin: 1rem auto;
-        background-size: contain;
-        /* no recorta fondo */
+  #biografia {
+    max-width: 100%;
+    padding: 1rem 1rem;
+    margin: 1rem auto;
+    background-size: contain;
+    /* no recorta fondo */
+  }
 
-    }
+  #biografia p {
+    font-size: 0.75rem;
+    text-align: center;
+  }
 
-    #biografia p {
-        font-size: 0.75rem;
-        text-align: center;
+  .btn-descarga-biografia {
+    width: 50%;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
 
-    }
-
-    .btn-descarga-biografia {
-        width: 50%;
-        padding: 10px;
-        font-size: 0.95rem;
-    }
-
-    #biografia h3 {
-        font-size: 1rem;
-    }
+  #biografia h3 {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-    #biografia {
-        padding: 1rem 0.8rem;
-        margin: 1rem auto;
-        border-radius: 5px;
-        background-size: contain;
-    }
+  #biografia {
+    padding: 1rem 0.8rem;
+    margin: 1rem auto;
+    border-radius: 5px;
+    background-size: contain;
+  }
 
-    #biografia p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        word-spacing: normal;
-        hyphens: auto;
-        /* evita espacio excesivo */
-        letter-spacing: 0;
-        /* opcional */
-        line-height: 1.5;
-        /* más compacto verticalmente */
-        text-align: justify;
-        text-justify: inter-word;
-        /* distribuye espacio de manera uniforme */
+  #biografia p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-spacing: normal;
+    hyphens: auto;
+    /* evita espacio excesivo */
+    letter-spacing: 0;
+    /* opcional */
+    line-height: 1.5;
+    /* más compacto verticalmente */
+    text-align: justify;
+    text-justify: inter-word;
+    /* distribuye espacio de manera uniforme */
+  }
 
-
-    }
-
-    .btn-descarga-biografia {
-        font-size: 0.9rem;
-        padding: 8px;
-    }
+  .btn-descarga-biografia {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
 }
 
 /*--- ENTREVISTAS ---*/
 
 #entrevistas {
-    background: transparent;
-
-    /* o el color de fondo de tu web */
-
+  background: transparent;
 }
 
 /* Contenedor principal de las entrevistas */
 .contenedor-entrevistas {
-
-    display: flex;
-    flex-wrap: wrap;
-    /* permite que bajen a la siguiente fila */
-    justify-content: center;
-    /* centra las filas */
-    gap: 2rem;
-    /* separación entre tarjetas */
-    max-width: 1200px;
-    /* ancho máximo del contenedor */
-    margin: 0 auto;
-    /* centra el contenedor en la página */
+  display: flex;
+  flex-wrap: wrap;
+  /* permite que bajen a la siguiente fila */
+  justify-content: center;
+  /* centra las filas */
+  gap: 2rem;
+  /* separación entre tarjetas */
+  max-width: 1200px;
+  /* ancho máximo del contenedor */
+  margin: 0 auto;
+  /* centra el contenedor en la página */
 }
-
-
 
 /* Tarjeta individual de entrevista */
 .entrevista {
-    background-color: rgba(20, 20, 20, 0.95);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 45%;
-    max-width: 500px;
-    min-height: 200px;
-    padding: 1rem;
+  background-color: rgba(20, 20, 20, 0.95);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+  max-width: 500px;
+  min-height: 200px;
+  padding: 1rem;
 
-    /* transición suave de transform, box-shadow y borde */
-    transition: transform 0.8s ease, box-shadow 0.8s ease, border 0.8s ease;
+  /* transición suave de transform, box-shadow y borde */
+  transition: transform 0.8s ease, box-shadow 0.8s ease, border 0.8s ease;
 
-    /* sin borde al inicio */
-    border: 1px solid transparent;
+  /* sin borde al inicio */
+  border: 1px solid transparent;
 }
 
 /* Hover: elevación y borde elegante */
 .entrevista:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    cursor: pointer;
-    border: 1px solid var(--color_yamaha);
-    /* borde suave al aparecer */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  border: 1px solid var(--color_yamaha);
+  /* borde suave al aparecer */
 }
 
 /* Contenido de texto dentro de la tarjeta */
 .entrevista .contenido {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-right: 1rem;
-
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 1rem;
 }
 
 /* Logo a la derecha */
 .logo-entrevista {
-    flex: 0 0 100px;
-    max-width: 100px;
-    height: auto;
-    border-radius: 12px;
-    object-fit: contain;
+  flex: 0 0 100px;
+  max-width: 100px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
 }
 
 /* Ajuste si no hay logo */
 .entrevista:not(:has(.logo-entrevista)) {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 /* Título de la entrevista */
 .entrevista h3 {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
 }
 
 /* Texto de la entrevista */
 .entrevista p {
-    font-size: 1rem;
-    text-align: justify;
-    color: #ffffff;
+  font-size: 1rem;
+  text-align: justify;
+  color: #ffffff;
 }
 
 /* Botón de la entrevista */
 .btn-entrevista {
-    align-self: flex-start;
-    margin-top: 1rem;
-    text-decoration: none;
-    color: var(--color_yamaha);
-    font-weight: 600;
-    border: 2px solid var(--color_yamaha);
-    border-radius: 30px;
-    font-size: 0.9rem;
-    padding: 0.4rem 1.2rem;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  align-self: flex-start;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: var(--color_yamaha);
+  font-weight: 600;
+  border: 2px solid var(--color_yamaha);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  padding: 0.4rem 1.2rem;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 .btn-entrevista:hover {
-    background-color: var(--color_yamahaClaro);
-    color: #fff;
-    transform: scale(1.05);
-    cursor: pointer;
+  background-color: var(--color_yamahaClaro);
+  color: #fff;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 /* --- RESPONSIVE: móvil (logo debajo del texto) --- */
 @media (max-width: 600px) {
-    .entrevista {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+  .entrevista {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    .entrevista .contenido {
-        padding-right: 0;
-    }
+  .entrevista .contenido {
+    padding-right: 0;
+  }
 
-    .logo-entrevista {
-        margin-top: 1rem;
-        max-width: 80px;
-    }
+  .logo-entrevista {
+    margin-top: 1rem;
+    max-width: 80px;
+  }
 }
-
-
 
 /*Tabla videos/galeria*/
 
@@ -684,74 +660,74 @@ h2::after {
    Botones de pestañas
 ======================= */
 .tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 
 .tab-btn {
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 500;
-    border: none;
-    border-radius: 8px;
-    background: #f3f3f3;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  background: #f3f3f3;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .tab-btn:hover {
-    background: #e1e1e1;
-    color: var(--color_yamaha, #4a00e0);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: #e1e1e1;
+  color: var(--color_yamaha, #4a00e0);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .tab-btn.active {
-    background: var(--color_yamaha, #4a00e0);
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+  background: var(--color_yamaha, #4a00e0);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .tab-btn.active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 3px;
-    transition: all 0.3s ease;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
 }
 
 .tab-btn:active::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    animation: ripple 0.6s ease-out;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 0.6s ease-out;
 }
 
 @keyframes ripple {
-    to {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0;
-    }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
 
 /* =================================================
@@ -759,22 +735,33 @@ h2::after {
    ================================================= */
 
 /* Ocultar por defecto */
-.galeria, .video {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+.galeria,
+.video {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
 }
 
-/* Clase activa con animación de fundido */
-.galeria.active, .video.active {
-    display: block;
-    opacity: 1;
-    animation: fadeIn 0.5s forwards;
+.galeria.active,
+.video.active {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+  overflow: visible;
+  animation: fadeIn 0.5s forwards;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =================================================
@@ -782,50 +769,58 @@ h2::after {
    ================================================= */
 
 .video-visor {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .video-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9; /* Mantiene el formato YouTube */
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Mantiene el formato YouTube */
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #video-grande {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 /* Flechas de vídeo personalizadas (usando tus colores) */
-.prev-video, .next-video {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: var(--color_yamahaClaro);
-    border: 1px solid var(--color_yamaha);
-    font-size: 24px;
-    padding: 15px 10px;
-    cursor: pointer;
-    z-index: 5;
-    transition: all 0.3s ease;
+.prev-video,
+.next-video {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color_yamahaClaro);
+  border: 1px solid var(--color_yamaha);
+  font-size: 24px;
+  padding: 15px 10px;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease;
 }
 
-.prev-video { left: 0; border-radius: 0 5px 5px 0; }
-.next-video { right: 0; border-radius: 5px 0 0 5px; }
+.prev-video {
+  left: 0;
+  border-radius: 0 5px 5px 0;
+}
+.next-video {
+  right: 0;
+  border-radius: 5px 0 0 5px;
+}
 
-.prev-video:hover, .next-video:hover {
-    background: var(--color_yamaha);
-    color: #fff;
+.prev-video:hover,
+.next-video:hover {
+  background: var(--color_yamaha);
+  color: #fff;
 }
 
 /* =================================================
@@ -833,59 +828,58 @@ h2::after {
    ================================================= */
 
 .video-miniaturas {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    justify-content: center;
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  justify-content: center;
 }
 
 /* Ocultar scrollbar pero permitir scroll */
 .video-miniaturas::-webkit-scrollbar {
-    height: 4px;
+  height: 4px;
 }
 .video-miniaturas::-webkit-scrollbar-thumb {
-    background: var(--color_yamaha);
-    border-radius: 10px;
+  background: var(--color_yamaha);
+  border-radius: 10px;
 }
 
 .video-miniaturas .miniatura {
-    width: 120px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 6px;
-    cursor: pointer;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    transition: all 0.3s ease;
-    flex-shrink: 0;
+  width: 120px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .video-miniaturas .miniatura:hover,
 .video-miniaturas .miniatura.activo {
-    opacity: 1;
-    filter: grayscale(0%);
-    transform: scale(1.05);
-    border: 2px solid var(--color_yamahaClaro);
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+  border: 2px solid var(--color_yamahaClaro);
 }
 
 /* Info del vídeo */
 .video-info {
-    text-align: center;
-    margin-top: 15px;
+  text-align: center;
+  margin-top: 15px;
 }
 
 .video-info h3 {
-    color: var(--color_yamahaClaro);
-    margin-bottom: 5px;
+  color: var(--color_yamahaClaro);
+  margin-bottom: 5px;
 }
 
 .video-info p {
-    font-size: 0.9rem;
-    color: #ccc;
+  font-size: 0.9rem;
+  color: #ccc;
 }
-
 
 /* =================================================
    ESTILOS SWIPER - GALERÍA PROFESIONAL
@@ -893,1540 +887,1581 @@ h2::after {
 
 /* 1. Visor Principal (Grande) */
 .mainSwiper {
-    width: 100%;
-    max-width: 500px; /* Ajustado a tu diseño de sección */
-    height: 450px;
-    margin: 0 auto 15px auto;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #000;
+  width: 100%;
+  max-width: 500px; /* Ajustado a tu diseño de sección */
+  height: 450px;
+  margin: 0 auto 15px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
 }
 
-
-
 .swiper-zoom-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Hacer que el enlace ocupe todo el slide */
 .mainSwiper .swiper-slide a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    cursor: zoom-in; /* Cambia el cursor a una lupa con un + */
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in; /* Cambia el cursor a una lupa con un + */
 }
 
 .mainSwiper .swiper-slide img {
-     cursor: zoom-in;
-    transition: transform 0.3s ease;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Mantiene la proporción en el visor de 450px */
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la proporción en el visor de 450px */
 }
-
 
 /* Ocultar las flechas por defecto y mostrarlas al hacer hover */
 .mainSwiper .swiper-button-next::after,
 .mainSwiper .swiper-button-prev::after {
-    font-size: 25px !important;
-    color: var(--color_yamahaClaro) !important; /* Usa tu color corporativo */
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  font-size: 25px !important;
+  color: var(--color_yamahaClaro) !important; /* Usa tu color corporativo */
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .mainSwiper:hover .swiper-button-next::after,
 .mainSwiper:hover .swiper-button-prev::after {
-    opacity: 1;
+  opacity: 1;
 }
 /* Color de la barra de progreso */
 .mainSwiper .swiper-pagination-progressbar-fill {
-    background: var(--color_yamahaClaro) !important;
+  background: var(--color_yamahaClaro) !important;
 }
 
 /* Fondo de la barra (la parte que aún no se ha llenado) */
 .mainSwiper .swiper-pagination-progressbar {
-    background: rgba(255, 255, 255, 0.2);
-    height: 4px; /* Un poco más gruesa para que se vea bien */
- 
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px; /* Un poco más gruesa para que se vea bien */
 }
-
-
 
 /* Aseguramos que la flecha (el icono) se vea blanca y nítida */
 .mainSwiper .swiper-button-next::after,
 .mainSwiper .swiper-button-prev::after {
-    color: #fff !important;
-    text-shadow: 0px 0px 10px rgba(0,0,0,0.8); /* Sombra para resaltar la flecha */
+  color: #fff !important;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8); /* Sombra para resaltar la flecha */
 }
 .mainSwiper .swiper-button-next::after,
 .mainSwiper .swiper-button-prev::after {
-    font-size: 20px; /* Flechas más elegantes */
+  font-size: 20px; /* Flechas más elegantes */
 }
 
 /* 2. Carrusel de Miniaturas (Pequeño) */
 .thumbSwiper {
-    width: 100%;
-    max-width: 6000px;
-    height: 100px;
-    margin: 10px auto;
-    padding: 30px 0;
+  width: 100%;
+  max-width: 6000px;
+  height: 100px;
+  margin: 10px auto;
+  padding: 30px 0;
 }
 
 .thumbSwiper .swiper-slide {
-    width: 100px;
-    height: 100px;
-    opacity: 0.4; /* Efecto desvanecido para las no activas */
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 100px;
+  height: 100px;
+  opacity: 0.4; /* Efecto desvanecido para las no activas */
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 /* Miniatura Activa */
 .thumbSwiper .swiper-slide-thumb-active {
-    opacity: 2;
-    transform: scale(1.05);
+  opacity: 2;
+  transform: scale(1.05);
 }
 
 .thumbSwiper .swiper-slide-thumb-active img {
-    border: 1px solid var(--color_blancoRoto);
-    box-shadow: 5px var(--color_blancoRoto);
+  border: 1px solid var(--color_blancoRoto);
+  box-shadow: 5px var(--color_blancoRoto);
 }
 
 .thumbSwiper .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-    filter: grayscale(40%); /* Un toque artístico */
-    transition: filter 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  filter: grayscale(40%); /* Un toque artístico */
+  transition: filter 0.3s ease;
 }
 
 .thumbSwiper .swiper-slide:hover img {
-    filter: grayscale(0%);
+  filter: grayscale(0%);
 }
 .thumbSwiper .swiper-slide {
-    touch-action: pan-y; /* Mejora el scroll táctil */
-    user-select: none;   /* Evita que se seleccione el texto al arrastrar */
-    -webkit-user-drag: none; /* Evita que el navegador intente "arrastrar" la imagen como archivo */
+  touch-action: pan-y; /* Mejora el scroll táctil */
+  user-select: none; /* Evita que se seleccione el texto al arrastrar */
+  -webkit-user-drag: none; /* Evita que el navegador intente "arrastrar" la imagen como archivo */
 }
 
 .thumbSwiper img {
-    pointer-events: none; /* Hace que el clic/arrastre pase al contenedor Swiper */
+  pointer-events: none; /* Hace que el clic/arrastre pase al contenedor Swiper */
 }
-
-/* --- RESPONSIVE PARA LA GALERÍA --- */
+/* ===================================================== */
+/* === RESPONSIVE GALERÍA (MÓVIL / TABLET) ============== */
+/* ===================================================== */
 @media (max-width: 768px) {
-    .mainSwiper {
-        height: 300px;
-    }
-    .thumbSwiper {
-        height: 70px;
-    }
-    .thumbSwiper .swiper-slide {
-        height: 60px;
-    }
+  /* --- GALERÍA --- */
+  .galeria {
+    width: 100%;
+  }
+  .galeria.active {
+    display: block;
+  }
+
+  /* ================================================= */
+  /* VISOR PRINCIPAL (IMAGEN GRANDE) */
+  /* ================================================= */
+
+ 
+  .mainSwiper {
+    width: 96vw !important;
+    max-width: 620px !important;
+
+    aspect-ratio: 16 / 9;        /* marco horizontal */
+    height: auto !important;
+    min-height: 240px !important;
+    max-height: 380px !important;
+
+    margin: 0 auto 12px auto !important;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .mainSwiper .swiper-wrapper,
+  .mainSwiper .swiper-slide {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .mainSwiper .swiper-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .mainSwiper .swiper-slide a,
+  .mainSwiper .swiper-zoom-container {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* ========================= */
+  /* IMAGEN (CLAVE AQUÍ) */
+  /* ========================= */
+
+  .mainSwiper .swiper-zoom-container > img,
+  .mainSwiper .swiper-slide a img,
+  .mainSwiper .swiper-slide img {
+    width: 100% !important;      /* llena el ancho */
+    height: auto !important;     
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: contain !important;  /* NO recorta */
+    object-position: center !important;
+    display: block !important;
+  }
 }
 
-.galeria {
-    display: none; /* Oculto por defecto */
+  /* ================================================= */
+  /* MINIATURAS  */
+  /* ================================================= */
+
+  .thumbSwiper {
+    width: 96vw !important;
+    max-width: none !important; /* ✅ quita el límite de 320px */
+    height: 64px !important;
+    margin: 8px auto 0 auto !important;
+    padding: 0 !important; /* ✅ quita padding que roba espacio */
+  }
+
+  .thumbSwiper .swiper-wrapper {
+    align-items: center !important;
+  }
+
+  .thumbSwiper .swiper-slide {
+    width: 52px !important; /* más pequeñas = entran más */
+    height: 52px !important;
+    opacity: 0.55;
+  }
+
+  .thumbSwiper .swiper-slide-thumb-active {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  .thumbSwiper .swiper-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* miniaturas mejor cover */
+    border-radius: 6px;
+  }
 }
-
-.galeria.active {
-    display: block; /* Visible cuando tiene la clase active */
-}
-
-
-
-
 
 /* --- Sección Academia --- */
 #madrid-sax-academy {
-    background-color: #000;
-    /* fondo negro sólido para la sección */
+  background-color: #000;
+  /* fondo negro sólido para la sección */
 
-    color: var(--color_yamahaClaro);
-    display: flex;
-    flex-direction: column;
-
+  color: var(--color_yamahaClaro);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Contenedores internos transparentes */
 #academia-contenedor-general,
 .academia-contenedor {
-    background: transparent;
+  background: transparent;
 }
 
 /* Tarjetas -> negro semitransparente */
 .academia_class {
-    border-radius: 8px;
-    background-color: rgba(20, 20, 20, 0.95);
-    /* gris muy oscuro, se diferencia del negro puro */
-    border-radius: 10px;
-    padding: 1.5rem;
-    color: var(--color_yamahaClaro);
-    display: flex;
-    gap: 2rem;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Limitar el ancho */
-    max-width: 900px;
-    /* puedes ajustar a lo que quieras */
-    width: 90%;
-    /* para que no se desborde en contenedores más pequeños */
-    margin: 0 auto;
-    /* centra la tarjeta horizontalmente */
+  border-radius: 8px;
+  background-color: rgba(20, 20, 20, 0.95);
+  /* gris muy oscuro, se diferencia del negro puro */
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: var(--color_yamahaClaro);
+  display: flex;
+  gap: 2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Limitar el ancho */
+  max-width: 900px;
+  /* puedes ajustar a lo que quieras */
+  width: 90%;
+  /* para que no se desborde en contenedores más pequeños */
+  margin: 0 auto;
+  /* centra la tarjeta horizontalmente */
 }
 
-
 .academia_class:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-    border: 1px solid var(--color_yamaha);
-    cursor: pointer;
-    /* borde Yamaha al hover */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--color_yamaha);
+  cursor: pointer;
+  /* borde Yamaha al hover */
 }
 
 /* Texto */
 .academia_texto {
-    flex: 1;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* centra los elementos hijos verticalmente */
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* centra los elementos hijos verticalmente */
 }
 
 .academia_texto h3 {
-    text-align: center;
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--color_yamaha);
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: var(--color_yamaha);
 }
 
 .academia_texto p {
-    font-size: 1rem;
-    /*Une las palabras para que no queden espacios inecesarios*/
-    hyphens: auto;
-    line-height: 1.4;
-    /* menos espacio entre líneas */
-    color: #ffffff;
-    margin: 0;
-    /* elimina márgenes */
-    padding: 0;
+  font-size: 1rem;
+  /*Une las palabras para que no queden espacios inecesarios*/
+  hyphens: auto;
+  line-height: 1.4;
+  /* menos espacio entre líneas */
+  color: #ffffff;
+  margin: 0;
+  /* elimina márgenes */
+  padding: 0;
 
-    /* elimina padding */
+  /* elimina padding */
 }
 
 /* Contenedor de enlaces Web + Instagram */
 .academia_enlaces {
-    display: flex;
-    justify-content: center;
-    /* centra horizontalmente */
-    gap: 10px;
-    /* espacio entre enlaces */
-    margin-top: 1rem;
-    /* separación del texto */
+  display: flex;
+  justify-content: center;
+  /* centra horizontalmente */
+  gap: 10px;
+  /* espacio entre enlaces */
+  margin-top: 1rem;
+  /* separación del texto */
 }
 
 /* Estilo individual de enlaces */
 .academia_enlaces a {
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem;
-    background-color: #8e44ad;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #8e44ad;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .academia_enlaces a:hover {
-    background-color: #9b59b6;
-    transform: scale(1.05);
+  background-color: #9b59b6;
+  transform: scale(1.05);
 }
 
 /* Icono Instagram específico */
 .academia_enlaces a.icono.instagram i {
-    font-size: 1.2rem;
-    color: #fff;
+  font-size: 1.2rem;
+  color: #fff;
 }
 
 /* Imagen alineada a la izquierda tipo “tarjeta” */
 .academia_imagen {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.5rem;
 }
 
 .academia_imagen img {
-    width: 80%;
-    height: auto;
-    border-radius: 20px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    margin-left: 6rem;
+  width: 80%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  margin-left: 6rem;
 }
 
 .academia_imagen img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* --- RESPONSIVE TABLET --- */
 
 @media (max-width: 1024px) {
-    .academia_class {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        gap: 0.5rem;
-        /* menos espacio entre elementos */
-        padding: 1rem;
-        /* ajusta padding general */
-        /* ajusta el espacio entre texto e imagen */
-    }
+  .academia_class {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
+    /* menos espacio entre elementos */
+    padding: 1rem;
+    /* ajusta padding general */
+    /* ajusta el espacio entre texto e imagen */
+  }
 
-    .academia_imagen {
-        flex: none;
-        /* que no ocupe todo el ancho */
-        justify-content: center;
-        /* centra horizontalmente */
-        padding: 0.5rem;
-        display: flex;
-        width: 100%;
-    }
+  .academia_imagen {
+    flex: none;
+    /* que no ocupe todo el ancho */
+    justify-content: center;
+    /* centra horizontalmente */
+    padding: 0.5rem;
+    display: flex;
+    width: 100%;
+  }
 
-    .academia_imagen img {
-        width: 60%;
-        /* tamaño más razonable */
-        max-width: 300px;
-        /* límite máximo para tablet */
-        height: auto;
-        border-radius: 20px;
-        margin: 0 auto;
-        /* centra la imagen */
-        display: block;
-    }
+  .academia_imagen img {
+    width: 60%;
+    /* tamaño más razonable */
+    max-width: 300px;
+    /* límite máximo para tablet */
+    height: auto;
+    border-radius: 20px;
+    margin: 0 auto;
+    /* centra la imagen */
+    display: block;
+  }
 
-    .academia_texto p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-
-
+  .academia_texto p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 }
 
 /* --- RESPONSIVE MÓVIL --- */
 @media (max-width: 768px) {
-    .academia_class {
-        gap: 1rem;
-        padding: 1rem;
-        flex-direction: column;
-        text-align: left;
+  .academia_class {
+    gap: 1rem;
+    padding: 1rem;
+    flex-direction: column;
+    text-align: left;
+  }
 
-    }
+  .academia_imagen {
+    width: 50%;
+    padding: 1rem;
+    justify-content: center;
+    /* centra la imagen */
+  }
 
-    .academia_imagen {
-        width: 50%;
-        padding: 1rem;
-        justify-content: center;
-        /* centra la imagen */
-    }
+  .academia_imagen img {
+    width: 90%;
+    /* ocupa casi todo el ancho */
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+  }
 
-    .academia_imagen img {
-        width: 90%;
-        /* ocupa casi todo el ancho */
-        max-width: 90%;
-        height: auto;
-        border-radius: 20px 20px 0 0;
-    }
+  .academia_texto p {
+    font-size: 0.8rem;
+    /* ajusta tamaño de letra en móvil */
+    line-height: 1.4;
+    letter-spacing: 0;
+    /* menos espacio entre letras, valor por defecto */
+    word-spacing: 0rem;
+    /* ajusta el espacio entre palabras si quieres */
+  }
 
-    .academia_texto p {
-        font-size: 0.8rem;
-        /* ajusta tamaño de letra en móvil */
-        line-height: 1.4;
-        letter-spacing: 0;
-        /* menos espacio entre letras, valor por defecto */
-        word-spacing: 0.0rem;
-        /* ajusta el espacio entre palabras si quieres */
-
-    }
-
-    .academia_texto a {
-        margin: 1rem auto 0 auto;
-
-    }
-
+  .academia_texto a {
+    margin: 1rem auto 0 auto;
+  }
 }
 
 /*---AGENDA---*/
 #agenda {
-    background-color: rgba(20, 20, 20, 0.95);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border-radius: 1rem;
-    padding: 1.8rem 2.2rem;
-    margin-bottom: 5rem;
+  background-color: rgba(20, 20, 20, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  padding: 1.8rem 2.2rem;
+  margin-bottom: 5rem;
 
-
-    /* separación entre tarjetas */
-    max-width: 1200px;
-    /* ancho máximo del contenedor */
-    margin: 0 auto;
-    /* borde transparente inicial */
-    border: 1px solid transparent;
-    /* transición suave para borde y color de texto */
-    transition: border 0.5s ease, color 0.5s ease;
+  /* separación entre tarjetas */
+  max-width: 1200px;
+  /* ancho máximo del contenedor */
+  margin: 0 auto;
+  /* borde transparente inicial */
+  border: 1px solid transparent;
+  /* transición suave para borde y color de texto */
+  transition: border 0.5s ease, color 0.5s ease;
 }
 
 #agenda:hover {
-    cursor: pointer;
-    border: 1px solid var(--color_yamaha);
-    /* borde aparece suavemente */
-    color: var(--color_yamaha);
-    /* texto cambia de color suavemente */
+  cursor: pointer;
+  border: 1px solid var(--color_yamaha);
+  /* borde aparece suavemente */
+  color: var(--color_yamaha);
+  /* texto cambia de color suavemente */
 }
 
-
 .mensaje-agenda {
-
-    text-align: center;
-    color: #fff8f8;
-    font-style: italic;
-
+  text-align: center;
+  color: #fff8f8;
+  font-style: italic;
 }
 
 .mensaje-agenda p {
-    text-align: center;
-    color: silver;
+  text-align: center;
+  color: silver;
 }
 
 .mensaje-agenda i {
-    font-size: 2rem;
-    color: #fff8f8;
-    margin-bottom: 0.5em;
+  font-size: 2rem;
+  color: #fff8f8;
+  margin-bottom: 0.5em;
 }
 
 /* Estilo general para la barra */
 progress.agenda {
-    width: 100%;
-    height: 25px;
-    appearance: none;
-    -webkit-appearance: none;
-    border-radius: 20px;
-    overflow: hidden;
-    background-color: #eee;
-    border: 2px solid #5b8dce;
-    box-shadow: 0 0 10px rgba(83, 72, 231, 0.3);
-    margin-top: 1rem;
+  width: 100%;
+  height: 25px;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #eee;
+  border: 2px solid #5b8dce;
+  box-shadow: 0 0 10px rgba(83, 72, 231, 0.3);
+  margin-top: 1rem;
 }
 
 /* Para navegadores WebKit como Chrome */
 progress.agenda::-webkit-progress-bar {
-    background-color: #eee;
-    border-radius: 20px;
+  background-color: #eee;
+  border-radius: 20px;
 }
 
 progress.agenda::-webkit-progress-value {
-    background: linear-gradient(90deg, #3498db, #3737b6);
-    border-radius: 20px;
-    transition: width 0.5s ease-in-out;
+  background: linear-gradient(90deg, #3498db, #3737b6);
+  border-radius: 20px;
+  transition: width 0.5s ease-in-out;
 }
 
 /* Para Firefox */
 progress.agenda::-moz-progress-bar {
-    background: linear-gradient(90deg, #3498db, #3737b6);
-    border-radius: 20px;
+  background: linear-gradient(90deg, #3498db, #3737b6);
+  border-radius: 20px;
 }
-
-
 
 /* Animación de entrada suave */
 @keyframes aparecer {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Animación de pulso al hacer hover en tarjetas */
 @keyframes borderPulse {
-    0% {
-        box-shadow: 0 0 0px 0px rgba(137, 29, 29, 0.2);
-    }
+  0% {
+    box-shadow: 0 0 0px 0px rgba(137, 29, 29, 0.2);
+  }
 
-    100% {
-        box-shadow: 0 0 15px 4px rgba(137, 29, 29, 0.4);
-    }
+  100% {
+    box-shadow: 0 0 15px 4px rgba(137, 29, 29, 0.4);
+  }
 }
-
-
-
-
 
 /* REDES SOCIALES */
 
 /* Redes sociales debajo de "Sobre mí" */
 .redes-sociales {
-    text-align: center;
-    /* centrado debajo del contenido */
-    display: flex;
-    /* para que los iconos estén en línea */
-    justify-content: center;
-    /* centrado horizontal */
-    gap: 20px;
-    /* espacio entre iconos */
-    margin-top: 20px;
-    /* separación del texto anterior */
-    z-index: 10;
-    position: static;
-    /* quitar absolute para que siga el flujo del HTML */
+  text-align: center;
+  /* centrado debajo del contenido */
+  display: flex;
+  /* para que los iconos estén en línea */
+  justify-content: center;
+  /* centrado horizontal */
+  gap: 20px;
+  /* espacio entre iconos */
+  margin-top: 20px;
+  /* separación del texto anterior */
+  z-index: 10;
+  position: static;
+  /* quitar absolute para que siga el flujo del HTML */
 }
 
 .redes-sociales a.icono {
-    font-size: 26px;
-    text-decoration: none;
-    transition: transform 0.3s, opacity 0.3s;
-    color: #B0B0B0;
+  font-size: 26px;
+  text-decoration: none;
+  transition: transform 0.3s, opacity 0.3s;
+  color: #b0b0b0;
 
-    /* color por defecto */
+  /* color por defecto */
 }
 
 /* Colores fijos por red */
 .redes-sociales a.icono:hover {
-    color: #E4405F;
-    /* Color rosa Instagram o similar */
-    cursor: -moz-zoom-out;
-    /*mano de puntero*/
+  color: #e4405f;
+  /* Color rosa Instagram o similar */
+  cursor: -moz-zoom-out;
+  /*mano de puntero*/
 }
 
 /* Opcional: colores específicos por red */
 .redes-sociales a.icono.instagram:hover {
-    color: #E4405F;
-    /* rosa Instagram */
+  color: #e4405f;
+  /* rosa Instagram */
 }
 
 .redes-sociales a.icono.youtube:hover {
-    color: #ce0c30;
+  color: #ce0c30;
 }
 
 .redes-sociales a.icono.facebook:hover {
-    color: #1877F2;
-    /* azul Facebook */
+  color: #1877f2;
+  /* azul Facebook */
 }
 
 .redes-sociales a.icono.twitter:hover {
-    color: #1DA1F2;
-    /* azul Twitter */
+  color: #1da1f2;
+  /* azul Twitter */
 }
 
 .redes-sociales a.icono.spotify:hover {
-    color: #1DB954;
-    /* azul Twitter */
+  color: #1db954;
+  /* azul Twitter */
 }
 
 .redes-sociales a.icono.envelope:hover {
-    color: #16b7d3;
-    /* rojo email */
+  color: #16b7d3;
+  /* rojo email */
 }
 
 /* Efecto hover sutil */
 .redes-sociales a.icono:hover {
-    transform: scale(1.2);
-    opacity: 0.8;
-    cursor: pointer;
+  transform: scale(1.2);
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 /* --- TABLET: 751px a 1024px --- */
 @media (min-width: 751px) and (max-width: 1024px) {
-    .redes-sociales {
-        gap: 15px;
-        /* menos espacio entre iconos */
-        margin-top: 15px;
-        /* menos separación del contenido */
-    }
+  .redes-sociales {
+    gap: 15px;
+    /* menos espacio entre iconos */
+    margin-top: 15px;
+    /* menos separación del contenido */
+  }
 
-    .redes-sociales a.icono {
-        font-size: 20px;
-        /* iconos más pequeños para tablet */
-    }
+  .redes-sociales a.icono {
+    font-size: 20px;
+    /* iconos más pequeños para tablet */
+  }
 }
 
 /* Responsive: ocultar redes en móviles si quieres */
 @media (max-width: 750px) {
-    .redes-sociales {
-        display: none;
-    }
+  .redes-sociales {
+    display: none;
+  }
 }
 
 /* === FOOTER GENERAL === */
 .copyright-line {
-    margin-top: 5rem;
-    width: 100%;
-    padding: 0.5rem 0;
-    color: #626262;
-
+  margin-top: 5rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: #626262;
 }
 
 .footerprincipal {
-    /* Añade espacio dentro de la parte superior del footer */
-    padding-top: 50px;
-    /* Puedes añadir también padding-bottom si lo necesitas */
-    padding-bottom: 30px;
-    /* O usar la propiedad abreviada para todos los lados: */
-    /* padding: 50px 0 30px 0; /* Arriba | Derecha | Abajo | Izquierda */
-
+  /* Añade espacio dentro de la parte superior del footer */
+  padding-top: 50px;
+  /* Puedes añadir también padding-bottom si lo necesitas */
+  padding-bottom: 30px;
+  /* O usar la propiedad abreviada para todos los lados: */
+  /* padding: 50px 0 30px 0; /* Arriba | Derecha | Abajo | Izquierda */
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: 0 auto;
-    gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 2rem;
 }
 
 /* === IMAGEN IZQUIERDA === */
 .footer-left .footer-logo {
-    max-width: 450px;
-    filter: brightness(0.8);
-    /* más oscura */
-    border-radius: 8px;
+  max-width: 450px;
+  filter: brightness(0.8);
+  /* más oscura */
+  border-radius: 8px;
 }
 
 /* === FORMULARIO MINIMALISTA CON COLORES === */
 .footer-right {
-    flex: 1;
-    max-width: 420px;
-    background: none;
-    padding: 0.5rem;
+  flex: 1;
+  max-width: 420px;
+  background: none;
+  padding: 0.5rem;
 }
 
 .footer-right h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--color_yamahaClaro);
-    /* título en color Yamaha */
-    text-align: left;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color_yamahaClaro);
+  /* título en color Yamaha */
+  text-align: left;
 }
 
 .footer-right form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 /* Inputs subrayados */
 .footer-right input,
 .footer-right textarea {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    padding: 0.8rem 0;
-    color: #fff;
-    font-size: 1rem;
-    transition: border-color 0.3s, color 0.3s;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 0;
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s, color 0.3s;
 }
 
 .footer-right input::placeholder,
 .footer-right textarea::placeholder {
-    color: #aaa;
-    font-style: italic;
+  color: #aaa;
+  font-style: italic;
 }
 
 /* Al enfocar: morado */
 .footer-right input:focus,
 .footer-right textarea:focus {
-    border-color: #9b59b6;
-    /* morado elegante */
-    color: var(--color_yamahaClaro);
-    outline: none;
+  border-color: #9b59b6;
+  /* morado elegante */
+  color: var(--color_yamahaClaro);
+  outline: none;
 }
 
 /* Botón estilo pastilla */
 .footer-right button {
-    align-self: flex-start;
-    padding: 0.9rem 2rem;
-    border-radius: 50px;
-    border: none;
-    background: linear-gradient(135deg, #9b59b6, var(--color_yamaha));
-    color: #fff;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  align-self: flex-start;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #9b59b6, var(--color_yamaha));
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .footer-right button:hover {
-    background: linear-gradient(135deg, var(--color_yamahaClaro), #9b59b6);
-    transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--color_yamahaClaro), #9b59b6);
+  transform: translateY(-2px);
 }
 
 /* === COPYRIGHT === */
 .footer-bottom {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color_yamaha);
-    /* border-top: 1px solid rgba(255,255,255,0.2); */
-    font-size: 0.9rem;
-    color: #ccc;
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color_yamaha);
+  /* border-top: 1px solid rgba(255,255,255,0.2); */
+  font-size: 0.9rem;
+  color: #ccc;
 }
 
 /* === RESPONSIVE === */
 
 @media screen and (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 2rem;
-    }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
 
-    .footer-left {
-        margin-bottom: 1.5rem;
-        width: 100%;
-    }
+  .footer-left {
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
 
-    .footer-left .footer-logo {
-        width: 100%;
-        /* ocupa todo el ancho disponible */
-        max-width: 100%;
-        /* sin límite en móvil */
-        height: auto;
-        /* mantiene proporción */
-        padding: 0;
-        /* pegada a los bordes */
-        display: block;
-        /* asegura que no tenga espacio extra */
-    }
+  .footer-left .footer-logo {
+    width: 100%;
+    /* ocupa todo el ancho disponible */
+    max-width: 100%;
+    /* sin límite en móvil */
+    height: auto;
+    /* mantiene proporción */
+    padding: 0;
+    /* pegada a los bordes */
+    display: block;
+    /* asegura que no tenga espacio extra */
+  }
 
-    .footer-right {
-        width: 100%;
-        max-width: 420px;
-        padding: 0 1rem;
-        margin: 0 auto;
-        /* centrado en móviles */
-    }
+  .footer-right {
+    width: 100%;
+    max-width: 420px;
+    padding: 0 1rem;
+    margin: 0 auto;
+    /* centrado en móviles */
+  }
 
-    .footer-right h3 {
-        text-align: center;
-    }
+  .footer-right h3 {
+    text-align: center;
+  }
 
-    .footer-right form {
-        gap: 1.2rem;
-    }
+  .footer-right form {
+    gap: 1.2rem;
+  }
 
-    .footer-right button {
-        align-self: center;
-        padding: 0.8rem 2rem;
-        font-size: 0.95rem;
-    }
+  .footer-right button {
+    align-self: center;
+    padding: 0.8rem 2rem;
+    font-size: 0.95rem;
+  }
 
-    .footer-bottom {
-        font-size: 0.85rem;
-        margin-top: 1.5rem;
-        padding-top: 0.8rem;
-    }
+  .footer-bottom {
+    font-size: 0.85rem;
+    margin-top: 1.5rem;
+    padding-top: 0.8rem;
+  }
 }
-
-
-
 
 /* --- INTRO / SOBRE MÍ --- */
 
 /* Mostrar .intro solo en pantallas grandes (ordenadores) */
 .intro {
-    display: block;
-    /* visible por defecto */
+  display: block;
+  /* visible por defecto */
 }
 
 /* Ocultar en pantallas de tablet y móviles */
 @media (max-width: 750px) {
-    .intro {
-        display: none;
-    }
+  .intro {
+    display: none;
+  }
 }
 
 /* --- TABLET: 751px a 1024px --- */
 @media (min-width: 751px) and (max-width: 1024px) {
-    .intro {
-        position: absolute;
-        top: 20%;
-        right: 8%;
-        width: 40%;
-        /* más estrecho para que no ocupe tanto */
-        max-width: 200px;
-        padding: 0.8rem;
-        font-size: 0.55rem;
-        /* mucho más pequeño */
-        line-height: 1.2;
-    }
+  .intro {
+    position: absolute;
+    top: 20%;
+    right: 8%;
+    width: 40%;
+    /* más estrecho para que no ocupe tanto */
+    max-width: 200px;
+    padding: 0.8rem;
+    font-size: 0.55rem;
+    /* mucho más pequeño */
+    line-height: 1.2;
+  }
 
-    h2.sobre-mi-titulo {
-        font-size: 1.1rem;
-        /* proporcional al texto */
-    }
+  h2.sobre-mi-titulo {
+    font-size: 1.1rem;
+    /* proporcional al texto */
+  }
 
-    .vermas {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.7rem;
-    }
+  .vermas {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.7rem;
+  }
 }
 
 /* --- GALERÍA RESPONSIVE --- */
 @media (max-width: 1024px) {
-    .galeria img {
-        width: 80%;
-        height: auto;
-    }
+  .galeria img {
+    width: 80%;
+    height: auto;
+  }
 }
 
 @media (max-width: 768px) {
-    .galeria img {
-        width: 70%;
-        max-width: 150px;
-        height: auto;
-        /*margen entre foto*/
-        margin: 1rem 0.2rem 1rem;
-    }
+  .galeria img {
+    width: 70%;
+    max-width: 150px;
+    height: auto;
+    /*margen entre foto*/
+    margin: 1rem 0.2rem 1rem;
+  }
 }
 
 /*Responsive video*/
 @media (max-width: 992px) {
-    .video {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
+  .video {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
 
-    .video-info {
-        min-width: 100%;
-        flex: none;
-        margin: 0 auto;
-        padding: 1rem 0;
-        display: flex;
-        /* activa flexbox */
-        flex-direction: column;
-        /* organiza verticalmente h3 y p */
-        align-items: center;
-        /* centra horizontalmente */
-        text-align: center;
-        /* asegura que el texto también se centre */
-    }
+  .video-info {
+    min-width: 100%;
+    flex: none;
+    margin: 0 auto;
+    padding: 1rem 0;
+    display: flex;
+    /* activa flexbox */
+    flex-direction: column;
+    /* organiza verticalmente h3 y p */
+    align-items: center;
+    /* centra horizontalmente */
+    text-align: center;
+    /* asegura que el texto también se centre */
+  }
 
-    .video-frame {
-        min-width: 100%;
-        flex: none;
-        margin: 0 auto;
-        padding: 1rem 0;
-        text-align: center;
-    }
+  .video-frame {
+    min-width: 100%;
+    flex: none;
+    margin: 0 auto;
+    padding: 1rem 0;
+    text-align: center;
+  }
 
-    .video-frame iframe {
-        height: 280px;
-        /* tamaño ajustado */
-    }
+  .video-frame iframe {
+    height: 280px;
+    /* tamaño ajustado */
+  }
 
-    .video p {
-        font-size: 0.85rem;
-    }
+  .video p {
+    font-size: 0.85rem;
+  }
 
-    .video h3 {
-        font-size: 1rem;
-    }
+  .video h3 {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .video-info {
-        padding: 0.5rem 0;
-        font-size: 0.9rem;
-    }
+  .video-info {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+  }
 
-    .video-frame iframe {
-        height: 160px;
-    }
+  .video-frame iframe {
+    height: 160px;
+  }
 
-    .video p {
-        font-size: 0.7rem;
-    }
+  .video p {
+    font-size: 0.7rem;
+  }
 
-    .video h3 {
-        font-size: 0.9rem;
-    }
+  .video h3 {
+    font-size: 0.9rem;
+  }
 }
-
-
-
 
 /* --- ENTREVISTAS RESPONSIVE --- */
 /* Tablets (pantallas < 992px): una por fila */
 @media (max-width: 992px) {
-    .entrevista {
-        width: 90% !important;
-        /* una por fila */
-        max-width: none !important;
-        margin: 0 auto;
-        /* centrada */
-    }
+  .entrevista {
+    width: 90% !important;
+    /* una por fila */
+    max-width: none !important;
+    margin: 0 auto;
+    /* centrada */
+  }
 }
 
 /* Tablets medianas y móviles (pantallas < 768px) */
 @media (max-width: 768px) {
-    .entrevista h3 {
-        font-size: 1rem;
-        text-align: center;
-    }
+  .entrevista h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
 
-    .entrevista p {
-        font-size: 0.85rem;
-    }
+  .entrevista p {
+    font-size: 0.85rem;
+  }
 
-    .btn-entrevista {
-        font-size: 0.80rem;
-        padding: 0.3rem 1rem;
-    }
+  .btn-entrevista {
+    font-size: 0.8rem;
+    padding: 0.3rem 1rem;
+  }
 }
 
 /* Móviles pequeños (pantallas < 600px): logo debajo del texto */
 @media (max-width: 600px) {
-    .entrevista {
-        flex-direction: column !important;
-        /* texto arriba, logo abajo */
-        align-items: center !important;
-        text-align: center !important;
-    }
+  .entrevista {
+    flex-direction: column !important;
+    /* texto arriba, logo abajo */
+    align-items: center !important;
+    text-align: center !important;
+  }
 
-    .entrevista .contenido {
-        padding-right: 0 !important;
-    }
+  .entrevista .contenido {
+    padding-right: 0 !important;
+  }
 
-    .logo-entrevista {
-        margin-top: 1rem;
-        max-width: 80px;
-    }
+  .logo-entrevista {
+    margin-top: 1rem;
+    max-width: 80px;
+  }
 }
 
 /* Responsive para #agenda */
 @media (max-width: 768px) {
-    #agenda {
-        max-width: 80%;
-        margin: 1rem auto;
-        padding: 1.2rem 1.5rem;
-        border-radius: 1rem;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
-    }
+  #agenda {
+    max-width: 80%;
+    margin: 1rem auto;
+    padding: 1.2rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  }
 
-    .mensaje-agenda {
-        font-size: 0.95rem;
-        padding: 0 0.5rem;
-    }
+  .mensaje-agenda {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
 
-    .mensaje-agenda i {
-        font-size: 1.8rem;
-        margin-bottom: 0.4em;
-    }
+  .mensaje-agenda i {
+    font-size: 1.8rem;
+    margin-bottom: 0.4em;
+  }
 
-    progress.agenda {
-        height: 20px;
-    }
+  progress.agenda {
+    height: 20px;
+  }
 }
 
 @media (max-width: 480px) {
-    #agenda {
-        padding: 1rem 1rem;
-    }
+  #agenda {
+    padding: 1rem 1rem;
+  }
 
-    .mensaje-agenda {
-        font-size: 0.9rem;
-    }
+  .mensaje-agenda {
+    font-size: 0.9rem;
+  }
 
-    progress.agenda {
-        height: 18px;
-    }
+  progress.agenda {
+    height: 18px;
+  }
 }
-
-
-
 
 /* --- MÓVIL: hasta 750px --- */
 @media (max-width: 750px) {
-    .redes-sociales-movil .redes-sociales {
-        display: flex;
-        justify-content: center;
-        gap: 35px;
-        margin-top: 10px;
-        /* distancia desde el header */
-        margin-bottom: 30px;
-        /* distancia hacia la biografía */
-    }
+  .redes-sociales-movil .redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 10px;
+    /* distancia desde el header */
+    margin-bottom: 30px;
+    /* distancia hacia la biografía */
+  }
 
-    .redes-sociales-movil .redes-sociales a.icono {
-        font-size: 35px;
-        /* color: #1d1a1a; */
-        color: silver;
-        transition: transform 0.3s, opacity 0.3s;
-    }
+  .redes-sociales-movil .redes-sociales a.icono {
+    font-size: 35px;
+    /* color: #1d1a1a; */
+    color: silver;
+    transition: transform 0.3s, opacity 0.3s;
+  }
 
-    .redes-sociales-movil .redes-sociales a.icono:hover {
-        transform: scale(1.2);
-        opacity: 0.8;
-        cursor: pointer;
-    }
+  .redes-sociales-movil .redes-sociales a.icono:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+    cursor: pointer;
+  }
 
-    .redes-sociales-movil a.icono:hover {
-        color: #E4405F;
-        /* Color rosa Instagram o similar */
-        cursor: -moz-zoom-out;
-        /*mano de puntero*/
-    }
+  .redes-sociales-movil a.icono:hover {
+    color: #e4405f;
+    /* Color rosa Instagram o similar */
+    cursor: -moz-zoom-out;
+    /*mano de puntero*/
+  }
 
-    /* Opcional: colores específicos por red */
-    .redes-sociales-movil a.icono.instagram:hover {
-        color: #E4405F;
-        /* rosa Instagram */
-    }
+  /* Opcional: colores específicos por red */
+  .redes-sociales-movil a.icono.instagram:hover {
+    color: #e4405f;
+    /* rosa Instagram */
+  }
 
-    .redes-sociales-movil a.icono.youtube:hover {
-        color: #ce0c30;
-    }
+  .redes-sociales-movil a.icono.youtube:hover {
+    color: #ce0c30;
+  }
 
-    .redes-sociales-movil a.icono.facebook:hover {
-        color: #1877F2;
-        /* azul Facebook */
-    }
+  .redes-sociales-movil a.icono.facebook:hover {
+    color: #1877f2;
+    /* azul Facebook */
+  }
 
-    .redes-sociales-movil a.icono.twitter:hover {
-        color: #1DA1F2;
-        /* azul Twitter */
-    }
+  .redes-sociales-movil a.icono.twitter:hover {
+    color: #1da1f2;
+    /* azul Twitter */
+  }
 
-    .redes-sociales-movil a.icono.spotify:hover {
-        color: #1DB954;
-        /* azul Twitter */
-    }
+  .redes-sociales-movil a.icono.spotify:hover {
+    color: #1db954;
+    /* azul Twitter */
+  }
 
-    .redes-sociales-movil a.icono.envelope:hover {
-        color: #16b7d3;
-        /* rojo email */
-    }
+  .redes-sociales-movil a.icono.envelope:hover {
+    color: #16b7d3;
+    /* rojo email */
+  }
 }
 
 @media (min-width: 751px) {
-    .redes-sociales-movil {
-        display: none;
-    }
+  .redes-sociales-movil {
+    display: none;
+  }
 }
 
 /*ENLACES LEGAL*/
 /* 1. ESTILO PRINCIPAL DEL FOOTER */
 .footer-bottom {
-    background-color: #000;
-    /* Fondo negro */
-    color: #fff;
-    /* Color base del texto */
-    padding: 20px 0;
-    text-align: center;
-    font-size: 0.9em;
+  background-color: #000;
+  /* Fondo negro */
+  color: #fff;
+  /* Color base del texto */
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
 }
 
 /* 2. LÍNEA DEL COPYRIGHT */
 .copyright-line {
-    /* Nos aseguramos de que esto ocupe su propia línea */
-    display: block;
-    margin: 0;
-    /* Quitamos márgenes por defecto */
-    padding-bottom: 10px;
-    /* Espacio entre el copyright y los enlaces */
+  /* Nos aseguramos de que esto ocupe su propia línea */
+  display: block;
+  margin: 0;
+  /* Quitamos márgenes por defecto */
+  padding-bottom: 10px;
+  /* Espacio entre el copyright y los enlaces */
 }
 
 /* 3. CONTENEDOR DE ENLACES (ESTARÁ DEBAJO) */
 .enlaces-legales-container {
-    /* Por ser un <div> ya es de bloque, pero lo especificamos */
-    display: block;
-    margin-top: 5px;
-    /* Pequeño espacio extra si es necesario */
+  /* Por ser un <div> ya es de bloque, pero lo especificamos */
+  display: block;
+  margin-top: 5px;
+  /* Pequeño espacio extra si es necesario */
 }
 
 /* 4. ESTILO DE LOS ENLACES */
 .enlaces-legales-container a {
-    font-size: 16px;
-    color: var(--color_yamahaClaro);
-    /* Color azul brillante (puedes cambiarlo) */
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s ease;
+  font-size: 16px;
+  color: var(--color_yamahaClaro);
+  /* Color azul brillante (puedes cambiarlo) */
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
 /* 5. EFECTO HOVER */
 .enlaces-legales-container a:hover {
-    color: var(--color_yamaha);
-    text-decoration: underline;
+  color: var(--color_yamaha);
+  text-decoration: underline;
 }
 
 /* 6. ESTILO DEL SEPARADOR (|) */
 /* El separador está en el HTML, lo estilizamos para que se vea bien */
 .enlaces-legales-container {
-    color: #666;
-    /* El separador en sí tendrá un color gris tenue */
+  color: #666;
+  /* El separador en sí tendrá un color gris tenue */
 }
 
 /*LEGAL*/
 /* --- ESTILOS ESPECÍFICOS PARA PÁGINAS LEGALES --- */
 
 .texto-legal {
-    /* Centra el bloque .texto-legal en el contenedor de 900px */
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #111;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  /* Centra el bloque .texto-legal en el contenedor de 900px */
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .texto-legal p,
 .texto-legal li {
-    /* APLICA EL COLOR BLANCO A PÁRRAFOS Y LIST ITEMS */
-    color: #fff;
-    line-height: 1.8;
-    font-size: 1rem;
-
+  /* APLICA EL COLOR BLANCO A PÁRRAFOS Y LIST ITEMS */
+  color: #fff;
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
 .texto-legal ul {
-    /* SOLUCIÓN DE ALINEACIÓN: Esto quita el sangrado por defecto del navegador */
-    list-style-position: inside;
-    /* Pone el punto del listado dentro del item */
-    margin: 30px auto;
-    padding: 30px;
-    list-style: none;
-    /* Quita los puntos por completo */
+  /* SOLUCIÓN DE ALINEACIÓN: Esto quita el sangrado por defecto del navegador */
+  list-style-position: inside;
+  /* Pone el punto del listado dentro del item */
+  margin: 30px auto;
+  padding: 30px;
+  list-style: none;
+  /* Quita los puntos por completo */
 }
 
 .texto-legal h2 {
-    /* Estilo para los subtítulos */
-    color: var(--color_yamahaClaro);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 5px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
+  /* Estilo para los subtítulos */
+  color: var(--color_yamahaClaro);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
 }
 
 .texto-legal li strong {
-    color: var(--color_blancoRoto);
+  color: var(--color_blancoRoto);
 }
 
 .imagen-logo {
-    display: block;
-    /* La convierte en un elemento de bloque para que auto-margin funcione */
-    margin-left: auto;
-    /* Margen automático a la izquierda */
-    margin-right: auto;
-    /* Margen automático a la derecha */
+  display: block;
+  /* La convierte en un elemento de bloque para que auto-margin funcione */
+  margin-left: auto;
+  /* Margen automático a la izquierda */
+  margin-right: auto;
+  /* Margen automático a la derecha */
 
-    margin-top: 50px;
-    /* ⬅️ Añade un margen POSITIVO para separarla de ARRIBA */
-    margin-bottom: -105px;
-    /* ⬅️ Mantienes tu margen NEGATIVO para 'pegarla' a lo de ABAJO */
-    /* O de forma abreviada: margin: 0 auto; */
-    width: 100%;
-    /* Opcional: define un ancho máximo para que se centre mejor */
-    max-width: 500px;
-    /* Opcional: asegura que no sea demasiado grande */
+  margin-top: 50px;
+  /* ⬅️ Añade un margen POSITIVO para separarla de ARRIBA */
+  margin-bottom: -105px;
+  /* ⬅️ Mantienes tu margen NEGATIVO para 'pegarla' a lo de ABAJO */
+  /* O de forma abreviada: margin: 0 auto; */
+  width: 100%;
+  /* Opcional: define un ancho máximo para que se centre mejor */
+  max-width: 500px;
+  /* Opcional: asegura que no sea demasiado grande */
 }
 
 /* ---------- FOOTER Y ENLACES LEGALES ---------- */
 
 /* 1. ESTILO PRINCIPAL DEL FOOTER */
 .footer-bottom {
-    background-color: #000;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 0.9em;
+  background-color: #000;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
 }
 
 /* 2. LÍNEA DEL COPYRIGHT */
 .copyright-line {
-    display: block;
-    margin: 0;
-    padding-bottom: 10px;
+  display: block;
+  margin: 0;
+  padding-bottom: 10px;
 }
 
 /* 3. CONTENEDOR DE ENLACES LEGALES */
 .enlaces-legales-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 5px;
-    color: #666;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+  color: #666;
 }
 
 /* 4. ENLACES LEGALES */
 .enlaces-legales-container a {
-    font-size: 16px;
-    color: var(--color_yamahaClaro);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  font-size: 16px;
+  color: var(--color_yamahaClaro);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .enlaces-legales-container a:hover {
-    color: var(--color_yamaha);
-    text-decoration: underline;
+  color: var(--color_yamaha);
+  text-decoration: underline;
 }
 
 /* ---------- SECCIÓN LEGAL ---------- */
 .texto-legal {
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #111;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    max-width: 900px;
-    text-align: left;
-    /* Fuerza alineación a la izquierda */
-    letter-spacing: normal;
-    /* Quita cualquier separación extra de letras */
-    word-break: break-word;
-    /* Evita que palabras largas rompan el diseño */
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  max-width: 900px;
+  text-align: left;
+  /* Fuerza alineación a la izquierda */
+  letter-spacing: normal;
+  /* Quita cualquier separación extra de letras */
+  word-break: break-word;
+  /* Evita que palabras largas rompan el diseño */
 }
 
 .texto-legal p,
 .texto-legal li {
-    color: #fff;
-    line-height: 1.8;
-    font-size: 1rem;
+  color: #fff;
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
 .texto-legal ul {
-    list-style: none;
-    list-style-position: inside;
-    margin: 30px auto;
-    padding: 30px;
+  list-style: none;
+  list-style-position: inside;
+  margin: 30px auto;
+  padding: 30px;
 }
 
 .texto-legal h2 {
-    color: var(--color_yamahaClaro);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 5px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
+  color: var(--color_yamahaClaro);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
 }
 
 .texto-legal li strong {
-    color: var(--color_blancoRoto);
+  color: var(--color_blancoRoto);
 }
 
 /* ---------- LOGO ---------- */
 .imagen-logo {
-    display: block;
-    margin: 50px auto -105px;
-    width: 100%;
-    max-width: 500px;
+  display: block;
+  margin: 50px auto -105px;
+  width: 100%;
+  max-width: 500px;
 }
 
 /* ---------- ESTILOS PRINCIPALES DEL FOOTER Y LEGALES ---------- */
 
 /* 1. Footer principal */
 .footer-bottom {
-    background-color: #000;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 0.9em;
+  background-color: #000;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
 }
 
 /* Línea de copyright */
 .copyright-line {
-    display: block;
-    margin: 0;
-    padding-bottom: 10px;
+  display: block;
+  margin: 0;
+  padding-bottom: 10px;
 }
 
 /* Contenedor de enlaces legales */
 .enlaces-legales-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    color: #666;
-    /* Separador gris tenue */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #666;
+  /* Separador gris tenue */
 }
 
 /* Estilo de los enlaces */
 .enlaces-legales-container a {
-    font-size: 16px;
-    color: var(--color_yamahaClaro);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  font-size: 16px;
+  color: var(--color_yamahaClaro);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .enlaces-legales-container a:hover {
-    color: var(--color_yamaha);
-    text-decoration: underline;
+  color: var(--color_yamaha);
+  text-decoration: underline;
 }
 
 /* ---------- ESTILOS ESPECÍFICOS PARA PÁGINAS LEGALES ---------- */
 .texto-legal {
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #111;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    text-align: left;
-    letter-spacing: normal;
-    line-height: 1.6;
-    word-break: break-word;
-    color: #fff;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  text-align: left;
+  letter-spacing: normal;
+  line-height: 1.6;
+  word-break: break-word;
+  color: #fff;
 }
 
 /* Subtítulos */
 .texto-legal h2 {
-    color: var(--color_yamahaClaro);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 5px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-    letter-spacing: normal;
+  color: var(--color_yamahaClaro);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  letter-spacing: normal;
 }
 
 /* Párrafos y listas */
 .texto-legal p,
 .texto-legal li {
-    font-size: 1rem;
-    line-height: 1.6;
-    letter-spacing: normal;
-    margin: 0 0 10px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: normal;
+  margin: 0 0 10px 0;
 }
 
 /* Listas sin puntos */
 .texto-legal ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
 }
 
 /* Negritas dentro de listas */
 .texto-legal li strong {
-    color: var(--color_blancoRoto);
+  color: var(--color_blancoRoto);
 }
 
 /* Logo centrado */
 .imagen-logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: -105px;
-    width: 100%;
-    max-width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: -105px;
+  width: 100%;
+  max-width: 500px;
 }
 
 /* ---------- RESPONSIVE ---------- */
 
 /* 📱 Móviles (menos de 600px) */
 @media (max-width: 600px) {
-    .footer-bottom {
-        font-size: 0.8em;
-        padding: 15px 10px;
-    }
+  .footer-bottom {
+    font-size: 0.8em;
+    padding: 15px 10px;
+  }
 
-    .enlaces-legales-container {
-        flex-direction: column;
-        gap: 5px;
-    }
+  .enlaces-legales-container {
+    flex-direction: column;
+    gap: 5px;
+  }
 
-    .enlaces-legales-container a {
-        display: block;
-        font-size: 14px;
-    }
+  .enlaces-legales-container a {
+    display: block;
+    font-size: 14px;
+  }
 
-    .texto-legal {
-        padding: 15px;
-        margin: 20px 10px;
-        font-size: 0.95rem;
-        line-height: 1.8;
-        text-justify: inter-word;
-        word-spacing: normal;
-        hyphens: auto;
-        text-align: left;
+  .texto-legal {
+    padding: 15px;
+    margin: 20px 10px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-justify: inter-word;
+    word-spacing: normal;
+    hyphens: auto;
+    text-align: left;
+  }
 
-    }
+  .texto-legal h2 {
+    font-size: 1.2rem;
+  }
 
-    .texto-legal h2 {
-        font-size: 1.2rem;
-    }
+  .texto-legal p,
+  .texto-legal li {
+    padding: 15px;
+    margin: 10px 10px;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    text-align: center;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-spacing: normal;
+  }
 
-    .texto-legal p,
-    .texto-legal li {
-        padding: 15px;
-        margin: 10px 10px;
-        font-size: 0.75rem;
-        line-height: 1.4;
-        text-align: center;
-        text-justify: inter-word;
-        hyphens: auto;
-        word-spacing: normal;
-
-    }
-
-    .imagen-logo {
-        max-width: 300px;
-        margin-top: 40px;
-        margin-bottom: -80px;
-    }
+  .imagen-logo {
+    max-width: 300px;
+    margin-top: 40px;
+    margin-bottom: -80px;
+  }
 }
 
 /* 💻 Tablets (600px - 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
-    .footer-bottom {
-        font-size: 0.85em;
-    }
+  .footer-bottom {
+    font-size: 0.85em;
+  }
 
-    .enlaces-legales-container {
-        gap: 8px;
-    }
+  .enlaces-legales-container {
+    gap: 8px;
+  }
 }
 
 .texto-legal p,
 .texto-legal li {
-    padding: 12px;
+  padding: 12px;
+  max-width: 700px;
+
+  .texto-legal {
+    padding: 20px;
     max-width: 700px;
+  }
 
-    .texto-legal {
-        padding: 20px;
-        max-width: 700px;
-    }
+  .texto-legal h2 {
+    font-size: 1.3rem;
+  }
 
-    .texto-legal h2 {
-        font-size: 1.3rem;
-    }
-
-    .imagen-logo {
-        max-width: 400px;
-    }
+  .imagen-logo {
+    max-width: 400px;
+  }
 }
 
 /* 🖥️ Escritorio grande (+900px) */
 @media (min-width: 901px) {
-    .texto-legal {
-        max-width: 900px;
-    }
+  .texto-legal {
+    max-width: 900px;
+  }
 
-    .imagen-logo {
-        max-width: 500px;
-    }
+  .imagen-logo {
+    max-width: 500px;
+  }
 }
 
 /* === Modal de Cookies === */
 .overlay-cookies {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: none;
-    /* Oculta por defecto */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  /* Oculta por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 .modal-cookies {
-    background: #ffffff;
-    color: #222;
-    width: 90%;
-    max-width: 420px;
-    border-radius: 16px;
-    padding: 25px 30px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    animation: aparecerCookies 0.4s ease;
+  background: #ffffff;
+  color: #222;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 25px 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: aparecerCookies 0.4s ease;
 }
 
 .modal-cookies h3 {
-    margin-top: 0;
-    color: var(--color_yamahaClaro);
-    font-size: 20px;
+  margin-top: 0;
+  color: var(--color_yamahaClaro);
+  font-size: 20px;
 }
 
 .modal-cookies p {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 20px;
-    line-height: 1.5;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .modal-cookies a {
-    color: var(--color_yamaha);
-    text-decoration: underline;
+  color: var(--color_yamaha);
+  text-decoration: underline;
 }
 
 .modal-cookies h3 {
-    margin-top: 0;
-    color: var(--color_yamaha);
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  margin-top: 0;
+  color: var(--color_yamaha);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .cookies-botones {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .modal-cookies button {
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 10px 18px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 10px 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 #btn-aceptar-cookies {
-    background-color: var(--color_yamaha);
-    color: #fff;
+  background-color: var(--color_yamaha);
+  color: #fff;
 }
 
 #btn-aceptar-cookies:hover {
-    background-color: var(--color_yamahaClaro);
-    ;
+  background-color: var(--color_yamahaClaro);
 }
 
 .btn-secundario {
-    background-color: #ddd;
-    color: #222;
+  background-color: #ddd;
+  color: #222;
 }
 
 .btn-secundario:hover {
-    background-color: #bbb;
+  background-color: #bbb;
 }
 
 /* Animación */
 @keyframes aparecerCookies {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
 
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
