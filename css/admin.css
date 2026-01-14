@@ -1,0 +1,394 @@
+/* ================================
+   ADMIN CSS - Estilo musical (Yamaha vibes)
+   ================================ */
+
+/* Variables (ajusta el morado si quieres) */
+:root {
+  --admin-bg-1: #0b1020; /* fondo oscuro */
+  --admin-bg-2: #070a14; /* fondo más oscuro */
+  --admin-card: rgba(255, 255, 255, 0.06);
+  --admin-card-2: rgba(255, 255, 255, 0.1);
+  --admin-border: rgba(255, 255, 255, 0.12);
+  --admin-text: #f5f7ff;
+  --admin-muted: rgba(245, 247, 255, 0.72);
+
+  /* morado Yamaha / synth */
+  --yamaha-purple: #7c3aed; /* principal */
+  --yamaha-purple-2: #a78bfa; /* acento */
+  --yamaha-glow: rgba(124, 58, 237, 0.45);
+
+  --danger: #ef4444;
+  --ok: #22c55e;
+
+  --radius: 14px;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+body.admin-body {
+  margin: 0;
+  font-family: "Rubik", Arial, sans-serif;
+  color: var(--admin-text);
+  background: radial-gradient(
+      1200px 800px at 20% 10%,
+      rgba(124, 58, 237, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      1000px 700px at 90% 20%,
+      rgba(167, 139, 250, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(135deg, var(--admin-bg-1), var(--admin-bg-2));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================
+   Header
+   ================================ */
+.admin-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--admin-border);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(10px);
+}
+
+.admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-sax {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.35),
+    rgba(167, 139, 250, 0.18)
+  );
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.18);
+  font-size: 20px;
+}
+
+.admin-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.admin-text strong {
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.admin-text span {
+  font-size: 13px;
+  color: var(--admin-muted);
+}
+
+/* Links header */
+.admin-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-links a {
+  text-decoration: none;
+  color: var(--admin-text);
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 0.15s ease, background 0.15s ease,
+    border-color 0.15s ease;
+  font-size: 14px;
+}
+
+.admin-links a:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(167, 139, 250, 0.22);
+}
+
+.admin-links a i {
+  margin-right: 6px;
+  opacity: 0.9;
+}
+
+.admin-salir {
+  border-color: rgba(239, 68, 68, 0.25) !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+}
+
+.admin-salir:hover {
+  border-color: rgba(239, 68, 68, 0.45) !important;
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+
+/* Título de página */
+.admin-title {
+  margin: 16px 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.admin-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--yamaha-purple), transparent);
+  box-shadow: 0 0 18px var(--yamaha-glow);
+}
+
+/* ================================
+   Main layout
+   ================================ */
+.admin-main {
+  flex: 1;
+  padding: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* ================================
+   Cards / panels
+   ================================ */
+.admin-card {
+  background: linear-gradient(
+    180deg,
+    var(--admin-card),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+/* ================================
+   Forms
+   ================================ */
+.admin-form {
+  background: linear-gradient(
+    180deg,
+    var(--admin-card-2),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius);
+  padding: 22px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: var(--shadow);
+}
+
+.admin-form h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.admin-form label {
+  display: block;
+  margin: 14px 0 7px;
+  font-weight: 600;
+  color: var(--admin-text);
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--admin-text);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+  border-color: rgba(167, 139, 250, 0.55);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+}
+
+/* Placeholder */
+.admin-form input::placeholder,
+.admin-form textarea::placeholder {
+  color: rgba(245, 247, 255, 0.55);
+}
+
+/* Buttons */
+.admin-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--yamaha-purple), #5b21b6);
+  box-shadow: 0 14px 30px rgba(124, 58, 237, 0.25);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.admin-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.admin-btn:active {
+  transform: translateY(0px);
+}
+
+/* Secondary button/link */
+.admin-btn-sec {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--admin-text);
+  font-weight: 700;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.admin-btn-sec:hover {
+  transform: translateY(-1px);
+  background: rgba(124, 58, 237, 0.14);
+}
+
+/* Alerts */
+.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fecaca;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* ================================
+   Table (para listar_entradas.php)
+   ================================ */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--admin-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  font-size: 14px;
+}
+
+.admin-table th {
+  color: rgba(245, 247, 255, 0.9);
+  background: rgba(255, 255, 255, 0.04);
+  font-weight: 700;
+}
+
+.admin-table tr:hover td {
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.admin-actions a {
+  text-decoration: none;
+  margin-right: 10px;
+  font-weight: 700;
+}
+
+.admin-actions .editar {
+  color: var(--yamaha-purple-2);
+}
+
+.admin-actions .borrar {
+  color: #fca5a5;
+}
+
+/* ================================
+   Footer
+   ================================ */
+.admin-footer {
+  padding: 14px 18px;
+  text-align: center;
+  color: var(--admin-muted);
+  border-top: 1px solid var(--admin-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ================================
+   Responsive
+   ================================ */
+@media (max-width: 520px) {
+  .admin-header {
+    padding: 16px 16px;
+  }
+  .admin-main {
+    padding: 16px;
+  }
+  .admin-title {
+    font-size: 18px;
+  }
+  .admin-links a {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+}

@@ -37,6 +37,10 @@ if ($result && $result->num_rows > 0) {
 } else {
     echo '<li>No se encontró ningún elemento de menú.</li>';
 }
+//icono saxofon para administración
+echo '<li class="admin-icon">
+        <a href="admin/iniciar_sesion.php" title="Administración">🎷</a>
+      </li>';
 
 echo '</ul>';
 

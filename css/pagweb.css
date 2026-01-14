@@ -27,6 +27,15 @@ body,
 html {
   overflow-x: hidden;
 }
+/* ADMIN ICON */
+.admin-icon a {
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.admin-icon a:hover {
+  opacity: 0.8;
+}
 
 /* NAV GENERAL */
 nav {

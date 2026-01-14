@@ -87,7 +87,7 @@
 
         <div class="footer-bottom">
             <p class="copyright-line">
-                &copy; 2025 Todos los derechos reservados Lauraordonez.dev
+                &copy; 2026 Todos los derechos reservados Lauraordonez.dev
             </p>
             <div class="enlaces-legales-container">
                 <a href="legales.php?doc=aviso_legal">Aviso Legal</a> |
