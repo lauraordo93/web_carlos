@@ -1020,17 +1020,16 @@ h2::after {
   /* VISOR PRINCIPAL (IMAGEN GRANDE) */
   /* ================================================= */
 
- 
   .mainSwiper {
     width: 96vw !important;
     max-width: 620px !important;
 
-    aspect-ratio: 16 / 9;        /* marco horizontal */
+    aspect-ratio: 16 / 9; /* marco horizontal */
     height: auto !important;
     min-height: 240px !important;
     max-height: 380px !important;
 
-    margin: 0 auto 12px auto !important;
+    margin: 0 auto 4px auto !important;
     border-radius: 12px;
     overflow: hidden;
     background: #000;
@@ -1064,51 +1063,58 @@ h2::after {
   .mainSwiper .swiper-zoom-container > img,
   .mainSwiper .swiper-slide a img,
   .mainSwiper .swiper-slide img {
-    width: 100% !important;      /* llena el ancho */
-    height: auto !important;     
+    width: 100% !important; /* llena el ancho */
+    height: auto !important;
     max-width: 100% !important;
     max-height: 100% !important;
 
-    object-fit: contain !important;  /* NO recorta */
+    object-fit: contain !important; /* NO recorta */
     object-position: center !important;
     display: block !important;
   }
 }
 
-  /* ================================================= */
-  /* MINIATURAS  */
-  /* ================================================= */
+/* ================================================= */
+/* MINIATURAS  */
+/* ================================================= */
 
-  .thumbSwiper {
-    width: 96vw !important;
-    max-width: none !important; /* ✅ quita el límite de 320px */
-    height: 64px !important;
-    margin: 8px auto 0 auto !important;
-    padding: 0 !important; /* ✅ quita padding que roba espacio */
-  }
-
-  .thumbSwiper .swiper-wrapper {
-    align-items: center !important;
-  }
-
-  .thumbSwiper .swiper-slide {
-    width: 52px !important; /* más pequeñas = entran más */
-    height: 52px !important;
-    opacity: 0.55;
-  }
-
-  .thumbSwiper .swiper-slide-thumb-active {
-    opacity: 1;
-    transform: scale(1.08);
-  }
-
-  .thumbSwiper .swiper-slide img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* miniaturas mejor cover */
-    border-radius: 6px;
-  }
+.thumbSwiper {
+  width: 96vw !important;
+  max-width: none !important;
+  height: 70px !important;
+  margin: 2px auto 0 auto !important;
+  padding: 0 !important;
+  overflow: visible !important;
 }
+
+.thumbSwiper .swiper-wrapper {
+  align-items: center !important;
+  overflow: visible !important;
+  align-items: center !important;
+}
+
+.thumbSwiper .swiper-slide {
+  width: 52px !important; /* más pequeñas = entran más */
+  height: 52px !important;
+  opacity: 0.55;
+}
+
+.thumbSwiper .swiper-slide-thumb-active {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.thumbSwiper .swiper-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* miniaturas mejor cover */
+  border-radius: 6px;
+  display: block;
+}
+
+/* ========================= */
+/* SECCIÓN ACADEMIA */
+/* ========================= */
 
 /* --- Sección Academia --- */
 #madrid-sax-academy {
