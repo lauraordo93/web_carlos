@@ -13,11 +13,9 @@ $ids_personalizados = [
     'Biografía' => 'biografia',
     'Madrid Sax Academy' => 'madrid-sax-academy',
     'Galería' => 'galeria',
-    // 'Videos' => 'videos',
     'Entrevistas' => 'entrevistas',
-    'Agenda' => 'agenda',
+    // 'Agenda' => 'agenda',
     'Contacto' => 'contacto',
-    // 'Redes Sociales' => 'redes'
 ];
 
 // Contenedor del menú

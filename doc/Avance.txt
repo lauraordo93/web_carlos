@@ -8,3 +8,5 @@
 
 
 -Terminar con la parte legal.
+
+AÑADIR BBDD ADMIN EN INFINITIFREE(HOSTING)

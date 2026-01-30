@@ -35,9 +35,10 @@ body {
 
 body.admin-body {
   margin: 0;
-  font-family: "Rubik", Arial, sans-serif;
+  font-family: "Rubik", sans-serif;
   color: var(--admin-text);
-  background: radial-gradient(
+  background:
+    radial-gradient(
       1200px 800px at 20% 10%,
       rgba(124, 58, 237, 0.18),
       transparent 55%
@@ -128,7 +129,9 @@ body.admin-body {
   border-radius: 999px;
   border: 1px solid transparent;
   background: rgba(255, 255, 255, 0.03);
-  transition: transform 0.15s ease, background 0.15s ease,
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
     border-color 0.15s ease;
   font-size: 14px;
 }
@@ -156,6 +159,7 @@ body.admin-body {
 
 /* Título de página */
 .admin-title {
+  text-align: center;
   margin: 16px 0 0;
   font-size: 20px;
   font-weight: 700;
@@ -167,7 +171,8 @@ body.admin-body {
   display: block;
   width: 120px;
   height: 3px;
-  margin-top: 10px;
+  /* Centrado horizontal: 10px arriba, auto a los lados, 0 abajo */
+  margin: 10px auto 0;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--yamaha-purple), transparent);
   box-shadow: 0 0 18px var(--yamaha-glow);
@@ -216,6 +221,7 @@ body.admin-body {
   border-radius: var(--radius);
   padding: 22px;
   width: 100%;
+  margin: auto;
   max-width: 460px;
   box-shadow: var(--shadow);
 }
@@ -242,7 +248,9 @@ body.admin-body {
   background: rgba(0, 0, 0, 0.22);
   color: var(--admin-text);
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .admin-form textarea {
@@ -276,7 +284,9 @@ body.admin-body {
   color: #fff;
   background: linear-gradient(135deg, var(--yamaha-purple), #5b21b6);
   box-shadow: 0 14px 30px rgba(124, 58, 237, 0.25);
-  transition: transform 0.15s ease, filter 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
 }
 
 .admin-btn:hover {
@@ -300,7 +310,9 @@ body.admin-body {
   background: rgba(124, 58, 237, 0.1);
   color: var(--admin-text);
   font-weight: 700;
-  transition: transform 0.15s ease, background 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
 .admin-btn-sec:hover {
@@ -374,6 +386,22 @@ body.admin-body {
   background: rgba(255, 255, 255, 0.02);
 }
 
+/* Línea de copyright */
+.copyright-line {
+  display: block;
+  margin: 0;
+  padding-bottom: 10px;
+}
+.copyright-line a {
+  color: inherit; /* Toma el mismo color que el texto del párrafo */
+  text-decoration: none; /* Quita el subrayado si no lo deseas */
+  font-weight: bold; /* Para que resalte un poco */
+}
+
+.copyright-line a:hover {
+  text-decoration: underline; /* El subrayado aparece solo al pasar el ratón */
+}
+
 /* ================================
    Responsive
    ================================ */
@@ -390,5 +418,122 @@ body.admin-body {
   .admin-links a {
     font-size: 13px;
     padding: 7px 10px;
+  }
+}
+/* ================================
+   ENTRADAS CSS - Layout de Gestión
+   ================================ */
+
+/* Contenedor principal en formato Flex */
+.admin-main {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  align-items: flex-start;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- SIDEBAR (Menú Lateral Morado) --- */
+.admin-sidebar {
+  flex: 0 0 280px; /* Ancho fijo para que no se aplaste */
+  background: linear-gradient(
+    180deg,
+    rgba(124, 58, 237, 0.15),
+    rgba(0, 0, 0, 0.2)
+  );
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius);
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.admin-sidebar h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--yamaha-purple-2);
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--admin-border);
+  padding-bottom: 10px;
+}
+
+/* Botones de navegación de secciones */
+.admin-sidebar .admin-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  margin-bottom: 10px;
+  text-decoration: none;
+  padding: 12px 15px;
+  font-size: 14px;
+  box-shadow: none;
+  border: 1px solid transparent;
+}
+
+.admin-sidebar .admin-btn:hover {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: var(--yamaha-purple-2);
+}
+
+.admin-sidebar .admin-btn.active {
+  background: var(--yamaha-purple);
+  color: white;
+  box-shadow: 0 0 15px var(--yamaha-glow);
+}
+
+/* Botón "Nuevo" resaltado */
+.admin-btn-nueva {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 14px;
+  background: var(--ok); /* Verde para "crear" */
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.admin-btn-nueva:hover {
+  filter: brightness(1.2);
+  transform: scale(1.02);
+}
+
+/* --- CONTENEDOR DE TABLA --- */
+.admin-table-container {
+  flex: 1; /* Ocupa el resto del espacio */
+  min-width: 0; /* Evita que la tabla desborde el flex */
+}
+
+.admin-table-container h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Ajustes para los iconos en la tabla */
+.admin-table td i {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.admin-table td i:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .admin-main {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    flex: none;
   }
 }

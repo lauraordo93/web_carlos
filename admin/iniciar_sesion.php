@@ -44,7 +44,7 @@ $titulo = "Iniciar sesión";
   <title><?php echo htmlspecialchars($titulo); ?> - Admin</title>
 
  <link rel="stylesheet" href="../css/admin.css?v=1">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -62,16 +62,14 @@ $titulo = "Iniciar sesión";
     </div>
   </div>
 
-  <h1 class="admin-title"><?php echo htmlspecialchars($titulo); ?></h1>
+ 
 </header>
 
 <main class="admin-main">
-
-  <?php if ($error): ?>
-    <p class="error"><?php echo htmlspecialchars($error); ?></p>
-  <?php endif; ?>
-
+  
   <form method="post" class="admin-form">
+    <h1 class="admin-title"><?php echo htmlspecialchars($titulo); ?></h1>
+   
     <label>Usuario</label>
     <input type="text" name="usuario" required>
 
@@ -79,12 +77,19 @@ $titulo = "Iniciar sesión";
     <input type="password" name="password" required>
 
     <button type="submit" class="admin-btn">Entrar</button>
+    
+  <?php if ($error): ?>
+    <p class="error"><?php echo htmlspecialchars($error); ?></p>
+  <?php endif; ?>
   </form>
 
 </main>
 
 <footer class="admin-footer">
-  <p>&copy; 2026 Lauraordonez.dev</p>
+           <p class="copyright-line">
+    &copy; 2026 Todos los derechos reservados 
+    <a href="https://lauraordo93.github.io/Portfolio/" target="_blank" rel="noopener">lauraordonez.dev</a>
+</p>
 </footer>
 
 </body>

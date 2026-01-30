@@ -26,6 +26,7 @@ if ($result && $result->num_rows > 0) {
         $nombre = strtolower($redes[$i]['nombre_red']);
         $enlace = $redes[$i]['enlace'];
 
+        //mail oculto Artista no quiere que aparezca
         if ($nombre === 'correo electrónico') {
             $icono = 'envelope';
             $clase_icono = 'fas';

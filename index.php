@@ -68,13 +68,14 @@
         <?php include('componentes/entrevistas.php'); ?>
     </section>
 
+<!-- OCULTO AGENDA
     <section id="agenda">
         <div class="mensaje-agenda">
             <?php include_once('componentes/agenda.php'); ?>
             <label for="agenda-progress"><strong>En desarrollo...</strong></label>
             <progress id="agenda-progress" class="agenda" value="30" max="100"></progress>
         </div>
-    </section>
+    </section> -->
 
     <footer class="footerprincipal">
         <div class="footer-container">
@@ -86,9 +87,10 @@
         </div>
 
         <div class="footer-bottom">
-            <p class="copyright-line">
-                &copy; 2026 Todos los derechos reservados Lauraordonez.dev
-            </p>
+           <p class="copyright-line">
+    &copy; 2026 Todos los derechos reservados 
+    <a href="https://lauraordo93.github.io/Portfolio/" target="_blank" rel="noopener">lauraordonez.dev</a>
+</p>
             <div class="enlaces-legales-container">
                 <a href="legales.php?doc=aviso_legal">Aviso Legal</a> |
                 <a href="legales.php?doc=privacidad">Política de Privacidad</a> |
