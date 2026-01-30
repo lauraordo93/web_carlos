@@ -121,10 +121,11 @@ $titulo_gestion = $secciones_permitidas[$id_sec];
         <?php endif; ?>
     </section>
 </main>
-
 <footer class="admin-footer">
-    <p>&copy; 2026 <a href="https://lauraordonez.dev" target="_blank">lauraordonez.dev</a></p>
+           <p class="copyright-line">
+    &copy; 2026 Todos los derechos reservados 
+    <a href="https://lauraordo93.github.io/Portfolio/" target="_blank" rel="noopener">lauraordonez.dev</a>
+</p>
 </footer>
-
 </body>
 </html>
