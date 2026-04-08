@@ -1,0 +1,293 @@
+/* =============================================
+   ADMIN UNIFIED - Yamaha Vibes & Form Style
+   ============================================= */
+
+:root {
+  --admin-bg-1: #0b1020;
+  --admin-bg-2: #070a14;
+  --admin-card: rgba(255, 255, 255, 0.06);
+  --admin-card-2: rgba(255, 255, 255, 0.1);
+  --admin-border: rgba(255, 255, 255, 0.12);
+  --admin-text: #f5f7ff;
+  --admin-muted: rgba(245, 247, 255, 0.72);
+
+  /* Morado Yamaha / Synth */
+  --yamaha-purple: #7c3aed;
+  --yamaha-purple-2: #a78bfa;
+  --yamaha-glow: rgba(124, 58, 237, 0.45);
+
+  --danger: #ef4444;
+  --ok: #22c55e;
+
+  --radius: 14px;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Base Layout */
+body.admin-body {
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  color: var(--admin-text);
+  background:
+    radial-gradient(
+      1200px 800px at 20% 10%,
+      rgba(124, 58, 237, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      1000px 700px at 90% 20%,
+      rgba(167, 139, 250, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(135deg, var(--admin-bg-1), var(--admin-bg-2));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Contenedor del Formulario (Glassmorphism) */
+.form-box {
+  background: linear-gradient(
+    180deg,
+    var(--admin-card-2),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius);
+  padding: 30px;
+  width: 100%;
+  max-width: 550px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.form-box h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: var(--admin-text);
+}
+
+.form-box h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 10px auto 0;
+  background: linear-gradient(90deg, var(--yamaha-purple), transparent);
+  box-shadow: 0 0 15px var(--yamaha-glow);
+  border-radius: 10px;
+}
+
+/* Estructura de Filas */
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--yamaha-purple-2);
+}
+
+/* Inputs, Selects, Textareas y URL */
+input[type="text"],
+input[type="date"],
+input[type="url"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--admin-text);
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+/* Placeholders */
+::placeholder {
+  color: rgba(245, 247, 255, 0.35);
+  font-style: italic;
+}
+
+/* Estados de Focus */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--yamaha-purple-2);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Validaciones dinámicas para URL y otros inputs */
+input:not(:placeholder-shown):invalid {
+  border-color: var(--danger);
+}
+
+/* Textarea específico */
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Multimedia Preview */
+.preview-img {
+  margin-top: 15px;
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid var(--admin-border);
+  display: block;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Botones y Acciones */
+.acciones {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.btn-guardar {
+  background: linear-gradient(135deg, var(--yamaha-purple), #5b21b6);
+  color: white;
+  box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+}
+
+.btn-guardar:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 12px 25px rgba(124, 58, 237, 0.4);
+}
+
+.btn-volver {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--admin-muted);
+  border: 1px solid var(--admin-border);
+}
+
+.btn-volver:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--admin-text);
+}
+
+/* Mensajes de Alerta */
+.error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid var(--danger);
+  color: #ffcfcf;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Input File Custom Appearance */
+input[type="file"]::-webkit-file-upload-button {
+  background: var(--yamaha-purple);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+}
+/* =============================================
+   RESPONSIVE DESIGN - Yamaha Vibes
+   ============================================= */
+
+@media (max-width: 600px) {
+  /* Reducimos el padding del body para ganar espacio lateral */
+  body.admin-body {
+    padding: 10px;
+  }
+
+  /* Ajustamos la caja del formulario */
+  .form-box {
+    padding: 20px 15px;
+    border-radius: 12px; /* Un poco menos redondeado en móviles */
+  }
+
+  /* Título ligeramente más pequeño */
+  .form-box h1 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+  }
+
+  /* Optimizamos los inputs para pantallas táctiles */
+  input[type="text"],
+  input[type="date"],
+  input[type="url"],
+  select,
+  textarea {
+    padding: 10px 2px; /* Más área de toque */
+    font-size: 16px; /* Evita el zoom automático en iOS */
+  }
+
+  /* LA PARTE CRÍTICA: Los botones */
+  .acciones {
+    flex-direction: column; /* Apilamos los botones uno sobre otro */
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .btn {
+    width: 100%; /* Ocupan todo el ancho disponible */
+    padding: 16px; /* Más altos para facilitar el click con el dedo */
+    font-size: 16px;
+  }
+
+  /* El botón volver lo ponemos debajo del de guardar */
+  .btn-volver {
+    order: 2;
+  }
+
+  .btn-guardar {
+    order: 1;
+  }
+
+  /* Ajuste de la vista previa de imagen */
+  .preview-img {
+    max-height: 150px;
+    margin: 10px auto;
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas (relojes o móviles antiguos) */
+@media (max-width: 380px) {
+  .form-box h1 {
+    font-size: 1.1rem;
+  }
+
+  .form-row label {
+    font-size: 12px;
+  }
+}
