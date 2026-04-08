@@ -1,10 +1,14 @@
 /* Layout Principal */
+/* Layout Principal */
 .admin-main {
   display: flex;
   gap: 30px;
   padding: 30px;
   align-items: flex-start;
   max-width: 1400px;
+
+  width: 100%;
+
   margin: 0 auto;
 }
 
@@ -112,4 +116,162 @@
 
 .copyright-line a:hover {
   text-decoration: underline; /* El subrayado aparece solo al pasar el ratón */
+}
+/* =============================================
+   RESPONSIVE "APP NATIVA" - Equilibrado y Elegante
+   ============================================= */
+/* =============================================
+   RESPONSIVE "APP NATIVA" - Equilibrado y Elegante
+   ============================================= */
+
+@media (max-width: 992px) {
+  /* 1. LAYOUT PRINCIPAL (Esto hace que el menú quede arriba y la tabla abajo) */
+  .admin-main {
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 10px;
+    gap: 35px;
+  }
+
+  /* 2. MENÚ LATERAL (Botones Envolventes) */
+  .admin-sidebar {
+    width: 100%;
+    flex: none;
+    padding: 20px 15px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que salten a la línea de abajo */
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .admin-sidebar h2 {
+    display: none;
+  }
+
+  .admin-sidebar .admin-btn {
+    flex: 1 1 auto;
+    min-width: 100px;
+    margin: 0;
+    padding: 12px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+  }
+
+  .admin-btn-nueva {
+    flex: 0 0 100%;
+    margin-top: 5px;
+    justify-content: center;
+  }
+
+  /* 3. TABLA CONVERTIDA EN TARJETAS LIMPIAS (Aparecerá justo debajo) */
+  .admin-table-container {
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .admin-table thead {
+    display: none; /* Ocultamos cabecera */
+  }
+
+  .admin-table,
+  .admin-table tbody,
+  .admin-table tr,
+  .admin-table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* Diseño de la Tarjeta */
+  .admin-table tr {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+
+  /* Diseño interior: Etiqueta arriba, dato abajo */
+  .admin-table td {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+    border: none;
+    font-size: 15px;
+    color: var(--admin-text);
+  }
+
+  .admin-table td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    color: var(--yamaha-purple-2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  /* Contenedor especial para las acciones (Editar/Borrar) */
+  .admin-table td:last-child {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  }
+
+  .admin-table td:last-child::before {
+    display: none; /* No mostramos la palabra "Acciones" */
+  }
+
+  /* Miniaturas e Iconos */
+  .img-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+  }
+
+  .admin-actions a {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  /* 4. FORMULARIO OPTIMIZADO */
+  .form-box {
+    padding: 20px 15px;
+  }
+
+  .acciones {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+} /* <--- AQUÍ CIERRA EL @media (max-width: 992px) */
+
+/* Ajustes extra para móviles muy estrechos */
+@media (max-width: 480px) {
+  .acciones {
+    flex-direction: column; /* Solo se apilan si la pantalla es enana */
+  }
+  .btn-guardar {
+    order: 1;
+  }
+  .btn-volver {
+    order: 2;
+  }
 }

@@ -1,7 +1,8 @@
 /* =============================================
-   ADMIN UNIFIED - Yamaha Vibes & Form Style
+   ADMIN FORMULARIO - Yamaha Vibes (Optimizado)
    ============================================= */
 
+/* 1. VARIABLES GLOBALES */
 :root {
   --admin-bg-1: #0b1020;
   --admin-bg-2: #070a14;
@@ -18,12 +19,18 @@
 
   --danger: #ef4444;
   --ok: #22c55e;
-
   --radius: 14px;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
-/* Base Layout */
+/* 2. RESET BÁSICO (Vital para que el móvil no cree scroll horizontal) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 3. LAYOUT BASE (ESCRITORIO) */
 body.admin-body {
   margin: 0;
   font-family: "Rubik", sans-serif;
@@ -47,7 +54,7 @@ body.admin-body {
   padding: 20px;
 }
 
-/* Contenedor del Formulario (Glassmorphism) */
+/* Contenedor del Formulario */
 .form-box {
   background: linear-gradient(
     180deg,
@@ -56,7 +63,7 @@ body.admin-body {
   );
   border: 1px solid var(--admin-border);
   border-radius: var(--radius);
-  padding: 30px;
+  padding: 40px;
   width: 100%;
   max-width: 550px;
   box-shadow: var(--shadow);
@@ -64,9 +71,10 @@ body.admin-body {
 }
 
 .form-box h1 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 25px;
+  margin-top: 0;
+  margin-bottom: 30px;
   text-align: center;
   letter-spacing: 0.5px;
   color: var(--admin-text);
@@ -77,13 +85,13 @@ body.admin-body {
   display: block;
   width: 60px;
   height: 3px;
-  margin: 10px auto 0;
+  margin: 12px auto 0;
   background: linear-gradient(90deg, var(--yamaha-purple), transparent);
   box-shadow: 0 0 15px var(--yamaha-glow);
   border-radius: 10px;
 }
 
-/* Estructura de Filas */
+/* 4. CAMPOS DEL FORMULARIO */
 .form-row {
   margin-bottom: 20px;
 }
@@ -96,7 +104,7 @@ body.admin-body {
   color: var(--yamaha-purple-2);
 }
 
-/* Inputs, Selects, Textareas y URL */
+/* Inputs, Selects, Textareas */
 input[type="text"],
 input[type="date"],
 input[type="url"],
@@ -104,22 +112,21 @@ input[type="file"],
 select,
 textarea {
   width: 100%;
-  padding: 12px 8px;
+  padding: 14px 12px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(0, 0, 0, 0.3);
   color: var(--admin-text);
   font-family: inherit;
+  font-size: 15px;
   transition: all 0.2s ease;
 }
 
-/* Placeholders */
 ::placeholder {
   color: rgba(245, 247, 255, 0.35);
   font-style: italic;
 }
 
-/* Estados de Focus */
 input:focus,
 select:focus,
 textarea:focus {
@@ -129,18 +136,34 @@ textarea:focus {
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* Validaciones dinámicas para URL y otros inputs */
 input:not(:placeholder-shown):invalid {
   border-color: var(--danger);
 }
 
-/* Textarea específico */
 textarea {
-  min-height: 100px;
+  min-height: 120px;
   resize: vertical;
 }
 
-/* Multimedia Preview */
+/* Botón nativo de subir archivo */
+input[type="file"]::-webkit-file-upload-button {
+  background: var(--yamaha-purple);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  transition: background 0.3s;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background: #6d28d9;
+}
+
+/* Previsualización de Imagen */
 .preview-img {
   margin-top: 15px;
   max-width: 100%;
@@ -152,11 +175,11 @@ textarea {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Botones y Acciones */
+/* 5. BOTONES DE ACCIÓN */
 .acciones {
   display: flex;
   gap: 15px;
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 .btn {
@@ -170,7 +193,9 @@ textarea {
   transition: all 0.3s ease;
   border: none;
   font-size: 15px;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-guardar {
@@ -196,7 +221,7 @@ textarea {
   color: var(--admin-text);
 }
 
-/* Mensajes de Alerta */
+/* 6. ALERTAS Y ERRORES */
 .error {
   background: rgba(239, 68, 68, 0.15);
   border: 1px solid var(--danger);
@@ -208,86 +233,102 @@ textarea {
   text-align: center;
 }
 
-/* Input File Custom Appearance */
-input[type="file"]::-webkit-file-upload-button {
-  background: var(--yamaha-purple);
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-right: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 12px;
-}
 /* =============================================
-   RESPONSIVE DESIGN - Yamaha Vibes
+   7. RESPONSIVE DESIGN - ESTILO APP NATIVA
    ============================================= */
 
-@media (max-width: 600px) {
-  /* Reducimos el padding del body para ganar espacio lateral */
+@media (max-width: 768px) {
+  /* Fondo y alineación superior para permitir scroll */
   body.admin-body {
-    padding: 10px;
+    padding: 15px 10px;
+    align-items: flex-start;
   }
 
-  /* Ajustamos la caja del formulario */
+  /* Caja ocupa todo el ancho disponible */
   .form-box {
-    padding: 20px 15px;
-    border-radius: 12px; /* Un poco menos redondeado en móviles */
+    padding: 30px 20px;
+    border-radius: 16px;
+    margin-top: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
 
-  /* Título ligeramente más pequeño */
   .form-box h1 {
-    font-size: 1.25rem;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-bottom: 25px;
   }
 
-  /* Optimizamos los inputs para pantallas táctiles */
+  /* Etiquetas más limpias */
+  .form-row label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Inputs enormes para los dedos y tamaño 16px para anular el zoom de iPhone */
   input[type="text"],
   input[type="date"],
   input[type="url"],
+  input[type="file"],
   select,
   textarea {
-    padding: 10px 2px; /* Más área de toque */
-    font-size: 16px; /* Evita el zoom automático en iOS */
+    padding: 16px 15px;
+    font-size: 16px;
+    border-radius: 12px;
   }
 
-  /* LA PARTE CRÍTICA: Los botones */
+  /* Botón subir archivo adaptado a móvil (bloque completo) */
+  input[type="file"]::-webkit-file-upload-button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    margin-right: 0;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .preview-img {
+    max-height: 250px;
+    width: 100%;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  }
+
+  /* Botones apilados verticalmente */
   .acciones {
-    flex-direction: column; /* Apilamos los botones uno sobre otro */
-    gap: 12px;
-    margin-top: 25px;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 35px;
   }
 
   .btn {
-    width: 100%; /* Ocupan todo el ancho disponible */
-    padding: 16px; /* Más altos para facilitar el click con el dedo */
+    width: 100%;
+    padding: 18px;
     font-size: 16px;
-  }
-
-  /* El botón volver lo ponemos debajo del de guardar */
-  .btn-volver {
-    order: 2;
+    border-radius: 14px;
   }
 
   .btn-guardar {
-    order: 1;
+    order: 1; /* Prioridad: Arriba */
   }
 
-  /* Ajuste de la vista previa de imagen */
-  .preview-img {
-    max-height: 150px;
-    margin: 10px auto;
+  .btn-volver {
+    order: 2; /* Secundaria: Abajo */
+    background: rgba(255, 255, 255, 0.08);
   }
 }
 
-/* Ajustes para pantallas muy pequeñas (relojes o móviles antiguos) */
+/* Ajustes para móviles muy estrechos (Ej: iPhone SE antiguo) */
 @media (max-width: 380px) {
-  .form-box h1 {
-    font-size: 1.1rem;
+  .form-box {
+    padding: 20px 15px;
   }
-
-  .form-row label {
-    font-size: 12px;
+  .form-box h1 {
+    font-size: 19px;
+  }
+  .btn {
+    padding: 15px;
   }
 }

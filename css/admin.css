@@ -526,14 +526,93 @@ body.admin-body {
 .admin-table td i:hover {
   transform: scale(1.2);
 }
+/* =============================================
+   RESPONSIVE DESIGN - Yamaha Vibes
+   ============================================= */
 
-/* Responsive */
-@media (max-width: 900px) {
-  .admin-main {
-    flex-direction: column;
-  }
-  .admin-sidebar {
-    width: 100%;
-    flex: none;
-  }
+@media (max-width: 600px) {
+    /* Ajuste del fondo y body */
+    body.admin-body {
+        padding: 10px;
+        align-items: flex-start; /* Permite scroll natural si el móvil es corto */
+    }
+
+    /* Caja del formulario */
+    .form-box {
+        padding: 20px 15px;
+        margin-top: 10px;
+        border-radius: 12px;
+    }
+
+    /* Título */
+    .form-box h1 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    /* Etiquetas (Labels) un poco más legibles */
+    .form-row label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    /* Inputs optimizados para dedos (Touch Friendly) */
+    input[type="text"],
+    input[type="date"],
+    input[type="url"],
+    input[type="file"],
+    select,
+    textarea {
+        padding: 14px 10px;
+        font-size: 16px; /* Evita zoom automático en Safari/iOS */
+    }
+
+    /* Botonera: De horizontal a vertical */
+    .acciones {
+        flex-direction: column; 
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        display: block;
+    }
+
+    /* Reordenar botones: Guardar arriba, Cancelar abajo */
+    .btn-guardar {
+        order: 1;
+    }
+
+    .btn-volver {
+        order: 2;
+        background: rgba(255, 255, 255, 0.08); /* Un poco más visible en móvil */
+    }
+
+    /* Ajuste de imagen de previsualización */
+    .preview-img {
+        max-height: 160px;
+        width: auto;
+        margin: 15px auto 0;
+    }
+
+    /* Input de archivo en móvil */
+    input[type="file"]::-webkit-file-upload-button {
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Pantallas extra pequeñas (Móviles de 4 pulgadas) */
+@media (max-width: 380px) {
+    .form-box {
+        padding: 15px 10px;
+    }
+    
+    .form-box h1 {
+        font-size: 1.2rem;
+    }
 }
