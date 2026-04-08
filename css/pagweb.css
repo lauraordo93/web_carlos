@@ -904,153 +904,160 @@ h2::after {
 }
 
 /* =================================================
-   ESTILOS SWIPER - GALERÍA PROFESIONAL
+   ESTILOS SWIPER - GALERÍA
    ================================================= */
-/* 1. Visor Principal (Grande) */
+
+/* =========================
+   1. VISOR PRINCIPAL
+   ========================= */
 .mainSwiper {
   width: 100%;
-  max-width: 500px; /* Ajustado a tu diseño de sección */
+  max-width: 500px;
   height: 450px;
-  margin: 0 auto 15px auto;
+  margin: 0 auto 12px auto;
   border-radius: 12px;
   overflow: hidden;
   background: #000;
+  position: relative;
+}
+
+.mainSwiper .swiper-wrapper,
+.mainSwiper .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.mainSwiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .swiper-zoom-container {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-/* Hacer que el enlace ocupe todo el slide */
-.mainSwiper .swiper-slide a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  cursor: zoom-in; /* Cambia el cursor a una lupa con un + */
+  justify-content: center;
 }
 
 .mainSwiper .swiper-slide img {
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Mantiene la proporción en el visor de 450px */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  cursor: zoom-in;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-/* Ocultar las flechas por defecto y mostrarlas al hacer hover */
+/* =========================
+   2. FLECHAS
+   ========================= */
+.mainSwiper .swiper-button-next,
+.mainSwiper .swiper-button-prev {
+  width: 40px;
+  height: 40px;
+}
+
 .mainSwiper .swiper-button-next::after,
 .mainSwiper .swiper-button-prev::after {
-  font-size: 25px !important;
-  color: var(--color_yamahaClaro) !important; /* Usa tu color corporativo */
+  font-size: 20px;
+  color: #fff !important;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
 .mainSwiper:hover .swiper-button-next::after,
 .mainSwiper:hover .swiper-button-prev::after {
   opacity: 1;
 }
-/* Color de la barra de progreso */
+
+/* =========================
+   3. PAGINACIÓN
+   ========================= */
+.mainSwiper .swiper-pagination-progressbar {
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+}
+
 .mainSwiper .swiper-pagination-progressbar-fill {
   background: var(--color_yamahaClaro) !important;
 }
 
-/* Fondo de la barra (la parte que aún no se ha llenado) */
-.mainSwiper .swiper-pagination-progressbar {
-  background: rgba(255, 255, 255, 0.2);
-  height: 4px; /* Un poco más gruesa para que se vea bien */
-}
-
-/* Aseguramos que la flecha (el icono) se vea blanca y nítida */
-.mainSwiper .swiper-button-next::after,
-.mainSwiper .swiper-button-prev::after {
-  color: #fff !important;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8); /* Sombra para resaltar la flecha */
-}
-.mainSwiper .swiper-button-next::after,
-.mainSwiper .swiper-button-prev::after {
-  font-size: 20px; /* Flechas más elegantes */
-}
-
-/* 2. Carrusel de Miniaturas (Pequeño) */
+/* =========================
+   4. MINIATURAS
+   ========================= */
 .thumbSwiper {
   width: 100%;
-  max-width: 6000px;
+  max-width: 500px;
   height: 100px;
-  margin: 10px auto;
-  padding: 30px 0;
+  margin: 8px auto 0 auto;
+  padding: 4px 0;
+  overflow: hidden;
+}
+
+.thumbSwiper .swiper-wrapper {
+  align-items: center;
 }
 
 .thumbSwiper .swiper-slide {
-  width: 100px;
-  height: 100px;
-  opacity: 0.4; /* Efecto desvanecido para las no activas */
+  width: 72px;
+  height: 92px;
+  opacity: 0.55;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  border-radius: 6px;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-/* Miniatura Activa */
 .thumbSwiper .swiper-slide-thumb-active {
-  opacity: 2;
-  transform: scale(1.05);
+  opacity: 1;
+  transform: scale(1.04);
 }
 
 .thumbSwiper .swiper-slide-thumb-active img {
   border: 1px solid var(--color_blancoRoto);
-  box-shadow: 5px var(--color_blancoRoto);
 }
 
 .thumbSwiper .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  display: block;
   border-radius: 6px;
-  filter: grayscale(40%); /* Un toque artístico */
-  transition: filter 0.3s ease;
+  pointer-events: none;
 }
 
-.thumbSwiper .swiper-slide:hover img {
-  filter: grayscale(0%);
-}
-.thumbSwiper .swiper-slide {
-  touch-action: pan-y; /* Mejora el scroll táctil */
-  user-select: none; /* Evita que se seleccione el texto al arrastrar */
-  -webkit-user-drag: none; /* Evita que el navegador intente "arrastrar" la imagen como archivo */
-}
-
-.thumbSwiper img {
-  pointer-events: none; /* Hace que el clic/arrastre pase al contenedor Swiper */
-}
-/* ===================================================== */
-/* === RESPONSIVE GALERÍA (MÓVIL / TABLET) ============== */
-/* ===================================================== */
+/* =========================
+   5. RESPONSIVE
+   ========================= */
 @media (max-width: 768px) {
-  /* --- GALERÍA --- */
   .galeria {
     width: 100%;
   }
+
   .galeria.active {
     display: block;
   }
 
-  /* ================================================= */
-  /* VISOR PRINCIPAL (IMAGEN GRANDE) */
-  /* ================================================= */
-
+  /* ===== VISOR PRINCIPAL ===== */
   .mainSwiper {
-    width: 96vw !important;
-    max-width: 620px !important;
-
-    aspect-ratio: 16 / 9; /* marco horizontal */
-    height: auto !important;
-    min-height: 240px !important;
-    max-height: 380px !important;
-
-    margin: 0 auto 4px auto !important;
+    width: 96vw;
+    max-width: 620px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 240px;
+    max-height: 380px;
+    margin: 0 auto 6px auto;
     border-radius: 12px;
     overflow: hidden;
     background: #000;
@@ -1058,76 +1065,63 @@ h2::after {
 
   .mainSwiper .swiper-wrapper,
   .mainSwiper .swiper-slide {
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
   }
 
-  .mainSwiper .swiper-slide {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  .mainSwiper .swiper-slide a,
+  .mainSwiper .swiper-slide,
   .mainSwiper .swiper-zoom-container {
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-
-  /* ========================= */
-  /* IMAGEN (CLAVE AQUÍ) */
-  /* ========================= */
 
   .mainSwiper .swiper-zoom-container > img,
-  .mainSwiper .swiper-slide a img,
   .mainSwiper .swiper-slide img {
-    width: 100% !important; /* llena el ancho */
-    height: auto !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-
-    object-fit: contain !important; /* NO recorta */
-    object-position: center !important;
-    display: block !important;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
   }
 
-  /* ================================================= */
-  /* MINIATURAS  */
-  /* ================================================= */
+  .mainSwiper .swiper-button-next::after,
+  .mainSwiper .swiper-button-prev::after {
+    opacity: 1;
+    font-size: 18px;
+  }
 
+  /* ===== MINIATURAS ===== */
   .thumbSwiper {
-    width: 96vw !important;
-    max-width: none !important;
-    height: 70px !important;
-    margin: 2px auto 0 auto !important;
-    padding: 0 !important;
-    overflow: visible !important;
+    width: 96vw;
+    max-width: none;
+    height: 64px;
+    margin: 4px auto 0 auto;
+    padding: 0;
+    overflow: hidden;
   }
 
   .thumbSwiper .swiper-wrapper {
-    align-items: center !important;
-    overflow: visible !important;
-    align-items: center !important;
+    align-items: center;
   }
 
   .thumbSwiper .swiper-slide {
-    width: 52px !important; /* más pequeñas = entran más */
-    height: 52px !important;
-    opacity: 0.55;
+    width: 52px;
+    height: 52px;
+    opacity: 0.6;
   }
 
   .thumbSwiper .swiper-slide-thumb-active {
     opacity: 1;
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
 
   .thumbSwiper .swiper-slide img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* miniaturas mejor cover */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 6px;
     display: block;
   }
