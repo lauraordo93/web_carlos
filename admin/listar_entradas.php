@@ -51,8 +51,8 @@ $titulo_gestion = $secciones_permitidas[$id_sec];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel - <?php echo $titulo_gestion; ?></title>
-    <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="../css/entradas.css">
+    <link rel="stylesheet" href="../public/css/admin.css">
+    <link rel="stylesheet" href="../public/css/entradas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -65,7 +65,7 @@ $titulo_gestion = $secciones_permitidas[$id_sec];
                 <span class="admin-text"><strong>Administración</strong><span>Panel de Control</span></span>
             </div>
             <div class="admin-links">
-                <a href="../index.php"><i class="fa-solid fa-house"></i> Volver a la web</a>
+                <a href="../"><i class="fa-solid fa-house"></i> Volver a la web</a>
                 <a href="cerrar_sesion.php" class="admin-salir"><i class="fa-solid fa-power-off"></i> Salir</a>
             </div>
         </div>
@@ -100,7 +100,7 @@ $titulo_gestion = $secciones_permitidas[$id_sec];
                             <td>
                                 <div style="display: flex; align-items: center; gap: 12px;">
                                     <?php if ($id_sec == 2 && !empty($fila['foto_url'])): ?>
-                                        <img src="../<?php echo htmlspecialchars($fila['foto_url']); ?>" alt="img" class="img-thumb">
+                                        <img src="../public/<?php echo htmlspecialchars($fila['foto_url']); ?>" alt="img" class="img-thumb">
                                     <?php endif; ?>
                                     <span><?php echo htmlspecialchars($fila['titulo'] ?: $fila['foto_url']); ?></span>
                                 </div>

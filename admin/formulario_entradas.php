@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
                 $nombre_unico = uniqid('img_', true) . '.' . strtolower($extension);
 
-                $ruta_destino_fisica = __DIR__ . '/../img/' . $nombre_unico;
+                $ruta_destino_fisica = __DIR__ . '/../public/img/' . $nombre_unico;
                 $ruta_bd = 'img/' . $nombre_unico;
 
                 if (move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_destino_fisica)) {
@@ -206,7 +206,7 @@ $titulo_formulario = $modo_edicion ? 'Editar registro' : 'Nuevo registro';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($titulo_formulario); ?></title>
-    <link rel="stylesheet" href="../css/formulario.css">
+    <link rel="stylesheet" href="../public/css/formulario.css">
 
 </head>
 
@@ -257,7 +257,7 @@ $titulo_formulario = $modo_edicion ? 'Editar registro' : 'Nuevo registro';
                 <input type="file" name="foto" id="foto" accept="image/*">
 
                 <?php if (!empty($entrada['foto_url'])): ?>
-                    <img src="../<?php echo htmlspecialchars(trim($entrada['foto_url'])); ?>" alt="Vista previa" class="preview-img">
+                    <img src="../public/<?php echo htmlspecialchars(trim($entrada['foto_url'])); ?>" alt="Vista previa" class="preview-img">
                 <?php endif; ?>
             </div>
 
@@ -276,7 +276,7 @@ $titulo_formulario = $modo_edicion ? 'Editar registro' : 'Nuevo registro';
     </div>
 
 
-    <script src="../js/formEntradas.js"></script>
+    <script src="../public/js/formEntradas.js"></script>
 </body>
 
 </html>

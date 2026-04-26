@@ -44,7 +44,7 @@ $titulo = "Iniciar sesión";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo htmlspecialchars($titulo); ?> - Admin</title>
 
-  <link rel="stylesheet" href="../css/admin.css?v=1">
+  <link rel="stylesheet" href="../public/css/admin.css?v=1">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -59,7 +59,7 @@ $titulo = "Iniciar sesión";
       </div>
 
       <div class="admin-links">
-        <a href="../index.php" title="Volver a la web"><i class="fa-solid fa-house"></i></a>
+        <a href="../" title="Volver a la web"><i class="fa-solid fa-house"></i></a>
       </div>
     </div>
 
