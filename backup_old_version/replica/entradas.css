@@ -1,26 +1,18 @@
-/**
- * ESTILOS DE GESTIÓN DE ENTRADAS
- * 
- * Define la estructura flex del panel, el sidebar de navegación
- * y la transformación de la tabla en tarjetas para dispositivos móviles.
- */
-
-/* ---------------------------------------------------------
-   LAYOUT PRINCIPAL
-   --------------------------------------------------------- */
+/* Layout Principal */
+/* Layout Principal */
 .admin-main {
   display: flex;
   gap: 30px;
   padding: 30px;
   align-items: flex-start;
   max-width: 1400px;
+
   width: 100%;
+
   margin: 0 auto;
 }
 
-/* ---------------------------------------------------------
-   NAVEGACIÓN LATERAL (SIDEBAR)
-   --------------------------------------------------------- */
+/* Menú Lateral */
 .admin-sidebar {
   flex: 0 0 260px;
   background: rgba(255, 255, 255, 0.03);
@@ -38,9 +30,7 @@
 }
 
 .admin-sidebar .admin-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: block;
   width: 100%;
   margin-bottom: 8px;
   text-align: left;
@@ -56,24 +46,20 @@
   box-shadow: 0 0 15px var(--yamaha-glow);
 }
 
-/* ---------------------------------------------------------
-   CONTENEDOR DE DATOS Y TABLAS
-   --------------------------------------------------------- */
+/* Tabla y Contenedor */
 .admin-table-container {
   flex: 1;
   min-width: 0;
 }
 
-/* Miniaturas multimedia */
 .img-thumb {
-  width: 100px;
+  width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid var(--admin-border);
 }
 
-/* Acciones CRUD */
 .admin-actions {
   display: flex;
   gap: 15px;
@@ -84,7 +70,7 @@
   font-size: 18px;
 }
 
-/* Sistema de Paginación */
+/* Paginación */
 .pagination {
   margin-top: 30px;
   display: flex;
@@ -105,10 +91,9 @@
   background: var(--yamaha-purple);
   border-color: var(--yamaha-purple-2);
 }
-
-/* ---------------------------------------------------------
-   PIE DE PÁGINA ESPECÍFICO
-   --------------------------------------------------------- */
+/* ================================
+   FOOTER - Estilo Administrativo
+   ================================ */
 .admin-footer {
   padding: 14px 18px;
   text-align: center;
@@ -117,43 +102,44 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
+/* Línea de copyright */
 .copyright-line {
   display: block;
   margin: 0;
   padding-bottom: 10px;
 }
-
 .copyright-line a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: bold;
+  color: inherit; /* Toma el mismo color que el texto del párrafo */
+  text-decoration: none; /* Quita el subrayado si no lo deseas */
+  font-weight: bold; /* Para que resalte un poco */
 }
 
 .copyright-line a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* El subrayado aparece solo al pasar el ratón */
 }
+/* =============================================
+   RESPONSIVE "APP NATIVA" - Equilibrado y Elegante
+   ============================================= */
+/* =============================================
+   RESPONSIVE "APP NATIVA" - Equilibrado y Elegante
+   ============================================= */
 
-/* ---------------------------------------------------------
-   RESPONSIVE DESIGN (APP NATIVA EXPERIENCE)
-   --------------------------------------------------------- */
 @media (max-width: 992px) {
-  
-  /* Layout: Columna única */
+  /* 1. LAYOUT PRINCIPAL (Esto hace que el menú quede arriba y la tabla abajo) */
   .admin-main {
     flex-direction: column;
     width: 100%;
-    padding: 20px 0;
-    gap: 30px;
+    padding: 15px 10px;
+    gap: 35px;
   }
 
-  /* Menú: Formato horizontal superior */
+  /* 2. MENÚ LATERAL (Botones Envolventes) */
   .admin-sidebar {
-    width: auto;
+    width: 100%;
     flex: none;
     padding: 20px 15px;
-    margin: 0 10px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que salten a la línea de abajo */
     gap: 10px;
     justify-content: center;
   }
@@ -170,7 +156,9 @@
     border-radius: 12px;
     font-size: 13px;
     text-align: center;
+    display: flex;
     justify-content: center;
+    align-items: center;
     background: rgba(255, 255, 255, 0.05);
     white-space: nowrap;
   }
@@ -178,13 +166,10 @@
   .admin-btn-nueva {
     flex: 0 0 100%;
     margin-top: 5px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 10px;
   }
 
-  /* Transformación de tabla a sistema de tarjetas */
+  /* 3. TABLA CONVERTIDA EN TARJETAS LIMPIAS (Aparecerá justo debajo) */
   .admin-table-container {
     padding: 0;
     background: transparent;
@@ -192,12 +177,8 @@
     box-shadow: none;
   }
 
-  .admin-title {
-    margin: 0 15px 20px;
-  }
-
   .admin-table thead {
-    display: none;
+    display: none; /* Ocultamos cabecera */
   }
 
   .admin-table,
@@ -208,21 +189,18 @@
     width: 100%;
   }
 
-  /* Estética de la tarjeta (Card View) */
+  /* Diseño de la Tarjeta */
   .admin-table tr {
-    background: rgba(255, 255, 255, 0.04);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    padding: 22px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px;
     margin-bottom: 15px;
-    box-shadow: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
-    width: 100%;
   }
 
+  /* Diseño interior: Etiqueta arriba, dato abajo */
   .admin-table td {
     display: flex;
     flex-direction: column;
@@ -243,7 +221,7 @@
     font-weight: 600;
   }
 
-  /* Acciones flotantes a la derecha */
+  /* Contenedor especial para las acciones (Editar/Borrar) */
   .admin-table td:last-child {
     flex-direction: row;
     justify-content: flex-end;
@@ -254,10 +232,10 @@
   }
 
   .admin-table td:last-child::before {
-    display: none;
+    display: none; /* No mostramos la palabra "Acciones" */
   }
 
-  /* Miniaturas en móvil */
+  /* Miniaturas e Iconos */
   .img-thumb {
     width: 60px;
     height: 60px;
@@ -269,15 +247,26 @@
     padding: 8px;
   }
 
-  .pagination {
-    margin: 30px 15px;
+  /* 4. FORMULARIO OPTIMIZADO */
+  .form-box {
+    padding: 20px 15px;
   }
-}
 
-/* Adaptación para dispositivos Ultra-Narrow */
+  .acciones {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+} /* <--- AQUÍ CIERRA EL @media (max-width: 992px) */
+
+/* Ajustes extra para móviles muy estrechos */
 @media (max-width: 480px) {
   .acciones {
-    flex-direction: column;
+    flex-direction: column; /* Solo se apilan si la pantalla es enana */
   }
   .btn-guardar {
     order: 1;

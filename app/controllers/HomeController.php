@@ -1,8 +1,18 @@
 <?php
 
+/**
+ * Controlador de la Página Principal (Home)
+ * 
+ * Orquestador de la visualización pública, gestionando la carga de contenidos 
+ * dinámicos y la recepción de solicitudes de contacto.
+ */
 class HomeController extends Controller {
+    
+    /**
+     * Punto de entrada para la página principal
+     */
     public function index() {
-        // Cargar activos dinámicos
+        // Carga de activos multimedia y de diseño
         $this->appendCSS('css/pagweb.css?v=' . filemtime(PUBLICROOT . '/css/pagweb.css'));
         
         $scripts = [
@@ -18,14 +28,14 @@ class HomeController extends Controller {
             $this->appendJS($script . '?v=' . filemtime(PUBLICROOT . '/' . $script));
         }
 
-        // Cargar modelos
+        // Inicialización de modelos de negocio
         $entradaModel = $this->model('EntradaModel');
         $redSocialModel = $this->model('RedSocialModel');
         $academiaModel = $this->model('AcademiaModel');
         $menuModel = $this->model('MenuModel');
         $headerModel = $this->model('HeaderModel');
 
-        // Manejo del formulario de contacto
+        // Gestión de comunicación externa (Formulario de contacto)
         $success_msg = '';
         $error_msg = '';
         $contacto_nombre = '';
@@ -37,14 +47,13 @@ class HomeController extends Controller {
             $contacto_email   = htmlspecialchars($_POST['email'] ?? '');
             $contacto_mensaje = htmlspecialchars($_POST['mensaje'] ?? '');
 
-            // Guardar en BD (Simplificado con PDO)
             try {
                 $db = (new Database())->connect();
                 $sql = "INSERT INTO contacto (nombre, email, mensaje) VALUES (?, ?, ?)";
                 $stmt = $db->prepare($sql);
                 $stmt->execute([$contacto_nombre, $contacto_email, $contacto_mensaje]);
 
-                // Enviar a Formspree
+                // Integración con servicio de terceros (Formspree)
                 $formspree_url = "https://formspree.io/f/meorgrrz";
                 $data_post = [
                     'name' => $contacto_nombre,
@@ -64,16 +73,16 @@ class HomeController extends Controller {
 
                 if ($result !== false) {
                     $success_msg = "✅ Mensaje enviado correctamente";
-                    $nombre = $email = $mensaje = ''; 
+                    $contacto_nombre = $contacto_email = $contacto_mensaje = ''; 
                 } else {
                     $error_msg = "❌ Hubo un error al enviar el mensaje";
                 }
             } catch (Exception $e) {
-                $error_msg = "❌ Error en el servidor.";
+                $error_msg = "❌ Error en el servidor al procesar el mensaje.";
             }
         }
 
-        // Obtener datos para la vista
+        // Estructuración del conjunto de datos para la vista
         $data = [
             'titulo_pagina' => 'Página web Carlos',
             'sobre_mi' => $entradaModel->getSobreMi(),
@@ -92,7 +101,6 @@ class HomeController extends Controller {
             'contacto_mensaje' => $contacto_mensaje
         ];
 
-        // Renderizar vista
         $this->view('home/index', $data);
     }
 }

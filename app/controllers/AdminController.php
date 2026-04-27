@@ -1,19 +1,30 @@
 <?php
 
+/**
+ * Controlador de Administración
+ * 
+ * Gestiona las operaciones principales del panel de control: 
+ * autenticación, listado de contenidos y operaciones CRUD.
+ */
 class AdminController extends Controller
 {
-
+    /**
+     * Constructor del controlador
+     * Inicializa la sesión y carga los activos CSS necesarios.
+     */
     public function __construct()
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        // Activos globales del admin
+        
         $this->appendCSS('css/admin.css?v=' . filemtime(PUBLICROOT . '/css/admin.css'));
+        $this->appendCSS('css/entradas.css?v=' . filemtime(PUBLICROOT . '/css/entradas.css'));
     }
 
     /**
-     * Verificar sesión de forma privada
+     * Validación de sesión activa
+     * Redirige al login si no existe una identidad administrativa.
      */
     private function checkSession()
     {
@@ -23,6 +34,10 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * Vista principal del panel
+     * Muestra el listado de registros con soporte para paginación y filtrado por sección.
+     */
     public function index()
     {
         $this->checkSession();
@@ -30,8 +45,8 @@ class AdminController extends Controller
         $entradaModel = $this->model('EntradaModel');
         $id_sec = isset($_GET['sec']) ? (int)$_GET['sec'] : 5;
 
-        // Paginación
-        $limit = 6; // Solo 6 registros por página para evitar colapso
+        // Configuración de paginación
+        $limit = 6;
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         if ($page < 1) $page = 1;
         $offset = ($page - 1) * $limit;
@@ -51,6 +66,10 @@ class AdminController extends Controller
         $this->view('admin/index', $data);
     }
 
+    /**
+     * Autenticación de administradores
+     * Procesa las credenciales y establece la persistencia de la sesión.
+     */
     public function login()
     {
         if (isset($_SESSION['admin_id'])) {
@@ -67,9 +86,7 @@ class AdminController extends Controller
             $user = $adminModel->login($username, $password);
 
             if ($user) {
-                // Seguridad: Regenerar el ID de sesión al iniciar sesión
                 session_regenerate_id(true);
-
                 $_SESSION['admin_id'] = $user['id'];
                 $_SESSION['admin_user'] = $user['usuario'];
                 header("Location: " . URLROOT . "/admin");
@@ -83,6 +100,9 @@ class AdminController extends Controller
         $this->view('admin/login', $data);
     }
 
+    /**
+     * Finalización de sesión
+     */
     public function logout()
     {
         session_destroy();
@@ -91,49 +111,47 @@ class AdminController extends Controller
     }
 
     /**
-     *  lógica de Borrar
+     * Eliminación de registros
+     * @param int $id Identificador del registro a suprimir
      */
     public function borrar($id)
     {
         $this->checkSession();
         $entradaModel = $this->model('EntradaModel');
 
-        // Obtener seccion para el redirect posterior
         $entrada = $entradaModel->getById($id);
         $sec = $entrada ? $entrada['seccion_id'] : 5;
 
         if ($entradaModel->delete($id)) {
             header("Location: " . URLROOT . "/admin?sec=" . $sec);
         } else {
-            die("Error al borrar el registro.");
+            die("Error al procesar la solicitud de eliminación.");
         }
     }
 
     /**
-     *  lógica de Formulario (Nueva/Editar)
+     * Gestión de registros (Creación / Edición)
+     * Procesa el formulario de entrada de datos y gestiona la carga de archivos.
+     * @param int $id Identificador para edición (0 para nuevos registros)
      */
     public function editar($id = 0)
     {
         $this->checkSession();
+        $this->appendCSS('css/formulario.css?v=' . filemtime(PUBLICROOT . '/css/formulario.css'));
         $entradaModel = $this->model('EntradaModel');
-        $error = '';
 
-        // Modo Edición vs Nueva
+        $error = '';
         $modo_edicion = ($id > 0);
         $id_sec = isset($_GET['sec']) ? (int)$_GET['sec'] : 5;
 
         if ($modo_edicion) {
             $entrada = $entradaModel->getById($id);
-            if (!$entrada) die("Registro no encontrado.");
+            if (!$entrada) die("El registro solicitado no existe.");
             $id_sec = $entrada['seccion_id'];
         } else {
             $entrada = [
-                'titulo' => '',
-                'contenido' => '',
-                'foto_url' => '',
-                'video_url' => '',
-                'fecha' => '',
-                'enlace_url' => '',
+                'titulo' => '', 'contenido' => '', 'foto_url' => '',
+                'video_url' => '', 'fecha' => '', 'enlace_url' => '',
                 'seccion_id' => $id_sec
             ];
         }
@@ -147,7 +165,7 @@ class AdminController extends Controller
             $enlace_url = trim($_POST['enlace_url'] ?? '');
             $foto_url = $_POST['foto_url_actual'] ?? '';
 
-            // Lógica de subida de imagen rescatada
+            // Tratamiento de archivos multimedia
             if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
                 $permitidas = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
                 $tipo = mime_content_type($_FILES['foto']['tmp_name']);
@@ -161,32 +179,24 @@ class AdminController extends Controller
                         $foto_url = 'img/' . $nombre_unico;
                     }
                 } else {
-                    $error = "Formato de imagen no permitido.";
+                    $error = "El formato de imagen seleccionado no es compatible.";
                 }
             }
 
             if (empty($error)) {
                 $datos = [
-                    'titulo' => $titulo,
-                    'contenido' => $contenido,
-                    'foto_url' => $foto_url,
-                    'video_url' => $video_url,
-                    'fecha' => $fecha,
-                    'seccion_id' => $id_sec,
+                    'titulo' => $titulo, 'contenido' => $contenido, 'foto_url' => $foto_url,
+                    'video_url' => $video_url, 'fecha' => $fecha, 'seccion_id' => $id_sec,
                     'enlace_url' => $enlace_url
                 ];
 
-                if ($modo_edicion) {
-                    $exito = $entradaModel->update($id, $datos);
-                } else {
-                    $exito = $entradaModel->create($datos);
-                }
+                $exito = $modo_edicion ? $entradaModel->update($id, $datos) : $entradaModel->create($datos);
 
                 if ($exito) {
                     header("Location: " . URLROOT . "/admin?sec=" . $id_sec);
                     exit;
                 } else {
-                    $error = "Error al guardar en la base de datos.";
+                    $error = "Error al persistir la información en el sistema.";
                 }
             }
         }
@@ -202,7 +212,10 @@ class AdminController extends Controller
         $this->view('admin/formulario', $data);
     }
 
-    // Alias para nueva entrada
+    /**
+     * Endpoint para creación de nuevos registros
+     * @param int $sec Identificador de la sección destino
+     */
     public function nueva($sec = 5)
     {
         $_GET['sec'] = $sec;

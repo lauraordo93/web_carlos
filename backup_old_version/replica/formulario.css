@@ -1,10 +1,8 @@
-/**
- * ESTILOS DE FORMULARIO ADMINISTRATIVO
- * 
- * Implementación de interfaz para la gestión de datos. 
- * Diseño enfocado en la usabilidad y legibilidad de campos.
- */
+/* =============================================
+   ADMIN FORMULARIO - Yamaha Vibes (Optimizado)
+   ============================================= */
 
+/* 1. VARIABLES GLOBALES */
 :root {
   --admin-bg-1: #0b1020;
   --admin-bg-2: #070a14;
@@ -14,6 +12,7 @@
   --admin-text: #f5f7ff;
   --admin-muted: rgba(245, 247, 255, 0.72);
 
+  /* Morado Yamaha / Synth */
   --yamaha-purple: #7c3aed;
   --yamaha-purple-2: #a78bfa;
   --yamaha-glow: rgba(124, 58, 237, 0.45);
@@ -24,15 +23,44 @@
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
-* {
+/* 2. RESET BÁSICO (Vital para que el móvil no cree scroll horizontal) */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-/* ---------------------------------------------------------
-   CONTENEDOR DEL FORMULARIO (BOX MODEL)
-   --------------------------------------------------------- */
+/* 3. LAYOUT BASE (ESCRITORIO) */
+body.admin-body {
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  color: var(--admin-text);
+  background:
+    radial-gradient(
+      1200px 800px at 20% 10%,
+      rgba(124, 58, 237, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      1000px 700px at 90% 20%,
+      rgba(167, 139, 250, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(135deg, var(--admin-bg-1), var(--admin-bg-2));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Contenedor del Formulario */
 .form-box {
-  background: linear-gradient(180deg, var(--admin-card-2), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(
+    180deg,
+    var(--admin-card-2),
+    rgba(255, 255, 255, 0.03)
+  );
   border: 1px solid var(--admin-border);
   border-radius: var(--radius);
   padding: 40px;
@@ -40,7 +68,6 @@
   max-width: 550px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
-  margin: 20px auto;
 }
 
 .form-box h1 {
@@ -64,9 +91,7 @@
   border-radius: 10px;
 }
 
-/* ---------------------------------------------------------
-   FILAS Y CAMPOS DE ENTRADA
-   --------------------------------------------------------- */
+/* 4. CAMPOS DEL FORMULARIO */
 .form-row {
   margin-bottom: 20px;
 }
@@ -79,6 +104,7 @@
   color: var(--yamaha-purple-2);
 }
 
+/* Inputs, Selects, Textareas */
 input[type="text"],
 input[type="date"],
 input[type="url"],
@@ -110,12 +136,16 @@ textarea:focus {
   background: rgba(0, 0, 0, 0.4);
 }
 
+input:not(:placeholder-shown):invalid {
+  border-color: var(--danger);
+}
+
 textarea {
   min-height: 120px;
   resize: vertical;
 }
 
-/* Estilización del control nativo de carga de archivos */
+/* Botón nativo de subir archivo */
 input[type="file"]::-webkit-file-upload-button {
   background: var(--yamaha-purple);
   border: none;
@@ -129,7 +159,11 @@ input[type="file"]::-webkit-file-upload-button {
   transition: background 0.3s;
 }
 
-/* Previsualización multimedia */
+input[type="file"]::-webkit-file-upload-button:hover {
+  background: #6d28d9;
+}
+
+/* Previsualización de Imagen */
 .preview-img {
   margin-top: 15px;
   max-width: 100%;
@@ -141,9 +175,7 @@ input[type="file"]::-webkit-file-upload-button {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* ---------------------------------------------------------
-   ACCIONES Y BOTONERA
-   --------------------------------------------------------- */
+/* 5. BOTONES DE ACCIÓN */
 .acciones {
   display: flex;
   gap: 15px;
@@ -164,12 +196,6 @@ input[type="file"]::-webkit-file-upload-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-}
-
-.btn i {
-  font-size: 1.1em;
-  opacity: 0.9;
 }
 
 .btn-guardar {
@@ -195,7 +221,7 @@ input[type="file"]::-webkit-file-upload-button {
   color: var(--admin-text);
 }
 
-/* Mensajes de validación/error */
+/* 6. ALERTAS Y ERRORES */
 .error {
   background: rgba(239, 68, 68, 0.15);
   border: 1px solid var(--danger);
@@ -207,32 +233,102 @@ input[type="file"]::-webkit-file-upload-button {
   text-align: center;
 }
 
-/* ---------------------------------------------------------
-   RESPONSIVE DESIGN (TABLETS Y MÓVILES)
-   --------------------------------------------------------- */
+/* =============================================
+   7. RESPONSIVE DESIGN - ESTILO APP NATIVA
+   ============================================= */
+
 @media (max-width: 768px) {
+  /* Fondo y alineación superior para permitir scroll */
+  body.admin-body {
+    padding: 15px 10px;
+    align-items: flex-start;
+  }
+
+  /* Caja ocupa todo el ancho disponible */
   .form-box {
     padding: 30px 20px;
     border-radius: 16px;
     margin-top: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
 
+  .form-box h1 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  /* Etiquetas más limpias */
+  .form-row label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Inputs enormes para los dedos y tamaño 16px para anular el zoom de iPhone */
+  input[type="text"],
+  input[type="date"],
+  input[type="url"],
+  input[type="file"],
+  select,
+  textarea {
+    padding: 16px 15px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  /* Botón subir archivo adaptado a móvil (bloque completo) */
+  input[type="file"]::-webkit-file-upload-button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    margin-right: 0;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .preview-img {
+    max-height: 250px;
+    width: 100%;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  }
+
+  /* Botones apilados verticalmente */
   .acciones {
     flex-direction: column;
     gap: 15px;
+    margin-top: 35px;
   }
 
   .btn {
     width: 100%;
     padding: 18px;
     font-size: 16px;
+    border-radius: 14px;
   }
 
   .btn-guardar {
-    order: 1;
+    order: 1; /* Prioridad: Arriba */
   }
 
   .btn-volver {
-    order: 2;
+    order: 2; /* Secundaria: Abajo */
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Ajustes para móviles muy estrechos (Ej: iPhone SE antiguo) */
+@media (max-width: 380px) {
+  .form-box {
+    padding: 20px 15px;
+  }
+  .form-box h1 {
+    font-size: 19px;
+  }
+  .btn {
+    padding: 15px;
   }
 }
