@@ -17,7 +17,7 @@ $logo_url = !empty($header['logo']) ? htmlspecialchars($header['logo']) : '';
 
     @media screen and (max-width: 1440px) {
         header#inicio {
-            background-image: url('img/Carlos_cabecera4.jpg');
+            background-image: url('img/Carlos_cabecera3.jpg');
             min-height: 100vh;
             padding: 2rem;
             background-size: cover;
