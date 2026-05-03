@@ -1,10 +1,10 @@
-# 🌐 Página Web Vertical - Proyecto Personal
+# 🌐 Aplicación Web MVC PHP para Página Personal - Carlos Ordoñez
 
-¡Bienvenido/a a mi proyecto de página web vertical! Este sitio ha sido desarrollado como parte de mi formación en el ciclo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**. Se trata de una web "One Page" con navegación fluida, diseñada para presentar información de manera estructurada y visual.
+¡Bienvenido/a a mi proyecto de aplicación web MVC PHP! Este sitio ha sido desarrollado como parte de mi formación en el ciclo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**. Se trata de una aplicación web completa con arquitectura MVC, panel administrativo y base de datos, diseñada para presentar información de manera estructurada y visual.
 
 ## 🚀 Sobre el Proyecto
 
-El objetivo principal de este proyecto es aplicar conocimientos de maquetación web moderna, creando una experiencia de usuario intuitiva mediante un desplazamiento vertical y un diseño adaptativo.
+El objetivo principal de este proyecto es aplicar conocimientos de desarrollo web full-stack, creando una experiencia de usuario intuitiva mediante una arquitectura MVC escalable, con panel de administración para gestión de contenidos dinámicos.
 
 ## 🧩 Secciones del Sitio
 
@@ -18,11 +18,15 @@ La web se organiza en las siguientes secciones clave:
   - **Vídeos:** Selección de contenido audiovisual.
 - **Agenda:** Sección para próximos eventos y fechas importantes (Actualmente en desarrollo 🚧).
 - **Redes Sociales:** Conexión directa con perfiles oficiales para fomentar el networking.
+- **Panel Administrativo:** Gestión de entradas, usuarios y contenidos (acceso privado).
 
 ## 🛠️ Tecnologías Utilizadas
 
 Para el desarrollo de este sitio se han empleado:
 
+- **PHP 7+:** Lógica backend con arquitectura MVC.
+- **MySQL:** Base de datos para almacenamiento de contenidos.
+- **PDO:** Interfaz segura para consultas a DB.
 - **HTML5:** Estructuración semántica del contenido.
 - **CSS3:** Diseño visual, layouts (Flexbox/Grid) y animaciones de transición.
 - **JavaScript (ES6+):** Implementación de interactividad y manejo de eventos.
