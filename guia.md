@@ -47,6 +47,7 @@ El panel administrativo implementa una identidad visual inspirada en la estétic
 - **Gestión de Identidad**: Autenticación de administradores mediante `password_hash` y `password_verify`.
 - **Integridad de Sesión**: Renovación de identificadores de sesión tras el login para evitar secuestro de sesiones.
 - **Privacidad**: El código fuente y los archivos de configuración están protegidos mediante directivas de servidor.
+- **Configuración para Producción**: En `public/index.php`, desactivar `display_errors` cambiando a `ini_set('display_errors', 0)` y `ini_set('display_startup_errors', 0)` para no exponer errores sensibles. Mantener `error_reporting(E_ALL)` y agregar logging con `ini_set('log_errors', 1)` y `ini_set('error_log', 'ruta/a/error_log.log')`.
 
 ---
 
