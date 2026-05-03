@@ -71,6 +71,7 @@ Para extender la funcionalidad del sistema:
 
 - **Configuración Centralizada**: Todas las constantes globales se definen en `app/config/config.php`.
 - **Variables de Entorno**: Se utiliza un archivo `.env` en la raíz para la configuración de credenciales en entornos locales y de producción.
+- **URL Dinámica**: `URLROOT` se configura dinámicamente con `$_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/web_carlos'` para compatibilidad con localhost y producción.
 - **Versionado de Activos**: El sistema añade automáticamente una marca de tiempo (`filemtime`) a los archivos CSS/JS para invalidar la caché del navegador tras cada actualización.
 
 ---

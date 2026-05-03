@@ -27,8 +27,8 @@ define('DB_USER', $db_defaults['DB_USER']);
 define('DB_PASS', $db_defaults['DB_PASS']);
 define('DB_NAME', $db_defaults['DB_NAME']);
 
-// URL Raíz (Ajusta esto según tu entorno)
-define('URLROOT', 'http://localhost/web_carlos');
+// URL Raíz (Dinámico para cualquier dominio)
+define('URLROOT', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/web_carlos');
 
 // Rutas Físicas
 define('APPROOT', dirname(dirname(__FILE__)));
