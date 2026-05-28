@@ -171,9 +171,9 @@ class AdminController extends Controller
                 $tipo = mime_content_type($_FILES['foto']['tmp_name']);
 
                 if (in_array($tipo, $permitidas)) {
-                    $extension = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+                    $extension = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
                     $nombre_unico = 'img_' . uniqid() . '.' . $extension;
-                    $ruta_destino = __DIR__ . '/../../public/img/' . $nombre_unico;
+                    $ruta_destino = PUBLICROOT . '/img/' . $nombre_unico;
 
                     if (move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_destino)) {
                         $foto_url = 'img/' . $nombre_unico;

@@ -19,8 +19,8 @@ Contiene la lógica de negocio y el motor del sistema.
 - **`/models`**: Entidades que interactúan con el motor de base de datos.
 - **`/views`**: Plantillas modulares organizadas por dominios y layouts maestros.
 
-### 🌐 Acceso Público (`/public`)
-Único punto de entrada permitido desde el servidor web.
+### 🌐 Acceso Público (`/`)
+Punto de entrada preparado para subir directamente a `htdocs/` en InfinityFree.
 - `index.php`: El **Front Controller** que inicializa el sistema.
 - `.htaccess`: Gestión de reescritura de URLs y seguridad de directorios.
 - `/css`, `/js`, `/img`: Activos estáticos optimizados.
@@ -47,7 +47,7 @@ El panel administrativo implementa una identidad visual inspirada en la estétic
 - **Gestión de Identidad**: Autenticación de administradores mediante `password_hash` y `password_verify`.
 - **Integridad de Sesión**: Renovación de identificadores de sesión tras el login para evitar secuestro de sesiones.
 - **Privacidad**: El código fuente y los archivos de configuración están protegidos mediante directivas de servidor.
-- **Configuración para Producción**: En `public/index.php`, desactivar `display_errors` cambiando a `ini_set('display_errors', 0)` y `ini_set('display_startup_errors', 0)` para no exponer errores sensibles. Mantener `error_reporting(E_ALL)` y agregar logging con `ini_set('log_errors', 1)` y `ini_set('error_log', 'ruta/a/error_log.log')`.
+- **Configuración para Producción**: En `index.php`, desactivar `display_errors` cambiando a `ini_set('display_errors', 0)` y `ini_set('display_startup_errors', 0)` para no exponer errores sensibles. Mantener `error_reporting(E_ALL)` y agregar logging con `ini_set('log_errors', 1)` y `ini_set('error_log', 'ruta/a/error_log.log')`.
 
 ---
 
@@ -71,7 +71,7 @@ Para extender la funcionalidad del sistema:
 
 - **Configuración Centralizada**: Todas las constantes globales se definen en `app/config/config.php`.
 - **Variables de Entorno**: Se utiliza un archivo `.env` en la raíz para la configuración de credenciales en entornos locales y de producción.
-- **URL Dinámica**: `URLROOT` se configura dinámicamente con `$_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/web_carlos'` para compatibilidad con localhost y producción.
+- **URL Dinámica**: `URLROOT` se detecta dinámicamente desde `SCRIPT_NAME`, por lo que funciona en localhost bajo una subcarpeta y en producción desde la raíz de `htdocs/`.
 - **Versionado de Activos**: El sistema añade automáticamente una marca de tiempo (`filemtime`) a los archivos CSS/JS para invalidar la caché del navegador tras cada actualización.
 
 ---

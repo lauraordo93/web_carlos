@@ -1,3 +1,6 @@
+<?php
+$menu = $menu ?? [];
+?>
 <div class="nav-container">
     <ul class="nav-menu">
         <?php
@@ -14,8 +17,8 @@
                 $nombre = $row['nombre'];
                 if (isset($ids_personalizados[$nombre])):
                     $id = $ids_personalizados[$nombre];
-                    // En el MVC, los enlaces internos pueden seguir siendo anclas a la home
-                    echo '<li><a href="index.php#' . htmlspecialchars($id) . '">' . htmlspecialchars($nombre) . '</a></li>';
+                    $href = site_url('#' . $id);
+                    echo '<li><a href="' . htmlspecialchars($href, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8') . '</a></li>';
                 endif;
             endforeach;
         else:
@@ -23,7 +26,7 @@
         endif;
         ?>
         <li class="admin-icon">
-            <a href="admin/iniciar_sesion.php" title="Administración">🎷</a>
+            <a href="<?= site_url('admin/login') ?>" title="Administración">🎷</a>
         </li>
     </ul>
 

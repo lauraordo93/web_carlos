@@ -35,7 +35,7 @@ class Controller {
      * @return object Instancia del modelo solicitado
      */
     public function model($model) {
-        require_once '../app/models/' . $model . '.php';
+        require_once APPROOT . '/models/' . $model . '.php';
         return new $model();
     }
 
@@ -45,14 +45,15 @@ class Controller {
      * @param array $data Conjunto de datos dinámicos para la vista
      */
     public function view($view, $data = []) {
-        if (file_exists('../app/views/' . $view . '.php')) {
+        $viewPath = APPROOT . '/views/' . $view . '.php';
+        if (file_exists($viewPath)) {
             // Integración de activos dinámicos en el flujo de datos
             $data['extra_css'] = $this->extra_css;
             $data['extra_js'] = $this->extra_js;
 
             // Desempaquetado de variables para acceso directo en plantillas
-            extract($data);
-            require_once '../app/views/' . $view . '.php';
+            extract($data, EXTR_SKIP);
+            require_once $viewPath;
         } else {
             die("Error crítico: El recurso de vista '$view' es inaccesible o no existe.");
         }

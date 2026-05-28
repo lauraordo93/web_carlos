@@ -63,3 +63,26 @@ function transformarYoutubeEmbed($url) {
 
     return $url;
 }
+function asset_url($path) {
+    $path = trim((string) $path);
+
+    if ($path === '') {
+        return '';
+    }
+
+    if (preg_match('#^(https?:)?//#i', $path) || preg_match('#^(data|mailto):#i', $path)) {
+        return $path;
+    }
+
+    return URLROOT . '/' . ltrim($path, '/');
+}
+
+function site_url($path = '') {
+    $path = trim((string) $path);
+
+    if ($path === '') {
+        return URLROOT;
+    }
+
+    return URLROOT . '/' . ltrim($path, '/');
+}

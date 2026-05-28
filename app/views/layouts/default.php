@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+$titulo_pagina = $titulo_pagina ?? 'Página web Carlos';
+$is_home = $is_home ?? false;
+$content = $content ?? '';
+$extra_css = $extra_css ?? [];
+$extra_js = $extra_js ?? [];
+$menu = $menu ?? [];
+$redes = $redes ?? [];
+$header = $header ?? [];
+?><!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -15,7 +24,7 @@
     <!-- CSS dinámicos desde el controlador -->
     <?php if (isset($extra_css)): ?>
         <?php foreach ($extra_css as $css): ?>
-            <link rel="stylesheet" href="<?= URLROOT ?>/<?= $css ?>">
+            <link rel="stylesheet" href="<?= asset_url($css) ?>">
         <?php endforeach; ?>
     <?php endif; ?>
 </head>
@@ -37,7 +46,7 @@
             </div>
         <?php else: ?>
             <div class="contenedor-del-logo">
-                <img src="img/pentagrama4.jpg" alt="Logo central" class="imagen-logo">
+                <img src="<?= asset_url('img/pentagrama4.jpg') ?>" alt="Logo central" class="imagen-logo">
             </div>
         <?php endif; ?>
     </header>
@@ -55,7 +64,7 @@
     <footer class="footerprincipal">
         <div class="footer-container">
             <div class="footer-left">
-                <img src="img/imagen_derecha.jpg" alt="Logo" class="footer-logo">
+                <img src="<?= asset_url('img/imagen_derecha.jpg') ?>" alt="Logo" class="footer-logo">
             </div>
 
             <?php include __DIR__ . '/../partials/contacto.php'; ?>
@@ -67,9 +76,9 @@
                 <a href="https://lauraordo93.github.io/Portfolio/" target="_blank" rel="noopener">lauraordonez.dev</a>
             </p>
             <div class="enlaces-legales-container">
-                <a href="legal?doc=aviso_legal">Aviso Legal</a> |
-                <a href="legal?doc=privacidad">Política de Privacidad</a> |
-                <a href="legal?doc=cookies">Política de Cookies</a>
+                <a href="<?= site_url('legal?doc=aviso_legal') ?>">Aviso Legal</a> |
+                <a href="<?= site_url('legal?doc=privacidad') ?>">Política de Privacidad</a> |
+                <a href="<?= site_url('legal?doc=cookies') ?>">Política de Cookies</a>
             </div>
         </div>
     </footer>
@@ -81,7 +90,7 @@
             <p>
                 Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia.
                 Puedes aceptar todas las cookies o rechazarlas.
-                <a href="legal?doc=cookies" target="_blank">Más información</a>
+                <a href="<?= site_url('legal?doc=cookies') ?>" target="_blank">Más información</a>
             </p>
             <div class="cookies-botones">
                 <button id="btn-aceptar-cookies">Aceptar todas</button>
@@ -101,7 +110,7 @@
     <!-- JS dinámicos desde el controlador -->
     <?php if (isset($extra_js)): ?>
         <?php foreach ($extra_js as $js): ?>
-            <script src="<?= URLROOT ?>/<?= $js ?>"></script>
+            <script src="<?= asset_url($js) ?>"></script>
         <?php endforeach; ?>
     <?php endif; ?>
 

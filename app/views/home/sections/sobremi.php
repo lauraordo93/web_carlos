@@ -1,3 +1,7 @@
+<?php
+$sobre_mi = $sobre_mi ?? null;
+$redes = $redes ?? [];
+?>
 <?php if (!empty($sobre_mi)): ?>
     <h2 class="sobre-mi-titulo"><?= htmlspecialchars($sobre_mi['titulo']) ?></h2>
     <div class="sobre-mi-texto">

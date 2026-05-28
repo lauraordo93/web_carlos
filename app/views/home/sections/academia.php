@@ -1,3 +1,6 @@
+<?php
+$academia = $academia ?? null;
+?>
 <section id="madrid-sax-academy">
     <div id="academia-contenedor-general">
         <div class="academia-contenedor">
@@ -5,7 +8,7 @@
             <?php if (!empty($academia)): 
                 $titulo = htmlspecialchars($academia['titulo']);
                 $contenido = htmlspecialchars($academia['contenido']);
-                $foto_url = htmlspecialchars($academia['foto_url']);
+                $foto_url = htmlspecialchars(asset_url($academia['foto_url']));
                 $enlace = htmlspecialchars($academia['enlace']);
                 $instagram = htmlspecialchars($academia['instagram'] ?? '');
             ?>

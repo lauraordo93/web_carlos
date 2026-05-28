@@ -1,4 +1,8 @@
 <?php
+$entradas = $entradas ?? [];
+$id_sec = isset($id_sec) ? (int) $id_sec : 5;
+$page = isset($page) ? (int) $page : 1;
+$total_paginas = isset($total_paginas) ? (int) $total_paginas : 0;
 /**
  * Vista: Listado de Entradas (Admin)
  * 
@@ -42,7 +46,7 @@ ob_start();
                     <td data-label="Recurso / Título">
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <?php if ($id_sec == 2 && !empty($entrada['foto_url'])): ?>
-                                <img src="<?= URLROOT ?>/public/<?= $entrada['foto_url'] ?>" loading="lazy" class="img-thumb">
+                                <img src="<?= asset_url($entrada['foto_url']) ?>" loading="lazy" class="img-thumb">
                             <?php endif; ?>
                             <span><?= htmlspecialchars($entrada['titulo'] ?: $entrada['foto_url']) ?></span>
                         </div>

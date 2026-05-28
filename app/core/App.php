@@ -23,12 +23,12 @@ class App {
         $url = $this->parseUrl();
 
         // Identificación y validación del controlador solicitado
-        if (isset($url[0]) && file_exists('../app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
+        if (isset($url[0]) && file_exists(APPROOT . '/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
             $this->controller = ucfirst($url[0]) . 'Controller';
             unset($url[0]);
         }
 
-        require_once '../app/controllers/' . $this->controller . '.php';
+        require_once APPROOT . '/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
 
         // Identificación y validación del método dentro del controlador

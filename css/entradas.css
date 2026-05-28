@@ -177,11 +177,14 @@
 
   .admin-btn-nueva {
     flex: 0 0 100%;
-    margin-top: 5px;
+    max-width: 420px;
+    min-height: 44px;
+    margin: 5px auto 0;
+    padding: 12px 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    font-size: 13px;
   }
 
   /* Transformación de tabla a sistema de tarjetas */
@@ -276,6 +279,14 @@
 
 /* Adaptación para dispositivos Ultra-Narrow */
 @media (max-width: 480px) {
+  .admin-btn-nueva {
+    max-width: none;
+    min-height: 42px;
+    padding: 11px 14px;
+    font-size: 12px;
+    white-space: normal;
+  }
+
   .acciones {
     flex-direction: column;
   }

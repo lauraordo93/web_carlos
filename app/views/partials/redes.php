@@ -1,3 +1,6 @@
+<?php
+$redes = $redes ?? [];
+?>
 <div id="redes" class="redes-sociales">
     <?php if (!empty($redes)): ?>
         <?php foreach ($redes as $red): ?>

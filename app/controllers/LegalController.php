@@ -16,7 +16,7 @@ class LegalController extends Controller {
     public function index($doc = 'aviso_legal') {
         // Carga de recursos estáticos
         $this->appendCSS('css/pagweb.css?v=' . filemtime(PUBLICROOT . '/css/pagweb.css'));
-        $this->appendJS('js/menuHambur.js?v=' . filemtime(PUBLICROOT . '/js/menuHambur.js'));
+        $this->appendJS('js/menu_hambur.js?v=' . filemtime(PUBLICROOT . '/js/menu_hambur.js'));
         $this->appendJS('js/banner_cookies.js?v=' . filemtime(PUBLICROOT . '/js/banner_cookies.js'));
 
         $doc = $_GET['doc'] ?? $doc;

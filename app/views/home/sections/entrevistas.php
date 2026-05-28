@@ -1,3 +1,6 @@
+<?php
+$entrevistas = $entrevistas ?? [];
+?>
 <section id="entrevistas">
     <?php if (!empty($entrevistas)): ?>
         <h2>Entrevistas</h2>
@@ -12,7 +15,7 @@
                         <?php endif; ?>
                     </div>
                     <?php if (!empty($row["foto_url"])): ?>
-                        <img src="<?= htmlspecialchars($row["foto_url"]) ?>" alt="Logo" class="logo-entrevista">
+                        <img src="<?= htmlspecialchars(asset_url($row["foto_url"])) ?>" alt="Logo" class="logo-entrevista">
                     <?php endif; ?>
                 </article>
             <?php endforeach; ?>

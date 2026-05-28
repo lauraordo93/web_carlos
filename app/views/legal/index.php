@@ -1,4 +1,7 @@
 <?php
+$titulo = $titulo ?? 'Aviso Legal';
+$view_file = $view_file ?? 'aviso_legal_texto';
+$is_home = $is_home ?? false;
 $is_home = false;
 ob_start();
 ?>

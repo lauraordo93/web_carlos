@@ -1,3 +1,10 @@
+<?php
+$success_msg = $success_msg ?? '';
+$error_msg = $error_msg ?? '';
+$contacto_nombre = $contacto_nombre ?? '';
+$contacto_email = $contacto_email ?? '';
+$contacto_mensaje = $contacto_mensaje ?? '';
+?>
 <div id="contacto" class="footer-right">
     <h3>Contacto</h3>
 

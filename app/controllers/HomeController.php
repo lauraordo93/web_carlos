@@ -17,11 +17,11 @@ class HomeController extends Controller {
         
         $scripts = [
             'js/banner_cookies.js',
-            'js/gal_vieBTN.js',
+            'js/gal_vie_btn.js',
             'js/sobremi.js',
             'js/galeria.js',
             'js/video.js',
-            'js/menuHambur.js'
+            'js/menu_hambur.js'
         ];
         
         foreach ($scripts as $script) {

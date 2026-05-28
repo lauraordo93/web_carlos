@@ -1,3 +1,7 @@
+<?php
+$galeria = $galeria ?? [];
+$videos = $videos ?? [];
+?>
 <section id="galeria">
     <h2>Galería</h2>
     <div class="tabs">
@@ -10,7 +14,7 @@
             <div class="swiper mainSwiper" id="swiper-principal">
                 <div class="swiper-wrapper">
                     <?php foreach ($galeria as $index => $row): 
-                        $url = htmlspecialchars(trim($row['foto_url']), ENT_QUOTES, 'UTF-8');
+                        $url = htmlspecialchars(asset_url(trim($row['foto_url'])), ENT_QUOTES, 'UTF-8');
                         $loading = $index === 0 ? 'eager' : 'lazy';
                         $fetchpriority = $index === 0 ? 'high' : 'auto';
                     ?>
@@ -27,7 +31,7 @@
             <div class="swiper thumbSwiper">
                 <div class="swiper-wrapper">
                     <?php foreach ($galeria as $row): 
-                        $url = htmlspecialchars(trim($row['foto_url']), ENT_QUOTES, 'UTF-8');
+                        $url = htmlspecialchars(asset_url(trim($row['foto_url'])), ENT_QUOTES, 'UTF-8');
                     ?>
                         <div class="swiper-slide">
                             <img src="<?= $url ?>" alt="Miniatura" loading="lazy" decoding="async" />

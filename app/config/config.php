@@ -1,18 +1,13 @@
 <?php
 
-/**
- * CONFIGURACIÓN GLOBAL
- */
-
-// 1. Datos de la Base de Datos (Valores por defecto)
 $db_defaults = [
     'DB_HOST' => 'localhost',
     'DB_USER' => 'root',
     'DB_PASS' => '',
-    'DB_NAME' => 'my_pagweb'
+    'DB_NAME' => 'my_pagweb',
+    'APP_BASE_PATH' => null,
 ];
 
-// 2. Intentar cargar desde .env para sobreescribir
 $envPath = __DIR__ . '/../../.env';
 if (file_exists($envPath)) {
     $env = parse_ini_file($envPath);
@@ -21,18 +16,28 @@ if (file_exists($envPath)) {
     }
 }
 
-// 3. Definir constantes globales
 define('DB_HOST', $db_defaults['DB_HOST']);
 define('DB_USER', $db_defaults['DB_USER']);
 define('DB_PASS', $db_defaults['DB_PASS']);
 define('DB_NAME', $db_defaults['DB_NAME']);
 
-// URL Raíz (Dinámico para cualquier dominio)
-define('URLROOT', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/web_carlos');
+$httpsEnabled = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+    || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+    || (!empty($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443);
 
-// Rutas Físicas
-define('APPROOT', dirname(dirname(__FILE__)));
-define('PUBLICROOT', APPROOT . '/../public');
+$scheme = $httpsEnabled ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$scriptName = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
+$detectedBasePath = rtrim(str_replace('/index.php', '', $scriptName), '/');
+$basePath = $db_defaults['APP_BASE_PATH'] !== null
+    ? '/' . trim((string) $db_defaults['APP_BASE_PATH'], '/')
+    : $detectedBasePath;
 
-// Nombre del sitio
-define('SITENAME', 'Carlos Ordoñez - Web Oficial');
+if ($basePath === '/') {
+    $basePath = '';
+}
+
+define('URLROOT', $scheme . '://' . $host . $basePath);
+define('APPROOT', dirname(__DIR__));
+define('PUBLICROOT', dirname(APPROOT));
+define('SITENAME', 'Carlos Ordonez - Web Oficial');

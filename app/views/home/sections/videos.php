@@ -1,3 +1,6 @@
+<?php
+$videos = $videos ?? [];
+?>
 <?php if (!empty($videos)): ?>
     <div class="video-visor">
         <div class="video-container">

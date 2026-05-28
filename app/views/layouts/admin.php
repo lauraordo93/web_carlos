@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+$titulo = $titulo ?? 'Administración';
+$id_sec = isset($id_sec) ? (int) $id_sec : 5;
+$content = $content ?? '';
+$extra_css = $extra_css ?? [];
+$extra_js = $extra_js ?? [];
+?><!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -13,7 +19,7 @@
     <!-- Inyección de estilos CSS específicos de la vista -->
     <?php if (isset($extra_css)): ?>
         <?php foreach ($extra_css as $css): ?>
-            <link rel="stylesheet" href="<?= URLROOT ?>/<?= $css ?>">
+            <link rel="stylesheet" href="<?= asset_url($css) ?>">
         <?php endforeach; ?>
     <?php endif; ?>
 </head>
@@ -27,7 +33,7 @@
                 <div class="admin-sax">🎷</div>
                 <div class="admin-text">
                     <strong>Administración</strong>
-                    <span>Panel de Gestión Integral</span>
+                    <span></span>
                 </div>
             </div>
 
@@ -57,13 +63,13 @@
             <hr>
             
             <a href="<?= URLROOT ?>/admin/nueva/<?= $id_sec ?>" class="admin-btn-nueva">
-                <i class="fas fa-plus"></i> NUEVO REGISTRO
+                NUEVO REGISTRO
             </a>
         </aside>
 
         <!-- Área de Contenido Dinámico -->
         <div class="admin-table-container">
-            <?= $content ?>
+            <?= $content ?? '' ?>
         </div>
 
     </main>
@@ -79,7 +85,7 @@
     <!-- Inyección de scripts JS específicos de la vista -->
     <?php if (isset($extra_js)): ?>
         <?php foreach ($extra_js as $js): ?>
-            <script src="<?= URLROOT ?>/<?= $js ?>"></script>
+            <script src="<?= asset_url($js) ?>"></script>
         <?php endforeach; ?>
     <?php endif; ?>
 

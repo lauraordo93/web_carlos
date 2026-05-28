@@ -1,3 +1,7 @@
+<?php
+$titulo = $titulo ?? 'Iniciar Sesión';
+$error = $error ?? '';
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $titulo ?> - Admin</title>
 
-    <link rel="stylesheet" href="<?= URLROOT ?>/public/css/admin.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="<?= asset_url('css/admin.css?v=' . time()) ?>">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
