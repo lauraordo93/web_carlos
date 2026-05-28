@@ -1050,18 +1050,16 @@ h2::after {
   }
 
   /* ===== VISOR PRINCIPAL ===== */
-  .mainSwiper {
-    width: 96vw;
-    max-width: 620px;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    min-height: 240px;
-    max-height: 380px;
-    margin: 0 auto 6px auto;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #000;
-  }
+.mainSwiper {
+  width: min(92vw, 620px);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  max-height: 72vh;
+  margin: 0 auto 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
 
   .mainSwiper .swiper-wrapper,
   .mainSwiper .swiper-slide {
@@ -1077,7 +1075,7 @@ h2::after {
   }
 
   .mainSwiper .swiper-zoom-container > img,
-  .mainSwiper .swiper-slide img {
+  .mainSwiper .img {
     width: 100%;
     height: 100%;
     max-width: 100%;
@@ -1094,22 +1092,36 @@ h2::after {
   }
 
   /* ===== MINIATURAS ===== */
-  .thumbSwiper {
-    width: 96vw;
-    max-width: none;
-    height: 64px;
-    margin: 4px auto 0 auto;
-    padding: 0;
-    overflow: hidden;
-  }
+ .thumbSwiper {
+  width: min(92vw, 620px);
+  max-width: none;
+  height: auto;
+  margin: 8px auto 0;
+  padding: 0;
+  overflow: hidden;
+}
 
+.thumbSwiper .swiper-slide {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.thumbSwiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
   .thumbSwiper .swiper-wrapper {
     align-items: center;
   }
 
   .thumbSwiper .swiper-slide {
     width: 52px;
-    height: 52px;
+    height: 92px;
     opacity: 0.6;
   }
 
@@ -1759,14 +1771,14 @@ progress.agenda::-moz-progress-bar {
 
 /* --- GALERÍA RESPONSIVE --- */
 @media (max-width: 1024px) {
-  .galeria img {
+  .galeria > img {
     width: 80%;
     height: auto;
   }
 }
 
 @media (max-width: 768px) {
-  .galeria img {
+  .galeria > img {
     width: 70%;
     max-width: 150px;
     height: auto;
