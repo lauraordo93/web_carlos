@@ -1364,79 +1364,98 @@ h2::after {
 
 /*---AGENDA---*/
 #agenda {
-  background-color: rgba(20, 20, 20, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 1100px;
+  margin: 0 auto 5rem;
+  padding: 2rem 2.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
-  padding: 1.8rem 2.2rem;
-  margin-bottom: 5rem;
-
-  /* separación entre tarjetas */
-  max-width: 1200px;
-  /* ancho máximo del contenedor */
-  margin: 0 auto;
-  /* borde transparente inicial */
-  border: 1px solid transparent;
-  /* transición suave para borde y color de texto */
-  transition:
-    border 0.5s ease,
-    color 0.5s ease;
+  background-color: rgba(20, 20, 20, 0.95);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
 }
 
-#agenda:hover {
-  cursor: pointer;
-  border: 1px solid var(--color_yamaha);
-  /* borde aparece suavemente */
-  color: var(--color_yamaha);
-  /* texto cambia de color suavemente */
+#agenda h2 {
+  margin-bottom: 1.5rem;
+}
+
+.agenda-bloque {
+  margin-top: 1.5rem;
+}
+
+.agenda-bloque:first-of-type {
+  margin-top: 0;
+}
+
+.agenda-bloque h3 {
+  margin: 0 0 1rem;
+  color: var(--color_yamahaClaro);
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.agenda-lista {
+  display: grid;
+  gap: 1rem;
+}
+
+.agenda-evento {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.agenda-evento time {
+  align-self: start;
+  padding: 0.45rem 0.6rem;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(124, 58, 237, 0.35);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.agenda-evento h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.agenda-lugar {
+  margin: 0.35rem 0 0;
+  color: var(--color_yamahaClaro);
+  font-weight: 700;
+}
+
+.agenda-descripcion {
+  margin: 0.5rem 0 0;
+  color: silver;
+  line-height: 1.55;
+}
+
+.agenda-bloque-pasados {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.agenda-evento-pasado {
+  opacity: 0.72;
 }
 
 .mensaje-agenda {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
   text-align: center;
-  color: #fff8f8;
-  font-style: italic;
 }
 
 .mensaje-agenda p {
-  text-align: center;
+  margin: 0;
   color: silver;
-}
-
-.mensaje-agenda i {
-  font-size: 2rem;
-  color: #fff8f8;
-  margin-bottom: 0.5em;
-}
-
-/* Estilo general para la barra */
-progress.agenda {
-  width: 100%;
-  height: 25px;
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #eee;
-  border: 2px solid #5b8dce;
-  box-shadow: 0 0 10px rgba(83, 72, 231, 0.3);
-  margin-top: 1rem;
-}
-
-/* Para navegadores WebKit como Chrome */
-progress.agenda::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 20px;
-}
-
-progress.agenda::-webkit-progress-value {
-  background: linear-gradient(90deg, #3498db, #3737b6);
-  border-radius: 20px;
-  transition: width 0.5s ease-in-out;
-}
-
-/* Para Firefox */
-progress.agenda::-moz-progress-bar {
-  background: linear-gradient(90deg, #3498db, #3737b6);
-  border-radius: 20px;
 }
 
 /* Animación de entrada suave */
@@ -1902,25 +1921,25 @@ progress.agenda::-moz-progress-bar {
 /* Responsive para #agenda */
 @media (max-width: 768px) {
   #agenda {
-    max-width: 80%;
+    max-width: 92%;
     margin: 1rem auto;
     padding: 1.2rem 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
   }
 
+  .agenda-evento {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .agenda-evento time {
+    justify-self: start;
+  }
+
   .mensaje-agenda {
     font-size: 0.95rem;
     padding: 0 0.5rem;
-  }
-
-  .mensaje-agenda i {
-    font-size: 1.8rem;
-    margin-bottom: 0.4em;
-  }
-
-  progress.agenda {
-    height: 20px;
   }
 }
 
@@ -1931,10 +1950,6 @@ progress.agenda::-moz-progress-bar {
 
   .mensaje-agenda {
     font-size: 0.9rem;
-  }
-
-  progress.agenda {
-    height: 18px;
   }
 }
 

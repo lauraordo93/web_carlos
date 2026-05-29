@@ -1,78 +1,194 @@
-# 🎷 Documentación Técnica: Ecosistema MVC Carlos Ordoñez
+# Guia tecnica del proyecto web_carlos
 
-Bienvenido a la documentación oficial del proyecto. Este sistema ha sido transformado de un modelo monolítico a una arquitectura **MVC (Modelo-Vista-Controlador)** de alto rendimiento, diseñada para ofrecer una experiencia administrativa fluida y una presencia pública impecable.
+Esta guia resume la estructura actual del proyecto, el despliegue en InfinityFree y el funcionamiento de la seccion Agenda con CRUD desde el panel de administracion.
 
----
+## Estado actual
 
-## 🏛️ Arquitectura del Sistema
+- Proyecto PHP con arquitectura MVC.
+- Punto de entrada principal: `index.php`.
+- Rutas amigables gestionadas por `.htaccess`.
+- Assets publicos en raiz: `css/`, `js/`, `img/`, `doc/`.
+- Codigo privado en `app/`, protegido desde `.htaccess`.
+- Configuracion de base de datos en `.env`.
+- URLs generadas con `asset_url()` y `site_url()` para evitar rutas rotas entre localhost e InfinityFree.
+- Panel admin protegido por sesion.
+- Agenda publica y CRUD de Agenda implementados.
 
-El proyecto se divide en capas de responsabilidad clara para garantizar la escalabilidad y seguridad.
+## Estructura recomendada para subir a InfinityFree
 
-### 📁 Núcleo de la Aplicación (`/app`)
-Contiene la lógica de negocio y el motor del sistema.
-- **`/core`**: Clases fundamentales:
-    - `App.php`: Router principal que procesa URLs amigables.
-    - `Controller.php`: Clase base para la gestión de flujos, carga de modelos e inyección dinámica de activos (CSS/JS).
-    - `Database.php`: Capa de persistencia robusta utilizando **PDO**.
-    - `Model.php`: Abstracción base para consultas a la base de datos.
-- **`/controllers`**: Gestionan las peticiones y orquestan la respuesta.
-- **`/models`**: Entidades que interactúan con el motor de base de datos.
-- **`/views`**: Plantillas modulares organizadas por dominios y layouts maestros.
+Subir el contenido de `web_carlos` directamente dentro de `htdocs/`:
 
-### 🌐 Acceso Público (`/`)
-Punto de entrada preparado para subir directamente a `htdocs/` en InfinityFree.
-- `index.php`: El **Front Controller** que inicializa el sistema.
-- `.htaccess`: Gestión de reescritura de URLs y seguridad de directorios.
-- `/css`, `/js`, `/img`: Activos estáticos optimizados.
+```text
+htdocs/
+|-- index.php
+|-- .htaccess
+|-- .env
+|-- app/
+|-- css/
+|-- js/
+|-- img/
+|-- doc/
+|-- README.md
+\-- guia.md
+```
 
----
+No subir una carpeta extra tipo `web_carlos/` dentro de `htdocs/`, salvo que quieras que la web viva en una subcarpeta.
 
-## 🎨 Sistema de Diseño: "Yamaha Vibes"
+## Archivos importantes
 
-El panel administrativo implementa una identidad visual inspirada en la estética **Synthwave/Yamaha**, caracterizada por:
-- **Esquema de Color**: Fondos Ultra-Dark con gradientes radiales en tonos morados (`#7c3aed`) y acentos de luz.
-- **Responsive "App Nativa"**: El panel se transforma en móviles para ofrecer una experiencia táctil fluida, con menús horizontales y tarjetas de datos de ancho total (borde a borde).
-- **Tipografía**: Uso de la familia **Rubik** para maximizar la legibilidad en interfaces de gestión.
+- `index.php`: arranca la aplicacion.
+- `.htaccess`: redirige rutas al front controller y bloquea carpetas privadas.
+- `app/config/config.php`: define constantes como `URLROOT`, `APPROOT` y `PUBLICROOT`.
+- `app/config/helpers.php`: contiene `asset_url()` y `site_url()`.
+- `app/core/App.php`: router MVC.
+- `app/core/Controller.php`: carga modelos, vistas y assets.
+- `app/core/Database.php`: conexion PDO con MySQL/MariaDB.
 
-### Archivos de Estilo Clave:
-- `admin.css`: Estructura base y topbar.
-- `entradas.css`: Gestión de listados y adaptabilidad móvil (Card View).
-- `formulario.css`: Diseño optimizado de formularios y controles de entrada.
+## Agenda publica
 
----
+La Agenda aparece en la home mediante:
 
-## 🔐 Seguridad y Persistencia
+- Controlador: `app/controllers/HomeController.php`
+- Modelo: `app/models/AgendaModel.php`
+- Vista publica: `app/views/home/sections/agenda.php`
+- Inclusion en home: `app/views/home/index.php`
+- Estilos: `css/pagweb.css`
+- Enlace de menu: `app/views/partials/menunav.php`
 
-- **Protección de Datos**: Todas las consultas SQL utilizan sentencias preparadas (**PDO**) para mitigar ataques de inyección.
-- **Gestión de Identidad**: Autenticación de administradores mediante `password_hash` y `password_verify`.
-- **Integridad de Sesión**: Renovación de identificadores de sesión tras el login para evitar secuestro de sesiones.
-- **Privacidad**: El código fuente y los archivos de configuración están protegidos mediante directivas de servidor.
-- **Configuración para Producción**: En `index.php`, desactivar `display_errors` cambiando a `ini_set('display_errors', 0)` y `ini_set('display_startup_errors', 0)` para no exponer errores sensibles. Mantener `error_reporting(E_ALL)` y agregar logging con `ini_set('log_errors', 1)` y `ini_set('error_log', 'ruta/a/error_log.log')`.
+Funcionamiento:
 
----
+- "Proximos eventos": eventos con `fecha >= CURDATE()`.
+- "Eventos anteriores": eventos con `fecha < CURDATE()`.
+- Los proximos eventos se ordenan por fecha ascendente.
+- Los eventos anteriores se ordenan por fecha descendente.
+- Si no hay proximos eventos se muestra: `Muy pronto anunciaremos nuevos conciertos y eventos.`
+- Si no hay eventos anteriores, esa seccion no se muestra.
+- Los datos se imprimen con `htmlspecialchars()`.
+- La descripcion usa `nl2br(htmlspecialchars(...))`, por lo que etiquetas como `<script>` se muestran como texto y no se ejecutan.
 
-## 🔄 Flujo de Desarrollo
+## CRUD de Agenda en admin
 
-Para extender la funcionalidad del sistema:
+Rutas disponibles:
 
-1. **Definición de Ruta**: Las URLs siguen el patrón `dominio.com/controlador/metodo/parametro`.
-2. **Implementación de Controlador**: Crear o modificar métodos en `/app/controllers`.
-3. **Carga Dinámica de Activos**:
-   ```php
-   // Ejemplo en el controlador
-   $this->appendCSS('css/mi_estilo.css');
-   $this->appendJS('js/mi_logica.js');
-   ```
-4. **Renderizado de Vistas**: Los datos se pasan como un array asociativo `$data` que se extrae automáticamente en la vista.
+- Listado: `/admin/agenda`
+- Crear evento: `/admin/agendaNueva`
+- Editar evento: `/admin/agendaEditar/{id}`
+- Borrar evento: `/admin/agendaBorrar/{id}`
 
----
+Archivos implicados:
 
-## 🚀 Mantenimiento y Despliegue
+- Controlador: `app/controllers/AdminController.php`
+- Modelo: `app/models/AgendaModel.php`
+- Listado admin: `app/views/admin/agenda_index.php`
+- Formulario admin: `app/views/admin/agenda_formulario.php`
+- Layout admin: `app/views/layouts/admin.php`
+- Estilos admin: `css/admin.css`
 
-- **Configuración Centralizada**: Todas las constantes globales se definen en `app/config/config.php`.
-- **Variables de Entorno**: Se utiliza un archivo `.env` en la raíz para la configuración de credenciales en entornos locales y de producción.
-- **URL Dinámica**: `URLROOT` se detecta dinámicamente desde `SCRIPT_NAME`, por lo que funciona en localhost bajo una subcarpeta y en producción desde la raíz de `htdocs/`.
-- **Versionado de Activos**: El sistema añade automáticamente una marca de tiempo (`filemtime`) a los archivos CSS/JS para invalidar la caché del navegador tras cada actualización.
+Seguridad aplicada:
 
----
-_Esta guía se mantiene actualizada con las últimas evoluciones arquitectónicas del proyecto._
+- Todas las rutas de Agenda llaman a `checkSession()`.
+- Si no hay login, redirigen a `/admin/login`.
+- `titulo` y `fecha` son obligatorios.
+- `fecha` se valida con formato `Y-m-d`.
+- `descripcion` y `lugar` son opcionales.
+- Las consultas usan PDO preparado.
+- Las vistas escapan los datos con `htmlspecialchars()`.
+
+El campo fecha del formulario usa `type="date"` y abre el calendario nativo del navegador cuando esta soportado.
+
+## Base de datos necesaria
+
+Tabla minima esperada:
+
+```sql
+CREATE TABLE agenda (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  titulo varchar(255) NOT NULL,
+  descripcion text DEFAULT NULL,
+  fecha date DEFAULT NULL,
+  lugar varchar(255) DEFAULT NULL,
+  seccion_id int(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
+
+Si tu tabla ya existe pero `id` no es `AUTO_INCREMENT`, aplica esto en phpMyAdmin antes de usar el CRUD:
+
+```sql
+ALTER TABLE agenda
+MODIFY id int(11) NOT NULL AUTO_INCREMENT,
+ADD PRIMARY KEY (id);
+```
+
+Si ya existe una clave primaria en `id`, usa solo:
+
+```sql
+ALTER TABLE agenda
+MODIFY id int(11) NOT NULL AUTO_INCREMENT;
+```
+
+## Archivo .env en InfinityFree
+
+Ejemplo:
+
+```ini
+DB_HOST=sqlXXX.infinityfree.com
+DB_USER=if0_xxxxxxxx
+DB_PASS=tu_password
+DB_NAME=if0_xxxxxxxx_nombrebd
+APP_BASE_PATH=
+```
+
+Si subes el proyecto directamente a `htdocs/`, deja `APP_BASE_PATH` vacio o no lo declares.
+
+Si lo subes dentro de una subcarpeta, por ejemplo `htdocs/web_carlos/`, usa:
+
+```ini
+APP_BASE_PATH=web_carlos
+```
+
+## Checklist antes de subir
+
+- La carpeta `css/` existe en minusculas.
+- La carpeta `js/` existe en minusculas.
+- La carpeta `img/` existe en minusculas.
+- Los nombres llamados desde HTML, PHP, CSS y JS coinciden exactamente en mayusculas/minusculas.
+- `.htaccess` esta en la raiz de `htdocs/`.
+- `index.php` esta en la raiz de `htdocs/`.
+- `.env` tiene las credenciales reales de InfinityFree.
+- La tabla `agenda` tiene `id` como `PRIMARY KEY AUTO_INCREMENT`.
+- En produccion, desactivar errores visibles en `index.php` si se quiere evitar mostrar detalles sensibles.
+
+## Checklist de pruebas de Agenda
+
+1. Entrar a `/admin/login`.
+2. Acceder a `/admin/agenda`.
+3. Crear un evento con fecha futura y comprobar que aparece en "Proximos eventos".
+4. Crear un evento con fecha de hoy y comprobar que aparece como proximo/actual.
+5. Crear un evento pasado y comprobar que aparece en "Eventos anteriores".
+6. Editar un evento y comprobar que cambia en la web publica.
+7. Eliminar un evento y comprobar que desaparece.
+8. Intentar entrar a `/admin/agenda` sin login y comprobar que redirige a `/admin/login`.
+9. Escribir en descripcion `<script>alert(1)</script>` y comprobar que no se ejecuta.
+10. Probar la seccion en movil.
+
+## Si el CSS falla en InfinityFree
+
+Abrir F12 -> Network y revisar:
+
+- Que `css/pagweb.css` devuelve estado `200`.
+- Que no devuelve `404`.
+- Que la URL no contiene una carpeta duplicada, por ejemplo `/web_carlos/web_carlos/css/...`.
+- Que no se esta llamando a `public/css/...`.
+- Que las mayusculas/minusculas coinciden exactamente.
+- Que no queda cache antigua del navegador. Probar Ctrl+F5 o modo incognito.
+
+## Comprobacion tecnica realizada
+
+Se ha revisado la sintaxis PHP del proyecto con:
+
+```bash
+php -l
+```
+
+Resultado: no hay errores de sintaxis detectados en los archivos PHP revisados.

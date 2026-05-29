@@ -34,6 +34,14 @@ class AdminController extends Controller
         }
     }
 
+    private function setFlash($type, $message)
+    {
+        $_SESSION['flash'] = [
+            'type' => $type,
+            'message' => $message
+        ];
+    }
+
     /**
      * Vista principal del panel
      * Muestra el listado de registros con soporte para paginación y filtrado por sección.
@@ -134,6 +142,142 @@ class AdminController extends Controller
      * Procesa el formulario de entrada de datos y gestiona la carga de archivos.
      * @param int $id Identificador para edición (0 para nuevos registros)
      */
+    public function agenda()
+    {
+        $this->checkSession();
+
+        $agendaModel = $this->model('AgendaModel');
+
+        $data = [
+            'titulo' => 'Agenda',
+            'eventos' => $agendaModel->getAllEvents(),
+            'admin_section' => 'agenda',
+            'id_sec' => 0
+        ];
+
+        $this->view('admin/agenda_index', $data);
+    }
+
+    public function agendaNueva()
+    {
+        $this->agendaEditar(0);
+    }
+
+    public function agendaEditar($id = 0)
+    {
+        $this->checkSession();
+        $this->appendCSS('css/formulario.css?v=' . filemtime(PUBLICROOT . '/css/formulario.css'));
+
+        $agendaModel = $this->model('AgendaModel');
+        $modo_edicion = ((int) $id > 0);
+        $error = '';
+
+        if ($modo_edicion) {
+            $evento = $agendaModel->findById($id);
+
+            if (!$evento) {
+                $this->setFlash('error', 'El evento solicitado no existe.');
+                header("Location: " . URLROOT . "/admin/agenda");
+                exit;
+            }
+        } else {
+            $evento = [
+                'id' => null,
+                'titulo' => '',
+                'descripcion' => '',
+                'fecha' => '',
+                'lugar' => '',
+                'seccion_id' => 3
+            ];
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $titulo = trim($_POST['titulo'] ?? '');
+            $descripcion = trim($_POST['descripcion'] ?? '');
+            $fecha = trim($_POST['fecha'] ?? '');
+            $lugar = trim($_POST['lugar'] ?? '');
+
+            if ($titulo === '') {
+                $error = 'El título es obligatorio.';
+            } elseif ($fecha === '') {
+                $error = 'La fecha es obligatoria.';
+            } elseif (!$this->isValidDate($fecha)) {
+                $error = 'La fecha indicada no es válida.';
+            }
+
+            $evento = [
+                'id' => $modo_edicion ? (int) $id : null,
+                'titulo' => $titulo,
+                'descripcion' => $descripcion,
+                'fecha' => $fecha,
+                'lugar' => $lugar,
+                'seccion_id' => 3
+            ];
+
+            if ($error === '') {
+                $datos = [
+                    'titulo' => $titulo,
+                    'descripcion' => $descripcion !== '' ? $descripcion : null,
+                    'fecha' => $fecha,
+                    'lugar' => $lugar !== '' ? $lugar : null,
+                    'seccion_id' => 3
+                ];
+
+                $exito = $modo_edicion
+                    ? $agendaModel->update($id, $datos)
+                    : $agendaModel->create($datos);
+
+                if ($exito) {
+                    $this->setFlash('success', $modo_edicion ? 'Evento actualizado correctamente.' : 'Evento creado correctamente.');
+                    header("Location: " . URLROOT . "/admin/agenda");
+                    exit;
+                }
+
+                $error = 'Error al guardar el evento.';
+            }
+        }
+
+        $data = [
+            'titulo' => $modo_edicion ? 'Editar Evento' : 'Nuevo Evento',
+            'evento' => (object) $evento,
+            'modo_edicion' => $modo_edicion,
+            'error' => $error,
+            'admin_section' => 'agenda',
+            'id_sec' => 0
+        ];
+
+        $this->view('admin/agenda_formulario', $data);
+    }
+
+    public function agendaBorrar($id = 0)
+    {
+        $this->checkSession();
+
+        $agendaModel = $this->model('AgendaModel');
+        $evento = $agendaModel->findById($id);
+
+        if (!$evento) {
+            $this->setFlash('error', 'El evento solicitado no existe.');
+            header("Location: " . URLROOT . "/admin/agenda");
+            exit;
+        }
+
+        if ($agendaModel->delete($id)) {
+            $this->setFlash('success', 'Evento eliminado correctamente.');
+        } else {
+            $this->setFlash('error', 'No se pudo eliminar el evento.');
+        }
+
+        header("Location: " . URLROOT . "/admin/agenda");
+        exit;
+    }
+
+    private function isValidDate($date)
+    {
+        $parsed = DateTime::createFromFormat('Y-m-d', $date);
+        return $parsed && $parsed->format('Y-m-d') === $date;
+    }
+
     public function editar($id = 0)
     {
         $this->checkSession();

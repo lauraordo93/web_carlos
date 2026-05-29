@@ -1,58 +1,110 @@
-# 🌐 Aplicación Web MVC PHP para Página Personal - Carlos Ordoñez
+# web_carlos
 
-¡Bienvenido/a a mi proyecto de aplicación web MVC PHP! Este sitio ha sido desarrollado como parte de mi formación en el ciclo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**. Se trata de una aplicación web completa con arquitectura MVC, panel administrativo y base de datos, diseñada para presentar información de manera estructurada y visual.
+Proyecto web PHP MVC para la pagina publica y el panel de administracion de Carlos Ordonez.
 
-## 🚀 Sobre el Proyecto
+## Estado
 
-El objetivo principal de este proyecto es aplicar conocimientos de desarrollo web full-stack, creando una experiencia de usuario intuitiva mediante una arquitectura MVC escalable, con panel de administración para gestión de contenidos dinámicos.
+- Web publica con secciones dinamicas.
+- Panel de administracion con login.
+- Gestion de entradas por seccion.
+- CRUD de Agenda implementado.
+- Preparado para subir directamente a `htdocs/` en InfinityFree.
 
-## 🧩 Secciones del Sitio
+## Vista previa
 
-La web se organiza en las siguientes secciones clave:
+![Vista previa de web_carlos](./image.png)
 
-- **Menú de Navegación:** Acceso rápido y fluido a cualquier punto de la página.
-- **Header / Sobre mí:** Una primera toma de contacto con una breve introducción.
-- **Biografía:** Detalle de la trayectoria profesional y personal.
-- **Entrevistas:** Espacio dedicado a contenido externo y apariciones en medios.
-- **Galería Multimedia:** \* **Imágenes:** Galería fotográfica con apertura en páginas independientes/modales.
-  - **Vídeos:** Selección de contenido audiovisual.
-- **Agenda:** Sección para próximos eventos y fechas importantes (Actualmente en desarrollo 🚧).
-- **Redes Sociales:** Conexión directa con perfiles oficiales para fomentar el networking.
-- **Panel Administrativo:** Gestión de entradas, usuarios y contenidos (acceso privado).
+## Repositorio Git
 
-## 🛠️ Tecnologías Utilizadas
+Repositorio correcto:
 
-Para el desarrollo de este sitio se han empleado:
+```bash
+git clone https://github.com/lauraordo93/web_carlos.git
+```
 
-- **PHP 7+:** Lógica backend con arquitectura MVC.
-- **MySQL:** Base de datos para almacenamiento de contenidos.
-- **PDO:** Interfaz segura para consultas a DB.
-- **HTML5:** Estructuración semántica del contenido.
-- **CSS3:** Diseño visual, layouts (Flexbox/Grid) y animaciones de transición.
-- **JavaScript (ES6+):** Implementación de interactividad y manejo de eventos.
-- **Git/GitHub:** Control de versiones y despliegue.
+Carpeta esperada del proyecto:
 
-## 📸 Capturas de Pantalla
+```text
+web_carlos
+```
 
-![Vista previa de la web](img/imgGit.png)
+## Estructura principal
 
-## 📂 Cómo ejecutar el proyecto
+```text
+web_carlos/
+|-- index.php
+|-- .htaccess
+|-- .env
+|-- app/
+|-- css/
+|-- js/
+|-- img/
+|-- doc/
+|-- README.md
+\-- guia.md
+```
 
-1.  Clona el repositorio:
-    ```bash
-    git clone [https://github.com/lauraordo93/mi_pagweb.git](https://github.com/lauraordo93/mi_pagweb.git)
-    ```
-2.  Navega a la carpeta del proyecto:
-    ```bash
-    cd mi_pagweb
-    ```
-3.  Abre el archivo `index.html` en tu navegador preferido.
+## Ejecucion local
 
-## 📌 Autor
+Colocar el proyecto en:
 
-Proyecto diseñado y desarrollado por **Laura** ([@lauraordo93](https://github.com/lauraordo93)).  
-Estudiante de **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
+```text
+C:\xampp\htdocs\web_carlos
+```
 
----
+Abrir en el navegador:
 
-⭐ Si te gusta este proyecto, ¡no dudes en darle una estrella en GitHub!
+```text
+http://localhost/web_carlos/
+```
+
+No se ejecuta abriendo un `index.html`; el punto de entrada correcto es `index.php`.
+
+## Agenda
+
+La seccion Agenda esta conectada a base de datos.
+
+- Publico: muestra proximos eventos y eventos anteriores.
+- Admin: permite listar, crear, editar y borrar eventos.
+- Fecha de hoy y futuras: aparecen en "Proximos eventos".
+- Fechas pasadas: aparecen en "Eventos anteriores".
+
+Rutas admin:
+
+```text
+/admin/agenda
+/admin/agendaNueva
+/admin/agendaEditar/{id}
+/admin/agendaBorrar/{id}
+```
+
+## Base de datos
+
+La tabla `agenda` debe tener `id` como clave primaria autoincremental:
+
+```sql
+ALTER TABLE agenda
+MODIFY id int(11) NOT NULL AUTO_INCREMENT,
+ADD PRIMARY KEY (id);
+```
+
+Si `id` ya es clave primaria:
+
+```sql
+ALTER TABLE agenda
+MODIFY id int(11) NOT NULL AUTO_INCREMENT;
+```
+
+## Despliegue en InfinityFree
+
+Subir el contenido de esta carpeta directamente dentro de `htdocs/`.
+
+Comprobar:
+
+- `.htaccess` en la raiz.
+- `index.php` en la raiz.
+- Carpetas `css/`, `js/`, `img/` y `doc/` en minusculas.
+- `.env` con credenciales reales de InfinityFree.
+- Tabla `agenda` corregida con `AUTO_INCREMENT`.
+
+Mas detalles en `guia.md`.

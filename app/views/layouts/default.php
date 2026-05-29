@@ -7,7 +7,8 @@ $extra_js = $extra_js ?? [];
 $menu = $menu ?? [];
 $redes = $redes ?? [];
 $header = $header ?? [];
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -15,11 +16,13 @@ $header = $header ?? [];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= $titulo_pagina ?? 'Página web Carlos' ?></title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="apple-touch-icon" href="<?= asset_url('img/sax.png') ?>">
+    <link rel="icon" type="image/png" href="<?= asset_url('img/sax.png') ?>">
 
     <!-- CSS dinámicos desde el controlador -->
     <?php if (isset($extra_css)): ?>
@@ -27,6 +30,19 @@ $header = $header ?? [];
             <link rel="stylesheet" href="<?= asset_url($css) ?>">
         <?php endforeach; ?>
     <?php endif; ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3W4025HLX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H3W4025HLX');
+    </script>
+
 </head>
 
 <body>
@@ -72,7 +88,7 @@ $header = $header ?? [];
 
         <div class="footer-bottom">
             <p class="copyright-line">
-                &copy; 2026 Todos los derechos reservados 
+                &copy; 2026 Todos los derechos reservados
                 <a href="https://lauraordo93.github.io/Portfolio/" target="_blank" rel="noopener">lauraordonez.dev</a>
             </p>
             <div class="enlaces-legales-container">
@@ -106,7 +122,7 @@ $header = $header ?? [];
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
+
     <!-- JS dinámicos desde el controlador -->
     <?php if (isset($extra_js)): ?>
         <?php foreach ($extra_js as $js): ?>
@@ -115,4 +131,5 @@ $header = $header ?? [];
     <?php endif; ?>
 
 </body>
+
 </html>

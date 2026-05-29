@@ -10,6 +10,7 @@ ob_start();
 <?php include __DIR__ . '/sections/academia.php'; ?>
 <?php include __DIR__ . '/sections/galeria.php'; ?>
 <?php include __DIR__ . '/sections/entrevistas.php'; ?>
+<?php include __DIR__ . '/sections/agenda.php'; ?>
 
 <?php
 $content = ob_get_clean();

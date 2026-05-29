@@ -34,6 +34,7 @@ class HomeController extends Controller {
         $academiaModel = $this->model('AcademiaModel');
         $menuModel = $this->model('MenuModel');
         $headerModel = $this->model('HeaderModel');
+        $agendaModel = $this->model('AgendaModel');
 
         // Gestión de comunicación externa (Formulario de contacto)
         $success_msg = '';
@@ -92,6 +93,8 @@ class HomeController extends Controller {
             'galeria' => $entradaModel->getGaleria(),
             'videos' => $entradaModel->getVideos(),
             'entrevistas' => $entradaModel->getEntrevistas(),
+            'proximos_eventos' => $agendaModel->getUpcomingEvents(),
+            'eventos_anteriores' => $agendaModel->getPastEvents(),
             'menu' => $menuModel->getAll(),
             'header' => $headerModel->getLogo(),
             'success_msg' => $success_msg,

@@ -9,6 +9,7 @@ $menu = $menu ?? [];
             'Madrid Sax Academy' => 'madrid-sax-academy',
             'Galería' => 'galeria',
             'Entrevistas' => 'entrevistas',
+            'Agenda' => 'agenda',
             'Contacto' => 'contacto',
         ];
 

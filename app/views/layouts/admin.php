@@ -4,6 +4,9 @@ $id_sec = isset($id_sec) ? (int) $id_sec : 5;
 $content = $content ?? '';
 $extra_css = $extra_css ?? [];
 $extra_js = $extra_js ?? [];
+$admin_section = $admin_section ?? 'entradas';
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']);
 ?><!DOCTYPE html>
 <html lang="es">
 
@@ -59,16 +62,30 @@ $extra_js = $extra_js ?? [];
             <a href="<?= URLROOT ?>/admin?sec=6" class="admin-btn <?= ($id_sec == 6) ? 'active' : '' ?>">
                 <i class="fas fa-microphone"></i> Entrevistas
             </a>
+            <a href="<?= URLROOT ?>/admin/agenda" class="admin-btn <?= ($admin_section === 'agenda') ? 'active' : '' ?>">
+                <i class="fas fa-calendar-days"></i> Agenda
+            </a>
 
             <hr>
             
-            <a href="<?= URLROOT ?>/admin/nueva/<?= $id_sec ?>" class="admin-btn-nueva">
-                NUEVO REGISTRO
-            </a>
+            <?php if ($admin_section === 'agenda'): ?>
+                <a href="<?= URLROOT ?>/admin/agendaNueva" class="admin-btn-nueva">
+                    NUEVO EVENTO
+                </a>
+            <?php else: ?>
+                <a href="<?= URLROOT ?>/admin/nueva/<?= $id_sec ?>" class="admin-btn-nueva">
+                    NUEVO REGISTRO
+                </a>
+            <?php endif; ?>
         </aside>
 
         <!-- Área de Contenido Dinámico -->
         <div class="admin-table-container">
+            <?php if (!empty($flash)): ?>
+                <div class="flash-message flash-<?= htmlspecialchars($flash['type'] ?? 'success', ENT_QUOTES, 'UTF-8') ?>">
+                    <?= htmlspecialchars($flash['message'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+                </div>
+            <?php endif; ?>
             <?= $content ?? '' ?>
         </div>
 

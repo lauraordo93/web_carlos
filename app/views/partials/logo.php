@@ -19,7 +19,7 @@ $logo_url = htmlspecialchars($logo_url, ENT_QUOTES, 'UTF-8');
 
     @media screen and (max-width: 1440px) {
         header#inicio {
-            background-image: url('<?= asset_url('img/Carlos_cabecera3.jpg') ?>');
+            background-image: url('<?= asset_url('img/carlos_logo.png') ?>');
             min-height: 95vh;
             padding: 2rem;
             background-size: cover;
@@ -30,8 +30,8 @@ $logo_url = htmlspecialchars($logo_url, ENT_QUOTES, 'UTF-8');
 
     @media screen and (max-width: 1024px) {
         header#inicio {
-            background-image: url('<?= asset_url('img/Carlos_cabecera33.jpg') ?>');
-            min-height: 43vh;
+            background-image: url('<?= asset_url('img/carlos_logo.png') ?>');
+            min-height: 53vh;
             padding: 1.5rem;
             background-position: center center;
             background-size: cover;
@@ -49,8 +49,8 @@ $logo_url = htmlspecialchars($logo_url, ENT_QUOTES, 'UTF-8');
 
     @media screen and (max-width: 480px) {
         header#inicio {
-            background-image: url('<?= asset_url('img/Carlos_cabeceramedia.jpg') ?>');
-            min-height: 24vh;
+            background-image: url('<?= asset_url('img/carlos_logo.png') ?>');
+            min-height: 30vh;
             padding: 1.2rem;
             background-position: right center;
             background-size: cover;
