@@ -6,174 +6,204 @@
 
 /* Contenedor principal de las entrevistas */
 .contenedor-entrevistas {
-  display: flex;
-  flex-wrap: wrap;
-  /* permite que bajen a la siguiente fila */
-  justify-content: center;
-  /* centra las filas */
-  gap: 2rem;
-  /* separación entre tarjetas */
-  max-width: 1200px;
-  /* ancho máximo del contenedor */
+  display: grid;
+  max-width: 980px;
   margin: 0 auto;
-  /* centra el contenedor en la página */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Tarjeta individual de entrevista */
+/* Fila individual de entrevista */
 .entrevista {
-  background-color: rgba(20, 20, 20, 0.95);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 96px;
+  gap: 1.5rem;
   align-items: center;
-  width: 45%;
-  max-width: 500px;
-  min-height: 200px;
-  padding: 1rem;
-
-  /* transición suave de transform, box-shadow y borde */
+  width: 100%;
+  min-height: 0;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
   transition:
-    transform 0.8s ease,
-    box-shadow 0.8s ease,
-    border 0.8s ease;
-
-  /* sin borde al inicio */
-  border: 1px solid transparent;
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-/* Hover: elevación y borde elegante */
+.entrevista::before {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  left: 0;
+  width: 2px;
+  background: var(--color_yamahaClaro);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
 .entrevista:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-color: rgba(125, 96, 153, 0.34);
+  background: rgba(125, 96, 153, 0.06);
+  box-shadow: inset 3px 0 0 rgba(125, 96, 153, 0.45);
   cursor: pointer;
-  border: 1px solid var(--color_yamaha);
-  /* borde suave al aparecer */
 }
 
-/* Contenido de texto dentro de la tarjeta */
+.entrevista:hover::before {
+  opacity: 1;
+}
+
+/* Contenido de texto dentro de la fila */
 .entrevista .contenido {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-right: 1rem;
+  min-width: 0;
+  padding: 0 0 0 1.15rem;
 }
 
 /* Logo a la derecha */
 .logo-entrevista {
-  flex: 0 0 100px;
-  max-width: 100px;
-  height: auto;
-  border-radius: 12px;
+  justify-self: end;
+  width: 82px;
+  max-width: 82px;
+  height: 82px;
+  padding: 0.7rem;
+  border: 1px solid rgba(125, 96, 153, 0.28);
+  border-radius: 8px;
   object-fit: contain;
+  background: rgba(255, 255, 255, 0.035);
+  opacity: 0.78;
+  filter: grayscale(18%);
+  transition:
+    opacity 0.25s ease,
+    border-color 0.25s ease,
+    filter 0.25s ease;
+}
+
+.entrevista:hover .logo-entrevista {
+  opacity: 1;
+  border-color: rgba(125, 96, 153, 0.5);
+  filter: grayscale(0%);
 }
 
 /* Ajuste si no hay logo */
 .entrevista:not(:has(.logo-entrevista)) {
-  justify-content: flex-start;
+  grid-template-columns: 1fr;
 }
 
 /* Título de la entrevista */
 .entrevista h3 {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 0.8rem;
+  margin: 0 0 0.35rem;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
 }
 
 /* Texto de la entrevista */
 .entrevista p {
-  font-size: 1rem;
-  text-align: justify;
-  color: #ffffff;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: #d0d0d0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  text-align: left;
 }
 
 /* Botón de la entrevista */
 .btn-entrevista {
+  display: inline-flex;
+  align-items: center;
   align-self: flex-start;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(125, 96, 153, 0.55);
+  border-radius: 999px;
+  color: var(--color_yamahaClaro);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  color: var(--color_yamaha);
-  font-weight: 600;
-  border: 2px solid var(--color_yamaha);
-  border-radius: 30px;
-  font-size: 0.9rem;
-  padding: 0.4rem 1.2rem;
   transition:
-    background-color 0.3s,
-    color 0.3s,
-    transform 0.2s;
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .btn-entrevista:hover {
-  background-color: var(--color_yamahaClaro);
+  border-color: var(--color_yamahaClaro);
+  background: rgba(125, 96, 153, 0.16);
   color: #fff;
-  transform: scale(1.05);
   cursor: pointer;
 }
 
-/* --- RESPONSIVE: móvil (logo debajo del texto) --- */
-@media (max-width: 600px) {
-  .entrevista {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+/* --- ENTREVISTAS RESPONSIVE --- */
+@media (max-width: 992px) {
+  .contenedor-entrevistas {
+    max-width: 90%;
   }
 
-  .entrevista .contenido {
-    padding-right: 0;
+  .entrevista {
+    grid-template-columns: minmax(0, 1fr) 86px;
+    gap: 1.25rem;
   }
 
   .logo-entrevista {
-    margin-top: 1rem;
-    max-width: 80px;
+    width: 74px;
+    max-width: 74px;
+    height: 74px;
   }
 }
 
-/* --- ENTREVISTAS RESPONSIVE --- */
-/* Tablets (pantallas < 992px): una por fila */
-@media (max-width: 992px) {
-  .entrevista {
-    width: 90% !important;
-    /* una por fila */
-    max-width: none !important;
-    margin: 0 auto;
-    /* centrada */
-  }
-}
-
-/* Tablets medianas y móviles (pantallas < 768px) */
 @media (max-width: 768px) {
+  .contenedor-entrevistas {
+    max-width: 92%;
+  }
+
+  .entrevista {
+    grid-template-columns: minmax(0, 1fr) 72px;
+    gap: 1rem;
+    padding: 1.05rem 0;
+  }
+
+  .entrevista .contenido {
+    padding-left: 0.85rem;
+  }
+
   .entrevista h3 {
-    font-size: 1rem;
-    text-align: center;
+    font-size: 0.98rem;
   }
 
   .entrevista p {
-    font-size: 0.85rem;
-  }
-
-  .btn-entrevista {
-    font-size: 0.8rem;
-    padding: 0.3rem 1rem;
-  }
-}
-
-/* Móviles pequeños (pantallas < 600px): logo debajo del texto */
-@media (max-width: 600px) {
-  .entrevista {
-    flex-direction: column !important;
-    /* texto arriba, logo abajo */
-    align-items: center !important;
-    text-align: center !important;
-  }
-
-  .entrevista .contenido {
-    padding-right: 0 !important;
+    font-size: 0.84rem;
+    line-height: 1.5;
   }
 
   .logo-entrevista {
-    margin-top: 1rem;
-    max-width: 80px;
+    width: 64px;
+    max-width: 64px;
+    height: 64px;
+    padding: 0.5rem;
+  }
+
+  .btn-entrevista {
+    font-size: 0.76rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .entrevista {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .entrevista .contenido {
+    padding-left: 0.75rem;
+  }
+
+  .logo-entrevista {
+    justify-self: start;
+    margin-left: 0.75rem;
   }
 }
