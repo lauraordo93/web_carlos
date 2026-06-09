@@ -1,15 +1,18 @@
 /* ========================= */
-/* SECCIÓN ACADEMIA */
+/* SECCION ACADEMIA */
 /* ========================= */
 
-/* --- Sección Academia --- */
+/* --- Seccion Academia --- */
 #madrid-sax-academy {
   background-color: #000;
-  /* fondo negro sólido para la sección */
-
   color: var(--color_yamahaClaro);
   display: flex;
   flex-direction: column;
+}
+
+#madrid-sax-academy:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 /* Contenedores internos transparentes */
@@ -18,206 +21,255 @@
   background: transparent;
 }
 
-/* Tarjetas -> negro semitransparente */
+/* Bloque principal de presentacion */
 .academia_class {
-  border-radius: 8px;
-  background-color: rgba(20, 20, 20, 0.95);
-  /* gris muy oscuro, se diferencia del negro puro */
-  border-radius: 10px;
-  padding: 1.5rem;
-  color: var(--color_yamahaClaro);
-  display: flex;
-  gap: 2rem;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  /* Limitar el ancho */
-  max-width: 900px;
-  /* puedes ajustar a lo que quieras */
-  width: 90%;
-  /* para que no se desborde en contenedores más pequeños */
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.8fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: stretch;
+  max-width: 980px;
+  width: 92%;
   margin: 0 auto;
-  /* centra la tarjeta horizontalmente */
+  padding: clamp(1.25rem, 3vw, 2.1rem);
+  border: 1px solid rgba(125, 96, 153, 0.24);
+  border-radius: 8px;
+  color: var(--color_yamahaClaro);
+  background: linear-gradient(135deg, rgba(18, 18, 20, 0.98), rgba(8, 8, 10, 0.98));
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.32);
+  overflow: hidden;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.academia_class::before {
+  content: "";
+  position: absolute;
+  top: 1.3rem;
+  bottom: 1.3rem;
+  left: 0;
+  width: 3px;
+  background: var(--color_yamahaClaro);
+  opacity: 0.75;
 }
 
 .academia_class:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-  border: 1px solid var(--color_yamaha);
+  border-color: rgba(125, 96, 153, 0.48);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.38);
   cursor: pointer;
-  /* borde Yamaha al hover */
 }
 
 /* Texto */
 .academia_texto {
-  flex: 1;
-  padding: 1.5rem;
+  min-width: 0;
+  padding: 0.5rem 0 0.5rem 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  /* centra los elementos hijos verticalmente */
+  align-items: flex-start;
 }
 
 .academia_texto h3 {
-  text-align: center;
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: var(--color_yamaha);
+  margin: 0 0 0.8rem;
+  color: #fff;
+  font-size: clamp(1.18rem, 2vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.academia_texto h3::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 2px;
+  margin-top: 0.65rem;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--color_yamahaClaro), transparent);
 }
 
 .academia_texto p {
-  font-size: 1rem;
-  /*Une las palabras para que no queden espacios inecesarios*/
-  hyphens: auto;
-  line-height: 1.4;
-  /* menos espacio entre líneas */
-  color: #ffffff;
+  max-width: 620px;
   margin: 0;
-  /* elimina márgenes */
   padding: 0;
-
-  /* elimina padding */
+  color: #d7d7d7;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  hyphens: auto;
+  text-align: left;
 }
 
 /* Contenedor de enlaces Web + Instagram */
 .academia_enlaces {
   display: flex;
-  justify-content: center;
-  /* centra horizontalmente */
-  gap: 10px;
-  /* espacio entre enlaces */
-  margin-top: 1rem;
-  /* separación del texto */
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
 }
 
 /* Estilo individual de enlaces */
 .academia_enlaces a {
-  font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #8e44ad;
-  color: #fff;
+  min-height: 38px;
+  padding: 0.42rem 1rem;
+  border: 1px solid rgba(125, 96, 153, 0.55);
+  border-radius: 999px;
+  background: rgba(75, 30, 120, 0.16);
+  color: var(--color_blancoRoto);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  border-radius: 10px;
   transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
-  display: flex;
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .academia_enlaces a:hover {
-  background-color: #9b59b6;
-  transform: scale(1.05);
-}
-
-/* Icono Instagram específico */
-.academia_enlaces a.icono.instagram i {
-  font-size: 1.2rem;
+  border-color: var(--color_yamahaClaro);
+  background: rgba(125, 96, 153, 0.18);
   color: #fff;
 }
 
-/* Imagen alineada a la izquierda tipo “tarjeta” */
+/* Icono Instagram especifico */
+.academia_enlaces a.icono.instagram {
+  width: 42px;
+  padding-inline: 0;
+}
+
+.academia_enlaces a.icono.instagram i {
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+/* Imagen integrada */
 .academia_imagen {
-  flex: 1;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 260px;
+  padding: 0;
 }
 
 .academia_imagen img {
-  width: 80%;
-  height: auto;
-  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  border-radius: 8px;
   object-fit: cover;
-  transition: transform 0.3s ease;
-  margin-left: 6rem;
+  object-position: center;
+  filter: saturate(0.92) contrast(1.04);
+  transition:
+    filter 0.25s ease,
+    transform 0.25s ease;
 }
 
-.academia_imagen img:hover {
-  transform: scale(1.05);
+.academia_class:hover .academia_imagen img {
+  filter: saturate(1) contrast(1.08);
+  transform: scale(1.012);
 }
 
 /* --- RESPONSIVE TABLET --- */
-
 @media (max-width: 1024px) {
   .academia_class {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 0.5rem;
-    /* menos espacio entre elementos */
-    padding: 1rem;
-    /* ajusta padding general */
-    /* ajusta el espacio entre texto e imagen */
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    width: 90%;
   }
 
-  .academia_imagen {
-    flex: none;
-    /* que no ocupe todo el ancho */
-    justify-content: center;
-    /* centra horizontalmente */
-    padding: 0.5rem;
-    display: flex;
-    width: 100%;
-  }
-
-  .academia_imagen img {
-    width: 60%;
-    /* tamaño más razonable */
-    max-width: 300px;
-    /* límite máximo para tablet */
-    height: auto;
-    border-radius: 20px;
-    margin: 0 auto;
-    /* centra la imagen */
-    display: block;
+  .academia_texto {
+    padding: 0.4rem 0 0.2rem 1rem;
   }
 
   .academia_texto p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.93rem;
+    line-height: 1.58;
+  }
+
+  .academia_imagen {
+    min-height: 230px;
+  }
+
+  .academia_imagen img {
+    min-height: 230px;
+    max-height: 360px;
   }
 }
 
-/* --- RESPONSIVE MÓVIL --- */
+/* --- RESPONSIVE MOVIL --- */
 @media (max-width: 768px) {
   .academia_class {
-    gap: 1rem;
-    padding: 1rem;
-    flex-direction: column;
-    text-align: left;
+    width: 92%;
+    padding: 1.1rem;
   }
 
-  .academia_imagen {
-    width: 50%;
-    padding: 1rem;
-    justify-content: center;
-    /* centra la imagen */
+  .academia_class::before {
+    top: 1rem;
+    bottom: 1rem;
   }
 
-  .academia_imagen img {
-    width: 90%;
-    /* ocupa casi todo el ancho */
-    max-width: 90%;
-    height: auto;
-    border-radius: 20px 20px 0 0;
+  .academia_texto {
+    padding-left: 0.85rem;
+  }
+
+  .academia_texto h3 {
+    font-size: 1.12rem;
   }
 
   .academia_texto p {
-    font-size: 0.8rem;
-    /* ajusta tamaño de letra en móvil */
-    line-height: 1.4;
+    font-size: 0.84rem;
+    line-height: 1.5;
     letter-spacing: 0;
-    /* menos espacio entre letras, valor por defecto */
-    word-spacing: 0rem;
-    /* ajusta el espacio entre palabras si quieres */
+    word-spacing: 0;
   }
 
-  .academia_texto a {
-    margin: 1rem auto 0 auto;
+  .academia_enlaces {
+    gap: 0.55rem;
+    margin-top: 1rem;
+  }
+
+  .academia_enlaces a {
+    min-height: 34px;
+    padding: 0.34rem 0.8rem;
+    font-size: 0.78rem;
+  }
+
+  .academia_enlaces a.icono.instagram {
+    width: 38px;
+  }
+
+  .academia_imagen {
+    min-height: 190px;
+  }
+
+  .academia_imagen img {
+    min-height: 190px;
+    max-height: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .academia_class {
+    width: 94%;
+    padding: 1rem;
+    margin: -0.5rem;
+  }
+
+  .academia_texto {
+    padding-left: 0.75rem;
+  }
+
+  .academia_imagen {
+    min-height: 170px;
+  }
+
+  .academia_imagen img {
+    min-height: 170px;
   }
 }

@@ -1,139 +1,196 @@
 #biografia {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  background-color: rgba(20, 20, 20, 0.95);
+  position: relative;
   width: 90%;
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 8px;
-  color: var(--color_yamahaClaro);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  height: auto;
-  /* deja que el div crezca según el contenido */
+  max-width: 940px;
   min-height: 200px;
-  /* altura mínima */
+  margin: 2.5rem auto;
+  padding: clamp(1.6rem, 3.2vw, 2.8rem);
+  border: 1px solid rgba(125, 96, 153, 0.24);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(18, 18, 20, 0.97), rgba(8, 8, 10, 0.97));
+  color: var(--color_yamahaClaro);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+#biografia::before {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  left: 0;
+  width: 3px;
+  background: var(--color_yamahaClaro);
+  opacity: 0.75;
+}
+
+#biografia h2 {
+  margin-top: 0;
+  margin-bottom: 1.6rem;
 }
 
 #biografia p {
-  color: #eee;
-  line-height: 1.8;
-  font-size: 1.05rem;
-  text-align: justify;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0;
+  color: #e6e6e6;
+  font-size: 1rem;
+  line-height: 1.85;
+  text-align: left;
 }
 
 #biografia:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 2px 5px var(--color_yamaha);
-  /* más tenue */
-  cursor: pointer;
+  transform: none;
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.34);
 }
 
 .bio-links {
   display: flex;
   align-items: center;
-  /* centra verticalmente */
   justify-content: center;
-  /* centra en la página */
-  gap: 2rem;
-  /* espacio entre botón y Yamaha */
+  gap: 1.4rem;
   margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   flex-wrap: wrap;
-  /* para que en pantallas pequeñas se bajen en vertical */
 }
 
 .btn-descarga-biografia {
-  display: inline-block;
-  /* ya no bloquea toda la línea */
-  padding: 12px 25px;
-  background-color: var(--color_yamaha);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.45rem 1.05rem;
+  border: 1px solid rgba(125, 96, 153, 0.6);
+  border-radius: 999px;
+  background: rgba(75, 30, 120, 0.18);
+  color: var(--color_blancoRoto);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-align: center;
   text-decoration: none;
   transition:
-    transform 0.2s,
-    background-color 0.3s,
-    box-shadow 0.3s;
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .btn-descarga-biografia:hover {
-  background-color: var(--color_yamahaClaro);
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  border-color: var(--color_yamahaClaro);
+  background: rgba(125, 96, 153, 0.2);
+  color: #fff;
   cursor: pointer;
 }
 
 .artist-yamaha {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: bold;
-  color: whitesmoke;
+  gap: 0.7rem;
+  min-height: 40px;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #cfcfcf;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .artist-yamaha img {
-  height: 100px;
-  vertical-align: middle;
+  display: block;
+  height: 42px;
+  width: auto;
+  max-width: 128px;
+  object-fit: contain;
+  filter: brightness(0.95);
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   #biografia {
+    width: 92%;
     max-width: 100%;
-    padding: 1rem 1rem;
-    margin: 1rem auto;
-    background-size: contain;
-    /* no recorta fondo */
+    margin: 1.4rem auto;
+    padding: 1.45rem 1.35rem;
+  }
+
+  #biografia::before {
+    top: 1rem;
+    bottom: 1rem;
   }
 
   #biografia p {
-    font-size: 0.75rem;
-    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .bio-links {
+    justify-content: flex-start;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
   }
 
   .btn-descarga-biografia {
-    width: 50%;
-    padding: 10px;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
+    padding: 0.4rem 0.9rem;
   }
 
-  #biografia h3 {
-    font-size: 1rem;
+  .artist-yamaha {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.76rem;
+  }
+
+  .artist-yamaha img {
+    height: 34px;
+    max-width: 110px;
   }
 }
 
 @media (max-width: 480px) {
   #biografia {
-    padding: 1rem 0.8rem;
-    margin: 1rem auto;
-    border-radius: 5px;
-    background-size: contain;
+    width: 94%;
+    padding: 1.25rem 1rem;
+    border-radius: 8px;
   }
 
   #biografia p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    word-spacing: normal;
+    font-size: 0.86rem;
+    line-height: 1.58;
     hyphens: auto;
-    /* evita espacio excesivo */
-    letter-spacing: 0;
-    /* opcional */
-    line-height: 1.5;
-    /* más compacto verticalmente */
-    text-align: justify;
-    text-justify: inter-word;
-    /* distribuye espacio de manera uniforme */
+    text-align: left;
+  }
+
+  .bio-links {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+    justify-content: center;
   }
 
   .btn-descarga-biografia {
-    font-size: 0.9rem;
-    padding: 8px;
+    width: auto;
+    max-width: none;
+    min-height: 34px;
+    padding: 0.32rem 0.55rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .artist-yamaha {
+    width: fit-content;
+    min-height: 34px;
+    padding: 0.25rem 0.5rem;
+    gap: 0.4rem;
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+
+  .artist-yamaha img {
+    height: 26px;
+    max-width: 84px;
   }
 }

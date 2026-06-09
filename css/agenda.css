@@ -239,12 +239,12 @@
 
   .agenda-evento::before {
     left: 72px;
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
   }
 
   .agenda-evento time {
-    font-size: 0.68rem;
+    font-size: 0.58rem;
   }
 
   .agenda-descripcion {
