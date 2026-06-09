@@ -1,7 +1,8 @@
 #biografia {
+  box-sizing: border-box;
   position: relative;
   width: var(--section-width);
-  max-width: 940px;
+  max-width: 1000px;
   min-height: 200px;
   margin: var(--section-space-y) auto;
   padding: clamp(1.6rem, 3.2vw, 2.8rem);
@@ -27,7 +28,7 @@
 
 #biografia h2 {
   margin-top: 0;
-  margin-bottom: 1.6rem;
+  margin-bottom: var(--section-title-mb);
 }
 
 #biografia p {

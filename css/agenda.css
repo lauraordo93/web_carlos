@@ -2,7 +2,7 @@
 #agenda {
   box-sizing: border-box;
   width: var(--section-width);
-  max-width: 1040px;
+  max-width: 1000px;
   margin: var(--section-space-y) auto calc(var(--section-space-y) * 1.35);
   padding: 2.4rem clamp(1.25rem, 3vw, 2.8rem);
   border: 1px solid rgba(125, 96, 153, 0.24);
@@ -17,7 +17,7 @@
 }
 
 #agenda h2 {
-  margin-bottom: 1.75rem;
+  margin-bottom: var(--section-title-mb);
 }
 
 .agenda-bloque {

@@ -10,11 +10,11 @@
   --color_rosa: #4b002f;
   --color_yamahaClaro: #7d6099;
   --color_azulado: #99e5e7;
-  --section-width: min(92%, 1200px);
-  --section-space-y: 2.75rem;
-  --section-pad-y: 3rem;
-  --section-pad-x: 2rem;
-  --section-title-mb: 1.5rem;
+  --section-width: min(90%, 1120px);
+  --section-space-y: 2.4rem;
+  --section-pad-y: 2.5rem;
+  --section-pad-x: 1.9rem;
+  --section-title-mb: 1.35rem;
 }
 
 body {
@@ -35,6 +35,7 @@ html {
 
 /*--- TODAS LAS SECCIONES GENERALES ---*/
 section {
+  box-sizing: border-box;
   background-color: none;
   /* background: linear-gradient(145deg, #f8f8f8, #eaeaea); */
   width: var(--section-width);
@@ -98,17 +99,29 @@ h2::after {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
 /*--- RESPONSIVE GENERAL ---*/
+@media (max-width: 1536px) {
+  :root {
+    --section-width: min(90%, 1080px);
+    --section-space-y: 2.25rem;
+    --section-pad-y: 2.35rem;
+    --section-pad-x: 1.7rem;
+    --section-title-mb: 1.3rem;
+  }
+}
+
 @media (max-width: 1366px) {
   :root {
-    --section-width: min(92%, 1100px);
-    --section-space-y: 2.5rem;
-    --section-pad-y: 2.6rem;
-    --section-pad-x: 1.8rem;
+    --section-width: min(91%, 1040px);
+    --section-space-y: 2.05rem;
+    --section-pad-y: 2.15rem;
+    --section-pad-x: 1.5rem;
+    --section-title-mb: 1.25rem;
   }
 }
 
