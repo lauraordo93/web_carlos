@@ -28,6 +28,19 @@ $logo_url = htmlspecialchars($logo_url, ENT_QUOTES, 'UTF-8');
         }
     }
 
+    /* Portátiles pequeños tipo 14" */
+    @media screen and (min-width: 1200px) and (max-width: 1450px) and (max-height: 850px) {
+        header#inicio {
+            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+            background-size: contain;
+            background-color: #000;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+    }
+
     @media screen and (max-width: 1024px) {
         header#inicio {
             background-image: url('<?= asset_url('img/carlos_logo.png') ?>');

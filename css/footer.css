@@ -1,0 +1,172 @@
+/* === FOOTER GENERAL === */
+.copyright-line {
+  margin-top: 5rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: #626262;
+}
+
+.footerprincipal {
+  /* Añade espacio dentro de la parte superior del footer */
+  padding-top: 50px;
+  /* Puedes añadir también padding-bottom si lo necesitas */
+  padding-bottom: 30px;
+  /* O usar la propiedad abreviada para todos los lados: */
+  /* padding: 50px 0 30px 0; /* Arriba | Derecha | Abajo | Izquierda */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* === IMAGEN IZQUIERDA === */
+.footer-left .footer-logo {
+  max-width: 450px;
+  filter: brightness(0.8);
+  /* más oscura */
+  border-radius: 8px;
+}
+
+/* === FORMULARIO MINIMALISTA CON COLORES === */
+.footer-right {
+  flex: 1;
+  max-width: 420px;
+  background: none;
+  padding: 0.5rem;
+}
+
+.footer-right h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color_yamahaClaro);
+  /* título en color Yamaha */
+  text-align: left;
+}
+
+.footer-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Inputs subrayados */
+.footer-right input,
+.footer-right textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 0;
+  color: #fff;
+  font-size: 1rem;
+  transition:
+    border-color 0.3s,
+    color 0.3s;
+}
+
+.footer-right input::placeholder,
+.footer-right textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Al enfocar: morado */
+.footer-right input:focus,
+.footer-right textarea:focus {
+  border-color: #9b59b6;
+  /* morado elegante */
+  color: var(--color_yamahaClaro);
+  outline: none;
+}
+
+/* Botón estilo pastilla */
+.footer-right button {
+  align-self: flex-start;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #9b59b6, var(--color_yamaha));
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer-right button:hover {
+  background: linear-gradient(135deg, var(--color_yamahaClaro), #9b59b6);
+  transform: translateY(-2px);
+}
+
+/* === COPYRIGHT === */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color_yamaha);
+  /* border-top: 1px solid rgba(255,255,255,0.2); */
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* === RESPONSIVE === */
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-left {
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .footer-left .footer-logo {
+    width: 100%;
+    /* ocupa todo el ancho disponible */
+    max-width: 100%;
+    /* sin límite en móvil */
+    height: auto;
+    /* mantiene proporción */
+    padding: 0;
+    /* pegada a los bordes */
+    display: block;
+    /* asegura que no tenga espacio extra */
+  }
+
+  .footer-right {
+    width: 100%;
+    max-width: 420px;
+    padding: 0 1rem;
+    margin: 0 auto;
+    /* centrado en móviles */
+  }
+
+  .footer-right h3 {
+    text-align: center;
+  }
+
+  .footer-right form {
+    gap: 1.2rem;
+  }
+
+  .footer-right button {
+    align-self: center;
+    padding: 0.8rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+    margin-top: 1.5rem;
+    padding-top: 0.8rem;
+  }
+}

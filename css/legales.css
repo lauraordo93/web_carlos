@@ -1,0 +1,184 @@
+/*ENLACES LEGAL*/
+/* ---------- ESTILOS PRINCIPALES DEL FOOTER Y LEGALES ---------- */
+
+/* 1. Footer principal */
+.footer-bottom {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* Línea de copyright */
+.copyright-line {
+  display: block;
+  margin: 0;
+  padding-bottom: 10px;
+}
+.copyright-line a {
+  color: inherit; /* Toma el mismo color que el texto del párrafo */
+  text-decoration: none; /* Quita el subrayado si no lo deseas */
+  font-weight: bold; /* Para que resalte un poco */
+}
+
+.copyright-line a:hover {
+  text-decoration: underline; /* El subrayado aparece solo al pasar el ratón */
+}
+/* Contenedor de enlaces legales */
+.enlaces-legales-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #666;
+  /* Separador gris tenue */
+}
+
+/* Estilo de los enlaces */
+.enlaces-legales-container a {
+  font-size: 16px;
+  color: var(--color_yamahaClaro);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.enlaces-legales-container a:hover {
+  color: var(--color_yamaha);
+  text-decoration: underline;
+}
+
+/*LEGAL*/
+/* ---------- ESTILOS ESPECÍFICOS PARA PÁGINAS LEGALES ---------- */
+.texto-legal {
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  text-align: left;
+  letter-spacing: normal;
+  line-height: 1.6;
+  word-break: break-word;
+  color: #fff;
+}
+
+/* Subtítulos */
+.texto-legal h2 {
+  color: var(--color_yamahaClaro);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  letter-spacing: normal;
+}
+
+/* Párrafos y listas */
+.texto-legal p,
+.texto-legal li {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: normal;
+  margin: 0 0 10px 0;
+  padding: 12px;
+  max-width: 700px;
+}
+
+/* Listas sin puntos */
+.texto-legal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+/* Negritas dentro de listas */
+.texto-legal li strong {
+  color: var(--color_blancoRoto);
+}
+
+/* Logo centrado */
+.imagen-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: -105px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+/* 📱 Móviles (menos de 600px) */
+@media (max-width: 600px) {
+  .footer-bottom {
+    font-size: 0.8em;
+    padding: 15px 10px;
+  }
+
+  .enlaces-legales-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .enlaces-legales-container a {
+    display: block;
+    font-size: 14px;
+  }
+
+  .texto-legal {
+    padding: 15px;
+    margin: 20px 10px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-justify: inter-word;
+    word-spacing: normal;
+    hyphens: auto;
+    text-align: left;
+  }
+
+  .texto-legal h2 {
+    font-size: 1.2rem;
+  }
+
+  .texto-legal p,
+  .texto-legal li {
+    margin: 10px 10px;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    text-align: center;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-spacing: normal;
+  }
+
+  .imagen-logo {
+    max-width: 300px;
+    margin-top: 40px;
+    margin-bottom: -80px;
+  }
+}
+
+/* 💻 Tablets (600px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .footer-bottom {
+    font-size: 0.85em;
+  }
+
+  .enlaces-legales-container {
+    gap: 8px;
+  }
+}
+
+/* 🖥️ Escritorio grande (+900px) */
+@media (min-width: 901px) {
+  .texto-legal {
+    max-width: 900px;
+  }
+
+  .imagen-logo {
+    max-width: 500px;
+  }
+}

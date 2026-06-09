@@ -1,0 +1,180 @@
+/* =================================================
+   ESTILO PROFESIONAL PARA EL VISOR DE VÍDEO
+   ================================================= */
+
+.video-visor {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Mantiene el formato YouTube */
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#video-grande {
+  width: 100%;
+  height: 100%;
+}
+
+/* Flechas de vídeo personalizadas (usando tus colores) */
+.prev-video,
+.next-video {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color_yamahaClaro);
+  border: 1px solid var(--color_yamaha);
+  font-size: 24px;
+  padding: 15px 10px;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.prev-video {
+  left: 0;
+  border-radius: 0 5px 5px 0;
+}
+.next-video {
+  right: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+.prev-video:hover,
+.next-video:hover {
+  background: var(--color_yamaha);
+  color: #fff;
+}
+
+/* =================================================
+   MINIATURAS DE VÍDEO
+   ================================================= */
+
+.video-miniaturas {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  justify-content: center;
+}
+
+/* Ocultar scrollbar pero permitir scroll */
+.video-miniaturas::-webkit-scrollbar {
+  height: 4px;
+}
+.video-miniaturas::-webkit-scrollbar-thumb {
+  background: var(--color_yamaha);
+  border-radius: 10px;
+}
+
+.video-miniaturas .miniatura {
+  width: 120px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.video-miniaturas .miniatura:hover,
+.video-miniaturas .miniatura.activo {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+  border: 2px solid var(--color_yamahaClaro);
+}
+
+/* Info del vídeo */
+.video-info {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.video-info h3 {
+  color: var(--color_yamahaClaro);
+  margin-bottom: 5px;
+}
+
+.video-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/*Responsive video*/
+@media (max-width: 992px) {
+  .video {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .video-info {
+    min-width: 100%;
+    flex: none;
+    margin: 0 auto;
+    padding: 1rem 0;
+    display: flex;
+    /* activa flexbox */
+    flex-direction: column;
+    /* organiza verticalmente h3 y p */
+    align-items: center;
+    /* centra horizontalmente */
+    text-align: center;
+    /* asegura que el texto también se centre */
+  }
+
+  .video-frame {
+    min-width: 100%;
+    flex: none;
+    margin: 0 auto;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .video-frame iframe {
+    height: 280px;
+    /* tamaño ajustado */
+  }
+
+  .video p {
+    font-size: 0.85rem;
+  }
+
+  .video h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-info {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .video-frame iframe {
+    height: 160px;
+  }
+
+  .video p {
+    font-size: 0.7rem;
+  }
+
+  .video h3 {
+    font-size: 0.9rem;
+  }
+}

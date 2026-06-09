@@ -22,6 +22,33 @@ class Controller {
     }
 
     /**
+     * Registra las hojas de estilo publicas en el orden de cascada esperado.
+     */
+    protected function appendPublicCSS() {
+        $styles = [
+            'css/base.css',
+            'css/nav.css',
+            'css/intro.css',
+            'css/biografia.css',
+            'css/entrevistas.css',
+            'css/tabs.css',
+            'css/videos.css',
+            'css/galeria.css',
+            'css/academia.css',
+            'css/agenda.css',
+            'css/redes.css',
+            'css/footer.css',
+            'css/legales.css',
+            'css/cookies.css'
+        ];
+
+        foreach ($styles as $style) {
+            $path = PUBLICROOT . '/' . $style;
+            $version = file_exists($path) ? '?v=' . filemtime($path) : '';
+            $this->appendCSS($style . $version);
+        }
+    }
+    /**
      * Registra un recurso JavaScript para su inclusión en el pie de página
      * @param string $file Ruta relativa del archivo JS
      */

@@ -1,0 +1,149 @@
+/*--- SOBREMI --- */
+
+.intro {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  /* alineado a la derecha */
+  width: 85%;
+  max-width: 350px;
+  color: #ffffff;
+  padding: 1.2rem 1rem;
+  text-align: justify;
+  /* texto alineado a la derecha */
+  border-radius: 8px;
+  /* background: rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+
+  /* Animación inicial */
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Botón ver más */
+.vermas {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color_blancoRoto);
+  font-weight: 600;
+  border: 2px solid var(--color_yamaha);
+  border-radius: 30px;
+  font-size: 0.8rem;
+  /* más compacto */
+  padding: 0.3rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vermas:hover {
+  background-color: var(--color_yamahaClaro);
+  transform: scale(1.05);
+  color: #0f0e0e;
+}
+
+/* Título dentro de intro */
+h2.sobre-mi-titulo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  /* ligeramente más pequeño */
+  color: var(--color_yamaha);
+  text-align: center;
+  /* alineado a la izquierda */
+  margin: 0 0 1rem 0;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+h2.sobre-mi-titulo:hover {
+  color: #8e44ad;
+}
+
+h2.sobre-mi-titulo::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+
+  background: linear-gradient(to right, #8e44ad, #3498db);
+
+  /* margin: 0.4rem 0 0 0; para que quede pegada a la izq*/
+
+  margin: 0.4rem auto 0 auto;
+  /* centrado horizontalmente y en medio */
+  border-radius: 2px;
+}
+
+
+/* --- INTRO / SOBRE MÍ --- */
+
+/* Mostrar .intro solo en pantallas grandes (ordenadores) */
+.intro {
+  display: block;
+  /* visible por defecto */
+}
+
+/* Ocultar en pantallas de tablet y móviles */
+@media (max-width: 750px) {
+  .intro {
+    display: none;
+  }
+}
+
+/* --- TABLET: 751px a 1024px --- */
+@media (min-width: 751px) and (max-width: 1024px) {
+  .intro {
+    position: absolute;
+    top: 20%;
+    right: 8%;
+    width: 40%;
+    /* más estrecho para que no ocupe tanto */
+    max-width: 200px;
+    padding: 0.8rem;
+    font-size: 0.55rem;
+    /* mucho más pequeño */
+    line-height: 1.2;
+  }
+
+  h2.sobre-mi-titulo {
+    font-size: 1.1rem;
+    /* proporcional al texto */
+  }
+
+  .vermas {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.7rem;
+  }
+}
+/* Portátil 14" / pantallas tipo 1366px */
+@media (min-width: 1200px) and (max-width: 1450px) {
+  .intro {
+    top: 25%;
+    right: 8%;
+    width: 260px;
+    max-width: 3600px;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+
+  h2.sobre-mi-titulo {
+    font-size: 1.05rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .vermas {
+    font-size: 0.62rem;
+    padding: 0.18rem 0.6rem;
+  }
+}

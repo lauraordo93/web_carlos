@@ -1,0 +1,223 @@
+/* ========================= */
+/* SECCIÓN ACADEMIA */
+/* ========================= */
+
+/* --- Sección Academia --- */
+#madrid-sax-academy {
+  background-color: #000;
+  /* fondo negro sólido para la sección */
+
+  color: var(--color_yamahaClaro);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedores internos transparentes */
+#academia-contenedor-general,
+.academia-contenedor {
+  background: transparent;
+}
+
+/* Tarjetas -> negro semitransparente */
+.academia_class {
+  border-radius: 8px;
+  background-color: rgba(20, 20, 20, 0.95);
+  /* gris muy oscuro, se diferencia del negro puro */
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: var(--color_yamahaClaro);
+  display: flex;
+  gap: 2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  /* Limitar el ancho */
+  max-width: 900px;
+  /* puedes ajustar a lo que quieras */
+  width: 90%;
+  /* para que no se desborde en contenedores más pequeños */
+  margin: 0 auto;
+  /* centra la tarjeta horizontalmente */
+}
+
+.academia_class:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--color_yamaha);
+  cursor: pointer;
+  /* borde Yamaha al hover */
+}
+
+/* Texto */
+.academia_texto {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* centra los elementos hijos verticalmente */
+}
+
+.academia_texto h3 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: var(--color_yamaha);
+}
+
+.academia_texto p {
+  font-size: 1rem;
+  /*Une las palabras para que no queden espacios inecesarios*/
+  hyphens: auto;
+  line-height: 1.4;
+  /* menos espacio entre líneas */
+  color: #ffffff;
+  margin: 0;
+  /* elimina márgenes */
+  padding: 0;
+
+  /* elimina padding */
+}
+
+/* Contenedor de enlaces Web + Instagram */
+.academia_enlaces {
+  display: flex;
+  justify-content: center;
+  /* centra horizontalmente */
+  gap: 10px;
+  /* espacio entre enlaces */
+  margin-top: 1rem;
+  /* separación del texto */
+}
+
+/* Estilo individual de enlaces */
+.academia_enlaces a {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #8e44ad;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.academia_enlaces a:hover {
+  background-color: #9b59b6;
+  transform: scale(1.05);
+}
+
+/* Icono Instagram específico */
+.academia_enlaces a.icono.instagram i {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* Imagen alineada a la izquierda tipo “tarjeta” */
+.academia_imagen {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.academia_imagen img {
+  width: 80%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  margin-left: 6rem;
+}
+
+.academia_imagen img:hover {
+  transform: scale(1.05);
+}
+
+/* --- RESPONSIVE TABLET --- */
+
+@media (max-width: 1024px) {
+  .academia_class {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
+    /* menos espacio entre elementos */
+    padding: 1rem;
+    /* ajusta padding general */
+    /* ajusta el espacio entre texto e imagen */
+  }
+
+  .academia_imagen {
+    flex: none;
+    /* que no ocupe todo el ancho */
+    justify-content: center;
+    /* centra horizontalmente */
+    padding: 0.5rem;
+    display: flex;
+    width: 100%;
+  }
+
+  .academia_imagen img {
+    width: 60%;
+    /* tamaño más razonable */
+    max-width: 300px;
+    /* límite máximo para tablet */
+    height: auto;
+    border-radius: 20px;
+    margin: 0 auto;
+    /* centra la imagen */
+    display: block;
+  }
+
+  .academia_texto p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+/* --- RESPONSIVE MÓVIL --- */
+@media (max-width: 768px) {
+  .academia_class {
+    gap: 1rem;
+    padding: 1rem;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .academia_imagen {
+    width: 50%;
+    padding: 1rem;
+    justify-content: center;
+    /* centra la imagen */
+  }
+
+  .academia_imagen img {
+    width: 90%;
+    /* ocupa casi todo el ancho */
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .academia_texto p {
+    font-size: 0.8rem;
+    /* ajusta tamaño de letra en móvil */
+    line-height: 1.4;
+    letter-spacing: 0;
+    /* menos espacio entre letras, valor por defecto */
+    word-spacing: 0rem;
+    /* ajusta el espacio entre palabras si quieres */
+  }
+
+  .academia_texto a {
+    margin: 1rem auto 0 auto;
+  }
+}

@@ -1,0 +1,181 @@
+/* ADMIN ICON */
+.admin-icon a {
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.admin-icon a:hover {
+  opacity: 0.8;
+}
+
+/* NAV GENERAL */
+nav {
+  position: fixed;
+  /* siempre pegado arriba */
+  height: 50px;
+  /* altura fija */
+  display: flex;
+  /* para usar flexbox */
+  align-items: center;
+  /* centra verticalmente el contenido */
+  padding: 0 1rem;
+  /* espacio a los lados */
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  z-index: 9999;
+  /* por encima de todo */
+}
+
+/* Dale espacio al logo para que no se tape */
+.logo {
+  margin-top: 200px;
+  /* ajusta según altura del menú */
+}
+
+/* Contenedor del menú */
+.nav-container {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 0 1rem;
+  /* menos padding arriba/abajo */
+}
+
+/* Menú principal */
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Enlaces */
+.nav-container a {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(200, 200, 200);
+  font-weight: 400;
+  font-size: 0.9rem;
+  /* tamaño letra */
+  padding: 0.4rem 1rem;
+  transition: color 0.3s;
+  margin-right: 1rem;
+}
+
+.nav-menu,
+.nav-menu ul,
+.nav-menu li {
+  list-style: none !important;
+  /* Quita los puntos */
+  margin: 0 !important;
+  /* Quita márgenes */
+  padding: 0 !important;
+  /* Quita padding */
+}
+
+.nav-container a:hover {
+  color: var(--color_yamaha);
+}
+
+/* --- NAV RESPONSIVE --- */
+.nav-toggle {
+  display: none;
+  /* oculto por defecto */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--color_yamaha);
+  border-radius: 2px;
+}
+
+/*--- TABLET: menú normal, solo letras más pequeñas --- */
+@media (min-width: 751px) and (max-width: 1024px) {
+  .nav-toggle {
+    display: none;
+    /* oculta el menú hamburguesa en tablet */
+  }
+
+  nav {
+    display: flex;
+    /* asegura que el menú normal se vea */
+  }
+
+  .nav-container a {
+    font-size: 8px;
+    /* ajusta el tamaño de las letras para tablet */
+  }
+}
+
+/* --- RESPONSIVE MÓVIL / TABLETS --- */
+@media (max-width: 750px) {
+  .nav-toggle {
+    display: flex;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 101;
+  }
+
+  nav,
+  .nav-container {
+    background: transparent;
+    position: static;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 1.9);
+    flex-direction: column;
+    padding: 4rem 1.5rem 1.5rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -3px 0 8px rgba(0, 0, 0, 0.7);
+    border-left: 2px solid;
+    border-image: linear-gradient(to bottom, #8e44ad, #9b59b6) 1;
+    z-index: 100;
+  }
+
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+
+  .nav-menu li a:hover {
+    color: var(--color_yamahaClaro);
+    border-left: 4px solid var(--color_yamahaClaro);
+  }
+}

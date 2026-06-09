@@ -14,7 +14,7 @@ $biografia = $biografia ?? null;
         <a href="<?= asset_url('doc/bio.pdf') ?>" download class="btn-descarga-biografia">📥 Descargar biografía</a>
         <div class="artist-yamaha">
             <strong>Artist by</strong>
-            <a href="https://es.yamaha.com/es/artists/c/carlos_ordonez_de%20arce.html" target="_blank" rel="noopener noreferrer">
+            <a href="https://es.yamaha.com/es/musical-instruments/brass-woodwinds/artists/c/carlos-ordonez-de%20arce.html" target="_blank" rel="noopener noreferrer">
                 <img src="<?= asset_url('img/logo_yamaha1.png') ?>" alt="Yamaha">
             </a>
         </div>

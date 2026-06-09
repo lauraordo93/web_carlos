@@ -1,0 +1,139 @@
+#biografia {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(20, 20, 20, 0.95);
+  width: 90%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  color: var(--color_yamahaClaro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  /* deja que el div crezca según el contenido */
+  min-height: 200px;
+  /* altura mínima */
+}
+
+#biografia p {
+  color: #eee;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+#biografia:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 5px var(--color_yamaha);
+  /* más tenue */
+  cursor: pointer;
+}
+
+.bio-links {
+  display: flex;
+  align-items: center;
+  /* centra verticalmente */
+  justify-content: center;
+  /* centra en la página */
+  gap: 2rem;
+  /* espacio entre botón y Yamaha */
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  /* para que en pantallas pequeñas se bajen en vertical */
+}
+
+.btn-descarga-biografia {
+  display: inline-block;
+  /* ya no bloquea toda la línea */
+  padding: 12px 25px;
+  background-color: var(--color_yamaha);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.btn-descarga-biografia:hover {
+  background-color: var(--color_yamahaClaro);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.artist-yamaha {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.artist-yamaha img {
+  height: 100px;
+  vertical-align: middle;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #biografia {
+    max-width: 100%;
+    padding: 1rem 1rem;
+    margin: 1rem auto;
+    background-size: contain;
+    /* no recorta fondo */
+  }
+
+  #biografia p {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  .btn-descarga-biografia {
+    width: 50%;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  #biografia h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #biografia {
+    padding: 1rem 0.8rem;
+    margin: 1rem auto;
+    border-radius: 5px;
+    background-size: contain;
+  }
+
+  #biografia p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-spacing: normal;
+    hyphens: auto;
+    /* evita espacio excesivo */
+    letter-spacing: 0;
+    /* opcional */
+    line-height: 1.5;
+    /* más compacto verticalmente */
+    text-align: justify;
+    text-justify: inter-word;
+    /* distribuye espacio de manera uniforme */
+  }
+
+  .btn-descarga-biografia {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}

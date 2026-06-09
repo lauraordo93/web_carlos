@@ -1,0 +1,138 @@
+:root {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+
+  --color_yamaha: #4b1e78;
+  --color_blancoRoto: #f8f8f8;
+  --color_rosa: #4b002f;
+  --color_yamahaClaro: #7d6099;
+  --color_azulado: #99e5e7;
+}
+
+body {
+  background-color: #000000;
+  /* fondo negro */
+  color: #fff;
+  /* para que el texto sea legible sobre negro */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Evitar overflow horizontal general */
+body,
+html {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/*--- TODAS LAS SECCIONES GENERALES ---*/
+section {
+  background-color: none;
+  /* background: linear-gradient(145deg, #f8f8f8, #eaeaea); */
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  border-radius: 15px;
+  max-width: 1200px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Párrafos dentro de cualquier sección */
+section p {
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+  padding: 1rem;
+  text-align: justify;
+  color: #333;
+  line-height: 1.6;
+}
+
+/*--- ESTILO DE ENCABEZADOS H2 ---*/
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  margin: 2.5rem 0 1.5rem 0;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+h2:hover {
+  color: #8e44ad;
+}
+
+/* Línea decorativa debajo de h2 */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #8e44ad, #3498db);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/*--- CONTENEDOR COMÚN PARA SECCIONES FLEXIBLES ---*/
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*--- RESPONSIVE GENERAL ---*/
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem;
+  }
+
+  section p {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .contenedor {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 1.5rem 1rem;
+  }
+
+  section p {
+    font-size: 0.95rem;
+  }
+}

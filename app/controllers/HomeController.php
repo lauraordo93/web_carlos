@@ -13,7 +13,7 @@ class HomeController extends Controller {
      */
     public function index() {
         // Carga de activos multimedia y de diseño
-        $this->appendCSS('css/pagweb.css?v=' . filemtime(PUBLICROOT . '/css/pagweb.css'));
+        $this->appendPublicCSS();
         
         $scripts = [
             'js/banner_cookies.js',

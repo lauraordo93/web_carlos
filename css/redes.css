@@ -1,0 +1,167 @@
+/* REDES SOCIALES */
+
+/* Redes sociales debajo de "Sobre mí" */
+.redes-sociales {
+  text-align: center;
+  /* centrado debajo del contenido */
+  display: flex;
+  /* para que los iconos estén en línea */
+  justify-content: center;
+  /* centrado horizontal */
+  gap: 20px;
+  /* espacio entre iconos */
+  margin-top: 20px;
+  /* separación del texto anterior */
+  z-index: 10;
+  position: static;
+  /* quitar absolute para que siga el flujo del HTML */
+}
+
+.redes-sociales a.icono {
+  font-size: 26px;
+  text-decoration: none;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+  color: #b0b0b0;
+
+  /* color por defecto */
+}
+
+/* Colores fijos por red */
+.redes-sociales a.icono:hover {
+  color: #e4405f;
+  /* Color rosa Instagram o similar */
+  cursor: -moz-zoom-out;
+  /*mano de puntero*/
+}
+
+/* Opcional: colores específicos por red */
+.redes-sociales a.icono.instagram:hover {
+  color: #e4405f;
+  /* rosa Instagram */
+}
+
+.redes-sociales a.icono.youtube:hover {
+  color: #ce0c30;
+}
+
+.redes-sociales a.icono.facebook:hover {
+  color: #1877f2;
+  /* azul Facebook */
+}
+
+.redes-sociales a.icono.twitter:hover {
+  color: #1da1f2;
+  /* azul Twitter */
+}
+
+.redes-sociales a.icono.spotify:hover {
+  color: #1db954;
+  /* azul Twitter */
+}
+
+.redes-sociales a.icono.envelope:hover {
+  color: #16b7d3;
+  /* rojo email */
+}
+
+/* Efecto hover sutil */
+.redes-sociales a.icono:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* --- TABLET: 751px a 1024px --- */
+@media (min-width: 751px) and (max-width: 1024px) {
+  .redes-sociales {
+    gap: 15px;
+    /* menos espacio entre iconos */
+    margin-top: 15px;
+    /* menos separación del contenido */
+  }
+
+  .redes-sociales a.icono {
+    font-size: 20px;
+    /* iconos más pequeños para tablet */
+  }
+}
+
+/* Responsive: ocultar redes en móviles si quieres */
+@media (max-width: 750px) {
+  .redes-sociales {
+    display: none;
+  }
+}
+
+/* --- MÓVIL: hasta 750px --- */
+@media (max-width: 750px) {
+  .redes-sociales-movil .redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 10px;
+    /* distancia desde el header */
+    margin-bottom: 30px;
+    /* distancia hacia la biografía */
+  }
+
+  .redes-sociales-movil .redes-sociales a.icono {
+    font-size: 35px;
+    /* color: #1d1a1a; */
+    color: silver;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+  }
+
+  .redes-sociales-movil .redes-sociales a.icono:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .redes-sociales-movil a.icono:hover {
+    color: #e4405f;
+    /* Color rosa Instagram o similar */
+    cursor: -moz-zoom-out;
+    /*mano de puntero*/
+  }
+
+  /* Opcional: colores específicos por red */
+  .redes-sociales-movil a.icono.instagram:hover {
+    color: #e4405f;
+    /* rosa Instagram */
+  }
+
+  .redes-sociales-movil a.icono.youtube:hover {
+    color: #ce0c30;
+  }
+
+  .redes-sociales-movil a.icono.facebook:hover {
+    color: #1877f2;
+    /* azul Facebook */
+  }
+
+  .redes-sociales-movil a.icono.twitter:hover {
+    color: #1da1f2;
+    /* azul Twitter */
+  }
+
+  .redes-sociales-movil a.icono.spotify:hover {
+    color: #1db954;
+    /* azul Twitter */
+  }
+
+  .redes-sociales-movil a.icono.envelope:hover {
+    color: #16b7d3;
+    /* rojo email */
+  }
+}
+
+@media (min-width: 751px) {
+  .redes-sociales-movil {
+    display: none;
+  }
+}

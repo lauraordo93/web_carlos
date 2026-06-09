@@ -6,7 +6,9 @@ class AgendaModel extends Model
     {
         $sql = "SELECT id, titulo, descripcion, fecha, lugar, seccion_id
                 FROM agenda
-                WHERE fecha >= CURDATE()
+                WHERE fecha IS NOT NULL
+                  AND TRIM(titulo) <> ''
+                  AND fecha >= CURDATE()
                 ORDER BY fecha ASC, id ASC";
 
         $stmt = $this->db->prepare($sql);
@@ -18,8 +20,10 @@ class AgendaModel extends Model
     {
         $sql = "SELECT id, titulo, descripcion, fecha, lugar, seccion_id
                 FROM agenda
-                WHERE fecha < CURDATE()
-                ORDER BY fecha DESC, id DESC";
+                WHERE fecha IS NOT NULL
+                  AND TRIM(titulo) <> ''
+                  AND fecha < CURDATE()
+                ORDER BY fecha ASC, id ASC";
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute();

@@ -1,0 +1,149 @@
+/*---AGENDA---*/
+#agenda {
+  max-width: 1100px;
+  margin: 0 auto 5rem;
+  padding: 2rem 2.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background-color: rgba(20, 20, 20, 0.95);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+#agenda h2 {
+  margin-bottom: 1.5rem;
+}
+
+.agenda-bloque {
+  margin-top: 1.5rem;
+}
+
+.agenda-bloque:first-of-type {
+  margin-top: 0;
+}
+
+.agenda-bloque h3 {
+  margin: 0 0 1rem;
+  color: var(--color_yamahaClaro);
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.agenda-lista {
+  display: grid;
+  gap: 1rem;
+}
+
+.agenda-evento {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.agenda-evento time {
+  align-self: start;
+  padding: 0.45rem 0.6rem;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(124, 58, 237, 0.35);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.agenda-evento h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.agenda-lugar {
+  margin: 0.35rem 0 0;
+  color: var(--color_yamahaClaro);
+  font-weight: 700;
+}
+
+.agenda-descripcion {
+  margin: 0.5rem 0 0;
+  color: silver;
+  line-height: 1.55;
+}
+
+.agenda-bloque-pasados {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.agenda-evento-pasado {
+  opacity: 0.72;
+}
+
+.mensaje-agenda {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+.mensaje-agenda p {
+  margin: 0;
+  color: silver;
+}
+
+/* Animación de entrada suave */
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de pulso al hacer hover en tarjetas */
+@keyframes borderPulse {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(137, 29, 29, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 15px 4px rgba(137, 29, 29, 0.4);
+  }
+}
+
+/* Responsive para #agenda */
+@media (max-width: 768px) {
+  #agenda {
+    max-width: 92%;
+    margin: 1rem auto;
+    padding: 1.2rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .agenda-evento {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .agenda-evento time {
+    justify-self: start;
+  }
+
+  .mensaje-agenda {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #agenda {
+    padding: 1rem 1rem;
+  }
+
+  .mensaje-agenda {
+    font-size: 0.9rem;
+  }
+}
