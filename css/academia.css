@@ -4,6 +4,7 @@
 
 /* --- Seccion Academia --- */
 #madrid-sax-academy {
+  box-sizing: border-box;
   background-color: #000;
   color: var(--color_yamahaClaro);
   display: flex;
@@ -23,13 +24,14 @@
 
 /* Bloque principal de presentacion */
 .academia_class {
+  box-sizing: border-box;
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.8fr);
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: stretch;
   max-width: 980px;
-  width: 92%;
+  width: 100%;
   margin: 0 auto;
   padding: clamp(1.25rem, 3vw, 2.1rem);
   border: 1px solid rgba(125, 96, 153, 0.24);
@@ -180,7 +182,7 @@
   .academia_class {
     grid-template-columns: 1fr;
     gap: 1.4rem;
-    width: 90%;
+    width: 100%;
   }
 
   .academia_texto {
@@ -205,8 +207,8 @@
 /* --- RESPONSIVE MOVIL --- */
 @media (max-width: 768px) {
   .academia_class {
-    width: 92%;
-    padding: 1.1rem;
+    width: 100%;
+    padding: 1rem;
   }
 
   .academia_class::before {
@@ -256,20 +258,19 @@
 
 @media (max-width: 480px) {
   .academia_class {
-    width: 94%;
-    padding: 1rem;
-    margin: -0.5rem;
+    width: 100%;
+    padding: 0.9rem;
   }
 
   .academia_texto {
-    padding-left: 0.75rem;
+    padding-left: 0.65rem;
   }
 
   .academia_imagen {
-    min-height: 170px;
+    min-height: 155px;
   }
 
   .academia_imagen img {
-    min-height: 170px;
+    min-height: 155px;
   }
 }

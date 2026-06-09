@@ -146,7 +146,7 @@
 
   /* ===== VISOR PRINCIPAL ===== */
 .mainSwiper {
-  width: min(92vw, 620px);
+  width: min(100%, 620px);
   aspect-ratio: 1 / 1;
   height: auto;
   max-height: 82vh;
@@ -188,7 +188,7 @@
 
   /* ===== MINIATURAS ===== */
  .thumbSwiper {
-  width: min(92vw, 620px);
+  width: min(100%, 620px);
   max-width: none;
   height: auto;
   margin: 8px auto 0;

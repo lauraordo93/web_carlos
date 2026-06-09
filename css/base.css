@@ -10,6 +10,11 @@
   --color_rosa: #4b002f;
   --color_yamahaClaro: #7d6099;
   --color_azulado: #99e5e7;
+  --section-width: min(92%, 1200px);
+  --section-space-y: 2.75rem;
+  --section-pad-y: 3rem;
+  --section-pad-x: 2rem;
+  --section-title-mb: 1.5rem;
 }
 
 body {
@@ -28,20 +33,15 @@ html {
   overflow-x: hidden;
 }
 
-@media (max-width: 768px) {
-  h2 {
-    font-size: 1.2rem;
-  }
-}
-
 /*--- TODAS LAS SECCIONES GENERALES ---*/
 section {
   background-color: none;
   /* background: linear-gradient(145deg, #f8f8f8, #eaeaea); */
-  padding: 3rem 2rem;
-  margin: 2rem auto;
+  width: var(--section-width);
+  padding: var(--section-pad-y) var(--section-pad-x);
+  margin: var(--section-space-y) auto;
   border-radius: 15px;
-  max-width: 1200px;
+  max-width: none;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition:
     transform 0.3s ease,
@@ -71,7 +71,7 @@ h2 {
   color: #ffffff;
   text-align: center;
   position: relative;
-  margin: 2.5rem 0 1.5rem 0;
+  margin: 0 0 var(--section-title-mb) 0;
   letter-spacing: 1px;
   line-height: 1.2;
   transition: color 0.3s ease;
@@ -103,9 +103,36 @@ h2::after {
 }
 
 /*--- RESPONSIVE GENERAL ---*/
+@media (max-width: 1366px) {
+  :root {
+    --section-width: min(92%, 1100px);
+    --section-space-y: 2.5rem;
+    --section-pad-y: 2.6rem;
+    --section-pad-x: 1.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --section-width: 92%;
+    --section-space-y: 2.15rem;
+    --section-pad-y: 2.2rem;
+    --section-pad-x: 1.4rem;
+    --section-title-mb: 1.3rem;
+  }
+}
+
 @media (max-width: 768px) {
+  :root {
+    --section-width: 92%;
+    --section-space-y: 1.6rem;
+    --section-pad-y: 1.55rem;
+    --section-pad-x: 1rem;
+    --section-title-mb: 1.15rem;
+  }
+
   section {
-    padding: 2rem 1rem;
+    padding: var(--section-pad-y) var(--section-pad-x);
   }
 
   section p {
@@ -114,7 +141,7 @@ h2::after {
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.65rem;
   }
 
   .contenedor {
@@ -124,12 +151,20 @@ h2::after {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --section-width: 94%;
+    --section-space-y: 1.15rem;
+    --section-pad-y: 1.25rem;
+    --section-pad-x: 0.85rem;
+    --section-title-mb: 1rem;
+  }
+
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
   }
 
   section {
-    padding: 1.5rem 1rem;
+    padding: var(--section-pad-y) var(--section-pad-x);
   }
 
   section p {

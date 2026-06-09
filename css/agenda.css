@@ -1,7 +1,9 @@
 /*---AGENDA---*/
 #agenda {
+  box-sizing: border-box;
+  width: var(--section-width);
   max-width: 1040px;
-  margin: 0 auto 5rem;
+  margin: var(--section-space-y) auto calc(var(--section-space-y) * 1.35);
   padding: 2.4rem clamp(1.25rem, 3vw, 2.8rem);
   border: 1px solid rgba(125, 96, 153, 0.24);
   border-radius: 8px;
@@ -98,6 +100,7 @@
 }
 
 .agenda-evento time {
+  box-sizing: border-box;
   align-self: start;
   justify-self: start;
   width: 100%;
@@ -173,9 +176,10 @@
 /* Responsive para #agenda */
 @media (max-width: 768px) {
   #agenda {
-    max-width: 92%;
-    margin: 1rem auto 4rem;
-    padding: 1.4rem 1.3rem;
+    width: var(--section-width);
+    max-width: 1040px;
+    margin: var(--section-space-y) auto calc(var(--section-space-y) * 1.35);
+    padding: var(--section-pad-y) var(--section-pad-x);
     border-radius: 8px;
   }
 
@@ -224,27 +228,32 @@
 
 @media (max-width: 480px) {
   #agenda {
-    padding: 1.2rem 1rem;
-    margin: 1rem;
+    width: 94%;
+    padding: var(--section-pad-y) var(--section-pad-x);
+    margin: var(--section-space-y) auto calc(var(--section-space-y) * 1.35);
   }
 
   .agenda-lista::before {
-    left: 76px;
+    display: none;
   }
 
   .agenda-evento {
-    grid-template-columns: 62px minmax(0, 1fr);
-    gap: 1.35rem;
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+    padding: 0.95rem 0;
   }
 
   .agenda-evento::before {
-    left: 72px;
-    width: 5px;
-    height: 5px;
+    display: none;
   }
 
   .agenda-evento time {
-    font-size: 0.58rem;
+    justify-self: start;
+    width: auto;
+    max-width: 100%;
+    padding: 0.3rem 0.55rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
   }
 
   .agenda-descripcion {
