@@ -11,8 +11,8 @@ $logo_url = htmlspecialchars($logo_url, ENT_QUOTES, 'UTF-8');
     background-repeat: no-repeat;
     background-color: #000;
     width: 100%;
-    min-height: 900px; /* Ajusta según necesites */
-    max-height: none; /* Elimina el max-height */
+    min-height: 900px; 
+    max-height: none;
     display: flex;
     justify-content: center;
     position: relative;

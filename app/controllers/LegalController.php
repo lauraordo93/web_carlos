@@ -14,9 +14,10 @@ class LegalController extends Controller {
      * @param string $doc Identificador del documento legal
      */
     public function index() {
-        if (!isset($_GET['doc'])) {
-            $this->trigger404();
-            return;
+        if (!isset($_GET['doc']) || $_GET['doc'] === '') {
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location: " . URLROOT . "/legal/aviso-legal");
+            exit;
         }
 
         $doc = $_GET['doc'];
