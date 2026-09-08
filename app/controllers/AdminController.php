@@ -309,21 +309,14 @@ class AdminController extends Controller
             $enlace_url = trim($_POST['enlace_url'] ?? '');
             $foto_url = $_POST['foto_url_actual'] ?? '';
 
-            // Tratamiento de archivos multimedia
-            if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
-                $permitidas = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-                $tipo = mime_content_type($_FILES['foto']['tmp_name']);
+            // Tratamiento de archivos multimedia (conversión WebP centralizada)
+            if (isset($_FILES['foto']) && $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE) {
+                $result = ImageUploader::upload($_FILES['foto'], 'img');
 
-                if (in_array($tipo, $permitidas)) {
-                    $extension = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
-                    $nombre_unico = 'img_' . uniqid() . '.' . $extension;
-                    $ruta_destino = PUBLICROOT . '/img/' . $nombre_unico;
-
-                    if (move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_destino)) {
-                        $foto_url = 'img/' . $nombre_unico;
-                    }
+                if ($result['ok']) {
+                    $foto_url = $result['path'];
                 } else {
-                    $error = "El formato de imagen seleccionado no es compatible.";
+                    $error = $result['error'];
                 }
             }
 

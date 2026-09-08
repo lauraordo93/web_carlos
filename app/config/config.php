@@ -41,3 +41,17 @@ define('URLROOT', $scheme . '://' . $host . $basePath);
 define('APPROOT', dirname(__DIR__));
 define('PUBLICROOT', dirname(APPROOT));
 define('SITENAME', 'Carlos Ordonez - Web Oficial');
+
+// ---------------------------------------------------------------------------
+// Configuración de subida y conversión de imágenes
+// ---------------------------------------------------------------------------
+define('WEBP_QUALITY', 82);                      // Calidad WebP (0-100)
+define('MAX_UPLOAD_SIZE', 10 * 1024 * 1024);     // 10 MB
+define('MAX_IMAGE_WIDTH', 2400);                  // px – no amplía imágenes pequeñas
+define('MAX_IMAGE_HEIGHT', 2400);                 // px – conserva proporción
+define('ALLOWED_MIME_TYPES', [
+    'image/jpeg',
+    'image/png',
+    'image/webp',
+    'image/gif',
+]);

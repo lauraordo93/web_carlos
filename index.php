@@ -9,6 +9,7 @@ require_once APPROOT . '/config/helpers.php';
 require_once APPROOT . '/core/Database.php';
 require_once APPROOT . '/core/Controller.php';
 require_once APPROOT . '/core/Model.php';
+require_once APPROOT . '/core/ImageUploader.php';
 require_once APPROOT . '/core/App.php';
 
 $app = new App();
