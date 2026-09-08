@@ -3,6 +3,9 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    RewriteCond %{HTTP_HOST} ^www\.carlosordonezmusic\.es$ [NC]
+    RewriteRule ^(.*)$ https://carlosordonezmusic.es/$1 [R=302,L]
+
     RewriteRule (^|/)\. - [F,L]
     RewriteRule ^(app|\.git|\.vs)(/|$) - [F,L]
 
