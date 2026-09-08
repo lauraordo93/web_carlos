@@ -37,7 +37,9 @@ if ($basePath === '/') {
     $basePath = '';
 }
 
+define('BASE_PATH', $basePath);
 define('URLROOT', $scheme . '://' . $host . $basePath);
+define('CANONICAL_URLROOT', 'https://carlosordonezmusic.es'); // URL base estricta para SEO
 define('APPROOT', dirname(__DIR__));
 define('PUBLICROOT', dirname(APPROOT));
 define('SITENAME', 'Carlos Ordonez - Web Oficial');

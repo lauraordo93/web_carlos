@@ -1,10 +1,10 @@
 <?php
 $academia = $academia ?? null;
 ?>
-<section id="madrid-sax-academy">
+<section id="madrid-sax-academy" class="caja-seccion">
     <div id="academia-contenedor-general">
         <div class="academia-contenedor">
-            <h2>Academia</h2>
+            <h2>MADRID SAX ACADEMY</h2>
             <?php if (!empty($academia)): 
                 $titulo = htmlspecialchars($academia['titulo']);
                 $contenido = htmlspecialchars($academia['contenido']);
@@ -14,7 +14,7 @@ $academia = $academia ?? null;
             ?>
                 <div class="academia_class">
                     <div class="academia_texto">
-                        <h3><?= $titulo ?></h3>
+                        <!-- <h3><?= $titulo ?></h3> -->
                         <p><?= $contenido ?></p>
                         <div class="academia_enlaces">
                             <a href="<?= $enlace ?>" target="_blank">Web</a>

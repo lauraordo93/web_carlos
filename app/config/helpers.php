@@ -86,3 +86,10 @@ function site_url($path = '') {
 
     return URLROOT . '/' . ltrim($path, '/');
 }
+
+/**
+ * Escapa strings para su uso seguro en atributos HTML y metadatos SEO.
+ */
+function esc_attr($string) {
+    return htmlspecialchars((string) $string, ENT_QUOTES, 'UTF-8');
+}

@@ -14,7 +14,7 @@ $logo_url = htmlspecialchars($logo_url, ENT_QUOTES, 'UTF-8');
         display: flex;
         justify-content: center;
         position: relative;
-        border-bottom: 2px solid #4B1E78;
+        /* border-bottom: 2px solid #4B1E78; */
     }
 
     @media screen and (max-width: 1440px) {

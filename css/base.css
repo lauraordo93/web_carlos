@@ -87,6 +87,18 @@ h2::after {
   content: "";
   display: block;
   width: 60px;
+  transition: color 0.3s ease;
+}
+
+h2:hover {
+  color: #8e44ad;
+}
+
+/* Línea decorativa debajo de h2 */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
   height: 3px;
   background: linear-gradient(to right, #8e44ad, #3498db);
   margin: 0.5rem auto 0;
@@ -102,6 +114,36 @@ h2::after {
   width: 100%;
   max-width: 1040px;
   margin: 0 auto;
+}
+
+/*--- CAJAS DESTACADAS CON BORDE (Biografía, Academia) ---*/
+.caja-seccion {
+  position: relative;
+  width: var(--section-width);
+  max-width: 1000px !important;
+  margin: var(--section-space-y) auto;
+  padding: clamp(1.6rem, 3.2vw, 2.8rem) !important;
+  border: 1px solid rgba(125, 96, 153, 0.24);
+  border-radius: 8px !important;
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.3) !important;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.caja-seccion::before {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  left: 0;
+  width: 3px;
+  background: var(--color_yamahaClaro);
+  opacity: 0.75;
+}
+
+.caja-seccion:hover {
+  transform: none !important;
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.34) !important;
 }
 
 /*--- RESPONSIVE GENERAL ---*/
@@ -160,6 +202,16 @@ h2::after {
   .contenedor {
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .caja-seccion {
+    max-width: 100% !important;
+    padding: var(--section-pad-y) var(--section-pad-x) !important;
+  }
+
+  .caja-seccion::before {
+    top: 1rem;
+    bottom: 1rem;
   }
 }
 

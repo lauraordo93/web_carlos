@@ -1,5 +1,5 @@
 <?php
-$titulo_pagina = $titulo_pagina ?? 'Página web Carlos';
+$titulo_pagina = $titulo_pagina ?? SITENAME;
 $is_home = $is_home ?? false;
 $content = $content ?? '';
 $extra_css = $extra_css ?? [];
@@ -7,6 +7,35 @@ $extra_js = $extra_js ?? [];
 $menu = $menu ?? [];
 $redes = $redes ?? [];
 $header = $header ?? [];
+
+// ---------------------------------------------------------
+// Metadatos SEO (Fase 2)
+// ---------------------------------------------------------
+// Si los controladores pasan $seoTitle o $seoDescription, se usarán; si no, defaults globales
+$seoTitle = $seoTitle ?? $titulo_pagina;
+$seoDescription = $seoDescription ?? 'Web oficial de Carlos Ordóñez de Arce.';
+
+// Generar canonical url de producción independiente del host actual y del subdirectorio local
+$currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '';
+if (defined('BASE_PATH') && BASE_PATH !== '') {
+    if (strpos($currentPath, BASE_PATH) === 0) {
+        $currentPath = substr($currentPath, strlen(BASE_PATH));
+    }
+}
+if ($currentPath === '' || $currentPath[0] !== '/') {
+    $currentPath = '/' . ltrim($currentPath, '/');
+}
+$seoCanonical = $seoCanonical ?? (rtrim(CANONICAL_URLROOT, '/') . $currentPath);
+
+$seoRobots = $seoRobots ?? 'index, follow';
+$seoImage = $seoImage ?? (CANONICAL_URLROOT . '/img/pentagrama4.jpg');
+
+// Escapar para atributos HTML
+$escTitle = esc_attr($seoTitle);
+$escDesc = esc_attr($seoDescription);
+$escCanonical = esc_attr($seoCanonical);
+$escRobots = esc_attr($seoRobots);
+$escImage = esc_attr($seoImage);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,7 +44,23 @@ $header = $header ?? [];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= $titulo_pagina ?? 'Página web Carlos' ?></title>
+    <title><?= $escTitle ?></title>
+    <meta name="description" content="<?= $escDesc ?>">
+    <link rel="canonical" href="<?= $escCanonical ?>">
+    <meta name="robots" content="<?= $escRobots ?>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<?= $escTitle ?>">
+    <meta property="og:description" content="<?= $escDesc ?>">
+    <meta property="og:url" content="<?= $escCanonical ?>">
+    <meta property="og:image" content="<?= $escImage ?>">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= $escTitle ?>">
+    <meta name="twitter:description" content="<?= $escDesc ?>">
+    <meta name="twitter:image" content="<?= $escImage ?>">
 
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />

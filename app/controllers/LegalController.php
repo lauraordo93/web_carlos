@@ -46,6 +46,8 @@ class LegalController extends Controller {
             'titulo' => $titulo,
             'view_file' => $view_file,
             'titulo_pagina' => $titulo . ' - Página web Carlos',
+            'seoTitle' => $titulo . ' | Carlos Ordoñez',
+            'seoDescription' => 'Texto legal: ' . $titulo . ' de la web oficial de Carlos Ordoñez.',
             'menu' => $menuModel->getAll(),
             'header' => $headerModel->getLogo()
         ];

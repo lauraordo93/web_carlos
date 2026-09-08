@@ -85,7 +85,9 @@ class HomeController extends Controller {
 
         // Estructuración del conjunto de datos para la vista
         $data = [
-            'titulo_pagina' => 'Página web Carlos',
+            'titulo_pagina' => 'Carlos Ordóñez De Arce',
+            'seoTitle' => 'Carlos Ordoñez De Arce | Saxofonista Profesional',
+            'seoDescription' => 'Bienvenido a la web oficial de Carlos Ordoñez De Arce. Descubre su biografía, conciertos, vídeos, galería de imágenes y detalles de su academia.',
             'sobre_mi' => $entradaModel->getSobreMi(),
             'biografia' => $entradaModel->getBiografia(),
             'redes' => $redSocialModel->getAll(),
