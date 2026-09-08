@@ -23,9 +23,15 @@ class App {
         $url = $this->parseUrl();
 
         // Identificación y validación del controlador solicitado
-        if (isset($url[0]) && file_exists(APPROOT . '/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
-            $this->controller = ucfirst($url[0]) . 'Controller';
-            unset($url[0]);
+        if (isset($url[0])) {
+            $controllerName = ucfirst($url[0]) . 'Controller';
+            if (file_exists(APPROOT . '/controllers/' . $controllerName . '.php')) {
+                $this->controller = $controllerName;
+                unset($url[0]);
+            } else {
+                $this->trigger404();
+                return;
+            }
         }
 
         require_once APPROOT . '/controllers/' . $this->controller . '.php';
@@ -36,6 +42,9 @@ class App {
             if (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];
                 unset($url[1]);
+            } else {
+                $this->trigger404();
+                return;
             }
         }
 
@@ -44,6 +53,16 @@ class App {
 
         // Ejecución de la lógica de negocio mediante llamada dinámica
         call_user_func_array([$this->controller, $this->method], $this->params);
+    }
+
+    /**
+     * Muestra la página 404 y detiene la ejecución
+     */
+    protected function trigger404() {
+        require_once APPROOT . '/controllers/ErrorController.php';
+        $controller = new ErrorController();
+        $controller->index();
+        exit;
     }
 
     /**
