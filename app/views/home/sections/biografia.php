@@ -1,23 +1,30 @@
 <?php
 $biografia = $biografia ?? null;
-$contenido_bio = '';
+$parrafos_html = '';
 if (!empty($biografia)) {
     $contenido_bio = $biografia['contenido'];
-    // 1. Quitar guiones de fin de línea generados al copiar de un PDF ("estudian-\ntes" -> "estudiantes")
+    // 1. Quitar guiones de fin de línea generados al copiar de un PDF
     $contenido_bio = preg_replace('/-\r?\n\s*/', '', $contenido_bio);
     // 2. Unificar saltos de línea a \n
     $contenido_bio = str_replace("\r\n", "\n", $contenido_bio);
-    // 3. Reemplazar saltos de línea simples por un espacio (para evitar que se partan frases por la mitad)
-    // Conserva los saltos de línea dobles o mayores que indican un verdadero cambio de párrafo.
+    // 3. Reemplazar saltos de línea simples por un espacio
     $contenido_bio = preg_replace('/(?<!\n)\n(?!\n)/', ' ', $contenido_bio);
-    // 4. Limpiar posibles espacios dobles o múltiples que hayan quedado al unir líneas
+    // 4. Limpiar posibles espacios dobles
     $contenido_bio = preg_replace('/[ \t]+/', ' ', $contenido_bio);
+    
+    // 5. Separar por los verdaderos saltos de párrafo y crear etiquetas <p> reales
+    $parrafos = preg_split('/\n{2,}/', trim($contenido_bio));
+    foreach ($parrafos as $p) {
+        $parrafos_html .= '<p>' . htmlspecialchars(trim($p)) . '</p>';
+    }
 }
 ?>
 <section id="biografia" class="caja-seccion">
     <?php if (!empty($biografia)): ?>
         <h2>Biografía</h2>
-        <p><?= nl2br($contenido_bio) ?></p>
+        <div class="bio-texto">
+            <?= $parrafos_html ?>
+        </div>
     <?php else: ?>
         <h2>Biografía</h2>
         <p>No hay biografía disponible en este momento.</p>
