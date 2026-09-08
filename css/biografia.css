@@ -10,28 +10,28 @@
   margin-bottom: var(--section-title-mb);
 }
 
-#biografia .bio-texto p {
-  max-width: 720px;
-  margin: 0 auto 1.4rem auto;
+/* Contenedor general del texto */
+#biografia .bio-texto {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Todos los párrafos */
+#biografia .bio-parrafo {
   color: #d7d7d7;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  font-size: 0.96rem;
-  line-height: 1.7;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin-bottom: 1.6rem;
   text-align: left;
 }
 
-#biografia .bio-texto p:last-child {
+#biografia .bio-parrafo:last-child {
   margin-bottom: 0;
 }
 
-/* El primer párrafo se resalta ligeramente para romper la monotonía visual */
-#biografia .bio-texto p:first-of-type {
-  font-size: clamp(1.02rem, 1.2vw + 0.65rem, 1.12rem);
-  color: #fff;
-  line-height: 1.6;
-  margin-bottom: 1.8rem;
-}
+
 
 
 

@@ -12,10 +12,13 @@ if (!empty($biografia)) {
     // 4. Limpiar posibles espacios dobles
     $contenido_bio = preg_replace('/[ \t]+/', ' ', $contenido_bio);
     
-    // 5. Separar por los verdaderos saltos de párrafo y crear etiquetas <p> reales
-    $parrafos = preg_split('/\n{2,}/', trim($contenido_bio));
-    foreach ($parrafos as $p) {
-        $parrafos_html .= '<p>' . htmlspecialchars(trim($p)) . '</p>';
+    // 5. Separar por los verdaderos saltos de párrafo (ignorando espacios intermedios)
+    $parrafos = preg_split('/\n\s*\n/', trim($contenido_bio));
+    
+    if (count($parrafos) > 0) {
+        foreach ($parrafos as $p) {
+            $parrafos_html .= '<p class="bio-parrafo">' . htmlspecialchars(trim($p)) . '</p>';
+        }
     }
 }
 ?>
