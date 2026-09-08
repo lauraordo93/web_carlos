@@ -100,6 +100,7 @@ $escImage = esc_attr($seoImage);
         <?php if (isset($is_home) && $is_home): ?>
             <div class="logo">
                 <?php include __DIR__ . '/../partials/logo.php'; ?>
+                <h1 class="sr-only">Carlos Ordóñez de Arce</h1>
             </div>
 
             <div class="intro">

@@ -10,6 +10,7 @@ $videos = $videos ?? [];
         </div>
 
         <div class="video-info">
+            <h2 class="sr-only">Vídeos</h2>
             <h3 id="video-titulo">Selecciona un vídeo</h3>
             <p id="video-contenido"></p>
         </div>
