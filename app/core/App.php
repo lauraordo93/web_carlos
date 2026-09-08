@@ -39,8 +39,9 @@ class App {
 
         // Identificación y validación del método dentro del controlador
         if (isset($url[1])) {
-            if (method_exists($this->controller, $url[1])) {
-                $this->method = $url[1];
+            $methodName = str_replace('-', '_', $url[1]);
+            if (method_exists($this->controller, $methodName)) {
+                $this->method = $methodName;
                 unset($url[1]);
             } else {
                 $this->trigger404();

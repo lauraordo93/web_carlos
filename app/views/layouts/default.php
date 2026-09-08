@@ -138,9 +138,9 @@ $escImage = esc_attr($seoImage);
                 <a href="https://lauraordo93.github.io/Portfolio/" target="_blank" rel="noopener">lauraordonez.dev</a>
             </p>
             <div class="enlaces-legales-container">
-                <a href="<?= site_url('legal?doc=aviso_legal') ?>">Aviso Legal</a> |
-                <a href="<?= site_url('legal?doc=privacidad') ?>">Política de Privacidad</a> |
-                <a href="<?= site_url('legal?doc=cookies') ?>">Política de Cookies</a>
+                <a href="<?= site_url('legal/aviso-legal') ?>">Aviso Legal</a> |
+                <a href="<?= site_url('legal/privacidad') ?>">Política de Privacidad</a> |
+                <a href="<?= site_url('legal/cookies') ?>">Política de Cookies</a>
             </div>
         </div>
     </footer>
@@ -152,7 +152,7 @@ $escImage = esc_attr($seoImage);
             <p>
                 Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia.
                 Puedes aceptar todas las cookies o rechazarlas.
-                <a href="<?= site_url('legal?doc=cookies') ?>" target="_blank">Más información</a>
+                <a href="<?= site_url('legal/cookies') ?>" target="_blank">Más información</a>
             </p>
             <div class="cookies-botones">
                 <button id="btn-aceptar-cookies">Aceptar todas</button>
