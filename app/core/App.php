@@ -22,6 +22,16 @@ class App {
     public function __construct() {
         $url = $this->parseUrl();
 
+        // Normalización SEO de la Home (evita contenido duplicado entre / y /home)
+        if (isset($_GET['url'])) {
+            $rawUrl = strtolower(rtrim($_GET['url'], '/'));
+            if ($rawUrl === 'home' || $rawUrl === 'home/index') {
+                header("HTTP/1.1 301 Moved Permanently");
+                header("Location: " . URLROOT . "/");
+                exit;
+            }
+        }
+
         // Identificación y validación del controlador solicitado
         if (isset($url[0])) {
             $controllerName = ucfirst($url[0]) . 'Controller';
@@ -51,6 +61,34 @@ class App {
 
         // Extracción de parámetros remanentes
         $this->params = $url ? array_values($url) : [];
+
+        // Validación estricta de la firma del método
+        try {
+            $reflection = new ReflectionMethod($this->controller, $this->method);
+            
+            // Debe ser público, no mágico y propio del controlador (no heredado de la clase base)
+            if (!$reflection->isPublic() || strpos($this->method, '__') === 0 || $reflection->getDeclaringClass()->getName() !== get_class($this->controller)) {
+                $this->trigger404();
+                return;
+            }
+
+            $numParams = count($this->params);
+            $minParams = $reflection->getNumberOfRequiredParameters();
+            $maxParams = $reflection->getNumberOfParameters();
+            
+            // Validar cantidad de parámetros
+            if ($numParams < $minParams) {
+                $this->trigger404();
+                return;
+            }
+            if ($numParams > $maxParams && !$reflection->isVariadic()) {
+                $this->trigger404();
+                return;
+            }
+        } catch (ReflectionException $e) {
+            $this->trigger404();
+            return;
+        }
 
         // Ejecución de la lógica de negocio mediante llamada dinámica
         call_user_func_array([$this->controller, $this->method], $this->params);
