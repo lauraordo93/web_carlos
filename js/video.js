@@ -3,54 +3,89 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoGrande = document.getElementById("video-grande");
     const prevVideoBtn = document.querySelector(".prev-video");
     const nextVideoBtn = document.querySelector(".next-video");
+    const cookieAviso = document.getElementById("video-cookie-aviso");
 
     let cookiesAceptadas = localStorage.getItem("cookiesAceptadas") === "true";
     let indiceVideo = 0;
+    let interaccionUsuario = false;
 
-    function mostrarVideo(indice) {
+    // 1. Inyectar URLs de miniaturas SOLO si hay consentimiento
+    function cargarMiniaturas() {
+        if (cookiesAceptadas) {
+            miniaturasVideo.forEach(m => {
+                if (m.dataset.src) {
+                    m.src = m.dataset.src;
+                }
+            });
+        }
+    }
+
+    function seleccionarVideo(indice, interactuado = true) {
         if (miniaturasVideo.length === 0) return;
         
+        if (interactuado) interaccionUsuario = true;
         const v = miniaturasVideo[indice];
 
-        if (cookiesAceptadas) {
-            videoGrande.src = v.dataset.url; // Carga segura
-        } else {
-            videoGrande.src = ""; 
-            // Mostramos el aviso solo si el usuario intenta activarlo manualmente
-            if(indice !== 0 || !cookiesAceptadas) {
-                alert("Debes aceptar las cookies para ver los vídeos de YouTube.");
-            }
-        }
-
+        // Actualizar textos
         document.getElementById("video-titulo").textContent = v.dataset.titulo;
         document.getElementById("video-contenido").textContent = `${v.dataset.contenido} (Año ${v.dataset.anio})`;
 
+        // Marcar miniatura activa
         miniaturasVideo.forEach(m => m.classList.remove("activo"));
         v.classList.add("activo");
         indiceVideo = indice;
+
+        // Gestión del Iframe y Aviso
+        if (interaccionUsuario) {
+            if (cookiesAceptadas) {
+                videoGrande.style.display = "block";
+                cookieAviso.style.display = "none";
+                videoGrande.src = v.dataset.url;
+                videoGrande.title = 'Carlos Ordóñez de Arce - ' + v.dataset.titulo;
+            } else {
+                videoGrande.style.display = "none";
+                cookieAviso.style.display = "flex";
+                videoGrande.src = "";
+            }
+        }
+    }
+
+    // Inicializar sin reproducir nada
+    cargarMiniaturas();
+    if (miniaturasVideo.length > 0) {
+        seleccionarVideo(0, false); // false = inicialización, no interacción
     }
 
     // Eventos
-    miniaturasVideo.forEach((v, i) => v.addEventListener("click", () => mostrarVideo(i)));
+    miniaturasVideo.forEach((v, i) => {
+        v.addEventListener("click", () => seleccionarVideo(i, true));
+        v.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                seleccionarVideo(i, true);
+            }
+        });
+    });
     
-    if(prevVideoBtn) prevVideoBtn.addEventListener("click", () => {
+    if (prevVideoBtn) prevVideoBtn.addEventListener("click", () => {
         indiceVideo = (indiceVideo - 1 + miniaturasVideo.length) % miniaturasVideo.length;
-        mostrarVideo(indiceVideo);
+        seleccionarVideo(indiceVideo, true);
     });
 
-    if(nextVideoBtn) nextVideoBtn.addEventListener("click", () => {
+    if (nextVideoBtn) nextVideoBtn.addEventListener("click", () => {
         indiceVideo = (indiceVideo + 1) % miniaturasVideo.length;
-        mostrarVideo(indiceVideo);
+        seleccionarVideo(indiceVideo, true);
     });
 
     // Escuchar el botón de aceptar cookies del banner
-    const aceptarBtn = document.getElementById("btn-aceptar-cookies"); // ID de tu modal de cookies
+    const aceptarBtn = document.getElementById("btn-aceptar-cookies");
     if (aceptarBtn) {
         aceptarBtn.addEventListener("click", () => {
             cookiesAceptadas = true;
-            mostrarVideo(indiceVideo);
+            cargarMiniaturas();
+            if (interaccionUsuario) {
+                seleccionarVideo(indiceVideo, true);
+            }
         });
     }
-
-    if (cookiesAceptadas) mostrarVideo(0);
 });
