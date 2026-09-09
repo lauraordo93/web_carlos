@@ -64,7 +64,6 @@ $escImage = esc_attr($seoImage);
 
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="apple-touch-icon" href="<?= asset_url('img/sax.png') ?>">
     <link rel="icon" type="image/png" href="<?= asset_url('img/sax.png') ?>">
@@ -75,18 +74,7 @@ $escImage = esc_attr($seoImage);
             <link rel="stylesheet" href="<?= asset_url($css) ?>">
         <?php endforeach; ?>
     <?php endif; ?>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3W4025HLX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-H3W4025HLX');
-    </script>
 
     <?php if (!empty($jsonLd)): ?>
     <script type="application/ld+json">
@@ -169,12 +157,7 @@ $escImage = esc_attr($seoImage);
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-    <script>
-        if (typeof Fancybox !== 'undefined') {
-            Fancybox.bind("[data-fancybox='gallery']", {});
-        }
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- JS dinámicos desde el controlador -->

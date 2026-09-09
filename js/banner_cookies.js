@@ -1,3 +1,19 @@
+function cargarGoogleAnalytics() {
+  if (window.gtagCargado) return;
+  window.gtagCargado = true;
+
+  const scriptGt = document.createElement('script');
+  scriptGt.async = true;
+  scriptGt.src = "https://www.googletagmanager.com/gtag/js?id=G-H3W4025HLX";
+  document.head.appendChild(scriptGt);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-H3W4025HLX');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('overlay-cookies');
@@ -6,19 +22,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const cookiesAceptadas = localStorage.getItem('cookiesAceptadas');
 
-  // Si aún no ha aceptado o rechazado, mostrar el modal
+  if (cookiesAceptadas === 'true') {
+      cargarGoogleAnalytics();
+  }
+
   if (!cookiesAceptadas) {
     overlay.style.display = 'flex';
   }
 
-  btnAceptar.addEventListener('click', () => {
-    localStorage.setItem('cookiesAceptadas', 'true');
-    overlay.style.display = 'none';
-  });
+  if (btnAceptar) {
+      btnAceptar.addEventListener('click', () => {
+        localStorage.setItem('cookiesAceptadas', 'true');
+        overlay.style.display = 'none';
+        cargarGoogleAnalytics();
+      });
+  }
 
-  btnRechazar.addEventListener('click', () => {
-    localStorage.setItem('cookiesAceptadas', 'false');
-    overlay.style.display = 'none';
-  });
+  if (btnRechazar) {
+      btnRechazar.addEventListener('click', () => {
+        localStorage.setItem('cookiesAceptadas', 'false');
+        overlay.style.display = 'none';
+      });
+  }
 });
-
