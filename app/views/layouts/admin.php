@@ -13,7 +13,8 @@ unset($_SESSION['flash']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $titulo ?? 'Administración' ?> - Carlos Ordoñez</title>
+    <title><?= $titulo ?? 'Administración' ?> - Carlos Ordóñez de Arce</title>
+    <meta name="robots" content="noindex, nofollow">
     
     <!-- Tipografía y recursos iconográficos -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
