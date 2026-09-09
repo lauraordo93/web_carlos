@@ -83,6 +83,36 @@ class HomeController extends Controller {
             }
         }
 
+        // Estructuración del JSON-LD para la web oficial
+        $jsonLd = [
+            '@context' => 'https://schema.org',
+            '@graph' => [
+                [
+                    '@type' => 'WebSite',
+                    '@id' => CANONICAL_URLROOT . '/#website',
+                    'url' => CANONICAL_URLROOT . '/',
+                    'name' => 'Carlos Ordóñez de Arce - Web Oficial',
+                    'publisher' => [
+                        '@id' => CANONICAL_URLROOT . '/#person'
+                    ]
+                ],
+                [
+                    '@type' => 'Person',
+                    '@id' => CANONICAL_URLROOT . '/#person',
+                    'name' => 'Carlos Ordóñez de Arce',
+                    'jobTitle' => 'Saxofonista, pedagogo y director musical',
+                    'url' => CANONICAL_URLROOT . '/',
+                    'image' => CANONICAL_URLROOT . '/img/cabecera.webp',
+                    'sameAs' => [
+                        'https://www.instagram.com/carlosordonez.music/',
+                        'https://www.facebook.com/carlos.ordonezdearce',
+                        'https://www.youtube.com/@carlosordonezdearce9158',
+                        'https://es.yamaha.com/es/musical-instruments/brass-woodwinds/artists/c/carlos-ordonez-de%20arce.html'
+                    ]
+                ]
+            ]
+        ];
+
         // Estructuración del conjunto de datos para la vista
         $data = [
             'titulo_pagina' => 'Carlos Ordóñez De Arce',
@@ -103,7 +133,8 @@ class HomeController extends Controller {
             'error_msg' => $error_msg,
             'contacto_nombre' => $contacto_nombre,
             'contacto_email' => $contacto_email,
-            'contacto_mensaje' => $contacto_mensaje
+            'contacto_mensaje' => $contacto_mensaje,
+            'jsonLd' => $jsonLd
         ];
 
         $this->view('home/index', $data);

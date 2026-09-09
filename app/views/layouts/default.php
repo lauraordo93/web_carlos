@@ -88,6 +88,14 @@ $escImage = esc_attr($seoImage);
         gtag('config', 'G-H3W4025HLX');
     </script>
 
+    <?php if (!empty($jsonLd)): ?>
+    <script type="application/ld+json">
+        <?= json_encode(
+            $jsonLd,
+            JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT
+        ) ?>
+    </script>
+    <?php endif; ?>
 </head>
 
 <body>
