@@ -4,12 +4,12 @@ $videos = $videos ?? [];
 <?php if (!empty($videos)): ?>
     <div class="video-visor">
         <div class="video-container">
-            <button class="prev-video" aria-label="Vídeo anterior">&#10094;</button>
+            <button type="button" class="prev-video" aria-label="Vídeo anterior">&#10094;</button>
             <div id="video-cookie-aviso" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; align-items: center; justify-content: center; text-align: center; color: white; padding: 2rem; background: #000; z-index: 10;">
                 <p>Para reproducir vídeos de YouTube necesitas aceptar las cookies de terceros.</p>
             </div>
             <iframe id="video-grande" src="" title="Reproductor de YouTube" loading="lazy" frameborder="0" allowfullscreen></iframe>
-            <button class="next-video" aria-label="Vídeo siguiente">&#10095;</button>
+            <button type="button" class="next-video" aria-label="Vídeo siguiente">&#10095;</button>
         </div>
 
         <div class="video-info">

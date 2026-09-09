@@ -31,7 +31,7 @@ $menu = $menu ?? [];
         </li>
     </ul>
 
-    <button class="nav-toggle" aria-label="Abrir menú">
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>

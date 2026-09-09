@@ -11,7 +11,7 @@ $entrevistas = $entrevistas ?? [];
                         <h3><?= htmlspecialchars($row["titulo"]) ?></h3>
                         <p><?= nl2br(htmlspecialchars($row["contenido"])) ?></p>
                         <?php if (!empty($row["enlace_url"])): ?>
-                            <a href="<?= htmlspecialchars($row["enlace_url"]) ?>" target="_blank" class="btn-entrevista">Ver en YouTube</a>
+                            <a href="<?= htmlspecialchars($row["enlace_url"]) ?>" target="_blank" rel="noopener" class="btn-entrevista">Ver en YouTube</a>
                         <?php endif; ?>
                     </div>
                     <?php if (!empty($row["foto_url"])): ?>

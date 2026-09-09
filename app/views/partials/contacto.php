@@ -16,9 +16,15 @@ $contacto_mensaje = $contacto_mensaje ?? '';
     <?php endif; ?>
 
     <form action="" method="post">
-        <input type="text" name="nombre" placeholder="Nombre" required value="<?= $contacto_nombre ?? '' ?>">
-        <input type="email" name="email" placeholder="Email" required value="<?= $contacto_email ?? '' ?>">
-        <textarea name="mensaje" rows="3" placeholder="Mensaje" required><?= $contacto_mensaje ?? '' ?></textarea>
+        <label for="contacto_nombre" class="sr-only">Nombre</label>
+        <input type="text" name="nombre" id="contacto_nombre" placeholder="Nombre" autocomplete="name" required value="<?= $contacto_nombre ?? '' ?>">
+        
+        <label for="contacto_email" class="sr-only">Email</label>
+        <input type="email" name="email" id="contacto_email" placeholder="Email" autocomplete="email" required value="<?= $contacto_email ?? '' ?>">
+        
+        <label for="contacto_mensaje" class="sr-only">Mensaje</label>
+        <textarea name="mensaje" id="contacto_mensaje" rows="3" placeholder="Mensaje" required><?= $contacto_mensaje ?? '' ?></textarea>
+        
         <button type="submit" name="contacto_submit">Enviar</button>
     </form>
 </div>

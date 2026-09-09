@@ -5,8 +5,8 @@ $videos = $videos ?? [];
 <section id="galeria">
     <h2>Galería</h2>
     <div class="tabs">
-        <button class="tab-btn active" data-tab="imagenes">Imágenes</button>
-        <button class="tab-btn" data-tab="videos">Vídeos</button>
+        <button type="button" class="tab-btn active" data-tab="imagenes">Imágenes</button>
+        <button type="button" class="tab-btn" data-tab="videos">Vídeos</button>
     </div>
 
     <div class="galeria active" id="imagenes">

@@ -151,8 +151,8 @@ $escImage = esc_attr($seoImage);
                 <a href="<?= site_url('legal/cookies') ?>" target="_blank">Más información</a>
             </p>
             <div class="cookies-botones">
-                <button id="btn-aceptar-cookies">Aceptar todas</button>
-                <button id="btn-rechazar-cookies" class="btn-secundario">Rechazar</button>
+                <button type="button" id="btn-aceptar-cookies">Aceptar todas</button>
+                <button type="button" id="btn-rechazar-cookies" class="btn-secundario">Rechazar</button>
             </div>
         </div>
     </div>

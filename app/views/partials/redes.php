@@ -17,8 +17,8 @@ $redes = $redes ?? [];
                 $clase_icono = 'fab';
             }
             ?>
-            <a href="<?= $enlace ?>" target="_blank" class="icono <?= $red_nombre ?>">
-                <i class="<?= $clase_icono ?> fa-<?= $icono ?>"></i>
+            <a href="<?= $enlace ?>" target="_blank" rel="noopener" class="icono <?= $red_nombre ?>" aria-label="<?= htmlspecialchars($red['nombre_red'], ENT_QUOTES, 'UTF-8') ?>">
+                <i class="<?= $clase_icono ?> fa-<?= $icono ?>" aria-hidden="true"></i>
             </a>
         <?php endforeach; ?>
     <?php endif; ?>

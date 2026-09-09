@@ -17,10 +17,10 @@ $academia = $academia ?? null;
                         <!-- <h3><?= $titulo ?></h3> -->
                         <p><?= $contenido ?></p>
                         <div class="academia_enlaces">
-                            <a href="<?= $enlace ?>" target="_blank">Web</a>
+                            <a href="<?= $enlace ?>" target="_blank" rel="noopener">Web</a>
                             <?php if (!empty($instagram)): ?>
-                                <a href="<?= $instagram ?>" target="_blank" class="icono instagram">
-                                    <i class="fab fa-instagram"></i>
+                                <a href="<?= $instagram ?>" target="_blank" rel="noopener" class="icono instagram" aria-label="Instagram">
+                                    <i class="fab fa-instagram" aria-hidden="true"></i>
                                 </a>
                             <?php endif; ?>
                         </div>

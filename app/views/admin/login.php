@@ -37,10 +37,10 @@ $error = $error ?? '';
             <h1 class="admin-title"><?= $titulo ?></h1>
 
             <label for="usuario">Usuario</label>
-            <input type="text" name="usuario" id="usuario" required autofocus>
+            <input type="text" name="usuario" id="usuario" autocomplete="username" required autofocus>
 
             <label for="password">Contraseña</label>
-            <input type="password" name="password" id="password" required>
+            <input type="password" name="password" id="password" autocomplete="current-password" required>
 
             <button type="submit" class="admin-btn">ENTRAR</button>
 
