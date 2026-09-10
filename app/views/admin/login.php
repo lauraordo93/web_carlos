@@ -60,6 +60,7 @@ $error = $error ?? '';
         </p>
     </footer>
 
+    <script src="<?= asset_url('js/admin_submit.js?v=' . time()) ?>"></script>
 </body>
 
 </html>

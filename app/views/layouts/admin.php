@@ -101,6 +101,7 @@ unset($_SESSION['flash']);
     </footer>
 
     <!-- Inyección de scripts JS específicos de la vista -->
+    <script src="<?= asset_url('js/admin_submit.js?v=' . time()) ?>"></script>
     <?php if (isset($extra_js)): ?>
         <?php foreach ($extra_js as $js): ?>
             <script src="<?= asset_url($js) ?>"></script>
