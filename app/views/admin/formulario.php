@@ -30,6 +30,7 @@ ob_start();
     <?php endif; ?>
 
     <form action="" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="submit_token" value="<?= htmlspecialchars($submit_token ?? '', ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="foto_url_actual" value="<?= htmlspecialchars($entrada->foto_url, ENT_QUOTES, 'UTF-8') ?>">
 
         <div class="form-row">

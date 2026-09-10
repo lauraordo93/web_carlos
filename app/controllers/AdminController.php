@@ -109,6 +109,45 @@ class AdminController extends Controller
     }
 
     /**
+     * Gestión de tokens de idempotencia (protección contra doble submit)
+     */
+    private function generateSubmitToken(): string
+    {
+        if (!isset($_SESSION['admin_submit_tokens']) || !is_array($_SESSION['admin_submit_tokens'])) {
+            $_SESSION['admin_submit_tokens'] = [];
+        }
+
+        // Limpieza de tokens antiguos (caducidad de 2 horas = 7200s)
+        $now = time();
+        foreach ($_SESSION['admin_submit_tokens'] as $t => $timestamp) {
+            if ($now - $timestamp > 7200) {
+                unset($_SESSION['admin_submit_tokens'][$t]);
+            }
+        }
+
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['admin_submit_tokens'][$token] = $now;
+
+        return $token;
+    }
+
+    private function consumeSubmitToken(string $token): bool
+    {
+        if (empty($token) || !isset($_SESSION['admin_submit_tokens'][$token])) {
+            return false;
+        }
+
+        $timestamp = $_SESSION['admin_submit_tokens'][$token];
+        unset($_SESSION['admin_submit_tokens'][$token]);
+
+        if (time() - $timestamp > 7200) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * Finalización de sesión
      */
     public function logout()
@@ -192,6 +231,12 @@ class AdminController extends Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $token = trim($_POST['submit_token'] ?? '');
+            if (!$this->consumeSubmitToken($token)) {
+                $this->setFlash('error', 'La petición ha caducado o ya ha sido procesada. Por favor, inténtelo de nuevo si es necesario.');
+                header("Location: " . URLROOT . "/admin/agenda");
+                exit;
+            }
             $titulo = trim($_POST['titulo'] ?? '');
             $descripcion = trim($_POST['descripcion'] ?? '');
             $fecha = trim($_POST['fecha'] ?? '');
@@ -243,7 +288,8 @@ class AdminController extends Controller
             'modo_edicion' => $modo_edicion,
             'error' => $error,
             'admin_section' => 'agenda',
-            'id_sec' => 0
+            'id_sec' => 0,
+            'submit_token' => $this->generateSubmitToken()
         ];
 
         $this->view('admin/agenda_formulario', $data);
@@ -301,6 +347,13 @@ class AdminController extends Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id_sec = (int)($_POST['seccion_id'] ?? 5);
+            $token = trim($_POST['submit_token'] ?? '');
+            if (!$this->consumeSubmitToken($token)) {
+                $this->setFlash('error', 'La petición ha caducado o ya ha sido procesada. Por favor, inténtelo de nuevo si es necesario.');
+                header("Location: " . URLROOT . "/admin?sec=" . $id_sec);
+                exit;
+            }
             $id_sec = (int)$_POST['seccion_id'];
             $titulo = trim($_POST['titulo'] ?? '');
             $contenido = trim($_POST['contenido'] ?? '');
@@ -343,7 +396,8 @@ class AdminController extends Controller
             'entrada' => (object)$entrada,
             'id_sec' => $id_sec,
             'error' => $error,
-            'modo_edicion' => $modo_edicion
+            'modo_edicion' => $modo_edicion,
+            'submit_token' => $this->generateSubmitToken()
         ];
 
         $this->view('admin/formulario', $data);
