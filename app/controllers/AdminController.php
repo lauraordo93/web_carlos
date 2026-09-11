@@ -68,7 +68,8 @@ class AdminController extends Controller
             'id_sec' => $id_sec,
             'page' => $page,
             'total_registros' => $total_registros,
-            'total_paginas' => $total_paginas
+            'total_paginas' => $total_paginas,
+            'csrf_token' => $this->getCsrfToken()
         ];
 
         $this->view('admin/index', $data);
@@ -106,6 +107,25 @@ class AdminController extends Controller
 
         $data = ['titulo' => 'Iniciar Sesión - Admin', 'error' => $error];
         $this->view('admin/login', $data);
+    }
+
+    /**
+     * Gestión de tokens CSRF (protección contra Cross-Site Request Forgery)
+     */
+    private function getCsrfToken(): string
+    {
+        if (empty($_SESSION['admin_csrf_token'])) {
+            $_SESSION['admin_csrf_token'] = bin2hex(random_bytes(32));
+        }
+        return $_SESSION['admin_csrf_token'];
+    }
+
+    private function validateCsrfToken(string $token): bool
+    {
+        if (empty($_SESSION['admin_csrf_token']) || empty($token)) {
+            return false;
+        }
+        return hash_equals($_SESSION['admin_csrf_token'], $token);
     }
 
     /**
@@ -164,6 +184,20 @@ class AdminController extends Controller
     public function borrar($id)
     {
         $this->checkSession();
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->setFlash('error', 'Método no permitido. Utilice POST para borrar.');
+            header("Location: " . URLROOT . "/admin");
+            exit;
+        }
+
+        $csrf_token = trim($_POST['csrf_token'] ?? '');
+        if (!$this->validateCsrfToken($csrf_token)) {
+            $this->setFlash('error', 'Error de seguridad CSRF. Operación denegada.');
+            header("Location: " . URLROOT . "/admin");
+            exit;
+        }
+
         $entradaModel = $this->model('EntradaModel');
 
         $entrada = $entradaModel->getById($id);
@@ -191,7 +225,8 @@ class AdminController extends Controller
             'titulo' => 'Agenda',
             'eventos' => $agendaModel->getAllEvents(),
             'admin_section' => 'agenda',
-            'id_sec' => 0
+            'id_sec' => 0,
+            'csrf_token' => $this->getCsrfToken()
         ];
 
         $this->view('admin/agenda_index', $data);
@@ -231,6 +266,13 @@ class AdminController extends Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $csrf_token = trim($_POST['csrf_token'] ?? '');
+            if (!$this->validateCsrfToken($csrf_token)) {
+                $this->setFlash('error', 'Error de seguridad CSRF. Operación denegada.');
+                header("Location: " . URLROOT . "/admin/agenda");
+                exit;
+            }
+
             $token = trim($_POST['submit_token'] ?? '');
             if (!$this->consumeSubmitToken($token)) {
                 $this->setFlash('error', 'La petición ha caducado o ya ha sido procesada. Por favor, inténtelo de nuevo si es necesario.');
@@ -289,6 +331,7 @@ class AdminController extends Controller
             'error' => $error,
             'admin_section' => 'agenda',
             'id_sec' => 0,
+            'csrf_token' => $this->getCsrfToken(),
             'submit_token' => $this->generateSubmitToken()
         ];
 
@@ -298,6 +341,19 @@ class AdminController extends Controller
     public function agendaBorrar($id = 0)
     {
         $this->checkSession();
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->setFlash('error', 'Método no permitido. Utilice POST para borrar.');
+            header("Location: " . URLROOT . "/admin/agenda");
+            exit;
+        }
+
+        $csrf_token = trim($_POST['csrf_token'] ?? '');
+        if (!$this->validateCsrfToken($csrf_token)) {
+            $this->setFlash('error', 'Error de seguridad CSRF. Operación denegada.');
+            header("Location: " . URLROOT . "/admin/agenda");
+            exit;
+        }
 
         $agendaModel = $this->model('AgendaModel');
         $evento = $agendaModel->findById($id);
@@ -348,6 +404,14 @@ class AdminController extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id_sec = (int)($_POST['seccion_id'] ?? 5);
+
+            $csrf_token = trim($_POST['csrf_token'] ?? '');
+            if (!$this->validateCsrfToken($csrf_token)) {
+                $this->setFlash('error', 'Error de seguridad CSRF. Operación denegada.');
+                header("Location: " . URLROOT . "/admin?sec=" . $id_sec);
+                exit;
+            }
+
             $token = trim($_POST['submit_token'] ?? '');
             if (!$this->consumeSubmitToken($token)) {
                 $this->setFlash('error', 'La petición ha caducado o ya ha sido procesada. Por favor, inténtelo de nuevo si es necesario.');
@@ -397,6 +461,7 @@ class AdminController extends Controller
             'id_sec' => $id_sec,
             'error' => $error,
             'modo_edicion' => $modo_edicion,
+            'csrf_token' => $this->getCsrfToken(),
             'submit_token' => $this->generateSubmitToken()
         ];
 

@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     adminForms.forEach(form => {
         form.addEventListener('submit', function(e) {
+            if (e.defaultPrevented) {
+                return;
+            }
             // Permitir validación HTML5. Si el evento se dispara, HTML5 ha validado los 'required'.
             
             // Bloquear doble submit

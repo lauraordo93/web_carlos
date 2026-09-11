@@ -21,6 +21,7 @@ ob_start();
     <?php endif; ?>
 
     <form action="" method="POST">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf_token ?? '', ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="submit_token" value="<?= htmlspecialchars($submit_token ?? '', ENT_QUOTES, 'UTF-8') ?>">
         <div class="form-row">
             <label for="titulo">Título del evento</label>
